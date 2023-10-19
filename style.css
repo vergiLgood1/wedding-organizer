@@ -1,0 +1,173 @@
+body {
+    font-family: 'Poppins', sans-serif;
+}
+
+/* Style for the navbar */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: white;
+    padding: 10px 20px;
+    position: fixed; /* Tambahkan properti position: fixed; agar navbar tetap di atas */
+    top: 0; /* Letakkan navbar di atas halaman */
+    width: 100%; /* Lebar penuh */
+    z-index: 999; /* Atur indeks z agar navbar tetap di atas elemen lain */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Box shadow di bagian bawah navbar */
+
+}
+
+.navbar-brand {
+    font-weight: 700;
+}
+.navbar-nav {
+    flex-direction: row;
+    justify-content: center;
+    width: 100%;
+    
+}
+
+.navbar-nav .nav-item {
+    text-align: center;
+}
+
+/* Mengubah warna teks saat item dihover */
+.hover-link:hover {
+    color: #FFB3C6;
+}
+
+/* Menambahkan garis bawah saat item dihover */
+.hover-link:hover::after {
+    content: "";
+    display: block;
+    width: 100%;
+    height: 2px;
+    background-color: #FFB3C6;
+}
+
+.nav-link.active{
+    font-weight: 700;
+    color: pink;
+    
+}
+
+.nav-link.active:hover{
+    color: #FFB3C6;
+}
+
+/* Style for the logo */
+.logo {
+    color: white;
+    font-size: 24px;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.organizer-text {
+    color: #FFB3C6;
+}
+
+/* Style for the menu items in the center */
+.bi-cart-fill {
+    color: red;
+}
+
+.btn.btn-primary {
+    background-color: #FB6F92; /* Warna ungu */
+    color: white;
+    border: none;
+    transition: transform 0.2s, box-shadow 0.2s, background-color 0.2s; /* Menambahkan efek transisi */
+    position: relative; /* Tambahkan posisi relatif untuk kontainer tombol */
+}
+
+.btn.btn-primary:hover {
+    transform: translateY(-5px); /* Menggeser tombol ke atas saat tombol dalam keadaan hover */
+    background-color: #FB6F92; /* Warna ungu yang lebih tua saat tombol di-hover */
+    box-shadow: 0 2px 5px rgba(128, 0, 128, 0.5); /* Bayangan di bagian bawah saat tombol di-hover */
+}
+
+.slider-container {
+    margin-top: 80px; /* Atur jarak sesuai keinginan Anda */
+}
+/* Mengatur sudut (rounded) slider */
+.carousel {
+    border-radius: 15px;
+    overflow: hidden;
+    margin-top: 20px;
+}
+
+/* Mengatur tampilan slider */
+.carousel-inner {
+    border-radius: 15px;
+}
+
+/* Mengatur ukuran slider */
+.carousel-item img {
+    width: 1120px;
+    height: 400px;
+}
+
+/* CSS untuk elemen input pencarian */
+.form-control {
+    padding: 0;
+    margin: 0;
+}
+
+/* CSS untuk tombol Cari */
+.btn-outline-primary {
+    border-radius: 15px;
+    color: black;
+}
+
+.custom-input {
+    width: 50%;
+    justify-content: center;
+    align-items: center;
+}
+
+/* CSS untuk memposisikan fitur pencarian di tengah halaman */
+.search-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 20vh; /* Sesuaikan dengan tinggi yang Anda inginkan */
+}
+
+/* CSS untuk mengatur sudut (rounded) fitur pencarian */
+.form-control.custom-input {
+    width: 800px; /* Lebar input sesuai keinginan Anda */
+    height: 40px; /* Tinggi input sesuai keinginan Anda */
+    border-radius: 10px; /* Ubah sudut (rounded) input */
+    margin-right: 0;
+}
+
+.btn.btn-outline-primary {
+    width: 60px; /* Lebar tombol sesuai keinginan Anda */
+    height: 40px; /* Tinggi tombol sesuai keinginan Anda */
+    border-radius: 10px; /* Ubah sudut (rounded) tombol */
+    margin-left: 0;
+    background-color: #FB6F92;
+}
+
+.product-categories {
+    margin: 26px;
+}
+
+.category {
+    text-align: center;
+    margin: 0 13px 26px 0; /* Margin 26px antara kategori, 13px untuk margin kanan */
+    width: 171px; /* Lebar kartu kategori */
+    height: 122px; /* Tinggi kartu kategori */
+}
+
+.category img {
+    max-width: 50%;
+    height: auto;
+}
+
+.category h3 {
+    margin-top: 10px; /* Jarak antara gambar dan teks judul */
+}
+
+
+
