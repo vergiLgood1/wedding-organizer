@@ -136,11 +136,7 @@
                     <h3>Category 5</h3>
                 </div>
             </div>
-            <div class="col-md-2">
-                <div class="category">
-                    <img src="asset/img/PC6.png" alt="Category 6">
-                    <h3>Category 6</h3>
-                </div>
+          
             </div>
         </div>
     </div>
