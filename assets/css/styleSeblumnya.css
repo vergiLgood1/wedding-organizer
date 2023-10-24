@@ -1,0 +1,286 @@
+@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css");
+
+body {
+    font-family: 'Poppins', sans-serif;
+}
+/* Awal Navbar */
+
+.navbar {
+   
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: white;
+    padding: 5px 10px;
+    position: fixed; /* Tambahkan properti position: fixed; agar navbar tetap di atas */
+    top: 0; /* Letakkan navbar di atas halaman */
+    width: 100%; /* Lebar penuh */
+    z-index: 999; /* Atur indeks z agar navbar tetap di atas elemen lain */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Box shadow di bagian bawah navbar */
+
+}
+
+.navbar-brand {
+    
+    font-size: 24px;
+}
+.navbar-nav {
+    flex-direction: row;
+    justify-content: center;
+    width: 100%;
+    font-size: 12px;
+    
+}
+
+.navbar-nav .nav-item {
+    
+    text-align: center;
+}
+
+/* Mengubah warna teks saat item dihover */
+.hover-link:hover {
+    color: #FFB3C6;
+}
+
+/* Menambahkan garis bawah saat item dihover */
+.hover-link:hover::after {
+    content: "";
+    display: block;
+    width: 100%;
+    height: 1px;
+    background-color: #FFB3C6;
+}
+
+.nav-link.active{
+    font-weight: 700;
+    color: pink;
+    
+}
+
+.nav-link.active:hover{
+    color: #FFB3C6;
+}
+
+.nav-icon {
+    position: absolute;
+    font-size: 1.25rem; /* Sesuaikan ukuran ikon sesuai kebutuhan Anda */
+    vertical-align: middle; /* Posisikan secara vertikal ke tengah */
+    margin-top:2px ;
+    margin-left: 200px; /* Berikan margin di sebelah kiri ikon */
+    color: #FFB3C6;
+    
+}
+.nav-icon:hover{
+    color: #FB6F92;
+}
+
+
+/* Style for the logo */
+.logo {
+    color: white;
+    font-size: 24px;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.organizer-text {
+    color: #FFB3C6;
+}
+
+/* Style for the menu items in the center */
+.bi-cart-fill {
+    color: red;
+}
+
+.btn.btn-primary {
+    font-size: 12px;
+    background-color: #FB6F92; /* Warna ungu */
+    color: white;
+    border: none;
+    transition: transform 0.2s, box-shadow 0.2s, background-color 0.2s; /* Menambahkan efek transisi */
+    position: relative; /* Tambahkan posisi relatif untuk kontainer tombol */
+}
+
+.btn.btn-primary:hover {
+    transform: translateY(-5px); /* Menggeser tombol ke atas saat tombol dalam keadaan hover */
+    background-color: #FB6F92; /* Warna ungu yang lebih tua saat tombol di-hover */
+    box-shadow: 0 2px 5px rgba(128, 0, 128, 0.5); /* Bayangan di bagian bawah saat tombol di-hover */
+}
+
+/* Akhir Navbar */
+
+/* Awal Carousal Slider */
+
+.slider-container {
+    margin-top: 80px; /* Atur jarak sesuai keinginan Anda */
+}
+/* Mengatur sudut (rounded) slider */
+.carousel {
+    border-radius: 15px;
+    overflow: hidden;
+    width: 100%;
+    max-height: 400px; /* Sesuaikan tinggi sesuai keinginan Anda */
+    padding: 0px 80px;
+    
+}
+
+/* Mengatur tampilan slider */
+.carousel-inner {
+    border-radius: 15px;
+}
+
+/* Mengatur ukuran slider */
+.carousel-item img {
+     width: 100%;
+     height: 100%;
+     object-fit: cover; /* Untuk menjaga rasio aspek gambar */
+    
+}
+
+/* Tombol panah kiri */
+.carousel-control-prev {
+    position: absolute;
+    left: 20px;
+    opacity: 0;
+    transition: opacity 0.2s, transform 0.2s;
+    transform: translateX(50px); /* Mulai di luar tampilan */
+    z-index: 1;
+    fill: white; /* Warna lingkaran pada tombol */
+}
+
+/* Tombol panah kanan */
+.carousel-control-next {
+    position: absolute;
+    right: 20px;
+    opacity: 0;
+    transition: opacity 0.2s, transform 0.2s;
+    transform: translateX(-50px); /* Mulai di luar tampilan */
+    z-index: 1;
+    fill: white; /* Warna lingkaran pada tombol */
+}
+
+/* Munculkan tombol panah saat kursor berada di atas carousel */
+.carousel:hover .carousel-control-prev, .carousel:hover .carousel-control-next {
+    opacity: 1;
+    transform: translateX(0); /* Muncul dari arah yang berlawanan */
+}
+
+/* Efek transparansi saat tombol panah di-hover */
+.carousel-control-prev:hover, .carousel-control-next:hover {
+    opacity: 0.7;
+}
+
+/* Akhir Carousal */
+
+/* Awal product kategori */
+.category {
+  border: 0.5px solid #EDEDED;
+  text-align: center;
+  margin: 0 13px 26px 40px; /* Sesuaikan margin sesuai kebutuhan */
+  width: 100px; /* Lebar kartu kategori */
+  height: 100px; /* Tinggi kartu kategori */
+  border-radius: 10px;
+}
+
+.category img {
+  max-width: 80%;
+  padding-top: 10%;
+}
+
+.category h3 {
+  margin-top: 14px; /* Jarak antara gambar dan teks judul */
+  font-size: 12px;
+}
+
+.category-item-title {
+  font-size: 12px;
+  margin-top: 14px;
+}
+
+.category-item-amount {
+  font-size: 10px;
+}
+
+.category-btn {
+  font-size: 10px;
+}
+
+
+/* Akhir product kategori */
+
+/* Awal Search bar */
+
+.search-bar {
+    background: #f5f5f5; /* Warna latar belakang search bar */
+    padding: 20px 0; /* Sesuaikan dengan kebutuhan Anda */
+}
+
+.search-box {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.search-input {
+    width: 70%; /* Lebar input search */
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+.search-button {
+    background: #FFB3C6; /* Warna latar belakang tombol cari */
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    margin-left: 10px; /* Jarak antara input dan tombol */
+    cursor: pointer;
+}
+
+.search-button:hover {
+    background: #FB6F92; /* Warna latar belakang tombol saat dihover */
+}
+
+/* Akhir search bar */
+
+/* Awal product card */
+.product-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    padding-right: 150px;
+    padding-left: 130px;
+}
+
+.product-card {
+    border: 1px solid red;
+    border-radius: 5px;
+    padding: 10px;
+    text-align: center;
+    margin: 5px 0px; /* Menyesuaikan margin kiri dan kanan untuk menyesuaikan dengan carousel */
+    width: 150px; /* Lebar kartu produk yang lebih kecil */
+    height: 250px; /* Tinggi kartu produk yang lebih kecil */
+}
+
+.product-card img {
+    max-width: 100px; /* Lebar maksimum gambar produk yang lebih kecil */
+    height: auto;
+}
+
+.product-card h3 {
+    font-size: 14px; /* Ukuran font judul produk yang lebih kecil */
+    margin: 8px 0;
+}
+
+.price {
+    font-weight: bold;
+    color: #FF5722;
+}
+
+/* Akhir product card */
