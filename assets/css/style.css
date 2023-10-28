@@ -122,6 +122,7 @@
   body { 
     
     background: var(--white);
+    
   
   }
   
@@ -455,7 +456,7 @@
     border: 1px solid var(--cultured);
     border-radius: var(--border-radius-sm);
   }
-  
+
   .toast-banner img {
     width: 100%;
     height: 100%;
@@ -574,14 +575,18 @@
     box-shadow: 0 0 10px hsla(0, 0%, 0%, 0.25);
     z-index: 5;
   }
-  
+
   .mobile-bottom-navigation .action-btn {
     position: relative;
     font-size: 26px;
     color: var(--eerie-black);
     padding: 10px;
   }
-  
+
+  .mobile-bottom-navigation .action-btn:hover ion-icon {
+    color: var(--salmon-pink) !important;
+}
+
   .mobile-bottom-navigation .count {
     background: var(--bittersweet);
     color: var(--white);
@@ -616,7 +621,7 @@
     left: 0;
     visibility: visible;
   }
-  
+ 
   .menu-top {
     padding-bottom: 15px;
     margin-bottom: 10px;
@@ -952,7 +957,10 @@
   margin-bottom: 3px;
 }
 
-.product-minimal .showcase-category:hover { color: var(--salmon-pink); }
+.product-minimal .showcase-category:hover { 
+  color: var(--salmon-pink); 
+
+}
 
 .product-minimal .price-box {
   display: flex;
@@ -975,12 +983,18 @@
   #PRODUCT FEATURED
 \*-----------------------------------*/
 
-.product-featured { 
+.product-featured {
   margin: 40px 0px;
   padding: 0px 185px;
+  
+  background-size: cover;
+  background-repeat: repeat;
 }
 
+
+
 .product-featured .showcase-wrapper {
+  background-image: url('../images/banner-6.png');
   display: flex;
   align-items: center;
   gap: 20px;
@@ -989,10 +1003,30 @@
   scroll-snap-type: inline mandatory;
 }
 
+/* Aturan untuk membuat scroll bar transparan dan menghilangkan border */
+.product-featured .showcase-wrapper::-webkit-scrollbar {
+  width: 12px;
+}
+
+.product-featured .showcase-wrapper::-webkit-scrollbar-thumb {
+  background-color: var(--salmon-pink);
+  border: none; /* Menghilangkan border */
+}
+
+.product-featured .showcase-wrapper::-webkit-scrollbar-track {
+  background-color: transparent;
+  border: none; /* Menghilangkan border */
+}
+
+/* Aturan untuk Firefox dan browser lain yang mendukung scrollbar-width */
+.product-featured .showcase-wrapper {
+  scrollbar-width: thin;
+  scrollbar-color: transparent transparent;
+}
+
 .product-featured .showcase-container {
   min-width: 100%;
   padding: 30px;
-  border: 1px solid var(--cultured);
   border-radius: var(--border-radius-md);
   scroll-snap-align: start;
 }
@@ -1128,12 +1162,117 @@
 }
 
 /*-----------------------------------*\
+  #SERVICE
+\*-----------------------------------*/
+
+
+.services {
+  height: 100vh;
+  width: 100%;
+  display: grid;
+  place-items: center;
+}
+
+.row-service {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.column-services {
+  width: 100%;
+  padding: 0 1em 1em 1em;
+  text-align: center;
+}
+
+.card-services {
+  width: 100%;
+  height: 100%;
+  padding: 2em 1.5em;
+  background: linear-gradient(#ffffff 50%, var(--salmon-pink) 50%);
+  background-size: 100% 200%;
+  background-position: 0 2.5%;
+  border-radius: 5px;
+  box-shadow: 0 0 35px rgba(0, 0, 0, 0.12);
+  cursor: pointer;
+  transition: 0.5s;
+}
+
+.services-heading {
+  font-size: 20px;
+  font-weight: 600;
+  color: #1f194c;
+  margin: 1em 0;
+}
+
+.content-services {
+  color: #575a7b;
+  font-size: 15px;
+  line-height: 1.6;
+  letter-spacing: 0.03em;
+}
+
+.icon-wrapper {
+  background-color: var(--salmon-pink);
+  position: relative;
+  margin: auto;
+  font-size: 30px;
+  height: 2.5em;
+  width: 2.5em;
+  color: #ffffff;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  transition: 0.5s;
+}
+
+.card-services:hover {
+  background-position: 0 100%;
+}
+
+.card-services:hover .icon-wrapper {
+  background-color: #ffffff;
+  color: var(--bittersweet);
+}
+
+.card-services:hover .services-heading {
+  color: #ffffff;
+}
+
+.card-services:hover .content-services {
+  color: #f0f0f0;
+}
+
+@media screen and (min-width: 768px) {
+  .services {
+    padding: 0 2em;
+  }
+
+  .column-services {
+    flex: 0 50%;
+    max-width: 50%;
+  }
+}
+
+@media screen and (min-width: 992px) {
+  .services {
+    padding: 1em 3em;
+  }
+
+  .column-services {
+    flex: 0 0 33.33%;
+    max-width: 33.33%;
+  }
+}
+
+/*-----------------------------------*\
   #PRODUCT GRID
 \*-----------------------------------*/
 
 .product-main { 
   margin: 40px 0px;
   padding: 0px 185px;
+  
+  
  }
 
 .product-grid {
@@ -1299,6 +1438,124 @@
 .product-grid del { 
   color: var(--sonic-silver); 
 
+}
+
+/*-----------------------------------*\
+  #TESTIMONIAL
+\*-----------------------------------*/
+
+.testimonials-box { 
+  margin-bottom: 50px; 
+  white-space: wrap;
+  
+  
+}
+
+.testimonial-card {
+  max-width: 400px; /* Increase the maximum width to your desired value */
+  padding: 80px 60px;
+  border: 10px solid var(--cultured);
+  border-radius: var(--border-radius-md);
+  text-align: center;
+  margin-bottom: 25px;
+  display: inline-block;
+  vertical-align: top;
+  margin-left: 30px;
+}
+
+.testimonial-banner {
+  margin: auto;
+  margin-bottom: 20px;
+  border-radius: 50%;
+}
+
+.testimonial-name {
+  font-weight: var(--weight-700);
+  text-transform: uppercase;
+  color: var(--sonic-silver);
+  margin-bottom: 5px;
+}
+
+.testimonial-title {
+  color: var(--onyx);
+  font-size: var(--fs-7);
+  margin-bottom: 15px;
+}
+
+.quotation-img {
+  margin: auto;
+  margin-bottom: 10px;
+}
+
+.testimonial-desc {
+  width: 70%; /* Set a fixed width for the description element */
+  margin: auto;
+  color: var(--sonic-silver);
+  font-size: var(--fs-7);
+}
+
+/*-----------------------------------*\
+  #CTA
+\*-----------------------------------*/
+
+.cta-container {
+  position: relative;
+  aspect-ratio: 5 / 6;
+  border-radius: var(--border-radius-md);
+  overflow: hidden;
+  margin-bottom: 25px;
+}
+
+.cta-banner {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.cta-content {
+  background: hsla(0, 0%, 100%, 0.7);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: fit-content;
+  padding: 15px 20px;
+  text-align: center;
+  border-radius: var(--border-radius-sm);
+}
+
+.cta-content .discount {
+  background: var(--eerie-black);
+  color: var(--white);
+  font-size: var(--fs-11);
+  font-weight: var(--weight-600);
+  text-transform: uppercase;
+  width: max-content;
+  margin: auto;
+  padding: 0 5px;
+  border-radius: var(--border-radius-sm);
+  margin-bottom: 5px;
+}
+
+.cta-title {
+  color: var(--onyx);
+  font-size: var(--fs-5);
+  text-transform: capitalize;
+  margin-bottom: 5px;
+}
+
+.cta-text {
+  color: var(--sonic-silver);
+  font-size: var(--fs-7);
+  margin-bottom: 5px;
+}
+
+.cta-btn {
+  font-size: var(--fs-9);
+  color: var(--sonic-silver);
+  text-transform: uppercase;
+  font-weight: var(--weight-700);
+  margin: auto;
 }
 
 
