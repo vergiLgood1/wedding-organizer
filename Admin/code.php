@@ -66,6 +66,27 @@ if(isset($_POST['updatebtn']))
 
 }
 
+if(isset($_POST['deletebtn']))
+{
+    $id = $_POST['delete_id'];
+
+    $query = "DELETE FROM register WHERE id='$id'";
+    $query_run = mysqli_query($connection, $query);
+
+    if($query_run)
+    {
+        $_SESSION['success'] = "Data telah di Hapus";
+        header('Location: register.php');
+    }
+    else
+    {
+        $_SESSION['status'] = "Data gagal di Hapus";
+        header('Location: register.php');
+    }
+
+}
+
+
 
 
 ?>
