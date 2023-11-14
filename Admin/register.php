@@ -1,5 +1,5 @@
 <?php
-session_start();
+include('security.php');
 include('includes/header.php');
 include('includes/navbar.php');
 ?>
@@ -34,6 +34,8 @@ include('includes/navbar.php');
             <label> Confirm Password </label>
             <input type="password" name="confirmpassword" class="form-control" placeholder="Enter Username">
         </div>
+
+        <input type="hidden" name="usertype" value="admin">
 
       </div>
       <div class="modal-footer">
@@ -90,6 +92,7 @@ include('includes/navbar.php');
                     <th>Username</th>
                     <th>Email</th>
                     <th>Password</th>
+                    <th>Level User</th>
                     <th>EDIT</th>
                     <th>Delete</th>    
                 </tr>    
@@ -106,6 +109,7 @@ include('includes/navbar.php');
                     <td><?php echo $row['username']; ?></td>
                     <td><?php echo $row['email']; ?></td>
                     <td><?php echo $row['password']; ?></td>
+                    <td><?php echo $row['usertype']; ?></td>
                     <td>
                         <form action="register_edit.php" method="POST">
                         <input type="hidden" name="edit_id" value="<?php echo $row['id']; ?>">    
