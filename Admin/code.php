@@ -43,6 +43,28 @@ if(isset($_POST['edit_btn']))
 }
 
 
+if(isset($_POST['updatebtn']))
+{
+    $id = $_POST['edit_id'];
+    $username = $_POST['edit_user'];
+    $email = $_POST['edit_email'];
+    $password = $_POST['edit_pass'];
+
+    $query = "UPDATE register SET username='$username', email='$email', password='$password' WHERE id='$id' ";
+    $query_run = mysqli_query($connection, $query);
+
+    if($query_run)
+    {
+        $_SESSION['success'] = "Data telah di Update";
+        header('Location: register.php');
+    }
+    else
+    {
+        $_SESSION['status'] = "Data telah di Update";
+        header('Location: register.php');
+    }
+
+}
 
 
 

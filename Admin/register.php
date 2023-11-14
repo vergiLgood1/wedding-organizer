@@ -65,6 +65,13 @@ include('includes/navbar.php');
         echo '<h2>'.$_SESSION['success'].'</h2>';
         unset($_SESSION['success']);
     }
+
+    if(isset($_SESSION['status']) && $_SESSION['status'] !='')
+    {
+        echo '<h2 class="bg-info">'.$_SESSION['status'].'</h2>';
+        unset($_SESSION['status']);
+    }
+
     ?>
 
     <div class="table-responsive">
