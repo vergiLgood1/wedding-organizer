@@ -1,5 +1,5 @@
 <?php
-include('security.php');
+session_start();
 include('includes/header.php');
 include('includes/navbar.php');
 ?>
@@ -38,17 +38,6 @@ include('includes/navbar.php');
             <label> Password </label>
             <input type="password" name="edit_pass" value="<?php echo $row['password'] ?>" class="form-control" placeholder="Enter Email">
         </div>
-
-        <div class="form-group">
-            <label> Level User </label>
-            <select name="update_usertype" class="form-control">
-                <option value="admin">Admin</option>
-                <option value="user">User</option>
-            </select>
-            
-        </div>        
-
-
                 <a href="register.php" class="btn btn-danger">Kembali</a>
                 <button type="submit" name="updatebtn" class="btn btn-primary">Update</button>
                 </form>
