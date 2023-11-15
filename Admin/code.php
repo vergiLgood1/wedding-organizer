@@ -112,10 +112,74 @@ if(isset($_POST['login_btn']))
 }
 
 
+//ini kode php untuk about
 
+if(isset($_POST['about_save']))
+{
+    $title = $_POST['judul'];
+    $subtitle = $_POST['sub_judul'];
+    $description = $_POST['deskripsi'];
+    $links = $_POST['links'];
 
+    $query = "INSERT INTO abouts (title, subtitle, description, links) VALUES ('$title', '$subtitle', '$description', '$links')";
+    $query_run = mysqli_query($connection, $query);
 
+    if($query_run)
+    {
+        $_SESSION['success'] = "About telah ditambahkan";
+        header('Location: Aboutus.php');
+    }
+    else
+    {
+        $_SESSION['status'] = "About gagal ditambahkan";
+        header('Location: aboutus.php');
+    }
 
+}
+
+if(isset($_POST['updatebtn']))
+{
+    $id = $_POST['edit_id'];
+    $title = $_POST['edit_user'];
+    $subtitle = $_POST['edit_email'];
+    $description = $_POST['edit_pass'];
+    $links = $_POST['edit_pass2'];
+
+    $query = "UPDATE abouts SET title='$title', subtitle='$subtitle', description='$description', links='$links' WHERE id='$id' ";
+    $query_run = mysqli_query($connection, $query);
+
+    if($query_run)
+    {
+        $_SESSION['success'] = "Data telah di Update";
+        header('Location: aboutus.php');
+    }
+    else
+    {
+        $_SESSION['status'] = "Data gagal di Update";
+        header('Location: aboutus.php');
+    }
+
+}
+
+if(isset($_POST['deletebtn']))
+{
+    $id = $_POST['delete_id'];
+
+    $query = "DELETE FROM abouts WHERE id='$id'";
+    $query_run = mysqli_query($connection, $query);
+
+    if($query_run)
+    {
+        $_SESSION['success'] = "Data telah di Hapus";
+        header('Location: aboutus.php');
+    }
+    else
+    {
+        $_SESSION['status'] = "Data gagal di Hapus";
+        header('Location: aboutus.php');
+    }
+
+}
 
 
 

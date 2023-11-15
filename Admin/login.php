@@ -30,7 +30,7 @@ include('includes/header.php');
                                     }
                                     ?>
 
-                                    <form class="user" action="code.php" method="POST">
+                                    <form class="user" action="logincode.php" method="POST">
                                         <div class="form-group">
                                             <input type="email" name="email1" class="form-control form-control-user"
                                                 id="exampleInputEmail" aria-describedby="emailHelp"
