@@ -45,7 +45,7 @@
         <div class="bg-white py-2 collapse-inner rounded">
             <h6 class="collapse-header">Pages:</h6>
             <a class="collapse-item" href="aboutus.php">About</a>
-            <a class="collapse-item" href="cards.html">Bebek</a>
+            <a class="collapse-item" href="fasilitas.php">fasilitas</a>
         </div>
     </div>
 </li>

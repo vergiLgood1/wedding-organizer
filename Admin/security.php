@@ -1,6 +1,15 @@
 <?php
 session_start();
-include('dbconfig.php');
+include('Database/koneksi.php');
+
+if($dbconfig)
+{
+    //echo "Database Terkoneksi";
+}
+else
+{
+    header("Location: Database/koneksi.php");
+}
 
 if(!$_SESSION['username'])
 {

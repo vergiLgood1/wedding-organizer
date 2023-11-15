@@ -181,7 +181,39 @@ if(isset($_POST['deletebtn']))
 
 }
 
+//kode untuk fasilitas
 
+if(isset($_POST['fasi_save']))
+{
+    $title = $_POST['nama_fasi'];
+    $description = $_POST['deskripsi_fasi'];
+    $image = $_FILES['gambar_fasi']['name'];
+
+        if(file_exists("upload/".$_FILES["gambar_fasi"]["name"]))
+        {
+            $store = $_FILES["gambar_fasi"]["name"];
+            $_SESSION['status'] = "Gambar telah ada. '.$store.'";
+            header('Location: fasilitas.php');
+        }
+        else
+        {
+        
+            $query = "INSERT INTO fasilitas (judul, deskripsi, gambar) VALUES ('$title', '$description', '$image')";
+            $query_run = mysqli_query($connection, $query);
+            
+            if($query_run)
+            {
+                move_uploaded_file($_FILES["gambar_fasi"]["tmp_name"], "upload/".$_FILES["gambar_fasi"]["name"]);
+                $_SESSION['success'] = "Fasilitas ditambahkan";
+                header('Location: fasilitas.php');
+            }
+            else
+            {
+                $_SESSION['status'] = "Fasilitas gagal ditambahkan";
+                header('Location: fasilitas.php');
+            }
+        }
+}
 
 
 ?>

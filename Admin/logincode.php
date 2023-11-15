@@ -1,6 +1,6 @@
 <?php
 include('security.php');
-$connection = mysqli_connect("localhost", "root", "", "wedding_organizer");
+
 
 if(isset($_POST['login_btn']))
 {
