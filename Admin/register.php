@@ -52,11 +52,19 @@ include('includes/navbar.php');
 <!--DataTables Example -->
 <div class="card shadow mb-4">
     <div class="card-header py-3">
-        <h6 class="m-0 font-weight-bold text-primary">Admin Profile
+    <style>button{
+            margin-top: 20px;
+            
+        }
+        h3{
+            text-align: center;
+        }
+        </style>
+        <h3 class="m-0 font-weight-bold text-primary">Admin Profile</h3>
             <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#addadminprofile">
                 add Admin Profile
             </button>
-        </h6>
+        
     </div>    
 
 <div class="card-body">

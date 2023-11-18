@@ -137,7 +137,7 @@ if(isset($_POST['about_save']))
 
 }
 
-if(isset($_POST['updatebtn']))
+if(isset($_POST['updatebtn2']))
 {
     $id = $_POST['edit_id'];
     $title = $_POST['edit_user'];
@@ -161,7 +161,7 @@ if(isset($_POST['updatebtn']))
 
 }
 
-if(isset($_POST['deletebtn']))
+if(isset($_POST['deletebtn2']))
 {
     $id = $_POST['delete_id'];
 
@@ -214,6 +214,81 @@ if(isset($_POST['fasi_save']))
             }
         }
 }
+
+if(isset($_POST['updatebtn3']))
+{
+    $id = $_POST['edit_id'];
+    $judul = $_POST['nama_fasi'];
+    $deskripsi = $_POST['deskripsi_fasi'];
+    $image = $_FILES['gambar_fasi']['name'];
+
+    $query = "UPDATE fasilitas SET judul='$judul', deskripsi='$deskripsi', gambar='$image' WHERE id='$id' ";
+    $query_run = mysqli_query($connection, $query);
+
+    if($query_run)
+    {
+        move_uploaded_file($_FILES["gambar_fasi"]["tmp_name"], "upload/".$_FILES["gambar_fasi"]["name"]);
+        $_SESSION['success'] = "Data telah di Update";
+        header('Location: fasilitas.php');
+    }
+    else
+    {
+        $_SESSION['status'] = "Data gagal di Update";
+        header('Location: fasilitas.php');
+    }
+
+}
+
+if(isset($_POST['deletebtn3']))
+{
+    $id = $_POST['delete_id'];
+
+    $query = "DELETE FROM fasilitas WHERE id='$id'";
+    $query_run = mysqli_query($connection, $query);
+
+    if($query_run)
+    {
+        $_SESSION['success'] = "Data telah di Hapus";
+        header('Location: fasilitas.php');
+    }
+    else
+    {
+        $_SESSION['status'] = "Data gagal di Hapus";
+        header('Location: fasilitas.php');
+    }
+
+}
+
+if(isset($_POST['search_data']))
+{
+    $id = $_POST['id'];
+    $visible = $_POST['visible'];
+
+    $query = "UPDATE fasilitas SET visible='$visible' WHERE id='$id'";
+    $query_run = mysqli_query($connection, $query);
+}
+
+if(isset($_POST['delete_data2']))
+{
+    $id2 = "1";
+    $query = "DELETE FROM fasilitas WHERE visible='$id2'";
+    $query_run = mysqli_query($connection, $query);
+
+    if($query_run)
+    {
+        $_SESSION['success'] = "Data telah di Hapus";
+        header('Location: fasilitas.php');
+    }
+    else
+    {
+        $_SESSION['status'] = "Data gagal di Hapus";
+        header('Location: fasilitas.php');
+    }
+
+}
+
+
+
 
 
 ?>

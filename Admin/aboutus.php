@@ -53,11 +53,19 @@ include('includes/navbar.php');
 <!--DataTables Example -->
 <div class="card shadow mb-4">
     <div class="card-header py-3">
-        <h6 class="m-0 font-weight-bold text-primary">About
+    <style>button{
+            margin-top: 20px;
+            
+        }
+        h3{
+            text-align: center;
+        }
+        </style>
+        <h3 class="m-0 font-weight-bold text-primary">About</h3>
             <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#addadminprofile">
                 add About
             </button>
-        </h6>
+        
     </div>    
 
 <div class="card-body">
@@ -111,13 +119,13 @@ include('includes/navbar.php');
                     <td>
                         <form action="aboutusedit.php" method="POST">
                         <input type="hidden" name="edit_id" value="<?php echo $row['id']; ?>">    
-                        <button type="submit" name="edit_btn" class="btn btn-success">EDIT</button>
+                        <button type="submit" name="edit_btn2" class="btn btn-success">EDIT</button>
                         </form>
                     </td>
                     <td>
                         <form action="code.php" method="post">
                         <input type="hidden" name="delete_id" value="<?php echo $row['id']; ?>">    
-                        <button type="submit" name="deletebtn" class="btn btn-danger">DELETE</button>
+                        <button type="submit" name="deletebtn2" class="btn btn-danger">DELETE</button>
                         </form>
                     </td>
                 </tr>

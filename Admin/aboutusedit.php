@@ -7,13 +7,13 @@ include('includes/navbar.php');
 <div class="container-fluid">
     <div class="card shadow mb-4">
         <div class="card-header py-3">
-            <h6 class ="m-0 font-weight-bold text-primary">EDIT Admin profile</h6>
+            <h6 class ="m-0 font-weight-bold text-primary">EDIT Fasilitas</h6>
         </div>
         <div class="card-body">
 
         <?php
         $connection = mysqli_connect("localhost", "root", "", "wedding_organizer");
-        if(isset($_POST['edit_btn']))
+        if(isset($_POST['edit_btn2']))
         {
             $id = $_POST['edit_id'];
         
@@ -44,7 +44,7 @@ include('includes/navbar.php');
         </div>      
 
                 <a href="aboutus.php" class="btn btn-danger">Kembali</a>
-                <button type="submit" name="updatebtn" class="btn btn-primary">Update</button>
+                <button type="submit" name="updatebtn2" class="btn btn-primary">Update</button>
                 </form>
                 <?php
             }
