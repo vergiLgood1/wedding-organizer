@@ -1,3 +1,4 @@
+
 /*==================== SHOW MENU ====================*/
 const navMenu = document.getElementById('nav-menu'),
     navToggle = document.getElementById('nav-toggle'),
@@ -32,6 +33,7 @@ navLink.forEach(n => n.addEventListener('click', linkAction))
 
 /*==================== CHANGE BACKGROUND HEADER ====================*/
 function scrollHeader() {
+    
     const header = document.getElementById('header')
     const navLinks = document.querySelectorAll('.nav__link');
 
@@ -231,3 +233,110 @@ window.addEventListener('scroll', function () {
         }
     }
 });
+
+
+let circle = document.querySelector(".color-option");
+circle.addEventListener("click", (e) => {
+    let target = e.target;
+    if (target.classList.contains("circle")) {
+        circle.querySelector(".active").classList.remove("active");
+        target.classList.add("active");
+        document.querySelector(".main-images .active").classList.remove("active");
+        document.querySelector(`.main-images .${target.id}`).classList.add("active");
+    }
+});
+
+
+// date picker
+const daysTag = document.querySelector(".days"),
+    currentDate = document.querySelector(".current-date"),
+    prevNextIcon = document.querySelectorAll(".icons span");
+
+let date = new Date(),
+    currYear = date.getFullYear(),
+    currMonth = date.getMonth();
+
+const months = ["January", "February", "March", "April", "May", "June", "July",
+    "August", "September", "October", "November", "December"];
+
+const renderCalendar = () => {
+    let firstDayofMonth = new Date(currYear, currMonth, 1).getDay(),
+        lastDateofMonth = new Date(currYear, currMonth + 1, 0).getDate(),
+        lastDayofMonth = new Date(currYear, currMonth, lastDateofMonth).getDay(),
+        lastDateofLastMonth = new Date(currYear, currMonth, 0).getDate();
+    let liTag = "";
+
+    for (let i = firstDayofMonth; i > 0; i--) {
+        liTag += `<li class="inactive">${lastDateofLastMonth - i + 1}</li>`;
+    }
+
+    for (let i = 1; i <= lastDateofMonth; i++) {
+        let isToday = i === date.getDate() && currMonth === new Date().getMonth()
+            && currYear === new Date().getFullYear() ? "active" : "";
+        liTag += `<li class="${isToday}">${i}</li>`;
+    }
+
+    for (let i = lastDayofMonth; i < 6; i++) {
+        liTag += `<li class="inactive">${i - lastDayofMonth + 1}</li>`
+    }
+    currentDate.innerText = `${months[currMonth]} ${currYear}`;
+    daysTag.innerHTML = liTag;
+}
+renderCalendar();
+
+prevNextIcon.forEach(icon => {
+    icon.addEventListener("click", () => {
+        currMonth = icon.id === "prev" ? currMonth - 1 : currMonth + 1;
+
+        if (currMonth < 0 || currMonth > 11) {
+            date = new Date(currYear, currMonth, new Date().getDate());
+            currYear = date.getFullYear();
+            currMonth = date.getMonth();
+        } else {
+            date = new Date();
+        }
+        renderCalendar();
+    });
+});
+
+const datePicker = flatpickr("#inlineDatePicker", {
+    inline: true,
+    dateFormat: "Y-m-d",
+});
+
+
+var mySwiper = new Swiper('.swiper-container', {
+    // Optional parameters
+    loop: true, // Enable looping
+
+    // If we need pagination
+    pagination: {
+        el: '.swiper-pagination',
+        clickable: true,
+    },
+
+    // Navigation arrows
+    navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
+    },
+});
+
+// Action on click 
+
+function detailPaket(idPaket) {
+    // Mengasumsikan Anda memiliki halaman detail dengan nama 'detail.html', Anda dapat mengarahkan pengguna ke halaman itu dengan ID paket yang dipilih
+    window.location.href = 'detailPackage.html?id=' + idPaket;
+}
+
+function detailPemesanan(idPaket){
+
+    window.location.href = 'detailPemesanan.html?id=' + idPaket;
+}
+
+function ArahkanKePackage(){
+    window.location.href = 'package.html?id=' + idPaket;
+}
+
+
+

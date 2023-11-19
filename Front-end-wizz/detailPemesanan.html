@@ -1,0 +1,204 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wizz</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="shortcut icon" href="assets/img/favicon.png" type="image/png">
+
+    <!--=============== REMIXICONS ===============-->
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
+
+    <!--=============== SWIPER CSS ===============-->
+    <link rel="stylesheet" href="assets/css/swiper-bundle.min.css">
+
+
+    <!--=============== CSS ===============-->
+    <link rel="stylesheet" href="assets/css/checkout.css">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+
+    <!-- Add this in the head section of your HTML -->
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha384-rMPQNlc5ZZ1FjV3JQVg3aL6NZF5JHI9v4o7cU+6GGUAYQ73F1eRSTrCJ4zZU5m3h" crossorigin="anonymous">
+
+
+</head>
+
+<body>
+    <section>
+        <header>
+            <div class="container">
+              <div class="navigation">
+        
+                <div class="logo">
+                  <i class="icon icon-basket"></i>shop42</div>
+                <div class="secure">
+                  <i class="icon icon-shield"></i>
+                  <span>Secure Checkout</span>
+        
+                </div>
+              </div>
+              <div class="notification">
+                Complete Your Purchase
+              </div>
+            </div>
+          </header>
+          <section class="content">
+        
+            <div class="container">
+        
+            </div>
+            <div class="details shadow">
+              <div class="details__item">
+        
+                <div class="item__image">
+                  <img class="iphone" src="https://www.apple.com/v/iphone/compare/k/images/overview/compare_iphoneXSmax_silver_large.jpg" alt="">
+                </div>
+                <div class="item__details">
+                  <div class="item__title">
+                    Iphone X
+                  </div>
+                  <div class="item__price">
+                    649,99 £
+                  </div>
+                  <div class="item__quantity">
+                    Quantity: 1
+                  </div>
+                  <div class="item__description">
+                    <ul>
+                      <li>Super fast and power efficient</li>
+                      <li>A lot of fast memory</li>
+                      <li>High resolution camera</li>
+                      <li>Smart tools for health and traveling and more</li>
+                      <li>Share your games and achievements with your friends via Group Play</li>
+                    </ul>
+        
+                  </div>
+        
+                </div>
+              </div>
+        
+            </div>
+            <div class="checkout-container">
+                <!-- Sidebar (Alamat Pengiriman) -->
+                <div class="sidebar shipping-address-sidebar">
+                    <div class="section-heading">Alamat Pengiriman</div>
+                    <div class="shipping-address-container">
+                        <div class="receiver-info">
+                            <b class="receiver-name">Diyo Anggara Pradipa Putra</b>
+                            <span class="address-title">(Kos)</span>
+                            <div class="address-label">Utama</div>
+                        </div>
+                        <div class="phone-number">6285255849366</div>
+                        <div class="address-description">
+                            <div class="address-desc">Dekat Jl. Tidar No.114, Gang delta, Kloncing, Karangrejo, Kec. Sumbersari, Kabupaten Jember, Jawa Timur 68124 (Kamar nomor 5)</div>
+                            <div class="address-city">Sumbersari, Kab. Jember, 68124</div>
+                        </div>
+                        <div class="footer-buttons-container">
+                            <button type="button" class="open-modal-address-button" data-testid="btnOpenModalAddress">
+                                <span>Pilih Alamat Lain</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+        
+                <!-- Section Tanggal Penggunaan -->
+                <div class="usage-date-card">
+                    <div class="card-header">
+                        <h2 class="header-date">Pilih Tanggal Penggunaan</h2>
+                    </div>
+                    <div class="card-content">
+                        <label for="usage-date">Tanggal Penggunaan:</label>
+                        <input type="date" id="usage-date" name="usage-date" class="date-picker">
+                    </div>
+                </div>
+        
+                <!-- Section Ringkasan Belanja -->
+                <div class="checkout-summary-container">
+                    <div class="summary-heading">Ringkasan Belanja</div>
+                    <div class="shopping-details-wrapper">
+                        <div class="summary-detail-row">
+                            <div class="detail-label">Total Harga (1 Produk)</div>
+                            <div class="detail-value">Rp109.000</div>
+                        </div>
+                        <div class="summary-detail-row">
+                            <div class="detail-label">Total Ongkos Kirim</div>
+                            <div class="detail-value">Rp20.900</div>
+                        </div>
+                        <div class="summary-detail-row">
+                            <div class="detail-label">Asuransi Pengiriman</div>
+                            <div class="detail-value">Rp800</div>
+                        </div>
+                        <div class="summary-detail-row">
+                            <div class="detail-label">Biaya Proteksi Produk (1 Proteksi)</div>
+                            <div class="detail-value">Rp7.500</div>
+                        </div>
+                        <div class="summary-detail-row">
+                            <div class="detail-label">Biaya Jasa Aplikasi</div>
+                            <div class="detail-value" data-testid="Biaya Jasa Aplikasi-slashed"><del>Rp2.000</del></div>
+                            <div class="detail-value-highlight">Rp1.000</div>
+                        </div>
+                    </div>
+                    <div class="summary-total-row">
+                        <div class="total-label">Total Belanja</div>
+                        <div class="total-value">Rp139.200</div>
+                    </div>
+                    <div class="insurance-message">
+                        Dengan mengaktifkan asuransi, Saya menyetujui <span class="insurance-link" role="button" tabindex="0">syarat dan ketentuan yang berlaku</span>.
+                    </div>
+                    <div class="summary-main-buttons">
+                        <div class="main-button">
+                            <div role="button" tabindex="0">
+                                <button type="button" class="choose-payment-button">
+                                    <span>Pilih Pembayaran</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="myModal" class="modal">
+                        <div class="modal-content">
+                          <span class="close">&times;</span>
+                          <p id="modalContent"></p>
+                        </div>
+                      </div>
+                </div>
+            </div>
+            <div class="container">
+              <div class="actions">
+        
+                <a href="#" class="btn action__submit">Place your Order
+                  <i class="icon icon-arrow-right-circle"></i>
+                </a>
+                <a href="package.html" class="backBtn">Go Back to Shop</a>
+        
+              </div>
+          </section>
+          </div>
+    </section>
+
+    <!--========== SCROLL UP ==========-->
+    <a href="#" class="scrollup" id="scroll-up">
+        <i class="ri-arrow-up-line scrollup__icon"></i>
+    </a>
+
+    <!--=============== SCROLL REVEAL===============-->
+    <script src="assets/js/scrollreveal.min.js"></script>
+
+    <!--=============== SWIPER JS ===============-->
+    <script src="assets/js/swiper-bundle.min.js"></script>
+
+    <!--=============== MAIN JS ===============-->
+    <script src="assets/js/modal.js"></script>
+
+    <!-- Tambahkan script Flatpickr -->
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+</body>
+
+</html>
