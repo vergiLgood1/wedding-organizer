@@ -43,7 +43,7 @@ include('../Admin/security.php');
                             <a href="gallery.html" class="nav__link">Gallery</a>
                         </li>
                         <li class="nav__item">
-                            <a href="package.html" class="nav__link" onclick="ArahkanKePackage()">Package</a>
+                            <a href="package.php" class="nav__link" onclick="ArahkanKePackage()">Package</a>
                         </li>
                         <li class="nav__item">
                             <a href="#testimoni" class="nav__link">Testimoni</a>
