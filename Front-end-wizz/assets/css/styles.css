@@ -656,8 +656,13 @@ i {
 }
 
 /*=============== DISCOVER ===============*/
+.gallery__section{
+  padding-top: 90px;
+
+}
 
 .gallery-container {
+padding-top: 26px;
  width: 1400px;
  margin: 20px auto;
  columns: 4;
@@ -685,6 +690,7 @@ i {
    display: flex;
    justify-content: center;
    margin-top: 26px;
+   font-size: 36px;
 }
 
 .gallery__desc{
