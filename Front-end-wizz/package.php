@@ -1,9 +1,6 @@
-<<<<<<< HEAD
 <?php 
 include('../Admin/security.php');
 ?>
-=======
->>>>>>> e76c49282c0f208873a8ecb9f3871bd2de452004
 <!DOCTYPE html>
 <html lang="en">
 
@@ -31,38 +28,13 @@ include('../Admin/security.php');
 </head>
 
 <body>
-<<<<<<< HEAD
-    <header class="header" id="header">
-=======
 <header class="header" id="header">
->>>>>>> e76c49282c0f208873a8ecb9f3871bd2de452004
         <nav class="nav">
             <div class="nav__left">
                 <a href="#" class="nav__logo">Wizz</a>
                 <div class="nav__menu" id="nav-menu">
                     <ul class="nav__list">
                         <li class="nav__item">
-<<<<<<< HEAD
-                            <a href="home.html" class="nav__link active-link">Home</a>
-                        </li>
-                        <li class="nav__item">
-                            <a href="about.html" class="nav__link">About</a>
-                        </li>
-                        <li class="nav__item">
-                            <a href="gallery.html" class="nav__link">Gallery</a>
-                        </li>
-                        <li class="nav__item">
-                            <a href="package.html" class="nav__link" onclick="ArahkanKePackage()">Package</a>
-                        </li>
-                        <li class="nav__item">
-                            <a href="#testimoni" class="nav__link">Testimoni</a>
-                        </li>
-                        <li class="nav__item">
-                            <a href="#blog" class="nav__link">Blog</a>
-                        </li>
-                        <li class="nav__item">
-                            <a href="#contact" class="nav__link">Contact</a>
-=======
                             <a href="home.php" class="nav__link active-link">Home</a>
                         </li>
                         <li class="nav__item">
@@ -82,7 +54,6 @@ include('../Admin/security.php');
                         </li>
                         <li class="nav__item">
                             <a href="home.php" class="nav__link">Contact</a>
->>>>>>> e76c49282c0f208873a8ecb9f3871bd2de452004
                         </li>
                     </ul>
                 </div>
@@ -92,15 +63,9 @@ include('../Admin/security.php');
 
             <div class="nav__right">
                 <button class="nav__button__shop" id="cartButton">
-<<<<<<< HEAD
-                    <i class="ri-shopping-cart-line"></i>
-                </button>
-                <button class="button-login">Masuk</button>
-=======
                     <i class="ri-shopping-cart-line" a href="pesananSaya.php"></i>
                 </button>
                 <button class="button-login" a href="../Login/login.php">Masuk</button>
->>>>>>> e76c49282c0f208873a8ecb9f3871bd2de452004
             </div>
 
             <!-- ... (bagian lainnya tetap sama) -->
@@ -119,7 +84,6 @@ include('../Admin/security.php');
                 <p class="package__title">Pilih, pesan dan laksanakan pernikahanmu</p>
             </div>
             <div class="product-grid">
-<<<<<<< HEAD
                 <?php
                 // jalankan query untuk menampilkan semua data diurutkan berdasarkan nim
                 $query = "SELECT * FROM paket ORDER BY id ASC";
@@ -132,13 +96,10 @@ include('../Admin/security.php');
                 
                 while ($row = mysqli_fetch_assoc($result)) {
                 ?>
-=======
->>>>>>> e76c49282c0f208873a8ecb9f3871bd2de452004
                 <!-- Product Card 1 -->
                 <div class="product-card" onclick="detailPaket(1)">
                     <div class="badge">Hot</div>
                     <div class="product-tumb">
-<<<<<<< HEAD
                     <?php echo '<img src="../Admin/uppaket/'.$row['gambar'].'"alt="gambar">' ?>
                     </div>
                     <div class="product-details">
@@ -146,7 +107,6 @@ include('../Admin/security.php');
                         <p><?php echo $row["deskripsi"]; ?></p>
                         <div class="product-bottom-details">
                             <div class="product-price"><small></small><?php echo $row["harga"] ?></div>
-=======
                         <img src="assets/img/Homepage1.png" alt="">
                     </div>
                     <div class="product-details">
@@ -154,7 +114,6 @@ include('../Admin/security.php');
                         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vero, possimus nostrum!</p>
                         <div class="product-bottom-details">
                             <div class="product-price"><small></small>Rp1.500.000</div>
->>>>>>> e76c49282c0f208873a8ecb9f3871bd2de452004
                             <div class="product-count"><small>5.0 |</small>5 Terjual</div>
                             <div class="product-links">
                                 <a href="#"><i class="fas fa-heart"></i></a>
@@ -163,12 +122,10 @@ include('../Admin/security.php');
                     </div>
                 </div>
     
-<<<<<<< HEAD
                 <?php
                     
                 }
                 ?>
-=======
                 <!-- Product Card 2 -->
                 <div class="product-card" onclick="detailPaket(2)">
                     <div class="badge">Hot</div>
@@ -371,7 +328,6 @@ include('../Admin/security.php');
                     </div>
                 </div>
 
->>>>>>> e76c49282c0f208873a8ecb9f3871bd2de452004
             </div>
         </section>
 
