@@ -110,7 +110,8 @@
                     </div>
                 </div>
                 <!-- Add the "Beli" button -->
-        <button class="beli-button" onclick="detailPemesanan()">Beli</button>
+                <button class="beli-button" onclick="detailPemesanan()">Beli</button>
+
             </div>
             </div>
         </section>

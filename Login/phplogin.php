@@ -13,23 +13,23 @@ if( isset($_POST['submit']) ){
 
     if(!empty(trim($email)) && !empty(trim($pass))){
         //select data berdasarkan username dari database
-        $query      = "SELECT * FROM admin WHERE email = '$email'";
+        $query      = "SELECT * FROM user WHERE email = '$email'";
         $result     = mysqli_query($koneksi, $query);
         $num        = mysqli_num_rows($result);
 
         while ($row = mysqli_fetch_array($result)) {
-            $id = $row['id'];
-            $userVal = $row['email'];
-            $passVal = $row['password'];
-            $level = $row['level'];
+            $id = $row['Id'];
+            $userVal = $row['Email'];
+            $passVal = $row['Password'];
+            $level = $row['Level'];
         }
        if ($num != 0){
         if($userVal==$email && $passVal==$pass){
             //header('Location: home.php?user_fullname=' . urlencode($userName));
-            $_SESSION['id'] = $id;
-            $_SESSION['name'] = $userName;
-            $_SESSION['level'] = $level;
-            header('Location: ../index.html');
+            $_SESSION['Id'] = $id;
+            $_SESSION['Name'] = $userName;
+            $_SESSION['Level'] = $level;
+            header('Location: ../Front-end-wizz/home.php');
         }else {
             $error = 'username atau password salah!!';
             header('location: login.php');

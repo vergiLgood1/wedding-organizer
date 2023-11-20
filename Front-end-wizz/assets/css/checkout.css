@@ -723,7 +723,7 @@ input[type="text"] {
 .footer-buttons-container {
   display: flex;
   justify-content: space-between;
-  margin-top: 110px; /* Optional: adjust as needed */
+  margin-top: 120px; /* Optional: adjust as needed */
 }
 
 /* Style for the buttons */
@@ -875,75 +875,165 @@ input[type="text"] {
   margin-top: 16px;
 }
 
-/* Style for the "Pilih Pembayaran" button */
-.choose-payment-button {
-  background-color: var(--salmon-pink);
-  color: #fff;
-  border: none;
-  padding: 12px;
-  border-radius: 8px;
-  cursor: pointer;
+img, .BRI{
+  width: 20%;
+  padding-top: 0;
+  border-radius: 0px;
 }
 
-/* Hover effect for the button */
-.choose-payment-button:hover {
-  background-color: var(--bittersweet);
+.methodPayment{
+  margin-bottom: 10px;
+  color: black;
+  font-size: 20px;
+  font: bold; 
 }
 
-.overlay {
+
+/* Styles.css */
+.modal {
   display: none;
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0, 0, 0, 0.5);
-  align-items: center;
-  justify-content: center;
+  background-color: rgba(0, 0, 0, 0.5);
 }
 
-.payment-modal {
-  display: none;
-  background: #fff;
+.modal-content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #ffffff;
   padding: 20px;
+  border: 1px solid #e0e0e0;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  width: 80%;
+  max-width: 600px;
   border-radius: 8px;
-  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
-  max-width: 400px;
+}
+
+.modal-heading {
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.modal-description {
+  font-size: 14px;
+  color: #8d8d8d;
+  margin-bottom: 20px;
+}
+
+.form-group {
+  margin-bottom: 15px;
+}
+
+label {
+  font-size: 14px;
+  font-weight: bold;
+  display: block;
+  margin-bottom: 5px;
+  color: #222;
+}
+
+input[type="text"] {
   width: 100%;
-  text-align: center;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-sizing: border-box;
+  margin-top: 5px;
 }
 
-/* Animasi */
-@keyframes fadeIn {
-  from {
-      opacity: 0;
-  }
-  to {
-      opacity: 1;
-  }
+textarea {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-sizing: border-box;
+  margin-top: 5px;
+  resize: none; /* Mencegah pengguna mengubah ukuran textarea */
+  min-height: 100px; /* atau tinggi minimum yang diinginkan */
 }
 
-@keyframes slideIn {
-  from {
-      transform: translateY(-50px);
-  }
-  to {
-      transform: translateY(0);
-  }
+input[type="text"]::placeholder,
+textarea::placeholder {
+    color: #8d8d8d; /* Warna teks placeholder */
+    font-size: 14px; /* Ukuran font placeholder */
+}
+
+
+.radio-group {
+  display: flex;
+  gap: 10px;
+}
+
+.radio-option {
+  display: flex;
+  align-items: center;
+  border: 1px solid black;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  padding: 10px;
+  cursor: pointer;
+}
+
+.radio-option:focus,
+.radio-option:active {
+    border: 1px solid var(--bittersweet); /* Warna border saat aktif */
+    border-radius: 0px; /* Tambahkan border-radius agar tampak lebih halus */
+    outline:black; /* Hapus outline default pada fokus */
 }
 
 
 
+.radio-option input {
+  margin-right: 5px;
+}
 
+.checkbox-group {
+  display: flex;
+  align-items: center;
+}
 
+.checkbox-group input {
+  margin-right: 5px;
+}
 
+.button-container {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 26px;
+  
+}
 
+.cancel-button, .confirm-button {
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
 
+.cancel-button {
+  background-color: transparent;
+  color: #222;
+  margin-left: 400px;
+}
 
-
-
-
-
+.confirm-button {
+  background-color: var(--salmon-pink);
+  color: #ffffff;
+  padding: 10px;
+  
+}
+.confirm-button:hover {
+  background-color: var(--bittersweet);
+  color: #ffffff;
+  padding: 10px;
+  
+}
 
 
 /*=============== SPONSORS ===============*/

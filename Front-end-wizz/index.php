@@ -27,32 +27,32 @@ include('../Admin/security.php');
 </head>
 
 <body>
-    <header class="header" id="header">
+<header class="header" id="header">
         <nav class="nav">
             <div class="nav__left">
                 <a href="#" class="nav__logo">Wizz</a>
                 <div class="nav__menu" id="nav-menu">
                     <ul class="nav__list">
                         <li class="nav__item">
-                            <a href="home.html" class="nav__link active-link">Home</a>
+                            <a href="home.php" class="nav__link active-link">Home</a>
                         </li>
                         <li class="nav__item">
-                            <a href="about.html" class="nav__link">About</a>
+                            <a href="about.php" class="nav__link">About</a>
                         </li>
                         <li class="nav__item">
-                            <a href="gallery.html" class="nav__link">Gallery</a>
+                            <a href="gallery.php" class="nav__link">Gallery</a>
                         </li>
                         <li class="nav__item">
                             <a href="package.php" class="nav__link" onclick="ArahkanKePackage()">Package</a>
                         </li>
                         <li class="nav__item">
-                            <a href="#testimoni" class="nav__link">Testimoni</a>
+                            <a href="home.php" class="nav__link">Testimoni</a>
                         </li>
                         <li class="nav__item">
-                            <a href="#blog" class="nav__link">Blog</a>
+                            <a href="home.php" class="nav__link">Blog</a>
                         </li>
                         <li class="nav__item">
-                            <a href="#contact" class="nav__link">Contact</a>
+                            <a href="home.php" class="nav__link">Contact</a>
                         </li>
                     </ul>
                 </div>
@@ -62,9 +62,9 @@ include('../Admin/security.php');
 
             <div class="nav__right">
                 <button class="nav__button__shop" id="cartButton">
-                    <i class="ri-shopping-cart-line"></i>
+                    <i class="ri-shopping-cart-line" a href="pesananSaya.php"></i>
                 </button>
-                <button class="button-login">Masuk</button>
+                <button class="button-login" a href="../Login/login.php">Masuk</button>
             </div>
 
             <!-- ... (bagian lainnya tetap sama) -->
@@ -75,6 +75,7 @@ include('../Admin/security.php');
             </div>
         </nav>
     </header>
+
 
 
     <main class="main">
@@ -253,12 +254,12 @@ include('../Admin/security.php');
         <!--==================== AKHIR VIDEO ====================-->
 
         <!--==================== AWAL PACKAGES ====================-->
-        <section class="packages" id="package">
+        <section class="packages" id="package" >
             <div class="title_container">
                 <h2 class="section__title">Pilih paket <br>sesuai kebutuhanmu</h2>
                 <p class="package__title">Pilih, pesan dan laksanakan pernikahanmu</p>
             </div>
-            <div class="cards-container">
+            <div class="cards-container"  >
                 <article class="card">
                     <div class="card-info-hover">
                         <svg class="card-like" viewBox="0 0 24 24">
@@ -273,9 +274,9 @@ include('../Admin/security.php');
                             <span class="card-time">20 min</span>
                         </div>
                     </div>
-                    <div class="card-img"></div>
-                    <a href="package.html">
-                        <div class="card-img-hover" style="background-image: url(assets/img/about1.png);">
+                    <div class="card-img" onclick="ArahkanKePackage()"></div>
+                   
+                        <div class="card-img-hover" style="background-image: url(assets/img/about1.png);" >
                         </div>
                     </a>
                     <div class="card-info">
@@ -302,9 +303,9 @@ include('../Admin/security.php');
                             <span class="card-time">20 min</span>
                         </div>
                     </div>
-                    <div class="card-img"></div>
-                    <a href="package.html">
-                        <div class="card-img-hover" style="background-image: url(assets/img/about1.png);">
+                    <div class="card-img" onclick="ArahkanKePackage()"></div>
+                 
+                        <div class="card-img-hover" style="background-image: url(assets/img/about1.png);"  >
                         </div>
                     </a>
                     <div class="card-info">
@@ -330,8 +331,8 @@ include('../Admin/security.php');
                             <span class="card-time">20 min</span>
                         </div>
                     </div>
-                    <div class="card-img"></div>
-                    <a href="package.html">
+                    <div class="card-img" ></div>
+                  
                         <div class="card-img-hover" style="background-image: url(assets/img/about1.png);">
                         </div>
                     </a>
