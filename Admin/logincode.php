@@ -14,12 +14,12 @@ if(isset($_POST['login_btn']))
     if($usertype['usertype'] == "admin")
     {
         $_SESSION['username'] = $email_login;
-        header('Location: index.php');
+        header('Location: ../Front-end-wizz/index.html');
     }
     else if($usertype['usertype'] == "user")
     {
         $_SESSION['username'] = $email_login;
-        header('Location: ../index.html');
+        header('Location: ../Front-end-wizz/index.html');
     }
     else
     {

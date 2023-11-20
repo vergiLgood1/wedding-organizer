@@ -1,3 +1,7 @@
+<?php 
+include('../Admin/security.php');
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -106,15 +110,22 @@
         <!--==================== AWAL ABOUT ====================-->
         <section class="about section" id="about">
             <div class="about__container container grid">
+                <?php
+                // jalankan query untuk menampilkan semua data diurutkan berdasarkan nim
+                $query = "SELECT * FROM about";
+                $result = mysqli_query($connection, $query);
+                //mengecek apakah ada error ketika menjalankan query
+                if (!$result) {
+                    die("Query Error: " . mysqli_errno($connection) .
+                        " - " . mysqli_error($connection));
+                }
+                
+                $row = mysqli_fetch_assoc($result) 
+                ?>
                 <div class="about__data">
-                    <h2 class="section__title about__title">More Information <br> About Wizz</h2>
-                    <p class="about__description">Wizz Wedding Organizer adalah solusi lengkap untuk pernikahan Anda.
-                        Kami menawarkan berbagai layanan yang mencakup dekorasi, sound system, undangan, baju resepsi,
-                        serta fotografer untuk mengabadikan momen berharga Anda.
-                        Dengan layanan kami, Anda dapat mempercayakan segala kebutuhan pernikahan Anda kepada tim
-                        profesional kami.
-                        Kami siap membantu Anda merencanakan dan melaksanakan pernikahan impian Anda tanpa ribet.
-
+                    <h2 class="section__title about__title"><?php echo $row['judul'] ?></h2>
+                    <p class="about__description"><?php echo $row["deskripsi"]; ?>
+                        
                     </p>
                     <a href="#" class="button">Reserve a package</a>
                 </div>
@@ -128,6 +139,7 @@
                         <img src="assets/img/about2.png" alt="" class="about__img-two">
                     </div>
                 </div>
+               
             </div>
         </section>
         <!--==================== AKHIR ABOUT ====================-->

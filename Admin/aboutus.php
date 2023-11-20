@@ -17,24 +17,16 @@ include('includes/navbar.php');
 
       <form action="code.php" method="POST">
       <div class="modal-body">
-        
+
         <div class="form-group">
-            <label> Title </label>
-            <input type="text" name="judul" class="form-control" placeholder="Enter Title">
-        </div>
-        <div class="form-group">
-            <label> Sub Title </label>
-            <input type="text" name="sub_judul" class="form-control" placeholder="Enter Sub Title">
-        </div>
-        <div class="form-group">
-            <label> Description </label>
-            <input type="text" name="deskripsi" class="form-control" placeholder="Enter Description">
-        </div>
-        <div class="form-group">
-            <label> Links </label>
-            <input type="text" name="links" class="form-control" placeholder="Enter Links">
+            <label> Judul </label>
+            <input type="text" name="edit_judul" class="form-control" placeholder="Enter Title">
         </div>
         
+        <div class="form-group">
+            <label> Deskripsi </label>
+            <textarea name="edit_deskripsi" id="" cols="30" rows="10" class="form-control" placeholder="Enter Description" required></textarea>
+        </div>
 
         <input type="hidden" name="usertype" value="admin">
 
@@ -93,9 +85,9 @@ include('includes/navbar.php');
                 <tr>
                     <th>ID</th>
                     <th>Title</th>
-                    <th>Sub Title</th>
+                    
                     <th>Description</th>
-                    <th>Links</th>
+                    
                     <th>EDIT</th>
                     <th>Delete</th>    
                 </tr>    
@@ -103,7 +95,7 @@ include('includes/navbar.php');
             <tbody>
             
             <?php
-            $query = "SELECT * FROM abouts";
+            $query = "SELECT * FROM about";
             $query_run = mysqli_query($connection, $query);
             if(mysqli_num_rows($query_run) > 0)
             {
@@ -112,10 +104,10 @@ include('includes/navbar.php');
                     ?>
                     <tr>
                     <td><?php echo $row['id']; ?></td>
-                    <td><?php echo $row['title']; ?></td>
-                    <td><?php echo $row['subtitle']; ?></td>
-                    <td><?php echo $row['description']; ?></td>
-                    <td><?php echo $row['links']; ?></td>
+                    <td><?php echo $row['judul']; ?></td>
+                    
+                    <td><?php echo $row['deskripsi']; ?></td>
+                    
                     <td>
                         <form action="aboutusedit.php" method="POST">
                         <input type="hidden" name="edit_id" value="<?php echo $row['id']; ?>">    

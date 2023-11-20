@@ -17,7 +17,7 @@ include('includes/navbar.php');
         {
             $id = $_POST['edit_id'];
         
-            $query = "SELECT * FROM abouts WHERE id='$id' ";
+            $query = "SELECT * FROM about WHERE id='$id' ";
             $query_run = mysqli_query($connection, $query);
             
             foreach($query_run as $row)
@@ -27,21 +27,16 @@ include('includes/navbar.php');
         <form action="code.php" method="POST">
         <input type="hidden" name="edit_id" value="<?php echo $row['id'] ?>">    
         <div class="form-group">
-            <label> Title </label>
-            <input type="text" name="edit_user" value="<?php echo $row['title'] ?>" class="form-control" placeholder="Enter Title">
+            <label> Judul </label>
+            <input type="text" name="edit_judul" value="<?php echo $row['judul'] ?>" class="form-control" placeholder="Enter Title">
         </div>
+        
         <div class="form-group">
-            <label> subtitle </label>
-            <input type="text" name="edit_email" value="<?php echo $row['subtitle'] ?>" class="form-control" placeholder="Enter Subtitle">
+            <label> Deskripsi </label>
+            
+            <textarea name="edit_deskripsi" id="" cols="30" rows="10" class="form-control" placeholder="Enter Description" required><?php echo $row['deskripsi'] ?></textarea>
         </div>
-        <div class="form-group">
-            <label> Description </label>
-            <input type="text" name="edit_pass" value="<?php echo $row['description'] ?>" class="form-control" placeholder="Enter Description">
-        </div>
-        <div class="form-group">
-            <label> Links </label>
-            <input type="text" name="edit_pass2" value="<?php echo $row['links'] ?>" class="form-control" placeholder="Enter Links">
-        </div>      
+        
 
                 <a href="aboutus.php" class="btn btn-danger">Kembali</a>
                 <button type="submit" name="updatebtn2" class="btn btn-primary">Update</button>

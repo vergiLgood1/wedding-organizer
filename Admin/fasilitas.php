@@ -20,15 +20,15 @@ include('includes/navbar.php');
         
         <div class="form-group">
             <label> Name </label>
-            <input type="text" name="nama_fasi" class="form-control" placeholder="Enter Title" required>
+            <input type="text" name="about_nama" class="form-control" placeholder="Enter Title" required>
         </div>
         <div class="form-group">
             <label> Deskripsi </label>
-            <input type="text" name="deskripsi_fasi" class="form-control" placeholder="Enter Description" required>
+            <textarea name="about_desc" id="" cols="30" rows="10" class="form-control" placeholder="Enter Description" required></textarea>
         </div>
         <div class="form-group">
             <label> Gambar </label>
-            <input type="file" name="gambar_fasi" class="form-control" id="gambar_fasi" required>
+            <input type="file" name="about_gambar" class="form-control" id="gambar_fasi" required>
         </div>
       
 

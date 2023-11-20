@@ -1,3 +1,27 @@
+<?php
+$server     = "localhost";
+$username   =  "root";
+$password   =  "";
+$db         =  "wedding_organizer";
+$connection    = mysqli_connect($server, $username, $password);
+//pastikan urutan pemanggilan variablenya sama
+//untuk cek jika koneksi gagal ke database
+$dbconfig = mysqli_select_db($connection, $db);
+if($dbconfig) 
+{
+   // echo "Koneksi Database Berhasil";
+}
+else
+{
+    echo "Koneksi Database Gagal";
+}
+
+$query = "SELECT * FROM fasilitas";
+$query_run = mysqli_query($connection, $query);
+
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -98,19 +122,21 @@
               </div>
               <div class="sale_container">
                 <div class="box">
+                  <?php foreach ($query as $row) ?> 
+                  
                   <div class="img-box">
-                    <img src="Image/DAPUR DAN RUANG MAKAN BERSAMA.jpg" alt="">
+                    <img src="../Admin/upload/<?= $row["gambar"]; ?>" alt="">
                   </div>
                   <div class="detail-box">
                     <h6>
-                      Dapur dan Ruang Makan Bersama
+                    <?= $row["judul"]; ?>
                     </h6>
                     <p>
-                      Penyewa kost dapat memasak di Dapur Bersama, dan juga makan di Ruang Makan Bersama
+                    <?= $row["deskripsi"]; ?>
                     </p>
                   </div>
                 </div>
-                <div class="box">
+                <!-- <div class="box">
                   <div class="img-box">
                     <img src="image/RUANG TENGAH BERSAMA (LANTAI 2).jpg" alt="">
                   </div>
@@ -148,7 +174,7 @@
               Salah satu fasilitas yang bisa digunakan oleh penyewa dengan Kamar Standart
             </p>
           </div>
-        </div>
+        </div> -->
         <div class="box">
           <div class="img-box">
             <img src="image/jemuran.jpg" alt="">

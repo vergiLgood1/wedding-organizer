@@ -15,6 +15,6 @@ if($dbconfig)
 else
 {
     echo "gagal";
-}8
+}
 
 ?>
