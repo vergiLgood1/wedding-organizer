@@ -25,32 +25,32 @@
 </head>
 
 <body>
-    <header class="header" id="header">
+<header class="header" id="header">
         <nav class="nav">
             <div class="nav__left">
                 <a href="#" class="nav__logo">Wizz</a>
                 <div class="nav__menu" id="nav-menu">
                     <ul class="nav__list">
                         <li class="nav__item">
-                            <a href="home.html" class="nav__link active-link">Home</a>
+                            <a href="home.php" class="nav__link active-link">Home</a>
                         </li>
                         <li class="nav__item">
-                            <a href="about.html" class="nav__link">About</a>
+                            <a href="about.php" class="nav__link">About</a>
                         </li>
                         <li class="nav__item">
-                            <a href="gallery.html" class="nav__link">Gallery</a>
+                            <a href="gallery.php" class="nav__link">Gallery</a>
                         </li>
                         <li class="nav__item">
-                            <a href="package.html" class="nav__link" onclick="ArahkanKePackage()">Package</a>
+                            <a href="package.php" class="nav__link" onclick="ArahkanKePackage()">Package</a>
                         </li>
                         <li class="nav__item">
-                            <a href="#testimoni" class="nav__link">Testimoni</a>
+                            <a href="home.php" class="nav__link">Testimoni</a>
                         </li>
                         <li class="nav__item">
-                            <a href="#blog" class="nav__link">Blog</a>
+                            <a href="home.php" class="nav__link">Blog</a>
                         </li>
                         <li class="nav__item">
-                            <a href="#contact" class="nav__link">Contact</a>
+                            <a href="home.php" class="nav__link">Contact</a>
                         </li>
                     </ul>
                 </div>
@@ -60,9 +60,9 @@
 
             <div class="nav__right">
                 <button class="nav__button__shop" id="cartButton">
-                    <i class="ri-shopping-cart-line"></i>
+                    <i class="ri-shopping-cart-line" a href="pesananSaya.php"></i>
                 </button>
-                <button class="button-login">Masuk</button>
+                <button class="button-login" a href="../Login/login.php">Masuk</button>
             </div>
 
             <!-- ... (bagian lainnya tetap sama) -->
@@ -88,7 +88,7 @@
                         <img src="assets/img/Homepage1.png" alt="">
                     </div>
                     <div class="product-details">
-                        <h4><a href="#">Paket 1</a></h4>
+                        <h4><a href="detailPackage.php">Paket 1</a></h4>
                         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vero, possimus nostrum!</p>
                         <div class="product-bottom-details">
                             <div class="product-price"><small></small>Rp1.500.000</div>
@@ -107,7 +107,7 @@
                         <img src="assets/img/Homepage1.png" alt="">
                     </div>
                     <div class="product-details">
-                        <h4><a href="#">Paket 2</a></h4>
+                        <h4><a href="detailPackage.php">Paket 2</a></h4>
                         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vero, possimus nostrum!</p>
                         <div class="product-bottom-details">
                             <div class="product-price"><small></small>Rp1.500.000</div>
@@ -126,7 +126,7 @@
                         <img src="assets/img/Homepage1.png" alt="">
                     </div>
                     <div class="product-details">
-                        <h4><a href="#">Paket 3</a></h4>
+                        <h4><a href="detailPackage.php">Paket 3</a></h4>
                         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vero, possimus nostrum!</p>
                         <div class="product-bottom-details">
                             <div class="product-price"><small></small>Rp1.500.000</div>
@@ -145,7 +145,7 @@
                         <img src="assets/img/Homepage1.png" alt="">
                     </div>
                     <div class="product-details">
-                        <h4><a href="#">Paket 4</a></h4>
+                        <h4><a href="detailPackage.php">Paket 4</a></h4>
                         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vero, possimus nostrum!</p>
                         <div class="product-bottom-details">
                             <div class="product-price"><small></small>Rp1.500.000</div>
@@ -164,7 +164,7 @@
                         <img src="assets/img/Homepage1.png" alt="">
                     </div>
                     <div class="product-details">
-                        <h4><a href="#">Paket 5</a></h4>
+                        <h4><a href="detailPackage.php">Paket 5</a></h4>
                         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vero, possimus nostrum!</p>
                         <div class="product-bottom-details">
                             <div class="product-price"><small></small>Rp1.500.000</div>
@@ -182,7 +182,7 @@
                         <img src="assets/img/Homepage1.png" alt="">
                     </div>
                     <div class="product-details">
-                        <h4><a href="#">paket 6</a></h4>
+                        <h4><a href="detailPackage.php">paket 6</a></h4>
                         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vero, possimus nostrum!</p>
                         <div class="product-bottom-details">
                             <div class="product-price"><small></small>Rp1.500.000</div>
@@ -200,7 +200,7 @@
                         <img src="assets/img/Homepage1.png" alt="">
                     </div>
                     <div class="product-details">
-                        <h4><a href="#">Paket 7</a></h4>
+                        <h4><a href="detailPackage.php">Paket 7</a></h4>
                         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vero, possimus nostrum!</p>
                         <div class="product-bottom-details">
                             <div class="product-price"><small></small>Rp1.500.000</div>
@@ -218,7 +218,7 @@
                         <img src="assets/img/Homepage1.png" alt="">
                     </div>
                     <div class="product-details">
-                        <h4><a href="#">Paket 8</a></h4>
+                        <h4><a href="detailPackage.php">Paket 8</a></h4>
                         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vero, possimus nostrum!</p>
                         <div class="product-bottom-details">
                             <div class="product-price"><small></small>Rp1.500.000</div>
@@ -236,7 +236,7 @@
                         <img src="assets/img/Homepage1.png" alt="">
                     </div>
                     <div class="product-details">
-                        <h4><a href="#">Paket 9</a></h4>
+                        <h4><a href="detailPackage.php">Paket 9</a></h4>
                         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vero, possimus nostrum!</p>
                         <div class="product-bottom-details">
                             <div class="product-price"><small></small>Rp1.500.000</div>
@@ -254,7 +254,7 @@
                         <img src="assets/img/Homepage1.png" alt="">
                     </div>
                     <div class="product-details">
-                        <h4><a href="#">Paket 10</a></h4>
+                        <h4><a href="detailPackage.php">Paket 10</a></h4>
                         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vero, possimus nostrum!</p>
                         <div class="product-bottom-details">
                             <div class="product-price"><small></small>Rp1.500.000</div>
@@ -268,11 +268,11 @@
                 <!-- Product Card 5 -->
                 <div class="product-card" onclick="detailPaket(11)">
                     <div class="badge">Hot</div>
-                    <div class="product-tumb">
+                    <div class="product-tumb"  a href="detailPackage.php">
                         <img src="assets/img/Homepage1.png" alt="">
                     </div>
                     <div class="product-details">
-                        <h4><a href="#">Paket 11</a></h4>
+                        <h4><a href="detailPackage.php">Paket 11</a></h4>
                         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vero, possimus nostrum!</p>
                         <div class="product-bottom-details">
                             <div class="product-price"><small></small>Rp1.500.000</div>
@@ -290,7 +290,7 @@
                         <img src="assets/img/Homepage1.png" alt="">
                     </div>
                     <div class="product-details">
-                        <h4><a href="#">Paket 12</a></h4>
+                        <h4><a href="detailPackage.php">Paket 12</a></h4>
                         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vero, possimus nostrum!</p>
                         <div class="product-bottom-details">
                             <div class="product-price"><small></small>Rp1.500.000</div>

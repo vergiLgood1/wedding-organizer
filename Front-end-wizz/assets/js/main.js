@@ -1,3 +1,29 @@
+// Fungsi untuk menampilkan profil setelah login
+function loginPhp() {
+    // Simulasi login berhasil
+    var username = "NamaPengguna"; // Ganti ini dengan nama pengguna yang sesuai
+    document.getElementById("username").innerText = username;
+
+    // Tampilkan profil dan tombol masuk
+    document.getElementById("userProfile").classList.remove("hidden");
+    document.getElementById("loginButton").classList.remove("hidden");
+}
+
+// Fungsi untuk menampilkan dan menyembunyikan dropdown menu
+function toggleDropdown() {
+    var dropdownMenu = document.getElementById("dropdownMenu");
+    dropdownMenu.classList.toggle("hidden");
+}
+
+// Fungsi untuk logout
+function logout() {
+    // Simulasi logout
+    document.getElementById("userProfile").classList.add("hidden");
+    document.getElementById("loginButton").classList.add("hidden");
+}
+
+
+
 
 /*==================== SHOW MENU ====================*/
 const navMenu = document.getElementById('nav-menu'),
@@ -322,21 +348,39 @@ var mySwiper = new Swiper('.swiper-container', {
     },
 });
 
+
+
+
 // Action on click 
 
 function detailPaket(idPaket) {
     // Mengasumsikan Anda memiliki halaman detail dengan nama 'detail.html', Anda dapat mengarahkan pengguna ke halaman itu dengan ID paket yang dipilih
-    window.location.href = 'detailPackage.html?id=' + idPaket;
+    window.location.href = 'detailPackage.php?id=' + idPaket;
 }
 
 function detailPemesanan(idPaket){
 
-    window.location.href = 'detailPemesanan.html?id=' + idPaket;
+    window.location.href = 'detailPemesanan.php?id=' + idPaket;
 }
 
 function ArahkanKePackage(){
-    window.location.href = 'package.html?id=' + idPaket;
+    window.location.href = 'package.php?id=' + idPaket;
 }
+
+function detailPemesanan(idPaket) {
+        // Menggunakan window.location.href untuk mengarahkan ke halaman detailPemesanan.php
+    window.location.href = 'detailPemesanan.php?id=' + idPaket;
+    }
+
+function pesananSaya() {
+        // Menggunakan window.location.href untuk mengarahkan ke halaman detailPemesanan.php
+    window.location.href = 'pesananSaya.php?id=';
+    }
+
+function loginPhp() {
+        // Menggunakan window.location.href untuk mengarahkan ke halaman detailPemesanan.php
+    window.location.href = '../Login/login.php?id=';
+    }
 
 
 
