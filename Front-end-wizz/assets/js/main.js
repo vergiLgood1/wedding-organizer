@@ -1,30 +1,65 @@
-// Fungsi untuk menampilkan profil setelah login
-function loginPhp() {
-    // Simulasi login berhasil
-    var username = "NamaPengguna"; // Ganti ini dengan nama pengguna yang sesuai
-    document.getElementById("username").innerText = username;
+// Contoh data pengguna
+var userData = {
+    username: "JohnDoe" // Ganti dengan nama pengguna yang sesuai
+};
 
-    // Tampilkan profil dan tombol masuk
-    document.getElementById("userProfile").classList.remove("hidden");
-    document.getElementById("loginButton").classList.remove("hidden");
+// Cek status login
+var isLoggedIn = false;  // Ganti dengan status login yang sesuai
+
+// Fungsi untuk menyembunyikan atau menampilkan elemen tergantung pada status login
+function toggleLoginStatus() {
+    var userSection = document.getElementById('userSection');
+    var loginButton = document.getElementById('loginButton');
+
+    if (isLoggedIn) {
+        // Jika sudah login, sembunyikan tombol masuk dan tampilkan seisi userSection
+        userSection.classList.remove('hidden');
+        loginButton.style.display = 'none';  // Menyembunyikan tombol masuk
+        setUserData(userData); // Tetapkan data pengguna
+    } else {
+        // Jika belum login, sembunyikan userSection dan tampilkan tombol masuk
+        userSection.classList.add('hidden');
+        loginButton.style.display = 'block';  // Menampilkan tombol masuk
+    }
 }
 
-// Fungsi untuk menampilkan dan menyembunyikan dropdown menu
-function toggleDropdown() {
-    var dropdownMenu = document.getElementById("dropdownMenu");
-    dropdownMenu.classList.toggle("hidden");
+
+// Fungsi untuk menetapkan data pengguna
+function setUserData(user) {
+    document.getElementById('username').innerText = user.username;
 }
 
 // Fungsi untuk logout
 function logout() {
-    // Simulasi logout
-    document.getElementById("userProfile").classList.add("hidden");
-    document.getElementById("loginButton").classList.add("hidden");
+    // Lakukan logika logout di sini (misalnya, hapus token sesi)
+    isLoggedIn = false;
+    toggleLoginStatus(); // Perbarui tampilan setelah logout
 }
 
+// Panggil fungsi saat halaman dimuat
+window.onload = function () {
+    toggleLoginStatus();
+};
 
+// Fungsi untuk mendapatkan status login dari server (misalnya, melalui AJAX)
+function checkLoginStatus() {
+    // Simulasi: status login disimpan dalam variabel isLoggedIn pada server
+    var isLoggedIn = false;  // Ganti dengan logika sesuai kebutuhan
 
+    return isLoggedIn;
+}
 
+// Fungsi untuk mengarahkan pengguna ke home jika sudah login
+function redirectToHome() {
+    if (checkLoginStatus()) {
+        window.location.href = 'home.php';  // Ganti dengan path yang sesuai
+    }
+}
+
+// Panggil fungsi saat halaman dimuat
+window.onload = function () {
+    redirectToHome();
+};
 /*==================== SHOW MENU ====================*/
 const navMenu = document.getElementById('nav-menu'),
     navToggle = document.getElementById('nav-toggle'),

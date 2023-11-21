@@ -134,7 +134,7 @@ body {
   margin: var(--header-height) 0 0 0;
   font-family: var(--body-font);
   font-size: var(--normal-font-size);
-  background-color: #ECECEC;
+  background-color: #f7f7ff;
   color: var(--text-color);
 }
 
@@ -191,6 +191,7 @@ input {
   text-align: center;
   text-transform: capitalize;
   margin-bottom: var(--mb-2);
+  
 }
 
 .container {
@@ -1049,6 +1050,9 @@ padding-top: 26px;
   padding-bottom: 100px;
   width: 85%;
   margin: 0 auto;
+  padding-bottom: 200px;
+  padding-top: 50px;
+  
 }
 
 .outerdiv {
@@ -1208,6 +1212,7 @@ padding-top: 26px;
   width: 80%;
   margin: 0 auto;
   padding-bottom: 100px;
+
 }
 
 
@@ -1255,6 +1260,282 @@ padding-top: 26px;
   text-align: left;
 }
 
+
+/*=============== About us ===============*/
+.banner{
+  width: 100%;
+  height: 90vh;
+  /* background-image: linear-gradient(rgba(0,0,0,0.75), rgba(0,0,0,0.75)), url(/Front-end-wizz/assets/img/About3.png); */
+  background-color: var(--eerie-black);
+  background-size: cover;
+  background-position: center;
+  
+}
+
+  .banner__footer{
+    width: 100%;
+    height: 10vh;
+    /* background-image: linear-gradient(rgba(0,0,0,0.75), rgba(0,0,0,0.75)), url(/Front-end-wizz/assets/img/About3.png); */
+    background-color: var(--salmon-pink);
+    background-size: cover;
+    background-position: center;
+    overflow: hidden;
+
+  }
+
+  .container__banner__footer{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-top: 30px;
+    
+  }
+
+ .text__banner{
+    font-size: 20px;
+    font-weight: 600;
+    margin: 0;
+    padding: 0;
+
+  }
+
+.buttonBanner{
+    position: relative;
+    padding: 0 30px;
+    min-width: 44px;
+    height: 44px;
+    font-size: 15px;
+    line-height: 44px;
+    background-color: var(--eerie-black);
+    transition: 250ms linear;
+    text-align: center;
+    font-weight: 600;
+    text-decoration: none;
+    cursor: pointer;
+    border-radius: 3px;
+    border: none;
+    color: #fff;
+    margin-left: 20px;
+  }
+
+  .buttonBanner:hover{
+    background-color: black;
+  }
+
+  .containerHeaderAbout{  
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    padding-top: 80px;
+    padding-bottom: 80px;
+  }
+
+  .containerHeaderAbout .h2About{
+    font-size: 32px;
+    font-weight: 600;
+    line-height: 1.25;
+    padding: 0 20px;
+    margin: 0 0 10px;
+  }
+
+  .containerHeaderAbout .pAbout{
+    font-size: 18px;
+    color: var(--spanish-gray);
+    margin: 0;
+    padding: 0 20px;
+  }
+
+  .contentNav{
+    width: 100%;
+    position: absolute;
+    top: 250px;
+    transform: translateY(-50%);
+    text-align: center;
+    color: var(--salmon-pink);
+  }
+
+  .contentNav .contentTittle{
+    font-size: 70px;
+    margin-top: 80px;
+  }
+
+  .contentNav .contentDesc{
+    margin: 20px auto;
+    font-weight: 100;
+    line-height: 25px;
+    color: var(--white);
+  }
+
+  .showcaseImg {
+    /* Add your custom styling here */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* Add any other styles you need */
+}
+
+.showcaseImg .containerShowcase {
+    /* Add styling for the container if needed */
+}
+
+.showcaseImg .contentShowcase {
+    justify-content: center;
+    display: flex;
+    align-items: center;
+    gap: 40px;
+    padding-top: 30%;
+  }
+  
+  .showcaseImg img {
+    /* Add styling for the images if needed */
+    max-width: 13%;
+    height: auto;
+    border-radius: 22px;
+    border: 3px solid rgba(255,255,255,0.4);
+    padding: 3px;
+    background: none;
+    overflow: hidden;
+    margin: 20px;
+
+}
+
+
+
+
+  .aboutUs{
+    height: 100vh;
+    width: 100%;
+    background: #f7f7f7;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+
+  }
+
+
+  .about .mainAbout img{
+    width: 580px;
+    max-width: 100%;
+    height: auto;
+    padding: 0 10px;
+  }
+
+  .all-text{
+    width: 600px;
+    max-width: 100%;
+    padding:  0 10px;
+
+  }
+
+  .mainAbout{
+    width: 1290px;
+    max-width: 95%;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-around;
+  }
+
+  .all-text .aboutHeader4 {
+    font-family: 'Roboto', sans-serif;
+    font-size: 18px;
+    color: #777777;
+    letter-spacing: 1px;
+    font-weight: 400;
+    margin-bottom: 10px;
+  }
+
+  .all-text .aboutHeader1{
+    font-size: 65px;
+    color: #111111;
+    font-weight: 700;
+    margin-bottom: 20px;
+
+  }
+
+  .all-text .aboutDesc{
+    font-family: 'Roboto', sans-serif;
+    font-size: 16px;
+    color: #777777;
+    line-height: 30px;
+    margin-bottom: 35px;
+  }
+
+  .buttonAbout .btn1{
+    background: white;
+    padding: 20px 32px;
+    font-size: 16px;
+    font-weight: bold;
+    color: #111111;
+    border: none;
+    outline: none;
+    box-shadow: 0px 16px 32px 0px rgb(0 0 0 / 6%);
+    margin-right: 20px;
+  }
+
+ .buttonAbout .btn1:hover{
+    background-color: var(--salmon-pink);
+    color: white;
+    transition: .3%;
+    cursor: pointer;
+  }
+
+  .buttonAbout .btn2{
+    background-color: #111111;
+    color: white;
+    padding: 20px 32px;
+    font-size: 16px;
+    font-weight: bold;
+    border: none;
+    outline: none;
+    box-shadow: 0px 16px 32px 0px rgb(0 0 0 / 6%);
+    margin-right: 20px;
+  }
+
+  .buttonAbout .btn2:hover{
+    background-color: var(--salmon-pink);
+    color: white;
+    transition: .3%;
+    cursor: pointer;
+  }
+
+@media screen and (max-widht:1250px){
+  .aboutUs{
+    width: 100%;
+    height: auto;
+    padding: 60px 0;
+  }
+  .all-text{
+    text-align: center;
+    margin-top: 40px;
+  }
+  }
+  
+@media screen and (max-widht:650px){
+  .about .mainAbout img{
+    margin-bottom: 20px;
+
+  }
+  .all-text .aboutHeader1{
+    font-size: 45px;
+    margin-bottom: 20px;
+  }
+}
+@media screen and (max-widht:600px){
+
+  .about-section{    
+    padding: 0;
+
+  }
+  .inner-container{
+    padding: 60px;
+  }
+}
+
+
+/*=============== About us ===============*/
 
 /*=============== SUBSCRIBE ===============*/
 .sponsor__section {

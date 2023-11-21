@@ -32,7 +32,7 @@
                 <div class="nav__menu" id="nav-menu">
                     <ul class="nav__list">
                         <li class="nav__item">
-                            <a href="home.php" class="nav__link active-link">Home</a>
+                            <a href="home.php" class="nav__link ">Home</a>
                         </li>
                         <li class="nav__item">
                             <a href="about.php" class="nav__link">About</a>
@@ -41,16 +41,16 @@
                             <a href="gallery.php" class="nav__link">Gallery</a>
                         </li>
                         <li class="nav__item">
-                            <a href="package.php" class="nav__link" onclick="ArahkanKePackage()">Package</a>
+                            <a href="package.php" class="nav__link active-link" onclick="ArahkanKePackage()">Package</a>
                         </li>
                         <li class="nav__item">
-                            <a href="home.php" class="nav__link">Testimoni</a>
+                            <a href="#testimoni" class="nav__link">Testimoni</a>
                         </li>
                         <li class="nav__item">
-                            <a href="home.php" class="nav__link">Blog</a>
+                            <a href="#blog" class="nav__link">Blog</a>
                         </li>
                         <li class="nav__item">
-                            <a href="home.php" class="nav__link">Contact</a>
+                            <a href="#contact" class="nav__link">Contact</a>
                         </li>
                     </ul>
                 </div>

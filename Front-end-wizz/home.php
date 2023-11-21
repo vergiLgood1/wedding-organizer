@@ -46,13 +46,13 @@
                             <a href="package.php" class="nav__link" onclick="ArahkanKePackage()">Package</a>
                         </li>
                         <li class="nav__item">
-                            <a href="home.php" class="nav__link">Testimoni</a>
+                            <a href="#testimoni" class="nav__link">Testimoni</a>
                         </li>
                         <li class="nav__item">
-                            <a href="home.php" class="nav__link">Blog</a>
+                            <a href="#contact" class="nav__link">Contact</a>
                         </li>
                         <li class="nav__item">
-                            <a href="home.php" class="nav__link">Contact</a>
+                            <a href="#blog" class="nav__link">Blog</a>
                         </li>
                     </ul>
                 </div>
@@ -64,7 +64,7 @@
     <div id="userSection" class="hidden">
         <!-- Jika pengguna sudah login, tampilkan icon profil -->
         <div id="userProfile">
-            <img src="profile-icon.png" alt="Profile Icon">
+            <img src="assets/img/Profile.svg" alt="Profile Icon">
             <span id="username"></span>
             <div id="dropdownMenu" class="hidden">
                 <ul>
@@ -268,7 +268,7 @@
                 <p class="package__title">Pilih, pesan dan laksanakan pernikahanmu</p>
             </div>
             <div class="cards-container">
-                <article class="card">
+                <article class="card" onclick=" ArahkanKePackage()">
                     <div class="card-info-hover">
                         <svg class="card-like" viewBox="0 0 24 24">
                             <path fill="#000000"
@@ -283,7 +283,7 @@
                         </div>
                     </div>
                     <div class="card-img"></div>
-                    <a href="package.html">
+                    <a href="package.php">
                         <div class="card-img-hover" style="background-image: url(assets/img/about1.png);">
                         </div>
                     </a>
@@ -297,7 +297,7 @@
                     </div>
                 </article>
 
-                <article class="card">
+                <article class="card" onclick=" ArahkanKePackage()">
                     <div class="card-info-hover">
                         <svg class="card-like" viewBox="0 0 24 24">
                             <path fill="#000000"
@@ -312,7 +312,7 @@
                         </div>
                     </div>
                     <div class="card-img"></div>
-                    <a href="package.html">
+                    <a href="package.php">
                         <div class="card-img-hover" style="background-image: url(assets/img/about1.png);">
                         </div>
                     </a>
@@ -325,7 +325,7 @@
                         </span>
                     </div>
                 </article>
-                <article class="card">
+                <article class="card" onclick=" ArahkanKePackage()">
                     <div class="card-info-hover">
                         <svg class="card-like" viewBox="0 0 24 24">
                             <path fill="#000000"
@@ -340,7 +340,7 @@
                         </div>
                     </div>
                     <div class="card-img"></div>
-                    <a href="package.html">
+                    <a href="package.php">
                         <div class="card-img-hover" style="background-image: url(assets/img/about1.png);">
                         </div>
                     </a>
@@ -349,7 +349,7 @@
                         <h3 class="card-title">Murah tapi tapi berkualitas</h3>
                         <span class="card-by"> 
 
-                            <a href="#" class="card-admin">Rp. 50.000</a>
+                            <a href="" class="card-admin">Rp. 50.000</a>
                         </span>
                     </div>
                 </article>

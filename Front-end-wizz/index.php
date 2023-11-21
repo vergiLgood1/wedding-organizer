@@ -42,13 +42,13 @@
                             <a href="package.php" class="nav__link" onclick="ArahkanKePackage()">Package</a>
                         </li>
                         <li class="nav__item">
-                            <a href="home.php" class="nav__link">Testimoni</a>
+                            <a href="#testimoni" class="nav__link">Testimoni</a>
                         </li>
                         <li class="nav__item">
-                            <a href="home.php" class="nav__link">Blog</a>
+                            <a href="#contact" class="nav__link">Contact</a>
                         </li>
                         <li class="nav__item">
-                            <a href="home.php" class="nav__link">Contact</a>
+                            <a href="#blog" class="nav__link">Blog</a>
                         </li>
                     </ul>
                 </div>
@@ -57,12 +57,29 @@
             <!-- ... (bagian lainnya tetap sama) -->
 
             <div class="nav__right">
-                <button class="nav__button__shop" id="cartButton">
-                    <i class="ri-shopping-cart-line" a href="pesananSaya.php"></i>
-                </button>
-                <button class="button-login" a href="../Login/login.php">Masuk</button>
+    <div id="userSection" class="hidden">
+        <!-- Jika pengguna sudah login, tampilkan icon profil -->
+        <div id="userProfile">
+            <img src="assets/img/Profile.svg" alt="Profile Icon">
+            <span id="username"></span>
+            <div id="dropdownMenu" class="hidden">
+                <ul>
+                    <li><a href="#">Pesanan Saya</a></li>
+                    <li><a href="#">Akun Saya</a></li>
+                    <li><a href="#" onclick="logout()">Logout</a></li>
+                </ul>
             </div>
+        </div>
+    </div>
+    <!-- Tombol keranjang belanja -->
+    <button class="nav__button__shop" id="cartButton">
+        <i class="ri-shopping-cart-line" onclick="pesananSaya()"></i>
+    </button>
 
+    <!-- Tombol masuk -->
+    <button id="loginButton" class="button-login" onclick="loginPhp()">Masuk</button>
+
+</div>
             <!-- ... (bagian lainnya tetap sama) -->
 
 
@@ -242,13 +259,13 @@
         <!--==================== AKHIR VIDEO ====================-->
 
         <!--==================== AWAL PACKAGES ====================-->
-        <section class="packages" id="package" >
+        <section class="packages" id="package">
             <div class="title_container">
                 <h2 class="section__title">Pilih paket <br>sesuai kebutuhanmu</h2>
                 <p class="package__title">Pilih, pesan dan laksanakan pernikahanmu</p>
             </div>
-            <div class="cards-container"  >
-                <article class="card">
+            <div class="cards-container">
+                <article class="card" onclick=" ArahkanKePackage()">
                     <div class="card-info-hover">
                         <svg class="card-like" viewBox="0 0 24 24">
                             <path fill="#000000"
@@ -262,9 +279,9 @@
                             <span class="card-time">20 min</span>
                         </div>
                     </div>
-                    <div class="card-img" onclick="ArahkanKePackage()"></div>
-                   
-                        <div class="card-img-hover" style="background-image: url(assets/img/about1.png);" >
+                    <div class="card-img"></div>
+                    <a href="package.php">
+                        <div class="card-img-hover" style="background-image: url(assets/img/about1.png);">
                         </div>
                     </a>
                     <div class="card-info">
@@ -277,7 +294,7 @@
                     </div>
                 </article>
 
-                <article class="card">
+                <article class="card" onclick=" ArahkanKePackage()">
                     <div class="card-info-hover">
                         <svg class="card-like" viewBox="0 0 24 24">
                             <path fill="#000000"
@@ -291,9 +308,9 @@
                             <span class="card-time">20 min</span>
                         </div>
                     </div>
-                    <div class="card-img" onclick="ArahkanKePackage()"></div>
-                 
-                        <div class="card-img-hover" style="background-image: url(assets/img/about1.png);"  >
+                    <div class="card-img"></div>
+                    <a href="package.php">
+                        <div class="card-img-hover" style="background-image: url(assets/img/about1.png);">
                         </div>
                     </a>
                     <div class="card-info">
@@ -305,7 +322,7 @@
                         </span>
                     </div>
                 </article>
-                <article class="card">
+                <article class="card" onclick=" ArahkanKePackage()">
                     <div class="card-info-hover">
                         <svg class="card-like" viewBox="0 0 24 24">
                             <path fill="#000000"
@@ -319,8 +336,8 @@
                             <span class="card-time">20 min</span>
                         </div>
                     </div>
-                    <div class="card-img" ></div>
-                  
+                    <div class="card-img"></div>
+                    <a href="package.php">
                         <div class="card-img-hover" style="background-image: url(assets/img/about1.png);">
                         </div>
                     </a>
@@ -329,7 +346,7 @@
                         <h3 class="card-title">Murah tapi tapi berkualitas</h3>
                         <span class="card-by"> 
 
-                            <a href="#" class="card-admin">Rp. 50.000</a>
+                            <a href="" class="card-admin">Rp. 50.000</a>
                         </span>
                     </div>
                 </article>
@@ -337,6 +354,7 @@
         </section>
 
         <!--==================== AKHIR PACKAGES ====================-->
+
 
         <!--==================== AWAL TESTIMONIAL ====================-->
 
@@ -471,7 +489,7 @@
               
               </section>
     
-            <!--==================== AKHIR KONTAK ====================-->
+        <!--==================== AKHIR KONTAK ====================-->
     
         
         <!--==================== AWAL BLOG ====================-->
