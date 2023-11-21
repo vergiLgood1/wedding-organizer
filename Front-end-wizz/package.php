@@ -28,14 +28,14 @@ include('../Admin/security.php');
 </head>
 
 <body>
-<header class="header" id="header">
+    <header class="header" id="header">
         <nav class="nav">
             <div class="nav__left">
                 <a href="#" class="nav__logo">Wizz</a>
                 <div class="nav__menu" id="nav-menu">
                     <ul class="nav__list">
                         <li class="nav__item">
-                            <a href="home.php" class="nav__link active-link">Home</a>
+                            <a href="index.php" class="nav__link active-link">Home</a>
                         </li>
                         <li class="nav__item">
                             <a href="about.php" class="nav__link">About</a>
@@ -47,13 +47,13 @@ include('../Admin/security.php');
                             <a href="package.php" class="nav__link" onclick="ArahkanKePackage()">Package</a>
                         </li>
                         <li class="nav__item">
-                            <a href="home.php" class="nav__link">Testimoni</a>
+                            <a href="#testimoni" class="nav__link">Testimoni</a>
                         </li>
                         <li class="nav__item">
-                            <a href="home.php" class="nav__link">Blog</a>
+                            <a href="#blog" class="nav__link">Blog</a>
                         </li>
                         <li class="nav__item">
-                            <a href="home.php" class="nav__link">Contact</a>
+                            <a href="#contact" class="nav__link">Contact</a>
                         </li>
                     </ul>
                 </div>
@@ -63,9 +63,9 @@ include('../Admin/security.php');
 
             <div class="nav__right">
                 <button class="nav__button__shop" id="cartButton">
-                    <i class="ri-shopping-cart-line" a href="pesananSaya.php"></i>
+                    <i class="ri-shopping-cart-line"></i>
                 </button>
-                <button class="button-login" a href="../Login/login.php">Masuk</button>
+                <button class="button-login">Masuk</button>
             </div>
 
             <!-- ... (bagian lainnya tetap sama) -->
@@ -107,13 +107,6 @@ include('../Admin/security.php');
                         <p><?php echo $row["deskripsi"]; ?></p>
                         <div class="product-bottom-details">
                             <div class="product-price"><small></small><?php echo $row["harga"] ?></div>
-                        <img src="assets/img/Homepage1.png" alt="">
-                    </div>
-                    <div class="product-details">
-                        <h4><a href="detailPackage.php">Paket 1</a></h4>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vero, possimus nostrum!</p>
-                        <div class="product-bottom-details">
-                            <div class="product-price"><small></small>Rp1.500.000</div>
                             <div class="product-count"><small>5.0 |</small>5 Terjual</div>
                             <div class="product-links">
                                 <a href="#"><i class="fas fa-heart"></i></a>
@@ -126,208 +119,6 @@ include('../Admin/security.php');
                     
                 }
                 ?>
-                <!-- Product Card 2 -->
-                <div class="product-card" onclick="detailPaket(2)">
-                    <div class="badge">Hot</div>
-                    <div class="product-tumb">
-                        <img src="assets/img/Homepage1.png" alt="">
-                    </div>
-                    <div class="product-details">
-                        <h4><a href="detailPackage.php">Paket 2</a></h4>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vero, possimus nostrum!</p>
-                        <div class="product-bottom-details">
-                            <div class="product-price"><small></small>Rp1.500.000</div>
-                            <div class="product-count"><small>5.0 |</small>5 Terjual</div>
-                            <div class="product-links">
-                                <a href="#"><i class="fas fa-heart"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-    
-                <!-- Product Card 3 -->
-                <div class="product-card" onclick="detailPaket(3)">
-                    <div class="badge">Hot</div>
-                    <div class="product-tumb">
-                        <img src="assets/img/Homepage1.png" alt="">
-                    </div>
-                    <div class="product-details">
-                        <h4><a href="detailPackage.php">Paket 3</a></h4>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vero, possimus nostrum!</p>
-                        <div class="product-bottom-details">
-                            <div class="product-price"><small></small>Rp1.500.000</div>
-                            <div class="product-count"><small>5.0 |</small>5 Terjual</div>
-                            <div class="product-links">
-                                <a href="#"><i class="fas fa-heart"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-    
-                <!-- Product Card 4 -->
-                <div class="product-card" onclick="detailPaket(4)">
-                    <div class="badge">Hot</div>
-                    <div class="product-tumb">
-                        <img src="assets/img/Homepage1.png" alt="">
-                    </div>
-                    <div class="product-details">
-                        <h4><a href="detailPackage.php">Paket 4</a></h4>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vero, possimus nostrum!</p>
-                        <div class="product-bottom-details">
-                            <div class="product-price"><small></small>Rp1.500.000</div>
-                            <div class="product-count"><small>5.0 |</small>5 Terjual</div>
-                            <div class="product-links">
-                                <a href="#"><i class="fas fa-heart"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-    
-                <!-- Product Card 5 -->
-                <div class="product-card" onclick="detailPaket(5)">
-                    <div class="badge">Hot</div>
-                    <div class="product-tumb">
-                        <img src="assets/img/Homepage1.png" alt="">
-                    </div>
-                    <div class="product-details">
-                        <h4><a href="detailPackage.php">Paket 5</a></h4>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vero, possimus nostrum!</p>
-                        <div class="product-bottom-details">
-                            <div class="product-price"><small></small>Rp1.500.000</div>
-                            <div class="product-count"><small>5.0 |</small>5 Terjual</div>
-                            <div class="product-links">
-                                <a href="#"><i class="fas fa-heart"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- Product Card 5 -->
-                <div class="product-card" onclick="detailPaket(6)">
-                    <div class="badge">Hot</div>
-                    <div class="product-tumb">
-                        <img src="assets/img/Homepage1.png" alt="">
-                    </div>
-                    <div class="product-details">
-                        <h4><a href="detailPackage.php">paket 6</a></h4>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vero, possimus nostrum!</p>
-                        <div class="product-bottom-details">
-                            <div class="product-price"><small></small>Rp1.500.000</div>
-                            <div class="product-count"><small>5.0 |</small>5 Terjual</div>
-                            <div class="product-links">
-                                <a href="#"><i class="fas fa-heart"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- Product Card 5 -->
-                <div class="product-card" onclick="detailPaket(7)">
-                    <div class="badge">Hot</div>
-                    <div class="product-tumb">
-                        <img src="assets/img/Homepage1.png" alt="">
-                    </div>
-                    <div class="product-details">
-                        <h4><a href="detailPackage.php">Paket 7</a></h4>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vero, possimus nostrum!</p>
-                        <div class="product-bottom-details">
-                            <div class="product-price"><small></small>Rp1.500.000</div>
-                            <div class="product-count"><small>5.0 |</small>5 Terjual</div>
-                            <div class="product-links">
-                                <a href="#"><i class="fas fa-heart"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- Product Card 5 -->
-                <div class="product-card" onclick="detailPaket(8)">
-                    <div class="badge">Hot</div>
-                    <div class="product-tumb">
-                        <img src="assets/img/Homepage1.png" alt="">
-                    </div>
-                    <div class="product-details">
-                        <h4><a href="detailPackage.php">Paket 8</a></h4>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vero, possimus nostrum!</p>
-                        <div class="product-bottom-details">
-                            <div class="product-price"><small></small>Rp1.500.000</div>
-                            <div class="product-count"><small>5.0 |</small>5 Terjual</div>
-                            <div class="product-links">
-                                <a href="#"><i class="fas fa-heart"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- Product Card 5 -->
-                <div class="product-card" onclick="detailPaket(9)">
-                    <div class="badge">Hot</div>
-                    <div class="product-tumb">
-                        <img src="assets/img/Homepage1.png" alt="">
-                    </div>
-                    <div class="product-details">
-                        <h4><a href="detailPackage.php">Paket 9</a></h4>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vero, possimus nostrum!</p>
-                        <div class="product-bottom-details">
-                            <div class="product-price"><small></small>Rp1.500.000</div>
-                            <div class="product-count"><small>5.0 |</small>5 Terjual</div>
-                            <div class="product-links">
-                                <a href="#"><i class="fas fa-heart"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- Product Card 5 -->
-                <div class="product-card" onclick="detailPaket(10)">
-                    <div class="badge">Hot</div>
-                    <div class="product-tumb">
-                        <img src="assets/img/Homepage1.png" alt="">
-                    </div>
-                    <div class="product-details">
-                        <h4><a href="detailPackage.php">Paket 10</a></h4>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vero, possimus nostrum!</p>
-                        <div class="product-bottom-details">
-                            <div class="product-price"><small></small>Rp1.500.000</div>
-                            <div class="product-count"><small>5.0 |</small>5 Terjual</div>
-                            <div class="product-links">
-                                <a href="#"><i class="fas fa-heart"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- Product Card 5 -->
-                <div class="product-card" onclick="detailPaket(11)">
-                    <div class="badge">Hot</div>
-                    <div class="product-tumb"  a href="detailPackage.php">
-                        <img src="assets/img/Homepage1.png" alt="">
-                    </div>
-                    <div class="product-details">
-                        <h4><a href="detailPackage.php">Paket 11</a></h4>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vero, possimus nostrum!</p>
-                        <div class="product-bottom-details">
-                            <div class="product-price"><small></small>Rp1.500.000</div>
-                            <div class="product-count"><small>5.0 |</small>5 Terjual</div>
-                            <div class="product-links">
-                                <a href="#"><i class="fas fa-heart"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- Product Card 5 -->
-                <div class="product-card" onclick="detailPaket(12)">
-                    <div class="badge">Hot</div>
-                    <div class="product-tumb">
-                        <img src="assets/img/Homepage1.png" alt="">
-                    </div>
-                    <div class="product-details">
-                        <h4><a href="detailPackage.php">Paket 12</a></h4>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vero, possimus nostrum!</p>
-                        <div class="product-bottom-details">
-                            <div class="product-price"><small></small>Rp1.500.000</div>
-                            <div class="product-count"><small>5.0 |</small>5 Terjual</div>
-                            <div class="product-links">
-                                <a href="#"><i class="fas fa-heart"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
             </div>
         </section>
 

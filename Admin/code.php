@@ -137,9 +137,9 @@ if(isset($_POST['about_save']))
 
 }
 
-if(isset($_POST['updatebtn2']))
+if(isset($_POST['updatebtn9']))
 {
-    $id = $_POST['edit_id'];
+    $id = $_POST['edit_id9'];
     $title = $_POST['edit_judul'];
     $description = $_POST['edit_deskripsi'];
     
@@ -160,9 +160,9 @@ if(isset($_POST['updatebtn2']))
 
 }
 
-if(isset($_POST['deletebtn2']))
+if(isset($_POST['deletebtn9']))
 {
-    $id = $_POST['delete_id'];
+    $id = $_POST['delete_id9'];
 
     $query = "DELETE FROM about WHERE id='$id'";
     $query_run = mysqli_query($connection, $query);
