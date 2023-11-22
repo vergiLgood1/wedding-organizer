@@ -25,10 +25,10 @@
 </head>
 
 <body>
-<header class="header" id="header">
+    <header class="header" id="header">
         <nav class="nav">
             <div class="nav__left">
-                <a href="#" class="nav__logo">Wizz</a>
+                <a href="#" class="nav__logo"><img src="assets/img/logo.png" alt=""></a>
                 <div class="nav__menu" id="nav-menu">
                     <ul class="nav__list">
                         <li class="nav__item">
@@ -99,7 +99,7 @@
                         </div>
                     </div>
                 </div>
-    
+
                 <!-- Product Card 2 -->
                 <div class="product-card" onclick="detailPaket(2)">
                     <div class="badge">Hot</div>
@@ -118,7 +118,7 @@
                         </div>
                     </div>
                 </div>
-    
+
                 <!-- Product Card 3 -->
                 <div class="product-card" onclick="detailPaket(3)">
                     <div class="badge">Hot</div>
@@ -137,7 +137,7 @@
                         </div>
                     </div>
                 </div>
-    
+
                 <!-- Product Card 4 -->
                 <div class="product-card" onclick="detailPaket(4)">
                     <div class="badge">Hot</div>
@@ -156,7 +156,7 @@
                         </div>
                     </div>
                 </div>
-    
+
                 <!-- Product Card 5 -->
                 <div class="product-card" onclick="detailPaket(5)">
                     <div class="badge">Hot</div>
@@ -268,7 +268,7 @@
                 <!-- Product Card 5 -->
                 <div class="product-card" onclick="detailPaket(11)">
                     <div class="badge">Hot</div>
-                    <div class="product-tumb"  a href="detailPackage.php">
+                    <div class="product-tumb" a href="detailPackage.php">
                         <img src="assets/img/Homepage1.png" alt="">
                     </div>
                     <div class="product-details">
@@ -305,10 +305,10 @@
             </div>
         </section>
 
-        
-        
-          <!--==================== SPONSORS ====================-->
-          <section class="sponsor__section">
+
+
+        <!--==================== SPONSORS ====================-->
+        <section class="sponsor__section">
             <div class="sponsor__container container grid">
                 <div class="sponsor__content">
                     <img src="assets/img/sponsors1.png" alt="" class="sponsor__img">
@@ -331,7 +331,7 @@
     </main>
 
 
-    
+
 
 
     <!--==================== AWAL FOOTER ====================-->

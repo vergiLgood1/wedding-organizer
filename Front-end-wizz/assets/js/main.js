@@ -94,7 +94,7 @@ navLink.forEach(n => n.addEventListener('click', linkAction))
 
 /*==================== CHANGE BACKGROUND HEADER ====================*/
 function scrollHeader() {
-    
+
     const header = document.getElementById('header')
     const navLinks = document.querySelectorAll('.nav__link');
 
@@ -393,31 +393,31 @@ function detailPaket(idPaket) {
     window.location.href = 'detailPackage.php?id=' + idPaket;
 }
 
-function detailPemesanan(idPaket){
+function detailPemesanan(idPaket) {
 
     window.location.href = 'detailPemesanan.php?id=' + idPaket;
 }
 
-function ArahkanKePackage(){
+function ArahkanKePackage() {
     window.location.href = 'package.php?id=' + idPaket;
 }
 
 function detailPemesanan(idPaket) {
-        // Menggunakan window.location.href untuk mengarahkan ke halaman detailPemesanan.php
+    // Menggunakan window.location.href untuk mengarahkan ke halaman detailPemesanan.php
     window.location.href = 'detailPemesanan.php?id=' + idPaket;
-    }
+}
 
 function pesananSaya() {
-        // Menggunakan window.location.href untuk mengarahkan ke halaman detailPemesanan.php
+    // Menggunakan window.location.href untuk mengarahkan ke halaman detailPemesanan.php
     window.location.href = 'pesananSaya.php?id=';
-    }
+}
 
 function loginPhp() {
-        // Menggunakan window.location.href untuk mengarahkan ke halaman detailPemesanan.php
+    // Menggunakan window.location.href untuk mengarahkan ke halaman detailPemesanan.php
     window.location.href = '../Login/login.php?id=';
-    }
+}
 
-function home(){
+function home() {
     window.location.href = 'home.php?id=';
 }
 

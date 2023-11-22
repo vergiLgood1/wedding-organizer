@@ -39,7 +39,7 @@
                 <div class="navigation">
 
                     <div class="logo">
-                        <i class="icon icon-basket">wizz</i>
+                        <i class="icon icon-basket"><img src="assets/img/logo.png" alt=""></i>
                     </div>
                     <div class="secure">
                         <i class="icon icon-shield"></i>
@@ -61,19 +61,17 @@
                 <div class="details__item">
 
                     <div class="item__image">
-                        <img class="iphone"
-                            src="assets/img/about1.png"
-                            alt="">
+                        <img class="iphone" src="assets/img/about1.png" alt="">
                     </div>
                     <div class="item__details">
                         <div class="item__title">
-                            
+
                         </div>
                         <div class="item__price">
-                           
+
                         </div>
                         <div class="item__quantity">
-                            
+
                         </div>
                         <div class="item__description">
                             <ul>
@@ -124,41 +122,44 @@
                                         autocomplete="name">
                                 </div>
                                 <div class="form-group">
-                     
+
                                     <input type="text" id="phoneNumber" placeholder="Nomor Telepon"
                                         autocomplete="user-address-phone">
                                 </div>
                                 <div class="form-group">
-                           
+
                                     <input type="text" id="province" placeholder="Provinsi, Kota, Kecamatan, Kode pos">
                                 </div>
-                             
+
                                 <div class="form-group">
-                                  
+
                                     <textarea id="streetAddress" placeholder="Nama Jalan, Gedung, No. Rumah" rows="2"
                                         maxlength="160" autocomplete="user-street-address"></textarea>
                                 </div>
                                 <div class="form-group">
-                                   
+
                                     <input type="text" id="otherDetails"
                                         placeholder="Detail Lainnya (Cth: Blok / Unit No., Patokan)" maxlength="20">
                                 </div>
                                 <div class="form-group">
                                     <label>Tandai Sebagai:</label>
                                     <div class="radio-group">
-                                        <div class="radio-option" role="radio" aria-checked="true" aria-disabled="false" tabindex="0">
+                                        <div class="radio-option" role="radio" aria-checked="true" aria-disabled="false"
+                                            tabindex="0">
                                             <span>Rumah</span>
                                         </div>
-                                        <div class="radio-option" role="radio" aria-checked="false" aria-disabled="false" tabindex="0">
-                                           <span>Kantor</span>
+                                        <div class="radio-option" role="radio" aria-checked="false"
+                                            aria-disabled="false" tabindex="0">
+                                            <span>Kantor</span>
                                         </div>
                                     </div>
                                 </div>
-                                
+
                                 <div class="button-container">
                                     <button type="button" class="cancel-button" onclick="closeAddressModal()">Nanti
                                         Saja</button>
-                                    <button type="button" class="confirm-button" onclick="copyToShippingAddress()">OK</button>
+                                    <button type="button" class="confirm-button"
+                                        onclick="copyToShippingAddress()">OK</button>
                                 </div>
                             </form>
                         </div>
@@ -172,7 +173,8 @@
                     </div>
                     <div class="card-content">
                         <label for="usage-date">Tanggal Penggunaan:</label>
-                        <input type="date" id="usageDate" name="usage-date" class="date-picker" onchange="disableSelectedDate()">
+                        <input type="date" id="usageDate" name="usage-date" class="date-picker"
+                            onchange="disableSelectedDate()">
                     </div>
                 </div>
 
@@ -207,7 +209,7 @@
                         <div class="total-value"></div>
                     </div>
                     <div class="insurance-message">
-                       Pastikan untuk membayar dp terlebih dahulu.<span class="insurance-link" role="button"
+                        Pastikan untuk membayar dp terlebih dahulu.<span class="insurance-link" role="button"
                             tabindex="0"> ketentuan dp yaitu 50% dari harga yg tertera </span>.
                     </div>
                     <div class="summary-main-buttons">
