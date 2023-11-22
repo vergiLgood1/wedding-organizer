@@ -1070,10 +1070,7 @@ i {
 
 
 /*=============== SUBSCRIBE ===============*/
-.sponsor__section {
-  background-color: var(--eerie-black);
-  padding-top: 40px;
-}
+
 
 .subscribe__bg {
 
@@ -1340,6 +1337,11 @@ i {
 
 
 /*=============== SPONSORS ===============*/
+
+.sponsor__section {
+  background-color: var(--eerie-black);
+  padding-top: 40px;
+}
 
 .sponsor__container {
   color: var(--spanish-gray);

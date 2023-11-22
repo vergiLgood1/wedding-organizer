@@ -1,7 +1,13 @@
-/*=============== GOOGLE FONTS ===============*/
+/*-----------------------------------*\
+GOOGLE FONT
+\*-----------------------------------*/
+
 @import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Raleway:wght@500;600;700&display=swap");
 
-/*=============== VARIABLES CSS ===============*/
+/*-----------------------------------*\
+VARIABLE CSS
+\*-----------------------------------*/
+
 :root {
   --header-height: 3rem;
 
@@ -10,7 +16,10 @@
   /*Green dark 190 - Green 171 - Grren Blue 200*/
   --hue-color: 190;
 
-  /* HSL color mode */
+/*-----------------------------------*\
+HSL COLOR
+\*-----------------------------------*/
+
   --first-color: hsl(353, 100%, 78%);
   --first-color-second: hsl(353, 100%, 78%);
   --first-color-alt: hsl(353, 100%, 70%);
@@ -24,7 +33,10 @@
   --scroll-bar-color: hsl(var(--hue-color), 12%, 90%);
   --scroll-thumb-color: hsl(var(--hue-color), 12%, 75%);
 
-  /* Other color  */
+/*-----------------------------------*\
+OTHER COLOR
+\*-----------------------------------*/
+
   --spanish-gray: hsl(0, 0%, 60%);
   --sonic-silver: hsl(0, 0%, 47%);
   --eerie-black: hsl(0, 0%, 13%);
@@ -37,7 +49,10 @@
   --white: hsl(0, 100%, 100%);
   --onyx: hsl(0, 0%, 27%);
 
-  /*========== Font and typography ==========*/
+/*-----------------------------------*\
+FONT & TYPHOGRAPHY
+\*-----------------------------------*/
+
   --body-font: 'Open Sans', sans-serif;
   --title-font: 'Raleway', sans-serif;
   --biggest-font-size: 2.5rem;
@@ -48,11 +63,17 @@
   --small-font-size: .813rem;
   --smaller-font-size: .75rem;
 
-  /*========== Font weight ==========*/
+/*-----------------------------------*\
+FONT-WEIGHT
+\*-----------------------------------*/
+
   --font-medium: 500;
   --font-semi-bold: 600;
 
-  /*========== Margenes Bottom ==========*/
+/*-----------------------------------*\
+MARGIN BOTTOM
+\*-----------------------------------*/
+
   --mb-0-25: .25rem;
   --mb-0-5: .5rem;
   --mb-0-75: .75rem;
@@ -62,11 +83,17 @@
   --mb-2: 2rem;
   --mb-2-5: 2.5rem;
 
-  /*========== z index ==========*/
+/*-----------------------------------*\
+Z-INDEX
+\*-----------------------------------*/
+
   --z-tooltip: 10;
   --z-fixed: 100;
 
-  /*========== Hover overlay ==========*/
+/*-----------------------------------*\
+HOVER OVERLAY
+\*-----------------------------------*/
+
   --img-transition: .3s;
   --img-hidden: hidden;
   --img-scale: scale(1.1);
@@ -84,7 +111,10 @@
   }
 }
 
-/*========== Variables Dark theme ==========*/
+/*-----------------------------------*\
+VARIABLE DARK THEME
+\*-----------------------------------*/
+
 body.dark-theme {
   --first-color-second: hsl(var(--hue-color), 54%, 12%);
   --title-color: hsl(var(--hue-color), 24%, 95%);
@@ -95,7 +125,10 @@ body.dark-theme {
   --scroll-thumb-color: hsl(var(--hue-color), 12%, 36%);
 }
 
-/*========== Button Dark/Light ==========*/
+/*-----------------------------------*\
+BUTTON DARK & LIGHT
+\*-----------------------------------*/
+
 .nav__dark {
   display: flex;
   align-items: center;
@@ -119,7 +152,10 @@ body.dark-theme {
   font-size: var(--small-font-size);
 }
 
-/*=============== BASE ===============*/
+/*-----------------------------------*\
+BASE
+\*-----------------------------------*/
+
 * {
   box-sizing: border-box;
   padding: 0;
@@ -179,7 +215,10 @@ input {
   overflow-x: hidden;
 }
 
-/*=============== REUSABLE CSS CLASSES ===============*/
+/*-----------------------------------*\
+REUSEABLE CSS 
+\*-----------------------------------*/
+
 .section {
   padding: 4.5rem 0 2.5rem;
 
@@ -206,7 +245,10 @@ input {
   gap: 1.5rem;
 }
 
-/*=============== HEADER ===============*/
+/*-----------------------------------*\
+HEADER
+\*-----------------------------------*/
+
 .header {
   width: 100%;
   position: fixed;
@@ -216,7 +258,9 @@ input {
   background-color: transparent;
 }
 
-/*=============== NAV ===============*/
+/*-----------------------------------*\
+NAVBAR
+\*-----------------------------------*/
 
 .nav {
   height: var(--header-height);
@@ -475,7 +519,10 @@ i {
   left: 0;
 }
 
-/*=============== HOME ===============*/
+/*-----------------------------------*\
+HOME
+\*-----------------------------------*/
+
 .home__img {
   position: absolute;
   top: 0;
@@ -585,7 +632,10 @@ i {
   transform: var(--img-scale);
 }
 
-/*=============== BUTTONS ===============*/
+/*-----------------------------------*\
+BUTTON
+\*-----------------------------------*/
+
 .button {
   display: inline-block;
   background-color: var(--first-color);
@@ -614,7 +664,10 @@ i {
   background: none;
 }
 
-/*=============== ABOUT ===============*/
+/*-----------------------------------*\
+ABOUT HOME
+\*-----------------------------------*/
+
 .about__data {
   text-align: center;
 }
@@ -656,7 +709,10 @@ i {
   transform: var(--img-scale);
 }
 
-/*=============== DISCOVER ===============*/
+/*-----------------------------------*\
+GALLERY HOME
+\*-----------------------------------*/
+
 .gallery__section{
   padding-top: 90px;
 
@@ -806,7 +862,10 @@ padding-top: 26px;
   background-image: none;
 }
 
-/*=============== EXPERIENCE ===============*/
+/*-----------------------------------*\
+EXPERIENCE
+\*-----------------------------------*/
+
 .experience__container {
   padding-bottom: 150px;
 }
@@ -865,7 +924,10 @@ padding-top: 26px;
   right: 0;
 }
 
-/*=============== VIDEO ===============*/
+/*-----------------------------------*\
+VIDEO
+\*-----------------------------------*/
+
 .video__container {
   padding-bottom: 1rem;
   padding-bottom: 100px;
@@ -891,7 +953,10 @@ padding-top: 26px;
   font-size: 1.2rem;
 }
 
-/* Card packages */
+/*-----------------------------------*\
+PACKAGES
+\*-----------------------------------*/
+
 .title_container{
   z-index: 2;
   
@@ -1038,8 +1103,9 @@ padding-top: 26px;
   margin-left: 5px;
 }
 
-
-/*=============== Testimonial Card ===============*/
+/*-----------------------------------*\
+TESTIMONIAL
+\*-----------------------------------*/
 
 .testimonial-container {
   display: flex;
@@ -1169,8 +1235,10 @@ padding-top: 26px;
   }
 }
 
+/*-----------------------------------*\
+SWIPER BUTTON CSS
+\*-----------------------------------*/
 
-/* swiper button css */
 .nav-btn {
   height: 40px;
   width: 40px;
@@ -1197,6 +1265,10 @@ padding-top: 26px;
 .swiper-pagination-bullet-active {
   background-color: #4070f4;
 }
+
+/*-----------------------------------*\
+BLOG
+\*-----------------------------------*/
 
 .blog__title{
   text-align: center;
@@ -1260,8 +1332,10 @@ padding-top: 26px;
   text-align: left;
 }
 
+/*-----------------------------------*\
+BANNER ABOUT US
+\*-----------------------------------*/
 
-/*=============== About us ===============*/
 .banner{
   width: 100%;
   height: 90vh;
@@ -1345,6 +1419,14 @@ padding-top: 26px;
     padding: 0 20px;
   }
 
+  .logoWizz {
+    position: absolute;
+    top: 250px;
+    transform: translateX(-50%);
+    left: 49%;
+    cursor: pointer;
+  }
+
   .contentNav{
     width: 100%;
     position: absolute;
@@ -1356,7 +1438,8 @@ padding-top: 26px;
 
   .contentNav .contentTittle{
     font-size: 70px;
-    margin-top: 80px;
+    margin-top: 400px;
+    
   }
 
   .contentNav .contentDesc{
@@ -1366,41 +1449,44 @@ padding-top: 26px;
     color: var(--white);
   }
 
-  .showcaseImg {
-    /* Add your custom styling here */
+  .showcaseImg .contentShowcase {
     display: flex;
+    flex-wrap: wrap;
     justify-content: center;
-    align-items: center;
-    /* Add any other styles you need */
 }
 
-.showcaseImg .containerShowcase {
-    /* Add styling for the container if needed */
+.showcaseImg .imageWithCaption {
+    text-align: center;
+    position: relative; /* Menggunakan posisi relatif */
+    margin: 0 10px 20px;
+    top: 650px;
 }
 
-.showcaseImg .contentShowcase {
-    justify-content: center;
-    display: flex;
-    align-items: center;
-    gap: 40px;
-    padding-top: 30%;
-  }
-  
-  .showcaseImg img {
-    /* Add styling for the images if needed */
-    max-width: 13%;
+.showcaseImg img {
+    max-width: 100%;
     height: auto;
     border-radius: 22px;
-    border: 3px solid rgba(255,255,255,0.4);
+    border: 3px solid rgba(255, 255, 255, 0.4);
     padding: 3px;
     background: none;
     overflow: hidden;
-    margin: 20px;
+    margin: 26px;
+}
 
+.showcaseImg .showcaseTittle {
+    font-size: 18px;
+    color: var(--salmon-pink);
+    display: block;
+    margin-top: 5px;
+    position: absolute;
+    left: 50%; /* Pusat horizontal */
+    transform: translateX(-50%); /* Koreksi agar berada di tengah */
 }
 
 
-
+/*-----------------------------------*\
+ABOUT US
+\*-----------------------------------*/
 
   .aboutUs{
     height: 100vh;
@@ -1413,8 +1499,32 @@ padding-top: 26px;
 
   }
 
+ .aboutTittle h1 {
+    padding-left: 46%;
+    margin-bottom: 0px;
+    font-weight: 600;
+    position: absolute;
+    padding-top: 100px;
+    font-size: 24px;
+    
+  }
 
-  .about .mainAbout img{
+  .aboutTittle h1::after{
+    content: '';
+    background: var(--salmon-pink);
+    width: 100px;
+    height: 5px;
+    position: absolute;
+    top: 140px;
+    left: 95%;
+    transform: translate(-50%);
+  }
+
+  .mainAbout{
+    padding-top: 0px;
+  }
+
+  .mainAbout img{
     width: 580px;
     max-width: 100%;
     height: auto;
@@ -1535,52 +1645,83 @@ padding-top: 26px;
 }
 
 
-/*=============== About us ===============*/
+/*-----------------------------------*\
+OUR SERVICES
+\*-----------------------------------*/
 
-/*=============== SUBSCRIBE ===============*/
-.sponsor__section {
-  background-color: var(--eerie-black);
-  padding-top: 40px;
+.containerOurService{
+  width: 100%;
+  height: 100vh;
+  padding: 0 2%;
+  background-color: #f7f7f7;
+} 
+
+.containerOurService h1{
+  text-align: center;
+  padding-top: 5%;
+  margin-bottom: 60px;
+  font-weight: 600;
+  position: relative;
 }
 
-.subscribe__bg {
-
-  background-color: var(--first-color-second);
-  padding: 2.5rem 0;
+.containerOurService h1::after{
+  content: '';
+  background: var(--salmon-pink);
+  width: 100px;
+  height: 5px;
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translate(-50%);
 }
 
-.subscribe__title,
-.subscribe__description {
+.rowService{
+  display: grid;
+  grid-template-columns: repeat(3, minmax(250px, 1fr));
+  grid-gap: 30px;
+}
+
+.cardService{
+  text-align: center;
+  padding: 25px 10px;
+  border-radius: 5px;
+  font-size: 14px;
+  cursor: pointer;
+  background: transparent;
+  transition: transform 0.5s, background 0.5s;
+}
+
+.cardService img{
+
+  margin-bottom: 10px;
+  width: 100px;
+  height: 100px;
+
+}
+
+.cardService h2{
+  font-weight: 600;
+  margin-bottom: 8px;
+  
+}
+
+.cardService:hover{
+  background: var(--eerie-black);
+  color: var(var(--salmon-pink));
+  transform: scale(1.05);
+}
+
+.cardService:hover p{
   color: var(--white-color);
 }
 
-.subscribe__description {
-  text-align: center;
-  margin-bottom: var(--mb-2-5);
-}
 
-.subscribe__form {
-  background-color: var(--input-color);
-  padding: .5rem;
-  display: flex;
-  justify-content: space-between;
-}
+/*-----------------------------------*\
+ CONTACT 
+\*-----------------------------------*/
 
-.subscribe__input {
-  width: 70%;
-  padding-right: .5rem;
-  background-color: var(--input-color);
-  color: var(--text-color);
-}
-
-.subscribe__input::placeholder {
-  color: var(--text-color);
-}
-
-*, *:before, *:after {
-  box-sizing: border-box;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+.contactUs{
+  background-color: #f7f7f7;
 }
 
 .container__contact{
@@ -1804,8 +1945,14 @@ padding-top: 26px;
   }
 }
 
+/*-----------------------------------*\
+SPONSOR
+\*-----------------------------------*/
 
-/*=============== SPONSORS ===============*/
+.sponsor__section {
+  background-color: var(--eerie-black);
+  padding-top: 40px;
+}
 
 .sponsor__container {
   color: var(--spanish-gray);
@@ -1825,7 +1972,10 @@ padding-top: 26px;
   transition: var(--img-transition);
 }
 
-/*=============== FOOTER ===============*/
+/*-----------------------------------*\
+fOOTER
+\*-----------------------------------*/
+
 .footer__section {
 
   padding-top: 5%;
@@ -1902,7 +2052,10 @@ padding-top: 26px;
   color: var(--text-color);
 }
 
-/*========== SCROLL UP ==========*/
+/*-----------------------------------*\
+SCROLL UP
+\*-----------------------------------*/
+
 .scrollup {
   position: fixed;
   right: 1rem;
@@ -1930,7 +2083,10 @@ padding-top: 26px;
   bottom: 5rem;
 }
 
-/*=============== SCROLL BAR ===============*/
+/*-----------------------------------*\
+SCROLL BAR
+\*-----------------------------------*/
+
 ::-webkit-scrollbar {
   width: .60rem;
   background-color: var(--scroll-bar-color);
@@ -1944,7 +2100,10 @@ padding-top: 26px;
   background-color: var(--text-color-light);
 }
 
-/*=============== MEDIA QUERIES ===============*/
+/*-----------------------------------*\
+MEDIA QUERIES
+\*-----------------------------------*/
+
 /* For small devices */
 @media screen and (max-width: 340px) {
   .place__container {

@@ -417,5 +417,9 @@ function loginPhp() {
     window.location.href = '../Login/login.php?id=';
     }
 
+function home(){
+    window.location.href = 'home.php?id=';
+}
+
 
 
