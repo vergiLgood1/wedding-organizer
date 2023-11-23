@@ -135,7 +135,7 @@
         </p>
     </div>
     <div class="logoWizz">
-        <img src="assets/img/WIZZ.png" alt="" class="logo" onclick="home()">
+        <img src="assets/img/WIZZARD.svg" alt="" class="logo" onclick="home()">
     </div>
 
     <section>
@@ -222,56 +222,56 @@
 
     <!--==================== AWAL KONTAK ====================-->
     <section id="contact" class="contactUs">
-        <h2 class="section__title">Berbincang dengan kami</h2>
-        <p class="section__desc">Untuk konsultasi dan informasi lebih lanjut</p>
-        <div class="background">
-            <div class="container__contact">
-                <div class="screen">
+            <h2 class="section__title">Berbincang dengan kami</h2>
+            <p class="section__desc">Untuk konsultasi dan informasi lebih lanjut</p>
+            <div class="background">
+                <div class="container__contact">
+                  <div class="screen">
                     <div class="screen-header">
-                        <div class="screen-header-left">
-                        </div>
-                        <div class="screen-header-right">
-                            <div class="screen-header-ellipsis"></div>
-                            <div class="screen-header-ellipsis"></div>
-                            <div class="screen-header-ellipsis"></div>
-                        </div>
+                      <div class="screen-header-left">
+                      </div>
+                      <div class="screen-header-right">
+                        <div class="screen-header-ellipsis"></div>
+                        <div class="screen-header-ellipsis"></div>
+                        <div class="screen-header-ellipsis"></div>
+                      </div>
                     </div>
                     <div class="screen-body">
-                        <div class="screen-body-item left">
-                            <div class="app-title">
-                                <span>Hubungi</span>
-                                <span>Kami</span>
-                            </div>
-                            <div class="app-contact">CONTACT INFO : +62 81 314 928 595</div>
+                      <div class="screen-body-item left">
+                        <div class="app-title">
+                          <span>Hubungi</span>
+                          <span>Kami</span>
                         </div>
-                        <div class="screen-body-item">
-                            <div class="app-form">
-                                <div class="app-form-group">
-                                    <input class="app-form-control" placeholder="NAMA" value="">
-                                </div>
-                                <div class="app-form-group">
-                                    <input class="app-form-control" placeholder="EMAIL">
-                                </div>
-                                <div class="app-form-group">
-                                    <input class="app-form-control" placeholder="NOMOR KONTAK">
-                                </div>
-                                <div class="app-form-group message">
-                                    <input class="app-form-control" placeholder="PESAN">
-                                </div>
-                                <div class="app-form-group buttons">
-                                    <button class="app-form-button">BATAL</button>
-                                    <button class="app-form-button">KIRIM</button>
-                                </div>
-                            </div>
+                        <div class="app-contact">CONTACT INFO : +62 81 314 928 595</div>
+                      </div>
+                      <div class="screen-body-item">
+                        <div class="app-form">
+                          <div class="app-form-group">
+                            <input class="app-form-control" placeholder="NAMA" value="">
+                          </div>
+                          <div class="app-form-group">
+                            <input class="app-form-control" placeholder="EMAIL">
+                          </div>
+                          <div class="app-form-group">
+                            <input class="app-form-control" placeholder="NOMOR KONTAK">
+                          </div>
+                          <div class="app-form-group message">
+                            <input class="app-form-control" placeholder="PESAN">
+                          </div>
+                          <div class="app-form-group buttons">
+                            <button class="app-form-button">BATAL</button>
+                            <button class="app-form-button">KIRIM</button>
+                          </div>
                         </div>
+                      </div>
                     </div>
+                  </div>
                 </div>
-            </div>
-        </div>
-
-    </section>
-
-    <!--==================== AKHIR KONTAK ====================-->
+              </div>
+              
+              </section>
+    
+            <!--==================== AKHIR KONTAK ====================-->
 
     <section class="sponsor__section">
         <div class="sponsor__container container grid">

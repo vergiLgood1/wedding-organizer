@@ -715,6 +715,84 @@ ABOUT HOME
 /*-----------------------------------*\
 GALLERY HOME
 \*-----------------------------------*/
+.containerGallery{
+  width: 100%;
+  height: 100vh;
+  background-image: linear-gradient(rgba(0,0,0,0.7),rgba(0,0,0,0.7)),url(../img/GalUtama3.png);
+  background-position: center;
+  background-size: cover;
+  padding-left: 15%;
+  padding-right: 8%;
+  box-sizing: border-box;
+  padding-top: 150px;
+}
+
+.rowGallery{
+  display: flex;
+  height: 88%;
+  align-items: center;
+}
+
+.rowGallery col{
+  flex-basis: 50%;
+}
+
+.rowGallery h1{
+  color: var(--white);
+  font-size: 100px;
+  margin-bottom: 26px;
+}
+
+.rowGallery p{
+  color: var(--white);
+  font-size:  11px;
+  line-height: 15px;
+  padding-left: 12px;
+}
+
+.rowGallery .card{
+  width: 300px;
+  height: 330px;
+  display: inline-block;
+  border-radius: 10px;
+  padding: 15px 25px;
+  box-sizing: border-box;
+  cursor: pointer;
+  margin: 10px 15px;
+  background-position: center;
+  background-size: cover;
+  transition: transform 0.5s;
+}
+
+.rowGallery .card1{
+  background-image: url(../img/photo5.png);
+}
+
+.rowGallery .card2{
+  background-image: url(../img/photo2.png);
+}
+
+.rowGallery .card3{
+  background-image: url(../img/photo7.png);
+}
+
+.rowGallery .card4{
+  background-image: url(../img/photo6.png);
+}
+
+.rowGallery .card:hover{
+  transform: translateY(-10px);
+}
+
+.rowGallery h5{
+  color: var(--white);
+  text-shadow: 0 0 5px #999;
+}
+
+.rowGallery .card p{
+  text-shadow: 0 0 15px #000;
+  font-size: 8px;
+}
 
 .gallery__section {
   padding-top: 90px;
@@ -722,11 +800,12 @@ GALLERY HOME
 }
 
 .gallery-container {
-  padding-top: 26px;
+  padding-top: 40px;
   width: 1400px;
   margin: 20px auto;
   columns: 4;
   column-gap: 20px;
+  margin-bottom: 100px;
 }
 
 .gallery-item {
@@ -753,11 +832,24 @@ GALLERY HOME
   font-size: 36px;
 }
 
+.gallery__tittle::after{
+  content: '';
+  background: var(--salmon-pink);
+  width: 100px;
+  height: 5px;
+  position: absolute;
+  bottom: -23%;
+  left: 50%;
+  transform: translate(-50%);
+}
+
 .gallery__desc {
   margin-top: 26px;
+  margin-bottom: 100px;
   align-items: center;
   display: flex;
   justify-content: center;
+  
 }
 
 @media (max-widht: 1200px) {
@@ -1338,7 +1430,7 @@ BLOG
 }
 
 /*-----------------------------------*\
-BANNER ABOUT US
+BANNER ABOUT US & SHOWCASE
 \*-----------------------------------*/
 
 .banner {
@@ -1426,9 +1518,9 @@ BANNER ABOUT US
 
 .logoWizz {
   position: absolute;
-  top: 250px;
+  top: 230px;
   transform: translateX(-50%);
-  left: 49%;
+  left: 49.2%;
   cursor: pointer;
 }
 
@@ -1508,7 +1600,7 @@ ABOUT US
 }
 
 .aboutTittle h1 {
-  padding-left: 46%;
+  padding-left: 47.3%;
   margin-bottom: 0px;
   font-weight: 600;
   position: absolute;
@@ -1524,7 +1616,7 @@ ABOUT US
   height: 5px;
   position: absolute;
   top: 140px;
-  left: 95%;
+  left: 95.2%;
   transform: translate(-50%);
 }
 

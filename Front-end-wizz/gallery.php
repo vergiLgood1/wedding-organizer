@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="assets/css/styles.css">
-    <link rel="stylesheet" href="assets/css/package.css">
+  
     <title>Gallery</title>
 
 </head>
@@ -77,28 +77,74 @@
         </nav>
     </header>
 
+    <section class="galleryShowcase">
+        <div class="containerGallery">
+                <div class="rowGallery">
+                    <div class="col">
+                        <h1>Gallery</h1>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam aut expedita minus ipsam eius est, iusto at iure repellat, perferendis soluta excepturi, neque consequuntur! Beatae consectetur consequatur eligendi ipsa. Repellendus?
+                        </p>
+                    </div>
+                    <div class="col">
+                        <div class="card card1">
+                            <h5>Kevin & Andin</h5>
+                            <p>18-09-2018</p>
+                        </div>
+                        <div class="card card2">
+                            <h5>Ezra & Hanin</h5>
+                            <p>21-04-2020</p>
+                        </div>
+                        <div class="card card3">
+                            <h5>Aksara & Gizka</h5>
+                            <p>11-05-2019</p>
+                        </div>
+                        <div class="card card4">
+                            <h5>raza & grece</h5>
+                            <p>30-11-2023</p>
+                        </div>
+                    </div>
+                </div>
+        </div>
+    </section>
+
     <div class="gallery__section">
         <h2 class="gallery__tittle">Gallery Pengantin</h2>
         <span class="gallery__desc">Simpan Kenangan mu bersama kami </span>
 
         <div class="gallery-container" id="gallery-container">
             <!-- Placeholder images -->
-            <div class="gallery-item"><img src="assets/img/about1.png" alt="Image 1"></div>
-            <div class="gallery-item"><img src="assets/img/about2.png" alt="Image 1"></div>
-            <div class="gallery-item"><img src="assets/img/BNP1.png" alt="Image 1"></div>
-            <div class="gallery-item"><img src="assets/img/gallery4.png" alt="Image 1"></div>
-            <div class="gallery-item"><img src="assets/img/blog-3.jpg" alt="Image 1"></div>
-            <div class="gallery-item"><img src="assets/img/gallery2.png" alt="Image 1"></div>
-            <div class="gallery-item"><img src="assets/img/blog-2.jpg" alt="Image 2"></div>
-            <div class="gallery-item"><img src="assets/img/blog-4.jpg" alt="Image 3"></div>
-            <div class="gallery-item"><img src="assets/img/about1.png" alt="Image 1"></div>
-            <div class="gallery-item"><img src="assets/img/banner-6.png" alt="Image 1"></div>
-            <div class="gallery-item"><img src="assets/img/about2.png" alt="Image 2"></div>
-            <div class="gallery-item"><img src="assets/img/gallery5.png" alt="Image 3"></div>
-            <div class="gallery-item"><img src="assets/img/about1.png" alt="Image 1"></div>
-            <div class="gallery-item"><img src="assets/img/pengantin5.png" alt="Image 1"></div>
-            <div class="gallery-item"><img src="assets/img/blog-4.jpg" alt="Image 2"></div>
-            <div class="gallery-item"><img src="assets/img/gallery2.png" alt="Image 3"></div>
+            <div class="gallery-item"><img src="assets/img/photos1.png" alt="Image 1"></div>
+            <div class="gallery-item"><img src="assets/img/photos2.png" alt="Image 2"></div>
+            <div class="gallery-item"><img src="assets/img/photos3.png" alt="Image 3"></div>
+            <div class="gallery-item"><img src="assets/img/photos4.png" alt="Image 4"></div>
+            <div class="gallery-item"><img src="assets/img/photos5.png" alt="Image 5"></div>
+            <div class="gallery-item"><img src="assets/img/photos6.png" alt="Image 6"></div>
+            <div class="gallery-item"><img src="assets/img/photos7.png" alt="Image 7"></div>
+            <div class="gallery-item"><img src="assets/img/photos8.png" alt="Image 8"></div>
+            <div class="gallery-item"><img src="assets/img/photos9.png" alt="Image 9"></div>
+            <div class="gallery-item"><img src="assets/img/photos10.png" alt="Image 10"></div>
+            <div class="gallery-item"><img src="assets/img/photos9.png" alt="Image 11"></div>
+            <div class="gallery-item"><img src="assets/img/photos12.png" alt="Image 12"></div>
+            <div class="gallery-item"><img src="assets/img/photos13.png" alt="Image 13"></div>
+            <div class="gallery-item"><img src="assets/img/photos14.png" alt="Image 14"></div>
+            <div class="gallery-item"><img src="assets/img/photos15.png" alt="Image 15"></div>
+            <div class="gallery-item"><img src="assets/img/photos16.png" alt="Image 16"></div>
+            <div class="gallery-item"><img src="assets/img/photos17.png" alt="Image 17"></div>
+            <div class="gallery-item"><img src="assets/img/photos18.png" alt="Image 18"></div>
+            <div class="gallery-item"><img src="assets/img/photos19.png" alt="Image 19"></div>
+            <div class="gallery-item"><img src="assets/img/photos20.png" alt="Image 20"></div>
+            <div class="gallery-item"><img src="assets/img/photos21.png" alt="Image 21"></div>
+            <div class="gallery-item"><img src="assets/img/photos22.png" alt="Image 22"></div>
+            <div class="gallery-item"><img src="assets/img/photos7.png" alt="Image 22"></div>
+            <div class="gallery-item"><img src="assets/img/photos22.png" alt="Image 22"></div>
+            <div class="gallery-item"><img src="assets/img/photos23.png" alt="Image 23"></div>
+            <div class="gallery-item"><img src="assets/img/photos24.png" alt="Image 24"></div>
+            <div class="gallery-item"><img src="assets/img/photos25.png" alt="Image 25"></div>
+            <div class="gallery-item"><img src="assets/img/photos26.png" alt="Image 26"></div>
+            <div class="gallery-item"><img src="assets/img/photos27.png" alt="Image 27"></div>
+            <div class="gallery-item"><img src="assets/img/photos28.png" alt="Image 28"></div>
+            <div class="gallery-item"><img src="assets/img/photos29.png" alt="Image 29"></div>
+            <div class="gallery-item"><img src="assets/img/photos30.png" alt="Image 30"></div>
             <!-- Add more items as needed -->
         </div>
 
@@ -209,22 +255,20 @@
 
         <!--==================== AKHIR FOOTER ====================-->
     </div>
+  <!--========== SCROLL UP ==========-->
+  <a href="#" class="scrollup" id="scroll-up">
+        <i class="ri-arrow-up-line scrollup__icon"></i>
+    </a>
 
-    <script src="masonry.pkgd.min.js"></script>
-    <script src="main.js"></script>
+    <!--=============== SCROLL REVEAL===============-->
+    <script src="assets/js/scrollreveal.min.js"></script>
+
+    <!--=============== SWIPER JS ===============-->
+    <script src="assets/js/swiper-bundle.min.js"></script>
+
+    <!--=============== MAIN JS ===============-->
+    <script src="assets/js/main.js"></script>
 
 </body>
 
 </html>
-
-<script>
-    // Inisialisasi Masonry setelah halaman dimuat
-    document.addEventListener('DOMContentLoaded', function () {
-        var galleryContainer = document.getElementById('gallery-container');
-        var masonry = new Masonry(galleryContainer, {
-            itemSelector: '.gallery-item',
-            columnWidth: '.gallery-item',
-            percentPosition: true
-        });
-    });
-</script>

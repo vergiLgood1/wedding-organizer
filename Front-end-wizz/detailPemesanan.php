@@ -39,7 +39,7 @@
                 <div class="navigation">
 
                     <div class="logo">
-                        <i class="icon icon-basket"><img src="assets/img/logo.png" alt=""></i>
+                        <i class="icon icon-basket"><img src="assets/img/Wizz2.png" alt=""></i>
                     </div>
                     <div class="secure">
                         <i class="icon icon-shield"></i>
