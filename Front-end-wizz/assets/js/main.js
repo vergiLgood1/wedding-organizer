@@ -402,11 +402,6 @@ function ArahkanKePackage() {
     window.location.href = 'package.php?id=' + idPaket;
 }
 
-function detailPemesanan(idPaket) {
-    // Menggunakan window.location.href untuk mengarahkan ke halaman detailPemesanan.php
-    window.location.href = 'detailPemesanan.php?id=' + idPaket;
-}
-
 function pesananSaya() {
     // Menggunakan window.location.href untuk mengarahkan ke halaman detailPemesanan.php
     window.location.href = 'pesananSaya.php?id=';
@@ -419,6 +414,14 @@ function loginPhp() {
 
 function home() {
     window.location.href = 'home.php?id=';
+}
+
+function about() {
+    window.location.href = 'about.php?id=';
+}
+
+function gallery() {
+    window.location.href = 'gallery.php?id=';
 }
 
 

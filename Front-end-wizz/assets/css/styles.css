@@ -1821,6 +1821,35 @@ OUR SERVICES
 
 
 /*-----------------------------------*\
+DETAIL PEMESANAN
+\*-----------------------------------*/
+
+.detailPackage{
+  margin: 80px auto;
+ 
+
+}
+
+table{
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.cartInfo{
+  display: flex;
+  flex-wrap: wrap;
+
+}
+
+th{
+  text-align: left;
+  padding: 5px;
+  color: var(--white);
+  background: var(--eerie-black);
+  font-weight: normal;
+
+}
+/*-----------------------------------*\
  CONTACT 
 \*-----------------------------------*/
 

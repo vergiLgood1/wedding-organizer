@@ -1346,7 +1346,147 @@ i {
   }
 }
 
+/*-----------------------------------*\
+DETAIL PACKAGES
+\*-----------------------------------*/
 
+.sectionPackageDetail{
+  padding: 100px 0;
+
+}
+
+.removeBtn{
+  position: relative;
+  padding: 0 40px;
+  min-width: 20px;
+  height: 30px;
+  font-size: 16px;
+  line-height: 20px;
+  background-color: var(--salmon-pink);
+  transition: 250ms linear;
+  text-align: center;
+  font-weight: 600;
+  text-decoration: none;
+  cursor: pointer;
+  border-radius: 5px;
+  border: none;
+  color: var(--eerie-black);
+  margin-top: 20px;
+  margin-bottom: 10px;
+
+
+}
+
+.removeBtn:hover{
+  background-color: var(--eerie-black);
+  color: var(--salmon-pink);
+}
+
+.checkoutBtn {
+  position: absolute;
+  padding: 0 40px;
+  min-width: 44px;
+  height: 50px;
+  font-size: 18px;
+  line-height: 20px;
+  background-color: var(--salmon-pink);
+  transition: 250ms linear;
+  text-align: center;
+  font-weight: 600;
+  text-decoration: none;
+  cursor: pointer;
+  border-radius: 5px;
+  border: none;
+  color: var(--white);
+  margin: 200px 0;
+}
+
+.checkoutBtn:hover{
+  background-color: var(--eerie-black);
+  color: var(--salmon-pink);
+}
+
+.detailPackage{
+  margin: 80px auto;
+  max-width: 80%;
+
+}
+
+table{
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.cartInfo{
+  display: flex;
+  flex-wrap: wrap;
+
+}
+
+.cartInfo p{
+  font-size: 24px;
+  color: var(--eerie-black);
+  font-weight: 600;
+  padding-bottom: 5px;
+  
+
+}
+
+th{
+  text-align: left;
+  padding: 5px 15px;
+  color: var(--salmon-pink);
+  background: var(--eerie-black);
+  font-weight: 600;
+  font-size: 18px;
+  
+}
+
+td{
+  padding: 10px 5px;
+  font-size: 18px;
+
+
+}
+
+td input{
+  width: 40px;
+  height: 30px;
+  padding: 5px;
+ 
+}
+
+td a{
+  color: var(--salmon-pink);
+
+}
+
+td img{
+  width: 80px;
+  height: 80px;
+  margin-right: 10px;
+}
+
+.totalPrice{
+  display: flex;
+  justify-content: flex-end;
+
+}
+
+.totalPrice table{
+  border-top: 5px solid var(--salmon-pink);
+  width: 100%;
+  max-width: 370px;
+}
+
+td:last-child{
+  text-align: right;
+
+}
+
+th:last-child{
+  text-align: right;
+}
 
 
 /*=============== SPONSORS ===============*/

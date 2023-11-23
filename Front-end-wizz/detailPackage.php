@@ -33,20 +33,20 @@
     <header class="header" id="header">
         <nav class="nav">
             <div class="nav__left">
-                <a href="#" class="nav__logo"><img src="assets/img/logo.png" alt=""></a>
+                <a href="#" class="nav__logo"><img src="assets/img/logo.png" alt="" onclick="home()"></a>
                 <div class="nav__menu" id="nav-menu">
                     <ul class="nav__list">
                         <li class="nav__item">
-                            <a href="home.html" class="nav__link active-link">Home</a>
+                            <a href="home.php" class="nav__link" onclick="home()">Home</a>
                         </li>
                         <li class="nav__item">
-                            <a href="about.html" class="nav__link">About</a>
+                            <a href="about.php" class="nav__link" onclick="about()">About</a>
                         </li>
                         <li class="nav__item">
-                            <a href="gallery.html" class="nav__link">Gallery</a>
+                            <a href="gallery.php" class="nav__link" onclick="gallery()">Gallery</a>
                         </li>
                         <li class="nav__item">
-                            <a href="package.html" class="nav__link" onclick="ArahkanKePackage()">Package</a>
+                            <a href="package.php" class="nav__link" onclick="ArahkanKePackage()">Package</a>
                         </li>
                         <li class="nav__item">
                             <a href="#testimoni" class="nav__link">Testimoni</a>
@@ -80,45 +80,83 @@
     </header>
     <main>
 
-        <!--==================== Detail Paket ====================-->
-        <section class="detailPaket">
-            <div class="paket-container">
-                <div class="paket-image">
-                    <img src="assets/img/wedding-bouquet (1) 2.png" alt="Paket 1">
-                </div>
-                <div class="paket-content">
-                    <div class="paket-title">
-                        <h1 class="title">Paket 1</h1>
-                    </div>
-                    <div class="info">
-                        <span>9 disukai</span>
-                        <span>9 disukai</span>
-                    </div>
-                    <div class="paket-price" data-testid="lblPDPDetailProductPrice">
-                        <h2>Rp1.500.000</h2>
-                    </div>
 
-                    <button class="btn-detail">
-                        <p class="buttonDetail">Detail</p>
-                    </button>
-                    <div class="paket-description">
-                        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quis sunt maxime saepe illo molestias,
-                        quod enim ipsa, quidem velit doloribus exercitationem reprehenderit pariatur et laborum deleniti
-                        distinctio nam tempore ipsum. Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore
-                        officiis fugiat quo dolores, omnis consequatur asperiores earum accusantium, maiores numquam
-                        distinctio magnam voluptatibus eum pariatur similique unde. Laudantium, quos rerum?
-                    </div>
-                </div>
-                <!-- Add the "Beli" button -->
-                <button class="beli-button" onclick="detailPemesanan()">Beli</button>
+        <!--==================== PACKAGES DETAILS ====================-->
+          <section class="sectionPackageDetail">
+          <div class="small-container detailPackage">
+            <table>
+                <tr>
+                    <th>Product</th>
+                    <th>Quantity</th>
+                    <th>Subtotal</th>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="cartInfo">
+                        <img src="assets/img/paket4.png" alt="Paket 1">
+                        <div>
+                            <p>Package 1</p>
+                            <small>Price: Rp. 1.000.000</small>
+                            <br>
+                            <button class="removeBtn">Remove</button>
+                        </div>
+                        </div>
+                    </td>
+                    <td><input type="number" value="1"></td>
+                    <td>Rp. 1.000.000</td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="cartInfo">
+                        <img src="assets/img/paket4.png" alt="Paket 1">
+                        <div>
+                            <p>Package 1</p>
+                            <small>Price: Rp. 1.000.000</small>
+                            <br>
+                            <button class="removeBtn" a href="#">Remove</button>
+                        </div>
+                        </div>
+                    </td>
+                    <td><input type="number" value="1"></td>
+                    <td>Rp. 1.000.000</td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="cartInfo">
+                        <img src="assets/img/paket4.png" alt="Paket 1">
+                        <div>
+                            <p>Package 1</p>
+                            <small>Price: Rp. 1.000.000</small>
+                            <br>
+                            <button class="removeBtn" a href="#">Remove</button>
+                        </div>
+                        </div>
+                    </td>
+                    <td><input type="number" value="1"></td>
+                    <td>Rp. 1.000.000</td>
+                </tr>
+            </table>
 
+            <div class="totalPrice">
+                <table>
+                    <tr>
+                        <td>Subtotal</td>
+                        <td>Rp. 1.000.000</td>
+                    </tr>
+                    <tr>
+                        <td>Tax</td>
+                        <td>Rp. 100.000</td>
+                    </tr>
+                    <tr>
+                        <td>Total</td>
+                        <td>Rp. 1.100.000</td>
+                    </tr>
+                    <button class="checkoutBtn" onclick="detailPemesanan()">Checkout</button>
+                </table>
             </div>
-            </div>
-        </section>
-
-
-
-
+         </div>
+          </section>  
+         
 
 
         <!--==================== SPONSORS ====================-->

@@ -134,9 +134,7 @@
             Lorem ipsum, dolor sit amet consectetur <br> adipisicing elit. Labore,
         </p>
     </div>
-    <div class="logoWizz">
-        <img src="assets/img/WIZZARD.svg" alt="" class="logo" onclick="home()">
-    </div>
+   
 
     <section>
 
