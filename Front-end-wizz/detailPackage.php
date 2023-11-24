@@ -1,294 +1,204 @@
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
     <title>Wizz</title>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <link rel="shortcut icon" href="assets/img/favicon.png" type="image/png">
+    <!-- Bootstrap core CSS -->
+    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
-    <!--=============== REMIXICONS ===============-->
-    <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
+    <!-- Additional CSS Files -->
+    <link rel="stylesheet" href="assets/css/fontawesome.css">
+    <link rel="stylesheet" href="assets/css/detailPackage.css">
+    <link rel="stylesheet" href="assets/css/owl.css">
+    <link rel="stylesheet" href="assets/css/animate.css">
+    <link rel="stylesheet"href="https://unpkg.com/swiper@7/swiper-bundle.min.css"/>
 
-    <!--=============== SWIPER CSS ===============-->
-    <link rel="stylesheet" href="assets/css/swiper-bundle.min.css">
-
-
-    <!--=============== CSS ===============-->
-    <link rel="stylesheet" href="assets/css/package.css">
-
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
-
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
-
-    <!-- Add this in the head section of your HTML -->
-    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
 
 
 </head>
-
 <body>
-    <header class="header" id="header">
-        <nav class="nav">
-            <div class="nav__left">
-                <a href="#" class="nav__logo"><img src="assets/img/logo.png" alt="" onclick="home()"></a>
-                <div class="nav__menu" id="nav-menu">
-                    <ul class="nav__list">
-                        <li class="nav__item">
-                            <a href="home.php" class="nav__link" onclick="home()">Home</a>
-                        </li>
-                        <li class="nav__item">
-                            <a href="about.php" class="nav__link" onclick="about()">About</a>
-                        </li>
-                        <li class="nav__item">
-                            <a href="gallery.php" class="nav__link" onclick="gallery()">Gallery</a>
-                        </li>
-                        <li class="nav__item">
-                            <a href="package.php" class="nav__link" onclick="ArahkanKePackage()">Package</a>
-                        </li>
-                        <li class="nav__item">
-                            <a href="#testimoni" class="nav__link">Testimoni</a>
-                        </li>
-                        <li class="nav__item">
-                            <a href="#blog" class="nav__link">Blog</a>
-                        </li>
-                        <li class="nav__item">
-                            <a href="#contact" class="nav__link">Contact</a>
-                        </li>
-                    </ul>
-                </div>
+    
+
+   <!-- ***** Header Area Start ***** -->
+   <header class="header-area header-sticky">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <nav class="main-nav">
+                    <!-- ***** Logo Start ***** -->
+                    <a href="index.html" class="logo">
+                        <img src="assets/img/WIZZARD.svg" alt="" style="width: 158px;">
+                    </a>
+                    <!-- ***** Logo End ***** -->
+                    <!-- ***** Menu Start ***** -->
+                    <ul class="nav">
+                      <li><a href="home.php">Home</a></li>
+                      <li><a href="package.php">Packages</a></li>
+                      <li><a href="detailPackage.php" class="active">Detail Packages</a></li>
+                      <li><a href="login.php">Log In</a></li>
+                  </ul>   
+                    <a class='menu-trigger'>
+                        <span>Menu</span>
+                    </a>
+                    <!-- ***** Menu End ***** -->
+                </nav>
             </div>
+        </div>
+    </div>
+  </header>
+  <!-- ***** Header Area End ***** -->
 
-            <!-- ... (bagian lainnya tetap sama) -->
+  <div class="page-heading header-text">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12">
+          <h3>Gold Package</h3>
 
-            <div class="nav__right">
-                <button class="nav__button__shop" id="cartButton">
-                    <i class="ri-shopping-cart-line"></i>
-                </button>
-                <button class="button-login">Masuk</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="single-product section">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-6">
+          <div class="left-image">
+            <img src="assets/img/package.png" alt="">
+          </div>
+        </div>
+        <div class="col-lg-6 align-self-center">
+          <h4>Gold package</h4>
+          <span class="price"><em>$28</em> $22</span>
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Similique placeat aperiam, ex ullam explicabo corporis aut repudiandae perferendis unde temporibus quod dolore asperiores, numquam atque expedita ut ipsam sequi adipisci.</p>
+          <form id="qty" action="#">
+            <input type="qty" class="form-control" id="1" aria-describedby="quantity" placeholder="1">
+            <button onclick="checkout()" a href="checkout.php"><i class="fa fa-shopping-bag"></i> ADD TO CART</button>
+          </form>
+          <ul>
+            <li><span>Paket ID:</span>P001</li>
+            <li><span>Nama paket</span>Gold package</a></li>
+            
+          </ul>
+        </div>
+        <div class="col-lg-12">
+          <div class="sep"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="more-info">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12">
+          <div class="tabs-content">
+            <div class="row">
+              <div class="nav-wrapper ">
+                <ul class="nav nav-tabs" role="tablist">
+                  <li class="nav-item" role="presentation">
+                    <button class="nav-link active" id="description-tab" data-bs-toggle="tab" data-bs-target="#description" type="button" role="tab" aria-controls="description" aria-selected="true">Description</button>
+                  </li>
+                  <li class="nav-item" role="presentation">
+                    <button class="nav-link" id="reviews-tab" data-bs-toggle="tab" data-bs-target="#reviews" type="button" role="tab" aria-controls="reviews" aria-selected="false">Reviews (3)</button>
+                  </li>
+                </ul>
+              </div>              
+              <div class="tab-content" id="myTabContent">
+                <div class="tab-pane fade show active" id="description" role="tabpanel" aria-labelledby="description-tab">
+                  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias in eum reiciendis est corrupti vel, nulla voluptatum perspiciatis explicabo at, consequuntur, quos voluptate! Neque nobis impedit libero numquam sint possimus.</p>
+                  <br>
+                  <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Vel quidem a illo eligendi, id at, error maxime, velit laborum architecto voluptates molestiae ab eius dolor sit nobis? Ex, consectetur architecto.</p>
+                </div>
+                <div class="tab-pane fade" id="reviews" role="tabpanel" aria-labelledby="reviews-tab">
+                  <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. At ratione optio quo. Placeat explicabo suscipit error esse maxime odit ea dicta sequi mollitia quisquam quos voluptatum, soluta iure ducimus sint.</p>
+                </div>
+              </div>
             </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 
-            <!-- ... (bagian lainnya tetap sama) -->
-
-
-            <div class="nav__toggle" id="nav-toggle">
-                <i class="ri-function-line"></i>
+  <div class="section categories related-games">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-6">
+          <div class="section-heading">
+            <h6>Packages</h6>
+            <h2>Paket lainnya</h2>
+          </div>
+        </div>
+        <div class="col-lg-6">
+          <div class="main-button">
+            <a href="package.php">View All</a>
+          </div>
+        </div>
+        <div class="col-lg col-sm-6 col-xs-12">
+          <div class="item">
+            <h4>Paket 1</h4>
+            <div class="thumb">
+              <a href="detailPackage.php"><img src="assets/img/package.png" alt=""></a>
             </div>
-        </nav>
-    </header>
-    <main>
-
-
-        <!--==================== PACKAGES DETAILS ====================-->
-          <section class="sectionPackageDetail">
-          <div class="small-container detailPackage">
-            <table>
-                <tr>
-                    <th>Product</th>
-                    <th>Quantity</th>
-                    <th>Subtotal</th>
-                </tr>
-                <tr>
-                    <td>
-                        <div class="cartInfo">
-                        <img src="assets/img/paket4.png" alt="Paket 1">
-                        <div>
-                            <p>Package 1</p>
-                            <small>Price: Rp. 1.000.000</small>
-                            <br>
-                            <button class="removeBtn">Remove</button>
-                        </div>
-                        </div>
-                    </td>
-                    <td><input type="number" value="1"></td>
-                    <td>Rp. 1.000.000</td>
-                </tr>
-                <tr>
-                    <td>
-                        <div class="cartInfo">
-                        <img src="assets/img/paket4.png" alt="Paket 1">
-                        <div>
-                            <p>Package 1</p>
-                            <small>Price: Rp. 1.000.000</small>
-                            <br>
-                            <button class="removeBtn" a href="#">Remove</button>
-                        </div>
-                        </div>
-                    </td>
-                    <td><input type="number" value="1"></td>
-                    <td>Rp. 1.000.000</td>
-                </tr>
-                <tr>
-                    <td>
-                        <div class="cartInfo">
-                        <img src="assets/img/paket4.png" alt="Paket 1">
-                        <div>
-                            <p>Package 1</p>
-                            <small>Price: Rp. 1.000.000</small>
-                            <br>
-                            <button class="removeBtn" a href="#">Remove</button>
-                        </div>
-                        </div>
-                    </td>
-                    <td><input type="number" value="1"></td>
-                    <td>Rp. 1.000.000</td>
-                </tr>
-            </table>
-
-            <div class="totalPrice">
-                <table>
-                    <tr>
-                        <td>Subtotal</td>
-                        <td>Rp. 1.000.000</td>
-                    </tr>
-                    <tr>
-                        <td>Tax</td>
-                        <td>Rp. 100.000</td>
-                    </tr>
-                    <tr>
-                        <td>Total</td>
-                        <td>Rp. 1.100.000</td>
-                    </tr>
-                    <button class="checkoutBtn" onclick="detailPemesanan()">Checkout</button>
-                </table>
+          </div>
+        </div>
+        <div class="col-lg col-sm-6 col-xs-12">
+          <div class="item">
+            <h4>Paket 2</h4>
+            <div class="thumb">
+              <a href="detailPackage.php"><img src="assets/img/package.png" alt=""></a>
             </div>
-         </div>
-          </section>  
-         
-
-
-        <!--==================== SPONSORS ====================-->
-        <section class="sponsor__section">
-            <div class="sponsor__container container grid">
-                <div class="sponsor__content">
-                    <img src="assets/img/sponsors1.png" alt="" class="sponsor__img">
-                </div>
-                <div class="sponsor__content">
-                    <img src="assets/img/sponsors2.png" alt="" class="sponsor__img">
-                </div>
-                <div class="sponsor__content">
-                    <img src="assets/img/sponsors3.png" alt="" class="sponsor__img">
-                </div>
-                <div class="sponsor__content">
-                    <img src="assets/img/sponsors4.png" alt="" class="sponsor__img">
-                </div>
-                <div class="sponsor__content">
-                    <img src="assets/img/sponsors5.png" alt="" class="sponsor__img">
-                </div>
+          </div>
+        </div>
+        <div class="col-lg col-sm-6 col-xs-12">
+          <div class="item">
+            <h4>Paket 3</h4>
+            <div class="thumb">
+              <a href="detailPackage.php"><img src="assets/img/package.png" alt=""></a>
             </div>
-        </section>
-    </main>
-
-
-
-
-
-
-    <!--==================== AWAL FOOTER ====================-->
-    <section>
-
-
-        <footer class="footer__section">
-            <div class="footer__container container grid">
-                <div class="footer__content grid">
-                    <div class="footer__data">
-                        <h3 class="footer__title">Travel</h3>
-                        <p class="footer__description">Travel you choose the <br> destination,
-                            we offer you the <br> experience.
-                        </p>
-                        <div>
-                            <a href="https://www.facebook.com/" target="_blank" class="footer__social">
-                                <i class="ri-facebook-box-fill"></i>
-                            </a>
-                            <a href="https://twitter.com/" target="_blank" class="footer__social">
-                                <i class="ri-twitter-fill"></i>
-                            </a>
-                            <a href="https://www.instagram.com/" target="_blank" class="footer__social">
-                                <i class="ri-instagram-fill"></i>
-                            </a>
-                            <a href="https://www.youtube.com/" target="_blank" class="footer__social">
-                                <i class="ri-youtube-fill"></i>
-                            </a>
-                        </div>
-                    </div>
-
-                    <div class="footer__data">
-                        <h3 class="footer__subtitle">About</h3>
-                        <ul>
-                            <li class="footer__item">
-                                <a href="" class="footer__link">About Us</a>
-                            </li>
-                            <li class="footer__item">
-                                <a href="" class="footer__link">Features</a>
-                            </li>
-                            <li class="footer__item">
-                                <a href="" class="footer__link">New & Blog</a>
-                            </li>
-                        </ul>
-                    </div>
-
-                    <div class="footer__data">
-                        <h3 class="footer__subtitle">Company</h3>
-                        <ul>
-                            <li class="footer__item">
-                                <a href="" class="footer__link">Team</a>
-                            </li>
-                            <li class="footer__item">
-                                <a href="" class="footer__link">Plan y Pricing</a>
-                            </li>
-                            <li class="footer__item">
-                                <a href="" class="footer__link">Become a member</a>
-                            </li>
-                        </ul>
-                    </div>
-
-                    <div class="footer__data">
-                        <h3 class="footer__subtitle">Support</h3>
-                        <ul>
-                            <li class="footer__item">
-                                <a href="" class="footer__link">FAQs</a>
-                            </li>
-                            <li class="footer__item">
-                                <a href="" class="footer__link">Support Center</a>
-                            </li>
-                            <li class="footer__item">
-                                <a href="" class="footer__link">Contact Us</a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-
-                <div class="footer__rights">
-                    <p class="footer__copy">&#169; 2021 Bedimcode. All rigths reserved.</p>
-                    <div class="footer__terms">
-                        <a href="#" class="footer__terms-link">Terms & Agreements</a>
-                        <a href="#" class="footer__terms-link">Privacy Policy</a>
-                    </div>
-                </div>
+          </div>
+        </div>
+        <div class="col-lg col-sm-6 col-xs-12">
+          <div class="item">
+            <h4>Paket 4</h4>
+            <div class="thumb">
+              <a href="detailPackage.php"><img src="assets/img/package.png" alt=""></a>
             </div>
-        </footer>
-    </section>
+          </div>
+        </div>
+        <div class="col-lg col-sm-6 col-xs-12">
+          <div class="item">
+            <h4>Paket 5</h4>
+            <div class="thumb">
+              <a href="detailPackage.php"><img src="assets/img/package.png" alt=""></a>
+            </div>
+          </div>
+        </div>
+      </div>    
+    </div>
+  </div>
 
-    <!--==================== AKHIR FOOTER ====================-->
+  <footer>
+    <div class="container">
+      <div class="col-lg-12">
+        <p>Copyright © 2023 WIZZ Company. All rights reserved. &nbsp;&nbsp; <a rel="nofollow" href="https://templatemo.com" target="_blank">Design: TemplateMo</a></p>
+      </div>
+    </div>
+  </footer>
 
-    <!--========== SCROLL UP ==========-->
-    <a href="#" class="scrollup" id="scroll-up">
-        <i class="ri-arrow-up-line scrollup__icon"></i>
-    </a>
+  <!-- !-- Bootstrap core JavaScript -->
+  <script src="vendor/jquery/jquery.min.js"></script>
+  <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+  <script src="assets/js/isotope.min.js"></script>
+  <script src="assets/js/owl-carousel.js"></script>
+  <script src="assets/js/counter.js"></script>
+  <script src="assets/js/custom.js"></script>
 
-    <!--=============== SCROLL REVEAL===============-->
-    <script src="assets/js/scrollreveal.min.js"></script>
 
-    <!--=============== SWIPER JS ===============-->
-    <script src="assets/js/swiper-bundle.min.js"></script>
-
-    <!--=============== MAIN JS ===============-->
-    <script src="assets/js/main.js"></script>
-
-    <!-- Tambahkan script Flatpickr -->
-    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
 </body>
-
 </html>

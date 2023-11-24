@@ -424,5 +424,8 @@ function gallery() {
     window.location.href = 'gallery.php?id=';
 }
 
+function checkout(){
+    window.location.href = 'checkout.php?id=';
+}
 
 
