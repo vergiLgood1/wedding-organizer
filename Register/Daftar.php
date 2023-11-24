@@ -28,7 +28,7 @@ require('phpdaftar.php')
         <div class="input-box">
             <input type="password" placeholder="Password" name="password"
             required>
-            <i class='bx bxs-lock-alt' ></i>
+            <i class='bx bxs-lock-alt' ></i> 
         </div>
         <div class = "tombol-submit">
         <a href="../Login/login.php">Kembali</a>
