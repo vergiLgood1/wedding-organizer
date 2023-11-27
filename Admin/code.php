@@ -366,4 +366,212 @@ if(isset($_POST['btn_deletepaket']))
 
 }
 
+//ini paket baru
+if(isset($_POST['paket_save']))
+{
+    $namapkt = $_POST['nama_paket'];
+    $hargapkt = $_POST['harga_paket'];
+    $gambarpkt = $_FILES['gambar_paket']['name'];
+
+        if(file_exists("upload/".$_FILES["gambar_paket"]["name"]))
+        {
+            $store1 = $_FILES["gambar_paket"]["name"];
+            $_SESSION['status'] = "Gambar telah ada. '.$store1.'";
+            header('Location: paket.php');
+        }
+        else
+        {
+        
+            $query = "INSERT INTO packages (nama_paket, harga, gambar) VALUES ('$namapkt', '$hargapkt', '$gambarpkt')";
+            $query_run = mysqli_query($connection, $query);
+            
+            if($query_run)
+            {
+                move_uploaded_file($_FILES["gambar_paket"]["tmp_name"], "upload/".$_FILES["gambar_paket"]["name"]);
+                $_SESSION['success'] = "Paket ditambahkan";
+                header('Location: paket.php');
+            }
+            else
+            {
+                $_SESSION['status'] = "Paket gagal ditambahkan";
+                header('Location: paket.php');
+            }
+        }
+}
+
+if(isset($_POST['updatepaket']))
+{
+    $id = $_POST['id_paket'];
+    $namapkt = $_POST['nama_paket'];
+    $hargapkt = $_POST['harga_paket'];
+    $gambarpkt = $_FILES['gambar_paket']['name'];
+
+    $query = "UPDATE packages SET nama_paket='$namapkt', harga='$hargapkt', gambar='$gambarpkt' WHERE id='$id' ";
+    $query_run = mysqli_query($connection, $query);
+
+    if($query_run)
+    {
+        move_uploaded_file($_FILES["gambar_paket"]["tmp_name"], "upload/".$_FILES["gambar_paket"]["name"]);
+        $_SESSION['success'] = "Data telah di Update";
+        header('Location: paket.php');
+    }
+    else
+    {
+        $_SESSION['status'] = "Data gagal di Update";
+        header('Location: paket.php');
+    }
+
+}
+
+if(isset($_POST['deletepaket']))
+{
+    $id = $_POST['id_deletepkt'];
+
+    $query = "DELETE FROM packages WHERE id='$id'";
+    $query_run = mysqli_query($connection, $query);
+
+    if($query_run)
+    {
+        $_SESSION['success'] = "Data telah di Hapus";
+        header('Location: paket.php');
+    }
+    else
+    {
+        $_SESSION['status'] = "Data gagal di Hapus";
+        header('Location: paket.php');
+    }
+
+}
+
+//kode untuk gallery
+if(isset($_POST['gallery_save']))
+{
+    
+    $gambarglr = $_FILES['gambar_gallery']['name'];
+
+        if(file_exists("upgallery/".$_FILES["gambar_gallery"]["name"]))
+        {
+            $store2 = $_FILES["gambar_gallery"]["name"];
+            $_SESSION['status'] = "Gambar telah ada. '.$store2.'";
+            header('Location: gallery.php');
+        }
+        else
+        {
+        
+            $query = "INSERT INTO gallery (gambar) VALUES ('$gambarglr')";
+            $query_run = mysqli_query($connection, $query);
+            
+            if($query_run)
+            {
+                move_uploaded_file($_FILES["gambar_gallery"]["tmp_name"], "upgallery/".$_FILES["gambar_gallery"]["name"]);
+                $_SESSION['success'] = "Paket ditambahkan";
+                header('Location: gallery.php');
+            }
+            else
+            {
+                $_SESSION['status'] = "Paket gagal ditambahkan";
+                header('Location: gallery.php');
+            }
+        }
+}
+
+if(isset($_POST['deleteglr']))
+{
+    $id = $_POST['id_deleteglr'];
+
+    $query = "DELETE FROM gallery WHERE id='$id'";
+    $query_run = mysqli_query($connection, $query);
+
+    if($query_run)
+    {
+        $_SESSION['success'] = "Data telah di Hapus";
+        header('Location: gallery.php');
+    }
+    else
+    {
+        $_SESSION['status'] = "Data gagal di Hapus";
+        header('Location: gallery.php');
+    }
+
+}
+
+//kode untuk testimoni
+if(isset($_POST['testi_save']))
+{
+    $namatst = $_POST['nama_testi'];
+    $judultst = $_POST['judul_testi'];
+    $destst = $_POST['des_testi'];
+    $gambartst = $_FILES['gambar_testi']['name'];
+
+        if(file_exists("uptesti/".$_FILES["gambar_testi"]["name"]))
+        {
+            $store3 = $_FILES["gambar_testi"]["name"];
+            $_SESSION['status'] = "Gambar telah ada. '.$store3.'";
+            header('Location: testimoni.php');
+        }
+        else
+        {
+        
+            $query = "INSERT INTO testimoni (nama_user, judul, deskripsi, gambar_user) VALUES ('$namatst', '$judultst', '$destst', '$gambartst')";
+            $query_run = mysqli_query($connection, $query);
+            
+            if($query_run)
+            {
+                move_uploaded_file($_FILES["gambar_testi"]["tmp_name"], "uptesti/".$_FILES["gambar_testi"]["name"]);
+                $_SESSION['success'] = "Paket ditambahkan";
+                header('Location: testimoni.php');
+            }
+            else
+            {
+                $_SESSION['status'] = "Paket gagal ditambahkan";
+                header('Location: testimoni.php');
+            }
+        }
+}
+
+if(isset($_POST['updatetesti']))
+{
+    $id = $_POST['id_testi'];
+    $namatst = $_POST['nama_testi'];
+    $judultst = $_POST['judul_testi'];
+    $destst = $_POST['des_testi'];
+    $gambartst = $_FILES['gambar_testi']['name'];
+
+    $query = "UPDATE testimoni SET nama_user='$namatst', judul='$judultst', deskripsi='$destst', gambar_user='$gambartst' WHERE id='$id' ";
+    $query_run = mysqli_query($connection, $query);
+
+    if($query_run)
+    {
+        move_uploaded_file($_FILES["gambar_testi"]["tmp_name"], "uptesti/".$_FILES["gambar_testi"]["name"]);
+        $_SESSION['success'] = "Data telah di Update";
+        header('Location: testimoni.php');
+    }
+    else
+    {
+        $_SESSION['status'] = "Data gagal di Update";
+        header('Location: testimoni.php');
+    }
+
+}
+
+if(isset($_POST['deletetesti']))
+{
+    $id = $_POST['id_deletetesti'];
+
+    $query = "DELETE FROM testimoni WHERE id='$id'";
+    $query_run = mysqli_query($connection, $query);
+
+    if($query_run)
+    {
+        $_SESSION['success'] = "Data telah di Hapus";
+        header('Location: testimoni.php');
+    }
+    else
+    {
+        $_SESSION['status'] = "Data gagal di Hapus";
+        header('Location: testimoni.php');
+    }
+
+}
+
 ?>

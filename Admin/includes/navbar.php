@@ -1,12 +1,36 @@
+
+<!--=============== REMIXICONS ===============-->
+<!-- <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet"> -->
+
+<!--=============== SWIPER CSS ===============-->
+<!-- <link rel="stylesheet" href="../Admin/assets/css2/swiper-bundle.min.css"> -->
+
+
+<!--=============== CSS ===============-->
+<!-- <link rel="stylesheet" href="../Admin/css2/styles.css"> -->
+
 <!-- Sidebar -->
-<ul class="navbar-nav bg-gradient-info sidebar sidebar-dark accordion" id="accordionSidebar">
+<ul class="navbar-nav  sidebar sidebar-dark accordion" id="accordionSidebar">
+
+<style>
+    #judul{
+        font-family: 'Raleway', sans-serif;
+        color: hsl(353, 100%, 78%);
+        font-size: 24px;
+    }
+
+    ul{
+        background-color: #212121
+    }
+</style>
 
 <!-- Sidebar - Brand -->
 <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.php">
-    <div class="sidebar-brand-icon rotate-n-15">
-        <i class="fas fa-laugh-wink"></i>
+    <div class="sidebar-brand-icon ">
+        <!-- <i class="fas fa-laugh-wink"></i> -->
+        <img src="../Admin/LogoWizz/Wizz4.png">
     </div>
-    <div class="sidebar-brand-text mx-3">Wizz <sup>W.O</sup></div>
+    <div id="judul" class="sidebar-brand-text mx-3"></div>
 </a>
 
 <!-- Divider -->
@@ -43,8 +67,9 @@
             <a class="collapse-item" href="aboutus.php">About</a>
             <a class="collapse-item" href="fasilitas.php">Fasilitas</a>
             <a class="collapse-item" href="packages.php">Packages</a>
-            <a class="collapse-item" href="#">Gallery</a>
-            <a class="collapse-item" href="#">Testimoni</a>
+            <a class="collapse-item" href="paket.php">Packages2</a>
+            <a class="collapse-item" href="gallery.php">Gallery</a>
+            <a class="collapse-item" href="testimoni.php">Testimoni</a>
         </div>
     </div>
 </li>
@@ -120,9 +145,9 @@
 <hr class="sidebar-divider d-none d-md-block">
 
 <!-- Sidebar Toggler (Sidebar) -->
-<div class="text-center d-none d-md-inline">
+<!-- <div class="text-center d-none d-md-inline">
     <button class="rounded-circle border-0" id="sidebarToggle"></button>
-</div>
+</div> -->
 
 <!-- Sidebar Message -->
 <!-- <div class="sidebar-card d-none d-lg-flex">

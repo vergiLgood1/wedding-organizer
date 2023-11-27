@@ -59,9 +59,15 @@ include('includes/navbar.php');
         h3{
             text-align: center;
         }
+        .btn-dark {
+        background-color: #ff8f9c;
+        }
+        .text-primary {
+        color: #ff8f9c !important;
+        }
         </style>
         <h3 class="m-0 font-weight-bold text-primary">Admin Profile</h3>
-            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#addadminprofile">
+            <button type="button" class="btn btn-dark" data-toggle="modal" data-target="#addadminprofile">
                 add Admin Profile
             </button>
         
@@ -121,7 +127,7 @@ include('includes/navbar.php');
                     <td>
                         <form action="register_edit.php" method="POST">
                         <input type="hidden" name="edit_id" value="<?php echo $row['id']; ?>">    
-                        <button type="submit" name="edit_btn" class="btn btn-success">EDIT</button>
+                        <button type="submit" name="edit_btn" class="btn btn-success fas fa-edit"></button>
                         </form>
                     </td>
                     <td>

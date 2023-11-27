@@ -1,5 +1,5 @@
 <?php
-
+include('../Admin/security.php');
 
 ?>
 <!DOCTYPE html>
@@ -30,7 +30,7 @@
     <header class="header" id="header">
         <nav class="nav">
             <div class="nav__left">
-                <a href="#" class="nav__logo">Wizz</a>
+                <a href="#" class="nav__logo"><img src="assets/img/logo.png" alt=""></a>
                 <div class="nav__menu" id="nav-menu">
                     <ul class="nav__list">
                         <li class="nav__item">
@@ -46,13 +46,13 @@
                             <a href="package.php" class="nav__link" onclick="ArahkanKePackage()">Package</a>
                         </li>
                         <li class="nav__item">
-                            <a href="home.php" class="nav__link">Testimoni</a>
+                            <a href="#testimoni" class="nav__link">Testimoni</a>
                         </li>
                         <li class="nav__item">
-                            <a href="home.php" class="nav__link">Blog</a>
+                            <a href="#contact" class="nav__link">Contact</a>
                         </li>
                         <li class="nav__item">
-                            <a href="home.php" class="nav__link">Contact</a>
+                            <a href="#blog" class="nav__link">Blog</a>
                         </li>
                     </ul>
                 </div>
@@ -61,29 +61,29 @@
             <!-- ... (bagian lainnya tetap sama) -->
 
             <div class="nav__right">
-    <div id="userSection" class="hidden">
-        <!-- Jika pengguna sudah login, tampilkan icon profil -->
-        <div id="userProfile">
-            <img src="profile-icon.png" alt="Profile Icon">
-            <span id="username"></span>
-            <div id="dropdownMenu" class="hidden">
-                <ul>
-                    <li><a href="#">Pesanan Saya</a></li>
-                    <li><a href="#">Akun Saya</a></li>
-                    <li><a href="#" onclick="logout()">Logout</a></li>
-                </ul>
+                <div id="userSection" class="hidden">
+                    <!-- Jika pengguna sudah login, tampilkan icon profil -->
+                    <div id="userProfile">
+                        <img src="assets/img/Profile.svg" alt="Profile Icon">
+                        <span id="username"></span>
+                        <div id="dropdownMenu" class="hidden">
+                            <ul>
+                                <li><a href="#">Pesanan Saya</a></li>
+                                <li><a href="#">Akun Saya</a></li>
+                                <li><a href="#" onclick="logout()">Logout</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <!-- Tombol keranjang belanja -->
+                <button class="nav__button__shop" id="cartButton">
+                    <i class="ri-shopping-cart-line" onclick="pesananSaya()"></i>
+                </button>
+
+                <!-- Tombol masuk -->
+                <button id="loginButton" class="button-login" onclick="loginPhp()">Masuk</button>
+
             </div>
-        </div>
-    </div>
-    <!-- Tombol keranjang belanja -->
-    <button class="nav__button__shop" id="cartButton">
-        <i class="ri-shopping-cart-line" onclick="pesananSaya()"></i>
-    </button>
-
-    <!-- Tombol masuk -->
-    <button id="loginButton" class="button-login" onclick="loginPhp()">Masuk</button>
-
-</div>
             <!-- ... (bagian lainnya tetap sama) -->
 
 
@@ -275,7 +275,7 @@
                 <p class="package__title">Pilih, pesan dan laksanakan pernikahanmu</p>
             </div>
             <div class="cards-container">
-                <article class="card">
+                <article class="card" onclick=" ArahkanKePackage()">
                     <div class="card-info-hover">
                         <svg class="card-like" viewBox="0 0 24 24">
                             <path fill="#000000"
@@ -290,7 +290,7 @@
                         </div>
                     </div>
                     <div class="card-img"></div>
-                    <a href="package.html">
+                    <a href="package.php">
                         <div class="card-img-hover" style="background-image: url(assets/img/about1.png);">
                         </div>
                     </a>
@@ -304,7 +304,7 @@
                     </div>
                 </article>
 
-                <article class="card">
+                <article class="card" onclick=" ArahkanKePackage()">
                     <div class="card-info-hover">
                         <svg class="card-like" viewBox="0 0 24 24">
                             <path fill="#000000"
@@ -319,7 +319,7 @@
                         </div>
                     </div>
                     <div class="card-img"></div>
-                    <a href="package.html">
+                    <a href="package.php">
                         <div class="card-img-hover" style="background-image: url(assets/img/about1.png);">
                         </div>
                     </a>
@@ -332,7 +332,7 @@
                         </span>
                     </div>
                 </article>
-                <article class="card">
+                <article class="card" onclick=" ArahkanKePackage()">
                     <div class="card-info-hover">
                         <svg class="card-like" viewBox="0 0 24 24">
                             <path fill="#000000"
@@ -347,16 +347,16 @@
                         </div>
                     </div>
                     <div class="card-img"></div>
-                    <a href="package.html">
+                    <a href="package.php">
                         <div class="card-img-hover" style="background-image: url(assets/img/about1.png);">
                         </div>
                     </a>
                     <div class="card-info">
                         <span class="card-category">Paket biasa</span>
                         <h3 class="card-title">Murah tapi tapi berkualitas</h3>
-                        <span class="card-by"> 
+                        <span class="card-by">
 
-                            <a href="#" class="card-admin">Rp. 50.000</a>
+                            <a href="" class="card-admin">Rp. 50.000</a>
                         </span>
                     </div>
                 </article>
@@ -368,144 +368,168 @@
         <!--==================== AWAL TESTIMONIAL ====================-->
 
 
-            <section class="testimonial-container" id="testimoni">
-                <div class="title_container">
-                    <h2 class="section__title">Testimonial <br></h2>
-                    <p class="testi__title">Apa tanggapan mereka tentang Wizz?</p>
-                </div>
-                <div class="outerdiv">
-                    <div class="innerdiv">
-                        <!-- div1 -->
+        <section class="testimonial-container" id="testimoni">
+            <div class="title_container">
+                <h2 class="section__title">Testimonial <br></h2>
+                <p class="testi__title">Apa tanggapan mereka tentang Wizz?</p>
+            </div>
+            <div class="outerdiv">
+                <div class="innerdiv">
+                    <!-- div1 -->
 
-                        <!-- div2 -->
 
-                        <!-- div3 -->
-                        <div class="div5 eachdiv">
-                            <div class="userdetails">
-                                <div class="imgbox">
-                                    <img src="https://raw.githubusercontent.com/RahulSahOfficial/testimonials_grid_section/5532c958b7d3c9b910a216b198fdd21c73112d84/images/image-patrick.jpg"
-                                        alt="">
-                                </div>
-                                <div class="detbox">
-                                    <p class="name">Patrick Abrams</p>
-                                    <p class="designation">Verified Graduate</p>
-                                </div>
+                    <!-- div2 -->
+                    <?php 
+                    $query = "SELECT * FROM testimoni ORDER BY id ASC";
+                    $result = mysqli_query($connection, $query);
+                    while ($row = mysqli_fetch_assoc($result)) {
+                    ?>
+                    <div class="div5 eachdiv">
+                        <div class="userdetails">
+                            <div class="imgbox">
+                            <?php echo '<img src="../Admin/uptesti/'.$row['gambar_user'].'"alt="gambar">' ?>
                             </div>
-                            <div class="review">
-                                <h4>Dekorasi yang indah!!</h4>
-                                <p>"Dekorasi yang luar biasa indah! Setiap sentuhan artistik menciptakan atmosfer yang
-                                    memukau dan menghadirkan keajaiban pada hari istimewa kami."
-
-                                    "Pelayanan yang benar-benar membantu kami. Dari awal hingga akhir, tim ini memberikan
-                                    bantuan yang sangat berarti, membuat seluruh perjalanan perencanaan pernikahan menjadi
-                                    lebih lancar dan tak terlupakan."</p>
+                            <div class="detbox">
+                                <p class="name"><?php echo $row["nama_user"] ?></p>
+                                <p class="designation">Verified User</p>
                             </div>
                         </div>
-                        <!-- div4 -->
-                        <div class="div5 eachdiv">
-                            <div class="userdetails">
-                                <div class="imgbox">
-                                    <img src="https://raw.githubusercontent.com/RahulSahOfficial/testimonials_grid_section/5532c958b7d3c9b910a216b198fdd21c73112d84/images/image-patrick.jpg"
-                                        alt="">
-                                </div>
-                                <div class="detbox">
-                                    <p class="name">Patrick Abrams</p>
-                                    <p class="designation">Verified Graduate</p>
-                                </div>
-                            </div>
-                            <div class="review">
-                                <h4>Pelayanan benar benar membantu kami.</h4>
-                                <p>"Pelayanan yang benar-benar membantu kami. Dari awal hingga akhir, tim ini memberikan
-                                    bantuan yang sangat berarti, membuat seluruh perjalanan perencanaan pernikahan menjadi
-                                    lebih lancar dan tak terlupakan."</p>
-                            </div>
-                        </div>
-                        <!-- div5 -->
-                        <div class="div5 eachdiv">
-                            <div class="userdetails">
-                                <div class="imgbox">
-                                    <img src="https://raw.githubusercontent.com/RahulSahOfficial/testimonials_grid_section/5532c958b7d3c9b910a216b198fdd21c73112d84/images/image-patrick.jpg"
-                                        alt="">
-                                </div>
-                                <div class="detbox">
-                                    <p class="name">Patrick Abrams</p>
-                                    <p class="designation">Verified Graduate</p>
-                                </div>
-                            </div>
-                            <div class="review">
-                                <h4>Hasil foto yang luar biasa!</h4>
-                                <p>"Staf wedding organizer ini luar biasa! Dengan profesionalisme, keahlian, dan perhatian
-                                    tiada tara, mereka membantu mewujudkan pernikahan impian kami. Terima kasih atas
-                                    dedikasi dan kerja kerasnya yang membuat hari istimewa kami begitu sempurna." </p>
-                            </div>
+                        <div class="review">
+                            <h4><?php echo $row["judul"] ?></h4>
+                            <p><?php echo $row["deskripsi"] ?></p>
                         </div>
                     </div>
+                    <?php 
+                    } 
+                    ?>
+                    <!-- div3 -->
+                    
+                    <!-- <div class="div5 eachdiv">
+                        <div class="userdetails">
+                            <div class="imgbox">
+                                <img src="https://raw.githubusercontent.com/RahulSahOfficial/testimonials_grid_section/5532c958b7d3c9b910a216b198fdd21c73112d84/images/image-patrick.jpg"
+                                    alt="">
+                            </div>
+                            <div class="detbox">
+                                <p class="name">Patrick Abrams</p>
+                                <p class="designation">Verified Graduate</p>
+                            </div>
+                        </div>
+                        <div class="review">
+                            <h4>Dekorasi yang indah!!</h4>
+                            <p>"Dekorasi yang luar biasa indah! Setiap sentuhan artistik menciptakan atmosfer yang
+                                memukau dan menghadirkan keajaiban pada hari istimewa kami."
+
+                                "Pelayanan yang benar-benar membantu kami. Dari awal hingga akhir, tim ini memberikan
+                                bantuan yang sangat berarti, membuat seluruh perjalanan perencanaan pernikahan menjadi
+                                lebih lancar dan tak terlupakan."</p>
+                        </div>
+                    </div> -->
+                    <!-- div4 -->
+                    <!-- <div class="div5 eachdiv">
+                        <div class="userdetails">
+                            <div class="imgbox">
+                                <img src="https://raw.githubusercontent.com/RahulSahOfficial/testimonials_grid_section/5532c958b7d3c9b910a216b198fdd21c73112d84/images/image-patrick.jpg"
+                                    alt="">
+                            </div>
+                            <div class="detbox">
+                                <p class="name">Patrick Abrams</p>
+                                <p class="designation">Verified Graduate</p>
+                            </div>
+                        </div>
+                        <div class="review">
+                            <h4>Pelayanan benar benar membantu kami.</h4>
+                            <p>"Pelayanan yang benar-benar membantu kami. Dari awal hingga akhir, tim ini memberikan
+                                bantuan yang sangat berarti, membuat seluruh perjalanan perencanaan pernikahan menjadi
+                                lebih lancar dan tak terlupakan."</p>
+                        </div>
+                    </div> -->
+                    <!-- div5 -->
+                    <!-- <div class="div5 eachdiv">
+                        <div class="userdetails">
+                            <div class="imgbox">
+                                <img src="https://raw.githubusercontent.com/RahulSahOfficial/testimonials_grid_section/5532c958b7d3c9b910a216b198fdd21c73112d84/images/image-patrick.jpg"
+                                    alt="">
+                            </div>
+                            <div class="detbox">
+                                <p class="name">Patrick Abrams</p>
+                                <p class="designation">Verified Graduate</p>
+                            </div>
+                        </div>
+                        <div class="review">
+                            <h4>Hasil foto yang luar biasa!</h4>
+                            <p>"Staf wedding organizer ini luar biasa! Dengan profesionalisme, keahlian, dan perhatian
+                                tiada tara, mereka membantu mewujudkan pernikahan impian kami. Terima kasih atas
+                                dedikasi dan kerja kerasnya yang membuat hari istimewa kami begitu sempurna." </p>
+                        </div>
+                    </div> -->
                 </div>
-            </section>
+            </div>
+        </section>
 
 
         <!--==================== AKHIR TESTIMONIAL ====================-->
 
-        
-         <!--==================== AWAL KONTAK ====================-->
-         <section id="contact">
+
+        <!--==================== AWAL KONTAK ====================-->
+        <section id="contact">
             <h2 class="section__title">Berbincang dengan kami</h2>
             <p class="section__desc">Untuk konsultasi dan informasi lebih lanjut</p>
             <div class="background">
                 <div class="container__contact">
-                  <div class="screen">
-                    <div class="screen-header">
-                      <div class="screen-header-left">
-                      </div>
-                      <div class="screen-header-right">
-                        <div class="screen-header-ellipsis"></div>
-                        <div class="screen-header-ellipsis"></div>
-                        <div class="screen-header-ellipsis"></div>
-                      </div>
-                    </div>
-                    <div class="screen-body">
-                      <div class="screen-body-item left">
-                        <div class="app-title">
-                          <span>Hubungi</span>
-                          <span>Kami</span>
+                    <div class="screen">
+                        <div class="screen-header">
+                            <div class="screen-header-left">
+                            </div>
+                            <div class="screen-header-right">
+                                <div class="screen-header-ellipsis"></div>
+                                <div class="screen-header-ellipsis"></div>
+                                <div class="screen-header-ellipsis"></div>
+                            </div>
                         </div>
-                        <div class="app-contact">CONTACT INFO : +62 81 314 928 595</div>
-                      </div>
-                      <div class="screen-body-item">
-                        <div class="app-form">
-                          <div class="app-form-group">
-                            <input class="app-form-control" placeholder="NAMA" value="">
-                          </div>
-                          <div class="app-form-group">
-                            <input class="app-form-control" placeholder="EMAIL">
-                          </div>
-                          <div class="app-form-group">
-                            <input class="app-form-control" placeholder="NOMOR KONTAK">
-                          </div>
-                          <div class="app-form-group message">
-                            <input class="app-form-control" placeholder="PESAN">
-                          </div>
-                          <div class="app-form-group buttons">
-                            <button class="app-form-button">BATAL</button>
-                            <button class="app-form-button">KIRIM</button>
-                          </div>
+                        <div class="screen-body">
+                            <div class="screen-body-item left">
+                                <div class="app-title">
+                                    <span>Hubungi</span>
+                                    <span>Kami</span>
+                                </div>
+                                <div class="app-contact">CONTACT INFO : +62 81 314 928 595</div>
+                            </div>
+                            <div class="screen-body-item">
+                                <div class="app-form">
+                                    <div class="app-form-group">
+                                        <input class="app-form-control" placeholder="NAMA" value="">
+                                    </div>
+                                    <div class="app-form-group">
+                                        <input class="app-form-control" placeholder="EMAIL">
+                                    </div>
+                                    <div class="app-form-group">
+                                        <input class="app-form-control" placeholder="NOMOR KONTAK">
+                                    </div>
+                                    <div class="app-form-group message">
+                                        <input class="app-form-control" placeholder="PESAN">
+                                    </div>
+                                    <div class="app-form-group buttons">
+                                        <button class="app-form-button">BATAL</button>
+                                        <button class="app-form-button">KIRIM</button>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
-                      </div>
                     </div>
-                  </div>
                 </div>
-              </div>
-              
-              </section>
-    
-            <!--==================== AKHIR KONTAK ====================-->
-    
-        
+            </div>
+
+        </section>
+
+        <!--==================== AKHIR KONTAK ====================-->
+
+
         <!--==================== AWAL BLOG ====================-->
-     
+
         <h2 class="section__title">Blog terkait</h2>
         <p class="blog__title">Beberapa blog yang relevan dengan konten terkait</p>
-        
+
         <section class="blog" id="blog">
             <div class="blog__item">
                 <a href="">
@@ -551,7 +575,7 @@
 
         <!--==================== AKHIR BLOG ====================-->
 
-       
+
         <!--==================== SPONSORS ====================-->
         <section class="sponsor__section">
             <div class="sponsor__container container grid">

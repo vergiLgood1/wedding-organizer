@@ -4,250 +4,292 @@ include('../Admin/security.php');
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
 
-    <link rel="shortcut icon" href="assets/img/favicon.png" type="image/png">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 
-    <!--=============== REMIXICONS ===============-->
-    <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
+    <title>Lugx Gaming - Shop Page</title>
 
-    <!--=============== SWIPER CSS ===============-->
-    <link rel="stylesheet" href="assets/css/swiper-bundle.min.css">
-
-
-    <!--=============== CSS ===============-->
-    <link rel="stylesheet" href="assets/css/package.css">
-
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <!-- Bootstrap core CSS -->
+    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
 
+    <!-- Additional CSS Files -->
+    <link rel="stylesheet" href="assets/css/fontawesome.css">
+    <link rel="stylesheet" href="assets/css/detailPackage.css">
+    <link rel="stylesheet" href="assets/css/owl.css">
+    <link rel="stylesheet" href="assets/css/animate.css">
+    <link rel="stylesheet"href="https://unpkg.com/swiper@7/swiper-bundle.min.css"/>
+<!--
 
-    <title>Responsive Website Travel</title>
-</head>
+TemplateMo 589 lugx gaming
+
+https://templatemo.com/tm-589-lugx-gaming
+
+-->
+  </head>
 
 <body>
-    <header class="header" id="header">
-        <nav class="nav">
-            <div class="nav__left">
-                <a href="#" class="nav__logo">Wizz</a>
-                <div class="nav__menu" id="nav-menu">
-                    <ul class="nav__list">
-                        <li class="nav__item">
-                            <a href="index.php" class="nav__link active-link">Home</a>
-                        </li>
-                        <li class="nav__item">
-                            <a href="about.php" class="nav__link">About</a>
-                        </li>
-                        <li class="nav__item">
-                            <a href="gallery.php" class="nav__link">Gallery</a>
-                        </li>
-                        <li class="nav__item">
-                            <a href="package.php" class="nav__link" onclick="ArahkanKePackage()">Package</a>
-                        </li>
-                        <li class="nav__item">
-                            <a href="#testimoni" class="nav__link">Testimoni</a>
-                        </li>
-                        <li class="nav__item">
-                            <a href="#blog" class="nav__link">Blog</a>
-                        </li>
-                        <li class="nav__item">
-                            <a href="#contact" class="nav__link">Contact</a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
 
-            <!-- ... (bagian lainnya tetap sama) -->
+  <!-- ***** Preloader Start ***** -->
+  <div id="js-preloader" class="js-preloader">
+    <div class="preloader-inner">
+      <span class="dot"></span>
+      <div class="dots">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </div>
+  </div>
+  <!-- ***** Preloader End ***** -->
 
-            <div class="nav__right">
-                <button class="nav__button__shop" id="cartButton">
-                    <i class="ri-shopping-cart-line"></i>
-                </button>
-                <button class="button-login">Masuk</button>
-            </div>
-
-            <!-- ... (bagian lainnya tetap sama) -->
-
-
-            <div class="nav__toggle" id="nav-toggle">
-                <i class="ri-function-line"></i>
-            </div>
-        </nav>
-    </header>
-
-    <main class="main">
-        <section class="packages">
-            <div class="title_container">
-                <h2 class="section__title">Pilih paket <br>sesuai kebutuhanmu</h2>
-                <p class="package__title">Pilih, pesan dan laksanakan pernikahanmu</p>
-            </div>
-            <div class="product-grid">
-                <?php
-                // jalankan query untuk menampilkan semua data diurutkan berdasarkan nim
-                $query = "SELECT * FROM paket ORDER BY id ASC";
-                $result = mysqli_query($connection, $query);
-                //mengecek apakah ada error ketika menjalankan query
-                if (!$result) {
-                    die("Query Error: " . mysqli_errno($connection) .
-                        " - " . mysqli_error($connection));
-                }
-                
-                while ($row = mysqli_fetch_assoc($result)) {
-                ?>
-                <!-- Product Card 1 -->
-                <div class="product-card" onclick="detailPaket(1)">
-                    <div class="badge">Hot</div>
-                    <div class="product-tumb">
-                    <?php echo '<img src="../Admin/uppaket/'.$row['gambar'].'"alt="gambar">' ?>
-                    </div>
-                    <div class="product-details">
-                        <h4><a href="#"><?php echo $row['nama'] ?></a></h4>
-                        <p><?php echo $row["deskripsi"]; ?></p>
-                        <div class="product-bottom-details">
-                            <div class="product-price"><small></small><?php echo $row["harga"] ?></div>
-                            <div class="product-count"><small>5.0 |</small>5 Terjual</div>
-                            <div class="product-links">
-                                <a href="#"><i class="fas fa-heart"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-    
-                <?php
-                    
-                }
-                ?>
-            </div>
-        </section>
-
-        
-        
-          <!--==================== SPONSORS ====================-->
-          <section class="sponsor__section">
-            <div class="sponsor__container container grid">
-                <div class="sponsor__content">
-                    <img src="assets/img/sponsors1.png" alt="" class="sponsor__img">
-                </div>
-                <div class="sponsor__content">
-                    <img src="assets/img/sponsors2.png" alt="" class="sponsor__img">
-                </div>
-                <div class="sponsor__content">
-                    <img src="assets/img/sponsors3.png" alt="" class="sponsor__img">
-                </div>
-                <div class="sponsor__content">
-                    <img src="assets/img/sponsors4.png" alt="" class="sponsor__img">
-                </div>
-                <div class="sponsor__content">
-                    <img src="assets/img/sponsors5.png" alt="" class="sponsor__img">
-                </div>
-            </div>
-        </section>
-    </main>
-    </main>
-
-
-    
-
-
-    <!--==================== AWAL FOOTER ====================-->
-    <footer class="footer__section">
-        <div class="footer__container container grid">
-            <div class="footer__content grid">
-                <div class="footer__data">
-                    <h3 class="footer__title">Travel</h3>
-                    <p class="footer__description">Travel you choose the <br> destination,
-                        we offer you the <br> experience.
-                    </p>
-                    <div>
-                        <a href="https://www.facebook.com/" target="_blank" class="footer__social">
-                            <i class="ri-facebook-box-fill"></i>
-                        </a>
-                        <a href="https://twitter.com/" target="_blank" class="footer__social">
-                            <i class="ri-twitter-fill"></i>
-                        </a>
-                        <a href="https://www.instagram.com/" target="_blank" class="footer__social">
-                            <i class="ri-instagram-fill"></i>
-                        </a>
-                        <a href="https://www.youtube.com/" target="_blank" class="footer__social">
-                            <i class="ri-youtube-fill"></i>
-                        </a>
-                    </div>
-                </div>
-
-                <div class="footer__data">
-                    <h3 class="footer__subtitle">About</h3>
-                    <ul>
-                        <li class="footer__item">
-                            <a href="" class="footer__link">About Us</a>
-                        </li>
-                        <li class="footer__item">
-                            <a href="" class="footer__link">Features</a>
-                        </li>
-                        <li class="footer__item">
-                            <a href="" class="footer__link">New & Blog</a>
-                        </li>
-                    </ul>
-                </div>
-
-                <div class="footer__data">
-                    <h3 class="footer__subtitle">Company</h3>
-                    <ul>
-                        <li class="footer__item">
-                            <a href="" class="footer__link">Team</a>
-                        </li>
-                        <li class="footer__item">
-                            <a href="" class="footer__link">Plan y Pricing</a>
-                        </li>
-                        <li class="footer__item">
-                            <a href="" class="footer__link">Become a member</a>
-                        </li>
-                    </ul>
-                </div>
-
-                <div class="footer__data">
-                    <h3 class="footer__subtitle">Support</h3>
-                    <ul>
-                        <li class="footer__item">
-                            <a href="" class="footer__link">FAQs</a>
-                        </li>
-                        <li class="footer__item">
-                            <a href="" class="footer__link">Support Center</a>
-                        </li>
-                        <li class="footer__item">
-                            <a href="" class="footer__link">Contact Us</a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-
-            <div class="footer__rights">
-                <p class="footer__copy">&#169; 2021 Bedimcode. All rigths reserved.</p>
-                <div class="footer__terms">
-                    <a href="#" class="footer__terms-link">Terms & Agreements</a>
-                    <a href="#" class="footer__terms-link">Privacy Policy</a>
-                </div>
+    <!-- ***** Header Area Start ***** -->
+    <header class="header-area header-sticky">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <nav class="main-nav">
+                    <!-- ***** Logo Start ***** -->
+                    <a href="index.html" class="logo">
+                        <img src="assets/img/WIZZARD.svg" alt="" style="width: 158px;">
+                    </a>
+                    <!-- ***** Logo End ***** -->
+                    <!-- ***** Menu Start ***** -->
+                    <ul class="nav">
+                      <li><a href="home.php">Home</a></li>
+                      <li><a href="package.php">Packages</a></li>
+                      <li><a href="detailPackage.php" class="active">Detail Packages</a></li>
+                      <li><a href="login.php">Log In</a></li>
+                  </ul>   
+                    <a class='menu-trigger'>
+                        <span>Menu</span>
+                    </a>
+                    <!-- ***** Menu End ***** -->
+                </nav>
             </div>
         </div>
-    </footer>
+    </div>
+  </header>
+  <!-- ***** Header Area End ***** -->
 
-    <!--==================== AKHIR FOOTER ====================-->
+  <div class="page-heading header-text">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12">
+          <h3>Packages</h3>
 
-    <!--========== SCROLL UP ==========-->
-    <a href="#" class="scrollup" id="scroll-up">
-        <i class="ri-arrow-up-line scrollup__icon"></i>
-    </a>
+        </div>
+      </div>
+    </div>
+  </div>
 
-    <!--=============== SCROLL REVEAL===============-->
-    <script src="assets/js/scrollreveal.min.js"></script>
+  <div class="section trending">
+    <div class="container">
+      <ul class="trending-filter">
+        <li>
+          <a class="is_active" href="#!" data-filter="*">Show All</a>
+        </li>
+        <li>
+          <a href="#!" data-filter=".adv">Silver</a>
+        </li>
+        <li>
+          <a href="#!" data-filter=".str">Gold</a>
+        </li>
+        <li>
+          <a href="#!" data-filter=".rac">Express</a>
+        </li>
+      </ul>
+      <div class="row trending-box">
+        <div class="col-lg-3 col-md-6 align-self-center mb-30 trending-items col-md-6 adv">
+          <div class="item">
+            <div class="thumb">
+              <a href="detailPackage.php"><img src="assets/img/package2.png" alt=""></a>
+              <span class="price"><em>$36</em>$24</span>
+            </div>
+            <div class="down-content">
+              <span class="category">Paket</span>
+              <h4>Silver Package</h4>
+              <a href="detailPackage.php"><i class="fa fa-shopping-bag"></i></a>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-3 col-md-6 align-self-center mb-30 trending-items col-md-6 str">
+          <div class="item">
+            <div class="thumb">
+              <a href="detailPackage.php"><img src="assets/img/package2.png" alt=""></a>
+              <span class="price"><em>$32</em>$22</span>
+            </div>
+            <div class="down-content">
+              <span class="category">Paket</span>
+              <h4>Silver Package</h4>
+              <a href="detailPackage.php"><i class="fa fa-shopping-bag"></i></a>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-3 col-md-6 align-self-center mb-30 trending-items col-md-6 str">
+          <div class="item">
+            <div class="thumb">
+              <a href="detailPackage.php"><img src="assets/img/package2.png" alt=""></a>
+              <span class="price"><em>$32</em>$22</span>
+            </div>
+            <div class="down-content">
+              <span class="category">Paket</span>
+              <h4>Silver Package</h4>
+              <a href="detailPackage.php"><i class="fa fa-shopping-bag"></i></a>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-3 col-md-6 align-self-center mb-30 trending-items col-md-6 str">
+          <div class="item">
+            <div class="thumb">
+              <a href="detailPackage.php"><img src="assets/img/package2.png" alt=""></a>
+              <span class="price"><em>$32</em>$22</span>
+            </div>
+            <div class="down-content">
+              <span class="category">Paket</span>
+              <h4>Silver Package</h4>
+              <a href="detailPackage.php"><i class="fa fa-shopping-bag"></i></a>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-3 col-md-6 align-self-center mb-30 trending-items col-md-6 str">
+          <div class="item">
+            <div class="thumb">
+              <a href="detailPackage.php"><img src="assets/img/package2.png" alt=""></a>
+              <span class="price"><em>$32</em>$22</span>
+            </div>
+            <div class="down-content">
+              <span class="category">Paket</span>
+              <h4>Silver Package</h4>
+              <a href="detailPackage.php"><i class="fa fa-shopping-bag"></i></a>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-3 col-md-6 align-self-center mb-30 trending-items col-md-6 str">
+          <div class="item">
+            <div class="thumb">
+              <a href="detailPackage.php"><img src="assets/img/package2.png" alt=""></a>
+              <span class="price"><em>$32</em>$22</span>
+            </div>
+            <div class="down-content">
+              <span class="category">Paket</span>
+              <h4>Silver Package</h4>
+              <a href="detailPackage.php"><i class="fa fa-shopping-bag"></i></a>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-3 col-md-6 align-self-center mb-30 trending-items col-md-6 str">
+          <div class="item">
+            <div class="thumb">
+              <a href="detailPackage.php"><img src="assets/img/package2.png" alt=""></a>
+              <span class="price"><em>$32</em>$22</span>
+            </div>
+            <div class="down-content">
+              <span class="category">Paket</span>
+              <h4>Silver Package</h4>
+              <a href="detailPackage.php"><i class="fa fa-shopping-bag"></i></a>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-3 col-md-6 align-self-center mb-30 trending-items col-md-6 str">
+          <div class="item">
+            <div class="thumb">
+              <a href="detailPackage.php"><img src="assets/img/package2.png" alt=""></a>
+              <span class="price"><em>$32</em>$22</span>
+            </div>
+            <div class="down-content">
+              <span class="category">Paket</span>
+              <h4>Silver Package</h4>
+              <a href="detailPackage.php"><i class="fa fa-shopping-bag"></i></a>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-3 col-md-6 align-self-center mb-30 trending-items col-md-6 str">
+          <div class="item">
+            <div class="thumb">
+              <a href="detailPackage.php"><img src="assets/img/package2.png" alt=""></a>
+              <span class="price"><em>$32</em>$22</span>
+            </div>
+            <div class="down-content">
+              <span class="category">Paket</span>
+              <h4>Silver Package</h4>
+              <a href="detailPackage.php"><i class="fa fa-shopping-bag"></i></a>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-3 col-md-6 align-self-center mb-30 trending-items col-md-6 str">
+          <div class="item">
+            <div class="thumb">
+              <a href="detailPackage.php"><img src="assets/img/package2.png" alt=""></a>
+              <span class="price"><em>$32</em>$22</span>
+            </div>
+            <div class="down-content">
+              <span class="category">Paket</span>
+              <h4>Silver Package</h4>
+              <a href="detailPackage.php"><i class="fa fa-shopping-bag"></i></a>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-3 col-md-6 align-self-center mb-30 trending-items col-md-6 str">
+          <div class="item">
+            <div class="thumb">
+              <a href="detailPackage.php"><img src="assets/img/package2.png" alt=""></a>
+              <span class="price"><em>$32</em>$22</span>
+            </div>
+            <div class="down-content">
+              <span class="category">Paket</span>
+              <h4>Silver Package</h4>
+              <a href="detailPackage.php"><i class="fa fa-shopping-bag"></i></a>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-3 col-md-6 align-self-center mb-30 trending-items col-md-6 str">
+          <div class="item">
+            <div class="thumb">
+              <a href="detailPackage.php"><img src="assets/img/package2.png" alt=""></a>
+              <span class="price"><em>$32</em>$22</span>
+            </div>
+            <div class="down-content">
+              <span class="category">Paket</span>
+              <h4>Silver Package</h4>
+              <a href="detailPackage.php"><i class="fa fa-shopping-bag"></i></a>
+            </div>
+          </div>
+        </div>
+      </div>
+        <div class="row">
+        <div class="col-lg-12">
+          <ul class="pagination">
+          <li><a href="#"> &lt; </a></li>
+            <li><a href="#">1</a></li>
+            <li><a class="is_active" href="#">2</a></li>
+            <li><a href="#">3</a></li>
+            <li><a href="#"> &gt; </a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
 
-    <!--=============== SWIPER JS ===============-->
-    <script src="assets/js/swiper-bundle.min.js"></script>
+  <footer>
+    <div class="container">
+      <div class="col-lg-12">
+        <!-- <p>Copyright © 2048 LUGX Gaming Company. All rights reserved. &nbsp;&nbsp; <a rel="nofollow" href="https://templatemo.com" target="_blank">Design: TemplateMo</a></p> -->
+      </div>
+    </div>
+  </footer>
 
-    <!--=============== MAIN JS ===============-->
-    <script src="assets/js/main.js"></script>
+  <!-- Scripts -->
+  <!-- Bootstrap core JavaScript -->
+  <script src="vendor/jquery/jquery.min.js"></script>
+  <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+  <script src="assets/js/isotope.min.js"></script>
+  <script src="assets/js/owl-carousel.js"></script>
+  <script src="assets/js/counter.js"></script>
+  <script src="assets/js/custom.js"></script>
 
-</body>
-
+  </body>
 </html>

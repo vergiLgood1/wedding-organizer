@@ -1,30 +1,65 @@
-// Fungsi untuk menampilkan profil setelah login
-function loginPhp() {
-    // Simulasi login berhasil
-    var username = "NamaPengguna"; // Ganti ini dengan nama pengguna yang sesuai
-    document.getElementById("username").innerText = username;
+// Contoh data pengguna
+var userData = {
+    username: "JohnDoe" // Ganti dengan nama pengguna yang sesuai
+};
 
-    // Tampilkan profil dan tombol masuk
-    document.getElementById("userProfile").classList.remove("hidden");
-    document.getElementById("loginButton").classList.remove("hidden");
+// Cek status login
+var isLoggedIn = false;  // Ganti dengan status login yang sesuai
+
+// Fungsi untuk menyembunyikan atau menampilkan elemen tergantung pada status login
+function toggleLoginStatus() {
+    var userSection = document.getElementById('userSection');
+    var loginButton = document.getElementById('loginButton');
+
+    if (isLoggedIn) {
+        // Jika sudah login, sembunyikan tombol masuk dan tampilkan seisi userSection
+        userSection.classList.remove('hidden');
+        loginButton.style.display = 'none';  // Menyembunyikan tombol masuk
+        setUserData(userData); // Tetapkan data pengguna
+    } else {
+        // Jika belum login, sembunyikan userSection dan tampilkan tombol masuk
+        userSection.classList.add('hidden');
+        loginButton.style.display = 'block';  // Menampilkan tombol masuk
+    }
 }
 
-// Fungsi untuk menampilkan dan menyembunyikan dropdown menu
-function toggleDropdown() {
-    var dropdownMenu = document.getElementById("dropdownMenu");
-    dropdownMenu.classList.toggle("hidden");
+
+// Fungsi untuk menetapkan data pengguna
+function setUserData(user) {
+    document.getElementById('username').innerText = user.username;
 }
 
 // Fungsi untuk logout
 function logout() {
-    // Simulasi logout
-    document.getElementById("userProfile").classList.add("hidden");
-    document.getElementById("loginButton").classList.add("hidden");
+    // Lakukan logika logout di sini (misalnya, hapus token sesi)
+    isLoggedIn = false;
+    toggleLoginStatus(); // Perbarui tampilan setelah logout
 }
 
+// Panggil fungsi saat halaman dimuat
+window.onload = function () {
+    toggleLoginStatus();
+};
 
+// Fungsi untuk mendapatkan status login dari server (misalnya, melalui AJAX)
+function checkLoginStatus() {
+    // Simulasi: status login disimpan dalam variabel isLoggedIn pada server
+    var isLoggedIn = false;  // Ganti dengan logika sesuai kebutuhan
 
+    return isLoggedIn;
+}
 
+// Fungsi untuk mengarahkan pengguna ke home jika sudah login
+function redirectToHome() {
+    if (checkLoginStatus()) {
+        window.location.href = 'home.php';  // Ganti dengan path yang sesuai
+    }
+}
+
+// Panggil fungsi saat halaman dimuat
+window.onload = function () {
+    redirectToHome();
+};
 /*==================== SHOW MENU ====================*/
 const navMenu = document.getElementById('nav-menu'),
     navToggle = document.getElementById('nav-toggle'),
@@ -59,7 +94,7 @@ navLink.forEach(n => n.addEventListener('click', linkAction))
 
 /*==================== CHANGE BACKGROUND HEADER ====================*/
 function scrollHeader() {
-    
+
     const header = document.getElementById('header')
     const navLinks = document.querySelectorAll('.nav__link');
 
@@ -358,29 +393,39 @@ function detailPaket(idPaket) {
     window.location.href = 'detailPackage.php?id=' + idPaket;
 }
 
-function detailPemesanan(idPaket){
+function detailPemesanan(idPaket) {
 
     window.location.href = 'detailPemesanan.php?id=' + idPaket;
 }
 
-function ArahkanKePackage(){
+function ArahkanKePackage() {
     window.location.href = 'package.php?id=' + idPaket;
 }
 
-function detailPemesanan(idPaket) {
-        // Menggunakan window.location.href untuk mengarahkan ke halaman detailPemesanan.php
-    window.location.href = 'detailPemesanan.php?id=' + idPaket;
-    }
-
 function pesananSaya() {
-        // Menggunakan window.location.href untuk mengarahkan ke halaman detailPemesanan.php
+    // Menggunakan window.location.href untuk mengarahkan ke halaman detailPemesanan.php
     window.location.href = 'pesananSaya.php?id=';
-    }
+}
 
 function loginPhp() {
-        // Menggunakan window.location.href untuk mengarahkan ke halaman detailPemesanan.php
+    // Menggunakan window.location.href untuk mengarahkan ke halaman detailPemesanan.php
     window.location.href = '../Login/login.php?id=';
-    }
+}
 
+function home() {
+    window.location.href = 'home.php?id=';
+}
+
+function about() {
+    window.location.href = 'about.php?id=';
+}
+
+function gallery() {
+    window.location.href = 'gallery.php?id=';
+}
+
+function checkout(){
+    window.location.href = 'checkout.php?id=';
+}
 
 

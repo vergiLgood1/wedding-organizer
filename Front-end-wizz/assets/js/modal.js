@@ -10,7 +10,7 @@ function closeAddressModal() {
 }
 
 // Close the modal if the user clicks outside of it
-window.onclick = function(event) {
+window.onclick = function (event) {
     var modal = document.getElementById('addressModal');
     if (event.target == modal) {
         modal.style.display = 'none';
@@ -34,7 +34,7 @@ function copyToShippingAddress() {
     var province = document.getElementById('province').value;
     var streetAddress = document.getElementById('streetAddress').value;
     var otherDetails = document.getElementById('otherDetails').value;
-    
+
     // Pilih alamat berdasarkan radio button yang dipilih
     var selectedType = document.querySelector('.radio-option[aria-checked="true"] span').innerText;
 
@@ -44,7 +44,7 @@ function copyToShippingAddress() {
     document.querySelector('.address-city').innerText = province;
     document.querySelector('.address-desc').innerText = streetAddress;
     document.querySelector('.address-title').innerText = '(' + selectedType + ')';
-    
+
     // Tambahan logika atau manipulasi sesuai kebutuhan
     // ...
 
@@ -67,7 +67,7 @@ function disableSelectedDate() {
         const today = new Date();
         datePicker.value = today.toISOString().split('T')[0];
         selectedDate = today;
-  
+
     }
 }
 

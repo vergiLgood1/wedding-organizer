@@ -5,9 +5,18 @@ include('includes/navbar.php');
 ?>
 
 <div class="container-fluid">
+    <style>
+        .btn-dark {
+        background-color: #ff8f9c;
+        
+        }
+        .text-primary {
+        color: #ff8f9c !important;
+        }
+    </style>
     <div class="card shadow mb-4">
         <div class="card-header py-3">
-            <h6 class ="m-0 font-weight-bold text-primary">EDIT Fasilitas</h6>
+            <h4 class ="m-0 font-weight-bold text-primary">EDIT About</h4>
         </div>
         <div class="card-body">
 
@@ -38,7 +47,7 @@ include('includes/navbar.php');
         
 
                 <a href="aboutus.php" class="btn btn-danger">Kembali</a>
-                <button type="submit" name="updatebtn9" class="btn btn-primary">Update</button>
+                <button type="submit" name="updatebtn9" class="btn btn-dark">Update</button>
                 </form>
                 <?php
             }

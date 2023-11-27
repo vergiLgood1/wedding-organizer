@@ -27,10 +27,10 @@ include('../Admin/security.php');
 </head>
 
 <body>
-<header class="header" id="header">
+    <header class="header" id="header">
         <nav class="nav">
             <div class="nav__left">
-                <a href="#" class="nav__logo">Wizz</a>
+                <a href="#" class="nav__logo"><img src="assets/img/logo.png" alt=""></a>
                 <div class="nav__menu" id="nav-menu">
                     <ul class="nav__list">
                         <li class="nav__item">
@@ -46,13 +46,13 @@ include('../Admin/security.php');
                             <a href="package.php" class="nav__link" onclick="ArahkanKePackage()">Package</a>
                         </li>
                         <li class="nav__item">
-                            <a href="home.php" class="nav__link">Testimoni</a>
+                            <a href="#testimoni" class="nav__link">Testimoni</a>
                         </li>
                         <li class="nav__item">
-                            <a href="home.php" class="nav__link">Blog</a>
+                            <a href="#contact" class="nav__link">Contact</a>
                         </li>
                         <li class="nav__item">
-                            <a href="home.php" class="nav__link">Contact</a>
+                            <a href="#blog" class="nav__link">Blog</a>
                         </li>
                     </ul>
                 </div>
@@ -61,12 +61,29 @@ include('../Admin/security.php');
             <!-- ... (bagian lainnya tetap sama) -->
 
             <div class="nav__right">
+                <div id="userSection" class="hidden">
+                    <!-- Jika pengguna sudah login, tampilkan icon profil -->
+                    <div id="userProfile">
+                        <img src="assets/img/Profile.svg" alt="Profile Icon">
+                        <span id="username"></span>
+                        <div id="dropdownMenu" class="hidden">
+                            <ul>
+                                <li><a href="#">Pesanan Saya</a></li>
+                                <li><a href="#">Akun Saya</a></li>
+                                <li><a href="#" onclick="logout()">Logout</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <!-- Tombol keranjang belanja -->
                 <button class="nav__button__shop" id="cartButton">
-                    <i class="ri-shopping-cart-line" a href="pesananSaya.php"></i>
+                    <i class="ri-shopping-cart-line" onclick="pesananSaya()"></i>
                 </button>
-                <button class="button-login" a href="../Login/login.php">Masuk</button>
-            </div>
 
+                <!-- Tombol masuk -->
+                <button id="loginButton" class="button-login" onclick="loginPhp()">Masuk</button>
+
+            </div>
             <!-- ... (bagian lainnya tetap sama) -->
 
 
@@ -254,13 +271,13 @@ include('../Admin/security.php');
         <!--==================== AKHIR VIDEO ====================-->
 
         <!--==================== AWAL PACKAGES ====================-->
-        <section class="packages" id="package" >
+        <section class="packages" id="package">
             <div class="title_container">
                 <h2 class="section__title">Pilih paket <br>sesuai kebutuhanmu</h2>
                 <p class="package__title">Pilih, pesan dan laksanakan pernikahanmu</p>
             </div>
-            <div class="cards-container"  >
-                <article class="card">
+            <div class="cards-container">
+                <article class="card" onclick=" ArahkanKePackage()">
                     <div class="card-info-hover">
                         <svg class="card-like" viewBox="0 0 24 24">
                             <path fill="#000000"
@@ -274,74 +291,74 @@ include('../Admin/security.php');
                             <span class="card-time">20 min</span>
                         </div>
                     </div>
-                    <div class="card-img" onclick="ArahkanKePackage()"></div>
-                   
-                        <div class="card-img-hover" style="background-image: url(assets/img/about1.png);" >
-                        </div>
-                    </a>
-                    <div class="card-info">
-                        <span class="card-category">Paket biasa</span>
-                        <h3 class="card-title">Murah tapi tapi berkualitas</h3>
-                        <span class="card-by">
-
-                            <a href="#" class="card-admin">Rp. 50.000</a>
-                        </span>
-                    </div>
-                </article>
-
-                <article class="card">
-                    <div class="card-info-hover">
-                        <svg class="card-like" viewBox="0 0 24 24">
-                            <path fill="#000000"
-                                d="M12.1,18.55L12,18.65L11.89,18.55C7.14,14.24 4,11.39 4,8.5C4,6.5 5.5,5 7.5,5C9.04,5 10.54,6 11.07,7.36H12.93C13.46,6 14.96,5 16.5,5C18.5,5 20,6.5 20,8.5C20,11.39 16.86,14.24 12.1,18.55M16.5,3C14.76,3 13.09,3.81 12,5.08C10.91,3.81 9.24,3 7.5,3C4.42,3 2,5.41 2,8.5C2,12.27 5.4,15.36 10.55,20.03L12,21.35L13.45,20.03C18.6,15.36 22,12.27 22,8.5C22,5.41 19.58,3 16.5,3Z" />
-                        </svg>
-                        <div class="card-clock-info">
-                            <svg class="card-clock" viewBox="0 0 24 24">
-                                <path
-                                    d="M12,20A7,7 0 0,1 5,13A7,7 0 0,1 12,6A7,7 0 0,1 19,13A7,7 0 0,1 12,20M19.03,7.39L20.45,5.97C20,5.46 19.55,5 19.04,4.56L17.62,6C16.07,4.74 14.12,4 12,4A9,9 0 0,0 3,13A9,9 0 0,0 12,22C17,22 21,17.97 21,13C21,10.88 20.26,8.93 19.03,7.39M11,14H13V8H11M15,1H9V3H15V1Z" />
-                            </svg>
-                            <span class="card-time">20 min</span>
-                        </div>
-                    </div>
-                    <div class="card-img" onclick="ArahkanKePackage()"></div>
-                 
-                        <div class="card-img-hover" style="background-image: url(assets/img/about1.png);"  >
-                        </div>
-                    </a>
-                    <div class="card-info">
-                        <span class="card-category">Paket biasa</span>
-                        <h3 class="card-title">Murah tapi tapi berkualitas</h3>
-                        <span class="card-by">
-
-                            <a href="#" class="card-admin">Rp. 50.000</a>
-                        </span>
-                    </div>
-                </article>
-                <article class="card">
-                    <div class="card-info-hover">
-                        <svg class="card-like" viewBox="0 0 24 24">
-                            <path fill="#000000"
-                                d="M12.1,18.55L12,18.65L11.89,18.55C7.14,14.24 4,11.39 4,8.5C4,6.5 5.5,5 7.5,5C9.04,5 10.54,6 11.07,7.36H12.93C13.46,6 14.96,5 16.5,5C18.5,5 20,6.5 20,8.5C20,11.39 16.86,14.24 12.1,18.55M16.5,3C14.76,3 13.09,3.81 12,5.08C10.91,3.81 9.24,3 7.5,3C4.42,3 2,5.41 2,8.5C2,12.27 5.4,15.36 10.55,20.03L12,21.35L13.45,20.03C18.6,15.36 22,12.27 22,8.5C22,5.41 19.58,3 16.5,3Z" />
-                        </svg>
-                        <div class="card-clock-info">
-                            <svg class="card-clock" viewBox="0 0 24 24">
-                                <path
-                                    d="M12,20A7,7 0 0,1 5,13A7,7 0 0,1 12,6A7,7 0 0,1 19,13A7,7 0 0,1 12,20M19.03,7.39L20.45,5.97C20,5.46 19.55,5 19.04,4.56L17.62,6C16.07,4.74 14.12,4 12,4A9,9 0 0,0 3,13A9,9 0 0,0 12,22C17,22 21,17.97 21,13C21,10.88 20.26,8.93 19.03,7.39M11,14H13V8H11M15,1H9V3H15V1Z" />
-                            </svg>
-                            <span class="card-time">20 min</span>
-                        </div>
-                    </div>
-                    <div class="card-img" ></div>
-                  
+                    <div class="card-img"></div>
+                    <a href="package.php">
                         <div class="card-img-hover" style="background-image: url(assets/img/about1.png);">
                         </div>
                     </a>
                     <div class="card-info">
                         <span class="card-category">Paket biasa</span>
                         <h3 class="card-title">Murah tapi tapi berkualitas</h3>
-                        <span class="card-by"> 
+                        <span class="card-by">
 
                             <a href="#" class="card-admin">Rp. 50.000</a>
+                        </span>
+                    </div>
+                </article>
+
+                <article class="card" onclick=" ArahkanKePackage()">
+                    <div class="card-info-hover">
+                        <svg class="card-like" viewBox="0 0 24 24">
+                            <path fill="#000000"
+                                d="M12.1,18.55L12,18.65L11.89,18.55C7.14,14.24 4,11.39 4,8.5C4,6.5 5.5,5 7.5,5C9.04,5 10.54,6 11.07,7.36H12.93C13.46,6 14.96,5 16.5,5C18.5,5 20,6.5 20,8.5C20,11.39 16.86,14.24 12.1,18.55M16.5,3C14.76,3 13.09,3.81 12,5.08C10.91,3.81 9.24,3 7.5,3C4.42,3 2,5.41 2,8.5C2,12.27 5.4,15.36 10.55,20.03L12,21.35L13.45,20.03C18.6,15.36 22,12.27 22,8.5C22,5.41 19.58,3 16.5,3Z" />
+                        </svg>
+                        <div class="card-clock-info">
+                            <svg class="card-clock" viewBox="0 0 24 24">
+                                <path
+                                    d="M12,20A7,7 0 0,1 5,13A7,7 0 0,1 12,6A7,7 0 0,1 19,13A7,7 0 0,1 12,20M19.03,7.39L20.45,5.97C20,5.46 19.55,5 19.04,4.56L17.62,6C16.07,4.74 14.12,4 12,4A9,9 0 0,0 3,13A9,9 0 0,0 12,22C17,22 21,17.97 21,13C21,10.88 20.26,8.93 19.03,7.39M11,14H13V8H11M15,1H9V3H15V1Z" />
+                            </svg>
+                            <span class="card-time">20 min</span>
+                        </div>
+                    </div>
+                    <div class="card-img"></div>
+                    <a href="package.php">
+                        <div class="card-img-hover" style="background-image: url(assets/img/about1.png);">
+                        </div>
+                    </a>
+                    <div class="card-info">
+                        <span class="card-category">Paket biasa</span>
+                        <h3 class="card-title">Murah tapi tapi berkualitas</h3>
+                        <span class="card-by">
+
+                            <a href="#" class="card-admin">Rp. 50.000</a>
+                        </span>
+                    </div>
+                </article>
+                <article class="card" onclick=" ArahkanKePackage()">
+                    <div class="card-info-hover">
+                        <svg class="card-like" viewBox="0 0 24 24">
+                            <path fill="#000000"
+                                d="M12.1,18.55L12,18.65L11.89,18.55C7.14,14.24 4,11.39 4,8.5C4,6.5 5.5,5 7.5,5C9.04,5 10.54,6 11.07,7.36H12.93C13.46,6 14.96,5 16.5,5C18.5,5 20,6.5 20,8.5C20,11.39 16.86,14.24 12.1,18.55M16.5,3C14.76,3 13.09,3.81 12,5.08C10.91,3.81 9.24,3 7.5,3C4.42,3 2,5.41 2,8.5C2,12.27 5.4,15.36 10.55,20.03L12,21.35L13.45,20.03C18.6,15.36 22,12.27 22,8.5C22,5.41 19.58,3 16.5,3Z" />
+                        </svg>
+                        <div class="card-clock-info">
+                            <svg class="card-clock" viewBox="0 0 24 24">
+                                <path
+                                    d="M12,20A7,7 0 0,1 5,13A7,7 0 0,1 12,6A7,7 0 0,1 19,13A7,7 0 0,1 12,20M19.03,7.39L20.45,5.97C20,5.46 19.55,5 19.04,4.56L17.62,6C16.07,4.74 14.12,4 12,4A9,9 0 0,0 3,13A9,9 0 0,0 12,22C17,22 21,17.97 21,13C21,10.88 20.26,8.93 19.03,7.39M11,14H13V8H11M15,1H9V3H15V1Z" />
+                            </svg>
+                            <span class="card-time">20 min</span>
+                        </div>
+                    </div>
+                    <div class="card-img"></div>
+                    <a href="package.php">
+                        <div class="card-img-hover" style="background-image: url(assets/img/about1.png);">
+                        </div>
+                    </a>
+                    <div class="card-info">
+                        <span class="card-category">Paket biasa</span>
+                        <h3 class="card-title">Murah tapi tapi berkualitas</h3>
+                        <span class="card-by">
+
+                            <a href="" class="card-admin">Rp. 50.000</a>
                         </span>
                     </div>
                 </article>
@@ -350,147 +367,148 @@ include('../Admin/security.php');
 
         <!--==================== AKHIR PACKAGES ====================-->
 
+
         <!--==================== AWAL TESTIMONIAL ====================-->
 
 
-            <section class="testimonial-container" id="testimoni">
-                <div class="title_container">
-                    <h2 class="section__title">Testimonial <br></h2>
-                    <p class="testi__title">Apa tanggapan mereka tentang Wizz?</p>
-                </div>
-                <div class="outerdiv">
-                    <div class="innerdiv">
-                        <!-- div1 -->
+        <section class="testimonial-container" id="testimoni">
+            <div class="title_container">
+                <h2 class="section__title">Testimonial <br></h2>
+                <p class="testi__title">Apa tanggapan mereka tentang Wizz?</p>
+            </div>
+            <div class="outerdiv">
+                <div class="innerdiv">
+                    <!-- div1 -->
 
-                        <!-- div2 -->
+                    <!-- div2 -->
 
-                        <!-- div3 -->
-                        <div class="div5 eachdiv">
-                            <div class="userdetails">
-                                <div class="imgbox">
-                                    <img src="https://raw.githubusercontent.com/RahulSahOfficial/testimonials_grid_section/5532c958b7d3c9b910a216b198fdd21c73112d84/images/image-patrick.jpg"
-                                        alt="">
-                                </div>
-                                <div class="detbox">
-                                    <p class="name">Patrick Abrams</p>
-                                    <p class="designation">Verified Graduate</p>
-                                </div>
+                    <!-- div3 -->
+                    <div class="div5 eachdiv">
+                        <div class="userdetails">
+                            <div class="imgbox">
+                                <img src="https://raw.githubusercontent.com/RahulSahOfficial/testimonials_grid_section/5532c958b7d3c9b910a216b198fdd21c73112d84/images/image-patrick.jpg"
+                                    alt="">
                             </div>
-                            <div class="review">
-                                <h4>Dekorasi yang indah!!</h4>
-                                <p>"Dekorasi yang luar biasa indah! Setiap sentuhan artistik menciptakan atmosfer yang
-                                    memukau dan menghadirkan keajaiban pada hari istimewa kami."
-
-                                    "Pelayanan yang benar-benar membantu kami. Dari awal hingga akhir, tim ini memberikan
-                                    bantuan yang sangat berarti, membuat seluruh perjalanan perencanaan pernikahan menjadi
-                                    lebih lancar dan tak terlupakan."</p>
+                            <div class="detbox">
+                                <p class="name">Patrick Abrams</p>
+                                <p class="designation">Verified Graduate</p>
                             </div>
                         </div>
-                        <!-- div4 -->
-                        <div class="div5 eachdiv">
-                            <div class="userdetails">
-                                <div class="imgbox">
-                                    <img src="https://raw.githubusercontent.com/RahulSahOfficial/testimonials_grid_section/5532c958b7d3c9b910a216b198fdd21c73112d84/images/image-patrick.jpg"
-                                        alt="">
-                                </div>
-                                <div class="detbox">
-                                    <p class="name">Patrick Abrams</p>
-                                    <p class="designation">Verified Graduate</p>
-                                </div>
+                        <div class="review">
+                            <h4>Dekorasi yang indah!!</h4>
+                            <p>"Dekorasi yang luar biasa indah! Setiap sentuhan artistik menciptakan atmosfer yang
+                                memukau dan menghadirkan keajaiban pada hari istimewa kami."
+
+                                "Pelayanan yang benar-benar membantu kami. Dari awal hingga akhir, tim ini memberikan
+                                bantuan yang sangat berarti, membuat seluruh perjalanan perencanaan pernikahan menjadi
+                                lebih lancar dan tak terlupakan."</p>
+                        </div>
+                    </div>
+                    <!-- div4 -->
+                    <div class="div5 eachdiv">
+                        <div class="userdetails">
+                            <div class="imgbox">
+                                <img src="https://raw.githubusercontent.com/RahulSahOfficial/testimonials_grid_section/5532c958b7d3c9b910a216b198fdd21c73112d84/images/image-patrick.jpg"
+                                    alt="">
                             </div>
-                            <div class="review">
-                                <h4>Pelayanan benar benar membantu kami.</h4>
-                                <p>"Pelayanan yang benar-benar membantu kami. Dari awal hingga akhir, tim ini memberikan
-                                    bantuan yang sangat berarti, membuat seluruh perjalanan perencanaan pernikahan menjadi
-                                    lebih lancar dan tak terlupakan."</p>
+                            <div class="detbox">
+                                <p class="name">Patrick Abrams</p>
+                                <p class="designation">Verified Graduate</p>
                             </div>
                         </div>
-                        <!-- div5 -->
-                        <div class="div5 eachdiv">
-                            <div class="userdetails">
-                                <div class="imgbox">
-                                    <img src="https://raw.githubusercontent.com/RahulSahOfficial/testimonials_grid_section/5532c958b7d3c9b910a216b198fdd21c73112d84/images/image-patrick.jpg"
-                                        alt="">
-                                </div>
-                                <div class="detbox">
-                                    <p class="name">Patrick Abrams</p>
-                                    <p class="designation">Verified Graduate</p>
-                                </div>
+                        <div class="review">
+                            <h4>Pelayanan benar benar membantu kami.</h4>
+                            <p>"Pelayanan yang benar-benar membantu kami. Dari awal hingga akhir, tim ini memberikan
+                                bantuan yang sangat berarti, membuat seluruh perjalanan perencanaan pernikahan menjadi
+                                lebih lancar dan tak terlupakan."</p>
+                        </div>
+                    </div>
+                    <!-- div5 -->
+                    <div class="div5 eachdiv">
+                        <div class="userdetails">
+                            <div class="imgbox">
+                                <img src="https://raw.githubusercontent.com/RahulSahOfficial/testimonials_grid_section/5532c958b7d3c9b910a216b198fdd21c73112d84/images/image-patrick.jpg"
+                                    alt="">
                             </div>
-                            <div class="review">
-                                <h4>Hasil foto yang luar biasa!</h4>
-                                <p>"Staf wedding organizer ini luar biasa! Dengan profesionalisme, keahlian, dan perhatian
-                                    tiada tara, mereka membantu mewujudkan pernikahan impian kami. Terima kasih atas
-                                    dedikasi dan kerja kerasnya yang membuat hari istimewa kami begitu sempurna." </p>
+                            <div class="detbox">
+                                <p class="name">Patrick Abrams</p>
+                                <p class="designation">Verified Graduate</p>
                             </div>
+                        </div>
+                        <div class="review">
+                            <h4>Hasil foto yang luar biasa!</h4>
+                            <p>"Staf wedding organizer ini luar biasa! Dengan profesionalisme, keahlian, dan perhatian
+                                tiada tara, mereka membantu mewujudkan pernikahan impian kami. Terima kasih atas
+                                dedikasi dan kerja kerasnya yang membuat hari istimewa kami begitu sempurna." </p>
                         </div>
                     </div>
                 </div>
-            </section>
+            </div>
+        </section>
 
 
         <!--==================== AKHIR TESTIMONIAL ====================-->
 
-        
-         <!--==================== AWAL KONTAK ====================-->
-         <section id="contact">
+
+        <!--==================== AWAL KONTAK ====================-->
+        <section id="contact">
             <h2 class="section__title">Berbincang dengan kami</h2>
             <p class="section__desc">Untuk konsultasi dan informasi lebih lanjut</p>
             <div class="background">
                 <div class="container__contact">
-                  <div class="screen">
-                    <div class="screen-header">
-                      <div class="screen-header-left">
-                      </div>
-                      <div class="screen-header-right">
-                        <div class="screen-header-ellipsis"></div>
-                        <div class="screen-header-ellipsis"></div>
-                        <div class="screen-header-ellipsis"></div>
-                      </div>
-                    </div>
-                    <div class="screen-body">
-                      <div class="screen-body-item left">
-                        <div class="app-title">
-                          <span>Hubungi</span>
-                          <span>Kami</span>
+                    <div class="screen">
+                        <div class="screen-header">
+                            <div class="screen-header-left">
+                            </div>
+                            <div class="screen-header-right">
+                                <div class="screen-header-ellipsis"></div>
+                                <div class="screen-header-ellipsis"></div>
+                                <div class="screen-header-ellipsis"></div>
+                            </div>
                         </div>
-                        <div class="app-contact">CONTACT INFO : +62 81 314 928 595</div>
-                      </div>
-                      <div class="screen-body-item">
-                        <div class="app-form">
-                          <div class="app-form-group">
-                            <input class="app-form-control" placeholder="NAMA" value="">
-                          </div>
-                          <div class="app-form-group">
-                            <input class="app-form-control" placeholder="EMAIL">
-                          </div>
-                          <div class="app-form-group">
-                            <input class="app-form-control" placeholder="NOMOR KONTAK">
-                          </div>
-                          <div class="app-form-group message">
-                            <input class="app-form-control" placeholder="PESAN">
-                          </div>
-                          <div class="app-form-group buttons">
-                            <button class="app-form-button">BATAL</button>
-                            <button class="app-form-button">KIRIM</button>
-                          </div>
+                        <div class="screen-body">
+                            <div class="screen-body-item left">
+                                <div class="app-title">
+                                    <span>Hubungi</span>
+                                    <span>Kami</span>
+                                </div>
+                                <div class="app-contact">CONTACT INFO : +62 81 314 928 595</div>
+                            </div>
+                            <div class="screen-body-item">
+                                <div class="app-form">
+                                    <div class="app-form-group">
+                                        <input class="app-form-control" placeholder="NAMA" value="">
+                                    </div>
+                                    <div class="app-form-group">
+                                        <input class="app-form-control" placeholder="EMAIL">
+                                    </div>
+                                    <div class="app-form-group">
+                                        <input class="app-form-control" placeholder="NOMOR KONTAK">
+                                    </div>
+                                    <div class="app-form-group message">
+                                        <input class="app-form-control" placeholder="PESAN">
+                                    </div>
+                                    <div class="app-form-group buttons">
+                                        <button class="app-form-button">BATAL</button>
+                                        <button class="app-form-button">KIRIM</button>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
-                      </div>
                     </div>
-                  </div>
                 </div>
-              </div>
-              
-              </section>
-    
-            <!--==================== AKHIR KONTAK ====================-->
-    
-        
+            </div>
+
+        </section>
+
+        <!--==================== AKHIR KONTAK ====================-->
+
+
         <!--==================== AWAL BLOG ====================-->
-     
+
         <h2 class="section__title">Blog terkait</h2>
         <p class="blog__title">Beberapa blog yang relevan dengan konten terkait</p>
-        
+
         <section class="blog" id="blog">
             <div class="blog__item">
                 <a href="">
@@ -536,7 +554,7 @@ include('../Admin/security.php');
 
         <!--==================== AKHIR BLOG ====================-->
 
-       
+
         <!--==================== SPONSORS ====================-->
         <section class="sponsor__section">
             <div class="sponsor__container container grid">
