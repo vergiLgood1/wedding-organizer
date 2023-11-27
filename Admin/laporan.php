@@ -504,6 +504,27 @@ include('includes/navbar.php');
     </div>
 </div>
 
+<script>
+        var currentPage = 1;
+        var rowsPerPage = 10;
+        var table = document.getElementById("dataTable").getElementsByTagName('tbody')[0].getElementsByTagName('tr');
+
+        function showNextPage() {
+            var start = (currentPage - 1) * rowsPerPage;
+            var end = start + rowsPerPage;
+
+            for (var i = 0; i < table.length; i++) {
+                if (i >= start && i < end) {
+                    table[i].classList.remove("hidden");
+                } else {
+                    table[i].classList.add("hidden");
+                }
+            }
+
+            currentPage++;
+        }
+    </script>
+
 
 <?php
 include('includes/scripts.php');
