@@ -1,7 +1,7 @@
 <?php
-require ('phplogin.php');
-
+require('phplogin.php');
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,36 +10,31 @@ require ('phplogin.php');
     <title>Login</title>
     <link rel="stylesheet" href="style.css">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-
 </head>
 <body>
-    <form action="login.php" method="POST">
-      <div class="wrapper">
-        <h1>Login</h1>
-        <div class="input-box">
-            <input type="text" placeholder="Email" name="email"
-            required>
-            <i class='bx bxs-user'></i>
-        </div>
-        <div class="input-box">
-            <input type="password" placeholder="Password" name="password"
-            required>
-            <i class='bx bxs-lock-alt' ></i>
-        </div>
+    <form action="login.php" method="POST" class="login-form">
+        <div class="wrapper">
+            <h1>Login</h1>
+            <div class="input-box">
+                <input type="text" placeholder="Email" name="email" required>
+                <i class='bx bxs-user'></i>
+            </div>
+            <div class="input-box">
+                <input type="password" placeholder="Password" name="password" required>
+                <i class='bx bxs-lock-alt'></i>
+            </div>
 
-        <div class="lupa-password">
-            <label><input type="checkbox">Remember Me
-            </label>
-            <a href="#">Lupa Password?</a>
-        </div>
+            <div class="lupa-password">
+                <label><input type="checkbox">Remember Me</label>
+                <a href="#">Lupa Password?</a>
+            </div>
 
-        <button type="submit" class="btn" name="submit">Login</button>
-        
-        <div class="register">
-            <p>Tidak Punya Akun? <a href="../Register/Daftar.php">Daftar!</a></p>
-        </div>
+            <button type="submit" class="btn" name="submit">Login</button>
 
-      </div>
+            <div class="register">
+                <p>Tidak Punya Akun? <a href="../Register/Daftar.php">Daftar!</a></p>
+            </div>
+        </div>
     </form>
 </body>
 </html>
