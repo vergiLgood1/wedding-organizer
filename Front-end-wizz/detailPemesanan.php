@@ -1,9 +1,11 @@
+<!DOCTYPE html>
+
 <html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Wizz</title>
+    <title>Wizz - Wedding Organizer</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -61,7 +63,7 @@
                 <div class="details__item">
 
                     <div class="item__image">
-                        <img class="iphone" src="assets/img/about1.png" alt="">
+                        <img class="iphone" src="http://localhost/wedding-organizer/Front-end-wizz/assets/img/<?php echo $data_paket["img_path"]; ?>" alt="">
                     </div>
                     <div class="item__details">
                         <div class="item__title">

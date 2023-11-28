@@ -1,16 +1,31 @@
 <?php 
 include('../Admin/security.php');
 ?>
+<?php
+
+
+require_once('config/koneksi.php');
+
+$sql = "SELECT * FROM paket";
+$all_paket = $koneksi->query($sql);
+
+
+
+?>
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 
   <head>
 
     <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 
-    <title>Lugx Gaming - Shop Page</title>
+    <title>Wizz - Wedding Organizer</title>
 
     <!-- Bootstrap core CSS -->
     <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -19,32 +34,14 @@ include('../Admin/security.php');
     <!-- Additional CSS Files -->
     <link rel="stylesheet" href="assets/css/fontawesome.css">
     <link rel="stylesheet" href="assets/css/detailPackage.css">
-    <link rel="stylesheet" href="assets/css/owl.css">
-    <link rel="stylesheet" href="assets/css/animate.css">
+
     <link rel="stylesheet"href="https://unpkg.com/swiper@7/swiper-bundle.min.css"/>
-<!--
 
-TemplateMo 589 lugx gaming
-
-https://templatemo.com/tm-589-lugx-gaming
-
--->
   </head>
 
 <body>
 
-  <!-- ***** Preloader Start ***** -->
-  <div id="js-preloader" class="js-preloader">
-    <div class="preloader-inner">
-      <span class="dot"></span>
-      <div class="dots">
-        <span></span>
-        <span></span>
-        <span></span>
-      </div>
-    </div>
-  </div>
-  <!-- ***** Preloader End ***** -->
+
 
     <!-- ***** Header Area Start ***** -->
     <header class="header-area header-sticky">
@@ -60,8 +57,8 @@ https://templatemo.com/tm-589-lugx-gaming
                     <!-- ***** Menu Start ***** -->
                     <ul class="nav">
                       <li><a href="home.php">Home</a></li>
-                      <li><a href="package.php">Packages</a></li>
-                      <li><a href="detailPackage.php" class="active">Detail Packages</a></li>
+                      <li><a href="package.php" class="active">Packages</a></li>
+                      <li><a href="detailPackage.php">Detail Packages</a></li>
                       <li><a href="login.php">Log In</a></li>
                   </ul>   
                     <a class='menu-trigger'>
@@ -103,20 +100,29 @@ https://templatemo.com/tm-589-lugx-gaming
         </li>
       </ul>
       <div class="row trending-box">
+        <?php
+           while($row = mysqli_fetch_assoc($all_paket)){
+            
+           
+        ?>
         <div class="col-lg-3 col-md-6 align-self-center mb-30 trending-items col-md-6 adv">
           <div class="item">
             <div class="thumb">
-              <a href="detailPackage.php"><img src="assets/img/package2.png" alt=""></a>
-              <span class="price"><em>$36</em>$24</span>
+            <a href="detailPackage.php?id_paket=<?php echo $row["id_paket"]; ?>"><img src="http://localhost/wedding-organizer/Front-end-wizz/assets/img/<?php echo $row["img_path"]; ?>" alt="">
+</a>
+              <span class="price"><em>$<?php echo $row["harga"];?></em>$<?php echo $row["harga"];?></span>
             </div>
             <div class="down-content">
               <span class="category">Paket</span>
-              <h4>Silver Package</h4>
-              <a href="detailPackage.php"><i class="fa fa-shopping-bag"></i></a>
+              <h4><?php echo $row["nama_paket"];?></h4>
+              <a href="detailPackage.php?id_paket=<?php echo $row["id_paket"]; ?>"><i class="fa fa-shopping-bag"></i></a>
             </div>
           </div>
         </div>
-        <div class="col-lg-3 col-md-6 align-self-center mb-30 trending-items col-md-6 str">
+        <?php
+           }
+        ?>
+        <!-- <div class="col-lg-3 col-md-6 align-self-center mb-30 trending-items col-md-6 str">
           <div class="item">
             <div class="thumb">
               <a href="detailPackage.php"><img src="assets/img/package2.png" alt=""></a>
@@ -259,7 +265,7 @@ https://templatemo.com/tm-589-lugx-gaming
             </div>
           </div>
         </div>
-      </div>
+      </div> -->
         <div class="row">
         <div class="col-lg-12">
           <ul class="pagination">
@@ -277,7 +283,7 @@ https://templatemo.com/tm-589-lugx-gaming
   <footer>
     <div class="container">
       <div class="col-lg-12">
-        <!-- <p>Copyright © 2048 LUGX Gaming Company. All rights reserved. &nbsp;&nbsp; <a rel="nofollow" href="https://templatemo.com" target="_blank">Design: TemplateMo</a></p> -->
+      <p>Copyright © 2023 WIZZ Company. All rights reserved. &nbsp;&nbsp; <a rel="nofollow" href="" target="_blank"></a></p>
       </div>
     </div>
   </footer>
@@ -290,6 +296,7 @@ https://templatemo.com/tm-589-lugx-gaming
   <script src="assets/js/owl-carousel.js"></script>
   <script src="assets/js/counter.js"></script>
   <script src="assets/js/custom.js"></script>
+  <script src="assets/js/main.js"></script>
 
   </body>
 </html>

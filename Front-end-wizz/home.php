@@ -23,7 +23,7 @@ include('../Admin/security.php');
 
 
 
-    <title>Responsive Website Travel</title>
+    <<title>Wizz - Wedding Organizer</title>
 </head>
 
 <body>

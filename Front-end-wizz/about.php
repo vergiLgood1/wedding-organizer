@@ -3,6 +3,9 @@ include('../Admin/security.php');
 
 ?>
 html lang="en">
+<!DOCTYPE html>
+
+<html lang="en">
 
 <head>
     <meta charset="UTF-8">
@@ -16,7 +19,7 @@ html lang="en">
 
     <!--=============== CSS ===============-->
     <link rel="stylesheet" href="assets/css/styles.css">
-    <title>Wizz</title>
+    <title>Wizz - Wedding Organizer</title>
 
 </head>
 
