@@ -110,7 +110,8 @@ include('includes/navbar.php');
                     <th>judul</th>
                     <th>Harga</th>
                     <th>Gambar</th>
-                    <th>EDIT</th>
+                    <th>Detail</th>
+                    <th>Edit</th>
                     <th>Delete</th>    
                 </tr>    
             </thead>
@@ -132,6 +133,12 @@ include('includes/navbar.php');
                     <td><?php echo $row['nama_paket']; ?></td>
                     <td><?php echo $row['harga']; ?></td>
                     <td><?php echo '<img src="upload/'.$row['gambar'].'" width="100px;" height="100px" alt="gambar">' ?></td>
+                    <td>
+                        <form action="paket_detail.php" method="POST">
+                        <input type="hidden" name="id_paket" value="<?php echo $row['id']; ?>">    
+                        <button type="submit" name="edit_data_detail" class="btn btn-success">DETAIL</button>
+                        </form>
+                    </td>
                     <td>
                         <form action="paketedit.php" method="POST">
                         <input type="hidden" name="id_paket" value="<?php echo $row['id']; ?>">    

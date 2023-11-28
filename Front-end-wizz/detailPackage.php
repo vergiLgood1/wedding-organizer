@@ -1,15 +1,15 @@
 <?php
+include('../Admin/security.php');
+// require_once('config/koneksi.php');
 
-require_once('config/koneksi.php');
+$id_paket = isset($_GET['id']) ? mysqli_real_escape_string($connection, $_GET['id']) : null;
 
-$id_paket = isset($_GET['id_paket']) ? mysqli_real_escape_string($koneksi, $_GET['id_paket']) : null;
-
-$query = "SELECT * FROM detail_paket
-        INNER JOIN paket ON detail_paket.id_paket = paket.id_paket
-        WHERE paket.id_paket = '$id_paket'
+$query = "SELECT * FROM packages_detail
+        INNER JOIN packages ON packages_detail.id = packages.id
+        WHERE packages.id = '$id_paket'
         ";
 
-$result = mysqli_query($koneksi, $query) or die(mysqli_error($koneksi))
+$result = mysqli_query($connection, $query) or die(mysqli_error($connection))
 
 
 
@@ -99,7 +99,7 @@ $result = mysqli_query($koneksi, $query) or die(mysqli_error($koneksi))
           <div class="col-lg-6">
             <div class="left-image">
               <img
-                src="http://localhost/wedding-organizer/Front-end-wizz/assets/img/<?php echo $data_paket["img_path"]; ?>"
+                src="../Admin/upload/<?php echo $data_paket["gambar"]; ?>"
                 alt="">
             </div>
           </div>
@@ -113,11 +113,11 @@ $result = mysqli_query($koneksi, $query) or die(mysqli_error($koneksi))
               <?php echo $data_paket["harga"]; ?>
             </span>
             <p>
-              <?php echo $data_paket["description"]; ?>
+              <?php echo $data_paket["deskripsi"]; ?>
             </p>
             <form id="qty" action="#">
               <input type="qty" class="form-control" id="1" aria-describedby="quantity" placeholder="1">
-              <button type="button" onclick="detailPemesanan()" a href="detailPemesanan.php?id_paket=<?php echo $data_paket["id_paket"]; ?>"><i class="fa fa-shopping-bag"></i>
+              <button type="button" onclick="detailPemesanan()" a href="detailPemesanan.php?id=<?php echo $data_paket["id"]; ?>"><i class="fa fa-shopping-bag"></i>
                 Checkout</button>
             </form>
             
@@ -125,7 +125,7 @@ $result = mysqli_query($koneksi, $query) or die(mysqli_error($koneksi))
        
             <ul>
               <li><span>Paket ID:</span>
-                <?php echo $data_paket["id_paket"]; ?>
+                <?php echo $data_paket["id"]; ?>
               </li>
               <li><span>Nama paket</span>
                 <?php echo $data_paket["nama_paket"]; ?></a>
@@ -163,11 +163,11 @@ $result = mysqli_query($koneksi, $query) or die(mysqli_error($koneksi))
                   <div class="tab-pane fade show active" id="description" role="tabpanel"
                     aria-labelledby="description-tab">
                     <p>
-                      <?php echo $data_paket["description"]; ?>
+                      <?php echo $data_paket["deskripsi"]; ?>
                     </p>
                     <br>
                     <p>
-                      <?php echo $data_paket["description"]; ?>
+                      <?php echo $data_paket["deskripsi"]; ?>
                     </p>
                   </div>
                   <div class="tab-pane fade" id="reviews" role="tabpanel" aria-labelledby="reviews-tab">
@@ -208,23 +208,23 @@ $result = mysqli_query($koneksi, $query) or die(mysqli_error($koneksi))
 
         <?php
         
-        $sql = "SELECT * FROM paket
+        $sql = "SELECT * FROM packages
                 LIMIT 5
         
         ";
-        $all_paket = $koneksi->query($sql);
+        $all_paket = $connection->query($sql);
 
         while ($row = mysqli_fetch_assoc($all_paket)) {
 
 
           ?>
-          <div class="col-lg col-sm-6 col-xs-12">
+          <div class="col-lg-3 col-md-6 align-self-center mb-30 trending-items col-md-6 adv">
             <div class="item">
               <h4>
                 <?php echo $row["nama_paket"]; ?>
               </h4>
               <div class="thumb">
-                <a href="detailPackage.php"><img src="assets/img/package.png" alt=""></a>
+              <a href="detailPackage.php?id=<?php echo $row["id"]; ?>"><img src="../Admin/upload/<?php echo $row["gambar"]; ?>" alt=""></a>
               </div>
             </div>
           </div>

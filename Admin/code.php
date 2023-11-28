@@ -443,6 +443,30 @@ if(isset($_POST['deletepaket']))
 
 }
 
+if(isset($_POST['updatedetailpkt']))
+{
+    $id = $_POST['id_paket'];
+    
+    $description = $_POST['edit_deskripsipkt'];
+    
+
+    $query = "UPDATE packages_detail SET deskripsi='$description'  WHERE id='$id' ";
+    $query_run = mysqli_query($connection, $query);
+
+    if($query_run)
+    {
+        $_SESSION['success'] = "Data telah di Update";
+        header('Location: paket.php');
+    }
+    else
+    {
+        $_SESSION['status'] = "Data gagal di Update";
+        header('Location: paket.php');
+    }
+
+}
+
+
 //kode untuk gallery
 if(isset($_POST['gallery_save']))
 {
