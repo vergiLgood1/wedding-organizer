@@ -388,18 +388,14 @@ var mySwiper = new Swiper('.swiper-container', {
 
 // Action on click 
 
-function detailPaket(idPaket) {
+function detailPaket(paket_id) {
     // Mengasumsikan Anda memiliki halaman detail dengan nama 'detail.html', Anda dapat mengarahkan pengguna ke halaman itu dengan ID paket yang dipilih
-    window.location.href = 'detailPackage.php?id=' + idPaket;
+    window.location.href = 'detailPackage.php?id=' + paket_id;
 }
 
-function detailPemesanan(idPaket) {
-
-    window.location.href = 'detailPemesanan.php?id=' + idPaket;
-}
 
 function ArahkanKePackage() {
-    window.location.href = 'package.php?id=' + idPaket;
+    window.location.href = 'package.php?id=' + paket_id;
 }
 
 function pesananSaya() {
@@ -428,4 +424,14 @@ function checkout(){
     window.location.href = 'checkout.php?id=';
 }
 
+// Assuming your separate JavaScript file is named main.js
+// Make sure to include this file in your HTML after including jQuery
 
+$(document).ready(function() {
+    $('button[data-id_paket]').on('click', function() {
+        var idPaket = $(this).data('id_paket');
+        window.location.href = "detailPemesanan.php?id_paket=" + id_paket;
+    });
+});
+
+    
