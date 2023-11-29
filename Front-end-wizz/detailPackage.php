@@ -1,11 +1,12 @@
 <?php
-require_once('config/koneksi.php');
+include('../Admin/security.php');
+// require_once('config/koneksi.php');
 
-$id_paket = isset($_GET['id_paket']) ? mysqli_real_escape_string($koneksi, $_GET['id_paket']) : null;
+$id_paket = isset($_GET['id']) ? mysqli_real_escape_string($connection, $_GET['id']) : null;
 
-$query = "SELECT * FROM detail_paket
-        INNER JOIN paket ON detail_paket.id_paket = paket.id_paket
-        WHERE paket.id_paket = '$id_paket'
+$query = "SELECT * FROM packages_detail
+        INNER JOIN packages ON packages_detail.id = packages.id
+        WHERE packages.id = '$id_paket'
         ";
 
 $result = mysqli_query($connection, $query) or die(mysqli_error($connection))
@@ -113,10 +114,11 @@ $result = mysqli_query($connection, $query) or die(mysqli_error($connection))
             <p>
               <?php echo $data_paket["deskripsi"]; ?>
             </p>
-            <form id="qty" action="detailPemesanan.php?id_paket=<?php echo $data_paket['id_paket']; ?>" method="post">
-              <input type="hidden" name="id_paket" value="<?php echo $data_paket['id_paket']; ?>">
-              <input type="qty" class="form-control" id="1" aria-describedby="quantity" placeholder="1">
-              <button type="submit"><i class="fa fa-shopping-bag"></i> Checkout</button>
+            <form id="qty" action="detailPemesanan.php" method="get">
+              <input type="hidden" name="id" value="<?php echo $data_paket['id']; ?>">
+              <input type="qty" class="form-control" id="" aria-describedby="quantity" placeholder="1">
+              <button type="button"><a href="detailPemesanan.php?id=<?php echo $data_paket["id"]; ?>"><i class="fa fa-shopping-bag"></i>
+                Checkout</button>
             </form>
 
 
@@ -164,9 +166,9 @@ $result = mysqli_query($connection, $query) or die(mysqli_error($connection))
                     <p>
                       <?php echo $data_paket["deskripsi"]; ?>
                     </p>
-<br>
+                    <br>
                     <p>
-                    <?php echo $data_paket['description']; ?>
+                      <?php echo $data_paket["deskripsi"]; ?>
                     </p>
                   </div>
                   <div class="tab-pane fade" id="reviews" role="tabpanel" aria-labelledby="reviews-tab">

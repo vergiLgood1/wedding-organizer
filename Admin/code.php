@@ -612,4 +612,84 @@ if(isset($_POST['deletetesti']))
 
 }
 
+//insert ke paket
+
+if(isset($_POST['submitpesanan']))
+{
+    $idpaketpsn = $_POST['id'];
+    #$tanggalpemesanan = $_POST['tanggal_penggunaan'];
+    $tanggalpenggunaan = $_POST['tanggal_penggunaan'];
+    $namapemesan = $_POST['nama'];
+    $alamat = $_POST['alamat'];
+    $notelp = $_POST['tlp'];
+    $bukti = $_FILES['payment_proof']['name'];
+
+        if(file_exists("../Admin/upbukti/".$_FILES["payment_proof"]["name"]))
+        {
+            $store9 = $_FILES["payment_proof"]["name"];
+            $_SESSION['status'] = "Gambar telah ada. '.$store9.'";
+            header('Location: ../Front-end-wizz/detailPemesanan.php');
+        }
+        else
+        {
+        
+            $query = "INSERT INTO pemesanan (id_pesan, id, tanggal_pemesanan, tanggal_penggunaan, nama, alamat, telpon, bukti, status) VALUES ('', '$idpaketpsn', NOW(), '$tanggalpenggunaan', '$namapemesan', '$alamat', '$notelp', '$bukti', 'Menunggu Konfirmasi')";
+            $query_run = mysqli_query($connection, $query);
+            
+            if($query_run)
+            {
+                move_uploaded_file($_FILES["payment_proof"]["tmp_name"], "upbukti/".$_FILES["payment_proof"]["name"]);
+                $_SESSION['success'] = "Pesanan ditambahkan";
+                header('Location: ../Front-end-wizz/detailPemesanan.php');
+            }
+            else
+            {
+                $_SESSION['status'] = "Pesanan gagal ditambahkan";
+                header('Location: ../Front-end-wizz/detailPemesanan.php');
+                
+            }
+        }
+}
+
+
+if(isset($_POST['updateconf']))
+{
+    $idconfir = $_POST['idpesan'];
+
+    $query = "UPDATE pemesanan SET status ='Terkonfirmasi' WHERE id_pesan='$idconfir' ";
+    $query_run = mysqli_query($connection, $query);
+
+    if($query_run)
+    {
+        $_SESSION['success'] = "Data telah di Konfirmasi";
+        header('Location: pesanan.php');
+    }
+    else
+    {
+        $_SESSION['status'] = "Data gagal di Konfirmasi";
+        header('Location: pesanan.php');
+    }
+
+}
+
+if(isset($_POST['deletepsn']))
+{
+    $idconfir = $_POST['idpesan'];
+
+    $query = "DELETE FROM pemesanan WHERE id_pesan='$idconfir'";
+    $query_run = mysqli_query($connection, $query);
+
+    if($query_run)
+    {
+        $_SESSION['success'] = "Data telah di Hapus";
+        header('Location: pesanan.php');
+    }
+    else
+    {
+        $_SESSION['status'] = "Data gagal di Hapus";
+        header('Location: pesanan.php');
+    }
+
+}
+
 ?>
