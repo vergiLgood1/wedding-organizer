@@ -371,7 +371,9 @@ if(isset($_POST['paket_save']))
 {
     $namapkt = $_POST['nama_paket'];
     $hargapkt = $_POST['harga_paket'];
+    $despkt = $_POST['des_paket'];
     $gambarpkt = $_FILES['gambar_paket']['name'];
+    $id = $_POST['id_paketp'];
 
         if(file_exists("upload/".$_FILES["gambar_paket"]["name"]))
         {
@@ -382,14 +384,26 @@ if(isset($_POST['paket_save']))
         else
         {
         
-            $query = "INSERT INTO packages (nama_paket, harga, gambar) VALUES ('$namapkt', '$hargapkt', '$gambarpkt')";
+            $query = "INSERT INTO packages (id, nama_paket, harga, gambar) VALUES ('$id', '$namapkt', '$hargapkt', '$gambarpkt')";
             $query_run = mysqli_query($connection, $query);
             
             if($query_run)
             {
-                move_uploaded_file($_FILES["gambar_paket"]["tmp_name"], "upload/".$_FILES["gambar_paket"]["name"]);
-                $_SESSION['success'] = "Paket ditambahkan";
-                header('Location: paket.php');
+                $query2 = "INSERT INTO packages_detail (id, deskripsi) VALUES ('$id', '$despkt')";
+                $query_run2 = mysqli_query($connection, $query2);
+
+                if($query_run2)
+                {
+                    move_uploaded_file($_FILES["gambar_paket"]["tmp_name"], "upload/".$_FILES["gambar_paket"]["name"]);
+                    $_SESSION['success'] = "Paket ditambahkan";
+                    header('Location: paket.php');
+                }
+                else
+                {
+                    $_SESSION['status'] = "Detail Paket gagal ditambahkan";
+                    header('Location: paket.php');
+                }
+
             }
             else
             {

@@ -105,7 +105,7 @@ $all_paket = $connection->query($sql);
             <div class="thumb">
             <a href="detailPackage.php?id=<?php echo $row["id"]; ?>"><img src="../Admin/upload/<?php echo $row["gambar"]; ?>" alt="">
 </a>
-              <span class="price"><em>$<?php echo $row["harga"];?></em>$<?php echo $row["harga"];?></span>
+              <span class="price">Rp. <?php echo $row["harga"];?></span>
             </div>
             <div class="down-content">
               <span class="category">Paket</span>

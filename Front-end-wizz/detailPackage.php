@@ -209,7 +209,7 @@ $result = mysqli_query($connection, $query) or die(mysqli_error($connection))
         <?php
         
         $sql = "SELECT * FROM packages
-                LIMIT 5
+                LIMIT 4
         
         ";
         $all_paket = $connection->query($sql);

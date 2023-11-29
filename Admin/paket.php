@@ -19,6 +19,10 @@ include('includes/navbar.php');
       <div class="modal-body">
         
         <div class="form-group">
+            <label> ID Paket </label>
+            <input type="text" name="id_paketp" class="form-control" placeholder="Enter ID" required>
+        </div>
+        <div class="form-group">
             <label> Nama </label>
             <input type="text" name="nama_paket" class="form-control" placeholder="Enter Name" required>
         </div>
@@ -26,10 +30,10 @@ include('includes/navbar.php');
             <label> Harga </label>
             <input type="text" name="harga_paket" class="form-control" placeholder="Enter Price" required>
         </div>
-        <!-- <div class="form-group">
-            <label> Harga </label>
-            <textarea name="about_desc" id="" cols="30" rows="10" class="form-control" placeholder="Enter Description" required></textarea>
-        </div> -->
+        <div class="form-group">
+            <label> Deskripsi </label>
+            <textarea name="des_paket" id="" cols="30" rows="10" class="form-control" placeholder="Enter Description" required></textarea>
+        </div>
         <div class="form-group">
             <label> Gambar </label>
             <input type="file" name="gambar_paket" class="form-control" id="gambar_paket" required>
