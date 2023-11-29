@@ -105,14 +105,14 @@ $all_paket = $koneksi->query($sql);
         <div class="col-lg-3 col-md-6 align-self-center mb-30 trending-items col-md-6 adv">
           <div class="item">
             <div class="thumb">
-            <a href="detailPackage.php?id_paket=<?php echo $row["id_paket"]; ?>"><img src="http://localhost/wedding-organizer/Front-end-wizz/assets/img/<?php echo $row["img_path"]; ?>" alt="">
+            <a href="detailPackage.php?id_paket=<?php echo $row['id_paket']; ?>"><img src="http://localhost/wedding-organizer/Front-end-wizz/assets/img/<?php echo $row["img_path"]; ?>" alt="">
 </a>
-              <span class="price"><em>$<?php echo $row["harga"];?></em>$<?php echo $row["harga"];?></span>
+              <span class="price"><em>$<?php echo $row['harga'];?></em>$<?php echo $row['harga'];?></span>
             </div>
             <div class="down-content">
               <span class="category">Paket</span>
-              <h4><?php echo $row["nama_paket"];?></h4>
-              <a href="detailPackage.php?id_paket=<?php echo $row["id_paket"]; ?>"><i class="fa fa-shopping-bag"></i></a>
+              <h4><?php echo $row['nama_paket'];?></h4>
+              <a href="detailPackage.php?id_paket=<?php echo $row['id_paket']; ?>"><i class="fa fa-shopping-bag"></i></a>
             </div>
           </div>
         </div>

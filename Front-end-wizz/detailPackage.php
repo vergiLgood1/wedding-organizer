@@ -1,5 +1,6 @@
 <?php
 
+
 require_once('config/koneksi.php');
 
 $id_paket = isset($_GET['id_paket']) ? mysqli_real_escape_string($koneksi, $_GET['id_paket']) : null;
@@ -13,13 +14,12 @@ $result = mysqli_query($koneksi, $query) or die(mysqli_error($koneksi))
 
 
 
-?>
+  ?>
 
 
 
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
 
   <meta charset="utf-8">
@@ -85,7 +85,7 @@ $result = mysqli_query($koneksi, $query) or die(mysqli_error($koneksi))
         <div class="row">
           <div class="col-lg-12">
             <h3>
-              <?php echo $data_paket["nama_paket"]; ?>
+              <?php echo $data_paket['nama_paket']; ?>
             </h3>
 
           </div>
@@ -99,36 +99,37 @@ $result = mysqli_query($koneksi, $query) or die(mysqli_error($koneksi))
           <div class="col-lg-6">
             <div class="left-image">
               <img
-                src="http://localhost/wedding-organizer/Front-end-wizz/assets/img/<?php echo $data_paket["img_path"]; ?>"
+                src="http://localhost/wedding-organizer/Front-end-wizz/assets/img/<?php echo $data_paket['img_path']; ?>"
                 alt="">
             </div>
           </div>
           <div class="col-lg-6 align-self-center">
             <h4>
-              <?php echo $data_paket["nama_paket"]; ?>
+              <?php echo $data_paket['nama_paket']; ?>
             </h4>
             <span class="price"><em>$
-                <?php echo $data_paket["harga"]; ?>
+                <?php echo $data_paket['harga']; ?>
               </em> $
-              <?php echo $data_paket["harga"]; ?>
+              <?php echo $data_paket['harga']; ?>
             </span>
             <p>
-              <?php echo $data_paket["description"]; ?>
+              <?php echo $data_paket['description']; ?>
             </p>
-            <form id="qty" action="#">
+            <form id="qty" action="detailPemesanan.php" method="get">
+              <input type="hidden" name="id_paket" value="<?php echo $data_paket['id_paket']; ?>">
               <input type="qty" class="form-control" id="1" aria-describedby="quantity" placeholder="1">
-              <button type="button" onclick="detailPemesanan()" a href="detailPemesanan.php?id_paket=<?php echo $data_paket["id_paket"]; ?>"><i class="fa fa-shopping-bag"></i>
-                Checkout</button>
+              <button type="submit"><i class="fa fa-shopping-bag"></i> Checkout</button>
             </form>
-            
 
-       
+
+
+
             <ul>
               <li><span>Paket ID:</span>
-                <?php echo $data_paket["id_paket"]; ?>
+                <?php echo $data_paket['id_paket']; ?>
               </li>
               <li><span>Nama paket</span>
-                <?php echo $data_paket["nama_paket"]; ?></a>
+                <?php echo $data_paket['nama_paket']; ?></a>
               </li>
 
             </ul>
@@ -163,11 +164,11 @@ $result = mysqli_query($koneksi, $query) or die(mysqli_error($koneksi))
                   <div class="tab-pane fade show active" id="description" role="tabpanel"
                     aria-labelledby="description-tab">
                     <p>
-                      <?php echo $data_paket["description"]; ?>
+                      <?php echo $data_paket['description']; ?>
                     </p>
                     <br>
                     <p>
-                      <?php echo $data_paket["description"]; ?>
+                      <?php echo $data_paket['description']; ?>
                     </p>
                   </div>
                   <div class="tab-pane fade" id="reviews" role="tabpanel" aria-labelledby="reviews-tab">
@@ -207,7 +208,7 @@ $result = mysqli_query($koneksi, $query) or die(mysqli_error($koneksi))
         </div>
 
         <?php
-        
+
         $sql = "SELECT * FROM paket
                 LIMIT 5
         
@@ -221,7 +222,7 @@ $result = mysqli_query($koneksi, $query) or die(mysqli_error($koneksi))
           <div class="col-lg col-sm-6 col-xs-12">
             <div class="item">
               <h4>
-                <?php echo $row["nama_paket"]; ?>
+                <?php echo $row['nama_paket']; ?>
               </h4>
               <div class="thumb">
                 <a href="detailPackage.php"><img src="assets/img/package.png" alt=""></a>

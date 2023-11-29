@@ -433,5 +433,3 @@ $(document).ready(function() {
         window.location.href = "detailPemesanan.php?id_paket=" + id_paket;
     });
 });
-
-    
