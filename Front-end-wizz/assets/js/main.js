@@ -430,6 +430,6 @@ function checkout(){
 $(document).ready(function() {
     $('button[data-id_paket]').on('click', function() {
         var idPaket = $(this).data('id_paket');
-        window.location.href = "detailPemesanan.php?id_paket=" + id_paket;
+        window.location.href = "pesananSaya.php?id_paket=" + id_paket;
     });
 });

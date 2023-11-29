@@ -1,15 +1,78 @@
 <?php
-require_once('config/koneksi.php');
+require('config/koneksi.php');
 
+// Tangani pemesanan jika formulir sudah dikirim
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    // Memastikan semua data terisi
+    if (
+        isset($_POST['id_paket']) && isset($_POST['tanggal_penggunaan']) &&
+        isset($_POST['nama']) && isset($_POST['alamat']) && isset($_POST['tlp']) &&
+        isset($_FILES['payment_proof'])
+    ) {
+        $id_paket = $_POST['id_paket'];
+        $tanggal_penggunaan = $_POST['tanggal_penggunaan'];
+        $nama = $_POST['nama'];
+        $alamat = $_POST['alamat'];
+        $tlp = $_POST['tlp'];
+
+        // Memproses file bukti pembayaran
+        $namaFile = $_FILES['payment_proof']['name'];
+        $ukuranFile = $_FILES['payment_proof']['size'];
+        $tmpName = $_FILES['payment_proof']['tmp_name'];
+
+        // Membaca seluruh konten file sebagai BLOB
+        $bukti_dp = file_get_contents($tmpName);
+
+        // Memasukkan data pemesanan ke dalam database
+        $query = "INSERT INTO pemesanan (pemesanan_id, id_paket, tanggal_pemesanan, tanggal_penggunaan, nama, alamat, tlp, bukti_dp) 
+        VALUES ('', '$id_paket', NOW(), '$tanggal_penggunaan', '$nama', '$alamat', '$tlp', ?)";
+
+        $stmt = mysqli_prepare($koneksi, $query);
+        mysqli_stmt_bind_param($stmt, 's', $bukti_dp);
+        $result = mysqli_stmt_execute($stmt);
+
+        if ($result) {
+            echo "Pemesanan berhasil!";
+            // Redirect ke halaman pemesanan
+            header("Location: detailPemesanan.php");
+            exit();
+        } else {
+            echo "Gagal melakukan pemesanan. Kode Kesalahan: " . mysqli_errno($koneksi) . "<br>";
+            echo "Pesan Kesalahan: " . mysqli_error($koneksi);
+        }
+
+        // Tutup pernyataan persiapan
+        mysqli_stmt_close($stmt);
+    }
+}
+
+// Ambil informasi paket berdasarkan id_paket dari tabel paket dan detail_paket
+$id_paket = isset($_GET['id_paket']) ? mysqli_real_escape_string($koneksi, $_GET['id_paket']) : null;
+
+$query = "SELECT * FROM detail_paket
+INNER JOIN paket ON detail_paket.id_paket = paket.id_paket
+WHERE paket.id_paket = '$id_paket'";
+
+$result = mysqli_query($koneksi, $query);
+
+if ($result && $data_paket = mysqli_fetch_assoc($result)) {
+
+    $id_paket = $data_paket["id_paket"];
+    $nama_paket = $data_paket["nama_paket"];
+    $harga = $data_paket["harga"];
+    $img_path = $data_paket["img_path"];
+    $description = $data_paket["description"];
+
+} else {
+    echo "Tidak dapat menemukan informasi paket.";
+}
 
 
 
 ?>
 
-
-
-
 <!DOCTYPE html>
+<!-- ... (code continues) ... -->
 
 <html lang="en">
 
@@ -65,9 +128,7 @@ require_once('config/koneksi.php');
             </div>
         </header>
         <section class="content">
-        <!-- <?php
-            while ($data_paket = mysqli_fetch_array($result)) {
-            ?> -->
+
 
             <div class="container">
 
@@ -76,15 +137,20 @@ require_once('config/koneksi.php');
                 <div class="details__item">
                     <div class="item__image">
                         <img class="iphone"
-                        src="http://localhost/wedding-organizer/Front-end-wizz/assets/img/<?php echo $data_paket["img_path"]; ?>"
-                        alt="">
+                            src="http://localhost/wedding-organizer/Front-end-wizz/assets/img/<?php echo $data_paket["img_path"]; ?>"
+                            alt="">
                     </div>
                     <div class="item__details">
                         <div class="item__title">
-                            <h2 ><?php echo $data_paket['nama_paket']; ?></h2>
-
+                            <h2>
+                                <?php echo $data_paket['nama_paket']; ?>
+                            </h2>
                         </div>
+
                         <div class="item__price">
+                            <h2>
+                                <?php echo $data_paket['harga']; ?>
+                            </h2>
 
                         </div>
                         <div class="item__quantity">
@@ -113,34 +179,16 @@ require_once('config/koneksi.php');
                     <div class="section-heading">Data diri & alamat</div>
                     <div class="shipping-address-container">
                         <div class="receiver-info">
-                            <b class="receiver-name"></b>
-                            <span class="address-title"></span>
-                            <div class="address-label"></div>
-                        </div>
-                        <div class="phone-number"></div>
-                        <div class="address-description">
-                            <div class="address-desc"></div>
-                            <div class="address-city"></div>
-                        </div>
-                        <div class="footer-buttons-container">
-                            <button type="button" class="open-modal-address-button" data-testid="btnOpenModalAddress"
-                                onclick="openAddressModal()">
-                                <span>Input data diri</span>
-                            </button>
-                        </div>
-                    </div>
-                    <!-- Popup Form -->
-                    <div id="addressModal" class="modal">
-                        <div class="modal-content">
-                            <div class="modal-heading">Data diri pemesan</div>
-                            <div class="modal-description">Untuk membuat pesanan, silakan tambahkan data diri pemesan
-                            </div>
-                            <form action="detailPemesanan.php?id_paket=<?php echo $id_paket; ?>" id="pemesananForm" >
+                            <form action="detailPemesanan.php" method="post" enctype="multipart/form-data"
+                                id="pemesananForm">
+
                                 <div class="form-group">
-                                    <input type="text" id="fullName" placeholder="Nama Lengkap" maxlength="30" autocomplete="name" name="nama">
+                                    <input type="text" id="fullName" placeholder="Nama Lengkap" maxlength="30"
+                                        autocomplete="name" name="nama">
                                 </div>
                                 <div class="form-group">
-                                    <input type="text" id="phoneNumber" placeholder="Nomor Telepon" autocomplete="user-address-phone" name="tlp">
+                                    <input type="text" id="phoneNumber" placeholder="Nomor Telepon"
+                                        autocomplete="user-address-phone" name="tlp">
                                 </div>
 
                                 <div class="form-group">
@@ -149,18 +197,13 @@ require_once('config/koneksi.php');
                                         maxlength="160" autocomplete="user-street-address" name="alamat"></textarea>
                                 </div>
 
-                                <div class="button-container">
-                                    <button type="button" class="cancel-button" onclick="closeAddressModal()">Nanti
-                                        Saja</button>
-                                    <button type="button" class="confirm-button"
-                                        onclick="copyToShippingAddress()">OK</button>
-                                </div>
-                            
+
                         </div>
                     </div>
                 </div>
 
                 <!-- Section Tanggal Penggunaan -->
+
                 <div class="usage-date-card">
                     <div class="card-header">
                         <h2 class="header-date">Pilih Tanggal Penggunaan</h2>
@@ -172,8 +215,8 @@ require_once('config/koneksi.php');
                             onchange="disableSelectedDate()">
                     </div>
                 </div>
-                </form>
-                <!-- Section Ringkasan Belanja -->
+
+
                 <div class="checkout-summary-container">
                     <div class="summary-heading">Ringkasan Belanja</div>
                     <div class="shopping-details-wrapper">
@@ -211,28 +254,43 @@ require_once('config/koneksi.php');
                         Pastikan untuk membayar dp terlebih dahulu.<span class="insurance-link" role="button"
                             tabindex="0"> ketentuan dp yaitu 50% dari harga yg tertera </span>.
                     </div>
-                    <div class="summary-main-buttons">
-                        <div class="main-button">
-                            <div role="button" tabindex="0">
-                                <h2 class="methodPayment">Metode Pembayaran</h2>
-                                <span><img src="assets/img/BANK_BRI_logo.svg" class="BRI" alt=""></span>
 
+                    <!-- Formulir Bukti Pembayaran -->
+
+                    <h2 class="payment">Pembayaran</h2>
+                    <div class="form-group">
+                        <span><img src="assets/img/BANK_BRI_logo.svg" class="BRI" alt=""></span>
+                        <div class=" rek">
+                            <span>No rek: 12345678</span>
+                            <div class=" rek">
+                                <span>Nama: Heimdal</span>
                             </div>
                         </div>
+                        <label for="paymentProof">Unggah bukti:</label>
+                        <input type="file" id="paymentProof" name="payment_proof" accept=".jpg, .jpeg, .png, .pdf"
+                            required>
                     </div>
+                    <div class="form-group">
+
+                    </div>
+
                 </div>
             </div>
+            </div>
+            </div>
+            </div>
 
-            <!-- <?php
-            }
-            ?> -->
+
+
+
 
             <div class="container">
                 <div class="actions">
 
-                <button type="button" class="btn action__submit" id="submitOrderBtn">Place your Order
-                    <i class="icon icon-arrow-right-circle"></i>
-                </button>
+                    <button type="button" class="btn action__submit" id="submitOrderBtn">Place your Order
+                        <i class="icon icon-arrow-right-circle"></i>
+                    </button>
+                    </form>
                     <a href="package.php" class="backBtn">Go Back to Shop</a>
 
                 </div>
@@ -245,7 +303,7 @@ require_once('config/koneksi.php');
         <i class="ri-arrow-up-line scrollup__icon"></i>
     </a>
 
-<script>
+    <!-- <script>
     document.addEventListener("DOMContentLoaded", function () {
         var submitOrderBtn = document.getElementById("submitOrderBtn");
         var pemesananForm = document.getElementById("pemesananForm");
@@ -257,7 +315,8 @@ require_once('config/koneksi.php');
             });
         }
     });
-</script>
+</script> -->
+
 
     <!--=============== SCROLL REVEAL===============-->
     <script src="assets/js/scrollreveal.min.js"></script>

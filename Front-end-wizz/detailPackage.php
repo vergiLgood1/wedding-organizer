@@ -1,6 +1,4 @@
 <?php
-
-
 require_once('config/koneksi.php');
 
 $id_paket = isset($_GET['id_paket']) ? mysqli_real_escape_string($koneksi, $_GET['id_paket']) : null;
@@ -115,7 +113,7 @@ $result = mysqli_query($koneksi, $query) or die(mysqli_error($koneksi))
             <p>
               <?php echo $data_paket['description']; ?>
             </p>
-            <form id="qty" action="detailPemesanan.php" method="get">
+            <form id="qty" action="detailPemesanan.php?id_paket=<?php echo $data_paket['id_paket']; ?>" method="post">
               <input type="hidden" name="id_paket" value="<?php echo $data_paket['id_paket']; ?>">
               <input type="qty" class="form-control" id="1" aria-describedby="quantity" placeholder="1">
               <button type="submit"><i class="fa fa-shopping-bag"></i> Checkout</button>
@@ -166,9 +164,9 @@ $result = mysqli_query($koneksi, $query) or die(mysqli_error($koneksi))
                     <p>
                       <?php echo $data_paket['description']; ?>
                     </p>
-                    <br>
+<br>
                     <p>
-                      <?php echo $data_paket['description']; ?>
+                    <?php echo $data_paket['description']; ?>
                     </p>
                   </div>
                   <div class="tab-pane fade" id="reviews" role="tabpanel" aria-labelledby="reviews-tab">

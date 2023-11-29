@@ -682,7 +682,8 @@ input[type="text"] {
 .section-heading {
   font-size: 22px;
   font-weight: bold;
-  margin-bottom: 16px;
+  margin-bottom: 24px;
+  padding-top: 5px;
 }
 
 /* Responsive layout adjustments */
@@ -703,18 +704,18 @@ input[type="text"] {
 
 /* Style for the overall container */
 .shipping-address-container {
-  display: flex;
+
   flex-direction: column;
   border: 1px solid #e0e0e0;
   border-radius: 8px;
   padding: 16px;
-  margin-top: 16px;
+  margin-top: 28px;
   /* Optional: adjust as needed */
 }
 
 /* Style for the receiver's information */
 .receiver-info {
-  display: flex;
+
   align-items: baseline;
   margin-bottom: 8px;
 }
@@ -800,7 +801,7 @@ input[type="text"] {
   border-radius: 0px;
   max-width: 450px;
   margin-top: 0px;
-  border: 1px solid #e0e0e0;
+  border: 3px solid var(--eerie-black);
 }
 
 .usage-date-card .card-header {
@@ -871,6 +872,19 @@ input[type="text"] {
   margin: 0;
 }
 
+ .rek{
+ 
+  justify-content: space-between;
+  text-align: left;
+}
+
+.payment{
+  padding-top: 4px;
+  font-size: 24px;
+  color: var(--eerie-black);
+
+}
+
 /* Style for the total row */
 .summary-total-row {
   display: flex;
@@ -910,10 +924,12 @@ input[type="text"] {
 
 img,
 .BRI {
-  width: 20%;
+  width: 25%;
   padding-top: 0;
   border-radius: 0px;
 }
+
+
 
 .methodPayment {
   margin-bottom: 10px;
