@@ -2,7 +2,6 @@
 include('../Admin/security.php');
 
 ?>
-html lang="en">
 <!DOCTYPE html>
 
 <html lang="en">

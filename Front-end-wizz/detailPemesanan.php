@@ -1,8 +1,15 @@
 <?php
-require_once('config/koneksi.php');
+#require_once('config/koneksi.php');
+include('../Admin/security.php');
 
+$id_paket = isset($_GET['id']) ? mysqli_real_escape_string($connection, $_GET['id']) : null;
 
+$query = "SELECT * FROM packages_detail
+        INNER JOIN packages ON packages_detail.id = packages.id
+        WHERE packages.id = '$id_paket'
+        ";
 
+$result = mysqli_query($connection, $query) or die(mysqli_error($connection))
 
 ?>
 
@@ -45,6 +52,7 @@ require_once('config/koneksi.php');
 </head>
 
 <body>
+    
     <section>
         <header>
             <div class="container">
@@ -76,7 +84,7 @@ require_once('config/koneksi.php');
                 <div class="details__item">
                     <div class="item__image">
                         <img class="iphone"
-                        src="http://localhost/wedding-organizer/Front-end-wizz/assets/img/<?php echo $data_paket["img_path"]; ?>"
+                        src="../Admin/upload/<?php echo $data_paket["gambar"]; ?>"
                         alt="">
                     </div>
                     <div class="item__details">
@@ -93,7 +101,7 @@ require_once('config/koneksi.php');
                         <div class="item__description">
                             <ul>
                                 <li>"
-                                    <?php echo $data_paket['description']; ?>"
+                                    <?php echo $data_paket['deskripsi']; ?>"
                                 </li>
                                 <li></li>
                                 <li></li>
@@ -135,7 +143,7 @@ require_once('config/koneksi.php');
                             <div class="modal-heading">Data diri pemesan</div>
                             <div class="modal-description">Untuk membuat pesanan, silakan tambahkan data diri pemesan
                             </div>
-                            <form action="detailPemesanan.php?id_paket=<?php echo $id_paket; ?>" id="pemesananForm" >
+                            <form action="detailPemesanan.php?id=<?php echo $id_paket; ?>" id="pemesananForm" >
                                 <div class="form-group">
                                     <input type="text" id="fullName" placeholder="Nama Lengkap" maxlength="30" autocomplete="name" name="nama">
                                 </div>
@@ -223,9 +231,9 @@ require_once('config/koneksi.php');
                 </div>
             </div>
 
-            <!-- <?php
+            <?php
             }
-            ?> -->
+            ?>
 
             <div class="container">
                 <div class="actions">
