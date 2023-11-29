@@ -1,3 +1,14 @@
+<?php
+require_once('config/koneksi.php');
+
+
+
+
+?>
+
+
+
+
 <!DOCTYPE html>
 
 <html lang="en">
@@ -28,8 +39,7 @@
     <!-- Add this in the head section of your HTML -->
     <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
 
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
-        integrity="sha384-rMPQNlc5ZZ1FjV3JQVg3aL6NZF5JHI9v4o7cU+6GGUAYQ73F1eRSTrCJ4zZU5m3h" crossorigin="anonymous">
+
 
 
 </head>
@@ -55,18 +65,23 @@
             </div>
         </header>
         <section class="content">
+        <!-- <?php
+            while ($data_paket = mysqli_fetch_array($result)) {
+            ?> -->
 
             <div class="container">
 
             </div>
             <div class="details shadow">
                 <div class="details__item">
-
                     <div class="item__image">
-                        <img class="iphone" src="http://localhost/wedding-organizer/Front-end-wizz/assets/img/<?php echo $data_paket["img_path"]; ?>" alt="">
+                        <img class="iphone"
+                        src="http://localhost/wedding-organizer/Front-end-wizz/assets/img/<?php echo $data_paket["img_path"]; ?>"
+                        alt="">
                     </div>
                     <div class="item__details">
                         <div class="item__title">
+                            <h2 ><?php echo $data_paket['nama_paket']; ?></h2>
 
                         </div>
                         <div class="item__price">
@@ -77,7 +92,9 @@
                         </div>
                         <div class="item__description">
                             <ul>
-                                <li></li>
+                                <li>"
+                                    <?php echo $data_paket['description']; ?>"
+                                </li>
                                 <li></li>
                                 <li></li>
                                 <li></li>
@@ -93,7 +110,7 @@
             <div class="checkout-container">
                 <!-- Sidebar (Alamat Pengiriman) -->
                 <div class="sidebar shipping-address-sidebar">
-                    <div class="section-heading">Alamat Pengiriman</div>
+                    <div class="section-heading">Data diri & alamat</div>
                     <div class="shipping-address-container">
                         <div class="receiver-info">
                             <b class="receiver-name"></b>
@@ -108,53 +125,28 @@
                         <div class="footer-buttons-container">
                             <button type="button" class="open-modal-address-button" data-testid="btnOpenModalAddress"
                                 onclick="openAddressModal()">
-                                <span>Masukkan alamat</span>
+                                <span>Input data diri</span>
                             </button>
                         </div>
                     </div>
                     <!-- Popup Form -->
                     <div id="addressModal" class="modal">
                         <div class="modal-content">
-                            <div class="modal-heading">Alamat Baru</div>
-                            <div class="modal-description">Untuk membuat pesanan, silakan tambahkan alamat pengiriman
+                            <div class="modal-heading">Data diri pemesan</div>
+                            <div class="modal-description">Untuk membuat pesanan, silakan tambahkan data diri pemesan
                             </div>
-                            <form>
+                            <form action="detailPemesanan.php?id_paket=<?php echo $id_paket; ?>" id="pemesananForm" >
                                 <div class="form-group">
-                                    <input type="text" id="fullName" placeholder="Nama Lengkap" maxlength="30"
-                                        autocomplete="name">
+                                    <input type="text" id="fullName" placeholder="Nama Lengkap" maxlength="30" autocomplete="name" name="nama">
                                 </div>
                                 <div class="form-group">
-
-                                    <input type="text" id="phoneNumber" placeholder="Nomor Telepon"
-                                        autocomplete="user-address-phone">
-                                </div>
-                                <div class="form-group">
-
-                                    <input type="text" id="province" placeholder="Provinsi, Kota, Kecamatan, Kode pos">
+                                    <input type="text" id="phoneNumber" placeholder="Nomor Telepon" autocomplete="user-address-phone" name="tlp">
                                 </div>
 
                                 <div class="form-group">
 
                                     <textarea id="streetAddress" placeholder="Nama Jalan, Gedung, No. Rumah" rows="2"
-                                        maxlength="160" autocomplete="user-street-address"></textarea>
-                                </div>
-                                <div class="form-group">
-
-                                    <input type="text" id="otherDetails"
-                                        placeholder="Detail Lainnya (Cth: Blok / Unit No., Patokan)" maxlength="20">
-                                </div>
-                                <div class="form-group">
-                                    <label>Tandai Sebagai:</label>
-                                    <div class="radio-group">
-                                        <div class="radio-option" role="radio" aria-checked="true" aria-disabled="false"
-                                            tabindex="0">
-                                            <span>Rumah</span>
-                                        </div>
-                                        <div class="radio-option" role="radio" aria-checked="false"
-                                            aria-disabled="false" tabindex="0">
-                                            <span>Kantor</span>
-                                        </div>
-                                    </div>
+                                        maxlength="160" autocomplete="user-street-address" name="alamat"></textarea>
                                 </div>
 
                                 <div class="button-container">
@@ -163,7 +155,7 @@
                                     <button type="button" class="confirm-button"
                                         onclick="copyToShippingAddress()">OK</button>
                                 </div>
-                            </form>
+                            
                         </div>
                     </div>
                 </div>
@@ -173,42 +165,47 @@
                     <div class="card-header">
                         <h2 class="header-date">Pilih Tanggal Penggunaan</h2>
                     </div>
+
                     <div class="card-content">
                         <label for="usage-date">Tanggal Penggunaan:</label>
-                        <input type="date" id="usageDate" name="usage-date" class="date-picker"
+                        <input type="date" id="usageDate" name="tanggal_penggunaan" class="date-picker"
                             onchange="disableSelectedDate()">
                     </div>
                 </div>
-
+                </form>
                 <!-- Section Ringkasan Belanja -->
                 <div class="checkout-summary-container">
                     <div class="summary-heading">Ringkasan Belanja</div>
                     <div class="shopping-details-wrapper">
                         <div class="summary-detail-row">
                             <div class="detail-label">Total Harga</div>
-                            <div class="detail-value"></div>
+                            <div class="detail-value">Rp
+                                <?php echo $data_paket['harga']; ?>
+                            </div>
                         </div>
                         <div class="summary-detail-row">
                             <div class="detail-label">Total Ongkos Kirim</div>
-                            <div class="detail-value"></div>
+                            <div class="detail-value"> - </div>
                         </div>
                         <div class="summary-detail-row">
                             <div class="detail-label">Asuransi Pengiriman</div>
-                            <div class="detail-value"></div>
+                            <div class="detail-value"> - </div>
                         </div>
                         <div class="summary-detail-row">
                             <div class="detail-label">Biaya Proteksi Produk</div>
-                            <div class="detail-value"></div>
+                            <div class="detail-value"> - </div>
                         </div>
                         <div class="summary-detail-row">
                             <div class="detail-label">Biaya Jasa Aplikasi</div>
                             <div class="detail-value" data-testid="Biaya Jasa Aplikasi-slashed"></div>
-                            <div class="detail-value-highlight">Rp1.000</div>
+                            <div class="detail-value-highlight">Rp 1000</div>
                         </div>
                     </div>
                     <div class="summary-total-row">
                         <div class="total-label">Total Belanja</div>
-                        <div class="total-value"></div>
+                        <div class="total-value">
+                            <?php echo $data_paket['harga']; ?>
+                        </div>
                     </div>
                     <div class="insurance-message">
                         Pastikan untuk membayar dp terlebih dahulu.<span class="insurance-link" role="button"
@@ -223,15 +220,19 @@
                             </div>
                         </div>
                     </div>
-
                 </div>
             </div>
+
+            <!-- <?php
+            }
+            ?> -->
+
             <div class="container">
                 <div class="actions">
 
-                    <a href="" class="btn action__submit">Place your Order
-                        <i class="icon icon-arrow-right-circle"></i>
-                    </a>
+                <button type="button" class="btn action__submit" id="submitOrderBtn">Place your Order
+                    <i class="icon icon-arrow-right-circle"></i>
+                </button>
                     <a href="package.php" class="backBtn">Go Back to Shop</a>
 
                 </div>
@@ -244,6 +245,20 @@
         <i class="ri-arrow-up-line scrollup__icon"></i>
     </a>
 
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        var submitOrderBtn = document.getElementById("submitOrderBtn");
+        var pemesananForm = document.getElementById("pemesananForm");
+
+        if (submitOrderBtn && pemesananForm) {
+            submitOrderBtn.addEventListener("click", function () {
+                // Menggunakan submit() untuk mengirim formulir
+                pemesananForm.submit();
+            });
+        }
+    });
+</script>
+
     <!--=============== SCROLL REVEAL===============-->
     <script src="assets/js/scrollreveal.min.js"></script>
 
@@ -255,6 +270,7 @@
 
     <!-- Tambahkan script Flatpickr -->
     <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+    <script src="assets/js/main.js"></script>
 </body>
 
 </html>
