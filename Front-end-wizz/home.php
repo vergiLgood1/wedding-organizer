@@ -1,5 +1,5 @@
 <?php
-
+include('../Admin/security.php');
 
 ?>
 <!DOCTYPE html>
@@ -127,14 +127,21 @@
         <!--==================== AWAL ABOUT ====================-->
         <section class="about section" id="about">
             <div class="about__container container grid">
+                <?php
+                // jalankan query untuk menampilkan semua data diurutkan berdasarkan nim
+                $query = "SELECT * FROM about";
+                $result = mysqli_query($connection, $query);
+                //mengecek apakah ada error ketika menjalankan query
+                if (!$result) {
+                    die("Query Error: " . mysqli_errno($connection) .
+                        " - " . mysqli_error($connection));
+                }
+                
+                $row = mysqli_fetch_assoc($result) 
+                ?>
                 <div class="about__data">
-                    <h2 class="section__title about__title">More Information <br> About Wizz</h2>
-                    <p class="about__description">Wizz Wedding Organizer adalah solusi lengkap untuk pernikahan Anda.
-                        Kami menawarkan berbagai layanan yang mencakup dekorasi, sound system, undangan, baju resepsi,
-                        serta fotografer untuk mengabadikan momen berharga Anda.
-                        Dengan layanan kami, Anda dapat mempercayakan segala kebutuhan pernikahan Anda kepada tim
-                        profesional kami.
-                        Kami siap membantu Anda merencanakan dan melaksanakan pernikahan impian Anda tanpa ribet.
+                    <h2 class="section__title about__title"><?php echo $row['judul'] ?></h2>
+                    <p class="about__description"><?php echo $row["deskripsi"]; ?>
 
                     </p>
                     <a href="#" class="button">Reserve a package</a>
@@ -370,10 +377,34 @@
                 <div class="innerdiv">
                     <!-- div1 -->
 
-                    <!-- div2 -->
 
-                    <!-- div3 -->
+                    <!-- div2 -->
+                    <?php 
+                    $query = "SELECT * FROM testimoni ORDER BY id ASC";
+                    $result = mysqli_query($connection, $query);
+                    while ($row = mysqli_fetch_assoc($result)) {
+                    ?>
                     <div class="div5 eachdiv">
+                        <div class="userdetails">
+                            <div class="imgbox">
+                            <?php echo '<img src="../Admin/uptesti/'.$row['gambar_user'].'"alt="gambar">' ?>
+                            </div>
+                            <div class="detbox">
+                                <p class="name"><?php echo $row["nama_user"] ?></p>
+                                <p class="designation">Verified User</p>
+                            </div>
+                        </div>
+                        <div class="review">
+                            <h4><?php echo $row["judul"] ?></h4>
+                            <p><?php echo $row["deskripsi"] ?></p>
+                        </div>
+                    </div>
+                    <?php 
+                    } 
+                    ?>
+                    <!-- div3 -->
+                    
+                    <!-- <div class="div5 eachdiv">
                         <div class="userdetails">
                             <div class="imgbox">
                                 <img src="https://raw.githubusercontent.com/RahulSahOfficial/testimonials_grid_section/5532c958b7d3c9b910a216b198fdd21c73112d84/images/image-patrick.jpg"
@@ -393,9 +424,9 @@
                                 bantuan yang sangat berarti, membuat seluruh perjalanan perencanaan pernikahan menjadi
                                 lebih lancar dan tak terlupakan."</p>
                         </div>
-                    </div>
+                    </div> -->
                     <!-- div4 -->
-                    <div class="div5 eachdiv">
+                    <!-- <div class="div5 eachdiv">
                         <div class="userdetails">
                             <div class="imgbox">
                                 <img src="https://raw.githubusercontent.com/RahulSahOfficial/testimonials_grid_section/5532c958b7d3c9b910a216b198fdd21c73112d84/images/image-patrick.jpg"
@@ -412,9 +443,9 @@
                                 bantuan yang sangat berarti, membuat seluruh perjalanan perencanaan pernikahan menjadi
                                 lebih lancar dan tak terlupakan."</p>
                         </div>
-                    </div>
+                    </div> -->
                     <!-- div5 -->
-                    <div class="div5 eachdiv">
+                    <!-- <div class="div5 eachdiv">
                         <div class="userdetails">
                             <div class="imgbox">
                                 <img src="https://raw.githubusercontent.com/RahulSahOfficial/testimonials_grid_section/5532c958b7d3c9b910a216b198fdd21c73112d84/images/image-patrick.jpg"
@@ -431,7 +462,7 @@
                                 tiada tara, mereka membantu mewujudkan pernikahan impian kami. Terima kasih atas
                                 dedikasi dan kerja kerasnya yang membuat hari istimewa kami begitu sempurna." </p>
                         </div>
-                    </div>
+                    </div> -->
                 </div>
             </div>
         </section>

@@ -5,19 +5,28 @@ include('includes/navbar.php');
 ?>
 
 <div class="container-fluid">
+    <style>
+        .btn-dark {
+        background-color: #ff8f9c;
+        
+        }
+        .text-primary {
+        color: #ff8f9c !important;
+        }
+    </style>
     <div class="card shadow mb-4">
         <div class="card-header py-3">
-            <h6 class ="m-0 font-weight-bold text-primary">EDIT Admin profile</h6>
+            <h4 class ="m-0 font-weight-bold text-primary">EDIT About</h4>
         </div>
         <div class="card-body">
 
         <?php
         $connection = mysqli_connect("localhost", "root", "", "wedding_organizer");
-        if(isset($_POST['edit_btn']))
+        if(isset($_POST['edit_btn9']))
         {
-            $id = $_POST['edit_id'];
+            $id = $_POST['edit_id9'];
         
-            $query = "SELECT * FROM abouts WHERE id='$id' ";
+            $query = "SELECT * FROM about WHERE id='$id' ";
             $query_run = mysqli_query($connection, $query);
             
             foreach($query_run as $row)
@@ -25,26 +34,20 @@ include('includes/navbar.php');
                 ?>
 
         <form action="code.php" method="POST">
-        <input type="hidden" name="edit_id" value="<?php echo $row['id'] ?>">    
+        <input type="hidden" name="edit_id9" value="<?php echo $row['id'] ?>">    
         <div class="form-group">
-            <label> Title </label>
-            <input type="text" name="edit_user" value="<?php echo $row['title'] ?>" class="form-control" placeholder="Enter Title">
+            <label> Judul </label>
+            <input type="text" name="edit_judul" value="<?php echo $row['judul'] ?>" class="form-control" placeholder="Enter Title">
         </div>
+        
         <div class="form-group">
-            <label> subtitle </label>
-            <input type="text" name="edit_email" value="<?php echo $row['subtitle'] ?>" class="form-control" placeholder="Enter Subtitle">
+            <label> Deskripsi </label>
+            <textarea name="edit_deskripsi" id="" cols="30" rows="10" class="form-control" placeholder="Enter Description" required><?php echo $row['deskripsi'] ?></textarea>
         </div>
-        <div class="form-group">
-            <label> Description </label>
-            <input type="text" name="edit_pass" value="<?php echo $row['description'] ?>" class="form-control" placeholder="Enter Description">
-        </div>
-        <div class="form-group">
-            <label> Links </label>
-            <input type="text" name="edit_pass2" value="<?php echo $row['links'] ?>" class="form-control" placeholder="Enter Links">
-        </div>      
+        
 
                 <a href="aboutus.php" class="btn btn-danger">Kembali</a>
-                <button type="submit" name="updatebtn" class="btn btn-primary">Update</button>
+                <button type="submit" name="updatebtn9" class="btn btn-dark">Update</button>
                 </form>
                 <?php
             }

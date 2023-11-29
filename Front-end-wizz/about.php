@@ -1,3 +1,7 @@
+<?php
+include('../Admin/security.php');
+
+?>
 <!DOCTYPE html>
 
 <html lang="en">
@@ -164,12 +168,22 @@
         <div class="mainAbout">
             <img src="assets/img/About5.png" alt="">
             <div class="all-text">
+                <?php
+                // jalankan query untuk menampilkan semua data diurutkan berdasarkan nim
+                $query = "SELECT * FROM about";
+                $result = mysqli_query($connection, $query);
+                //mengecek apakah ada error ketika menjalankan query
+                if (!$result) {
+                    die("Query Error: " . mysqli_errno($connection) .
+                        " - " . mysqli_error($connection));
+                }
+                
+                $row = mysqli_fetch_assoc($result) 
+                ?>
                 <h4 class="aboutHeader4">Wizz</h4>
-                <h1 class="aboutHeader1">A Place To Make Your Dreams Wedding</h1>
+                <h1 class="aboutHeader1"><?php echo $row['judul'] ?></h1>
                 <p class="aboutDesc">
-                    Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quod dignissimos dolor assumenda? Ea
-                    obcaecati quisquam quo non a, commodi itaque delectus saepe repellendus voluptates, earum
-                    dignissimos consequuntur aspernatur dolorum ratione!
+                    <?php echo $row["deskripsi"]; ?>
                 </p>
                 <div class="buttonAbout">
                     <button class="btn1" type="button">Our Team</button>

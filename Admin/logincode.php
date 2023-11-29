@@ -1,6 +1,6 @@
 <?php
 include('security.php');
-$connection = mysqli_connect("localhost", "root", "", "wedding_organizer");
+
 
 if(isset($_POST['login_btn']))
 {
@@ -14,12 +14,12 @@ if(isset($_POST['login_btn']))
     if($usertype['usertype'] == "admin")
     {
         $_SESSION['username'] = $email_login;
-        header('Location: index.php');
+        header('Location: ../Admin/index.php');
     }
     else if($usertype['usertype'] == "user")
     {
         $_SESSION['username'] = $email_login;
-        header('Location: ../index.html');
+        header('Location: ../Front-end-wizz/index.php');
     }
     else
     {

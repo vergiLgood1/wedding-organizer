@@ -1,3 +1,6 @@
+<?php 
+include('../Admin/security.php');
+?>
 
 
 <!DOCTYPE html>
@@ -115,6 +118,17 @@
 
         <div class="gallery-container" id="gallery-container">
             <!-- Placeholder images -->
+
+            <?php 
+            
+            $query = "SELECT * FROM gallery ORDER BY id ASC";
+            $result = mysqli_query($connection, $query);
+            while ($row = mysqli_fetch_assoc($result)) {
+            ?>
+            <div class="gallery-item"><?php echo '<img src="../Admin/upgallery/'.$row['gambar'].'"alt="gambar">' ?></div>
+            <?php 
+            }
+            ?>    
             <div class="gallery-item"><img src="assets/img/photos1.png" alt="Image 1"></div>
             <div class="gallery-item"><img src="assets/img/photos2.png" alt="Image 2"></div>
             <div class="gallery-item"><img src="assets/img/photos3.png" alt="Image 3"></div>

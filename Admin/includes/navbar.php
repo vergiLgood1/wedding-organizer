@@ -1,12 +1,36 @@
+
+<!--=============== REMIXICONS ===============-->
+<!-- <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet"> -->
+
+<!--=============== SWIPER CSS ===============-->
+<!-- <link rel="stylesheet" href="../Admin/assets/css2/swiper-bundle.min.css"> -->
+
+
+<!--=============== CSS ===============-->
+<!-- <link rel="stylesheet" href="../Admin/css2/styles.css"> -->
+
 <!-- Sidebar -->
-<ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
+<ul class="navbar-nav  sidebar sidebar-dark accordion" id="accordionSidebar">
+
+<style>
+    #judul{
+        font-family: 'Raleway', sans-serif;
+        color: hsl(353, 100%, 78%);
+        font-size: 24px;
+    }
+
+    ul{
+        background-color: #212121
+    }
+</style>
 
 <!-- Sidebar - Brand -->
 <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.php">
-    <div class="sidebar-brand-icon rotate-n-15">
-        <i class="fas fa-laugh-wink"></i>
+    <div class="sidebar-brand-icon ">
+        <!-- <i class="fas fa-laugh-wink"></i> -->
+        <img src="../Admin/LogoWizz/Wizz4.png">
     </div>
-    <div class="sidebar-brand-text mx-3">Wizz <sup>W.O</sup></div>
+    <div id="judul" class="sidebar-brand-text mx-3"></div>
 </a>
 
 <!-- Divider -->
@@ -29,11 +53,7 @@
 
 <!-- Nav Item - Pages Collapse Menu -->
 
-<li class="nav-item">
-    <a class="nav-link" href="register.php">
-        <i class="fas fa-fw fa-chart-area"></i>
-        <span>Admin Profile</span></a>
-</li>
+
 
 <li class="nav-item">
     <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo"
@@ -45,7 +65,11 @@
         <div class="bg-white py-2 collapse-inner rounded">
             <h6 class="collapse-header">Pages:</h6>
             <a class="collapse-item" href="aboutus.php">About</a>
-            <a class="collapse-item" href="cards.html">Bebek</a>
+            <a class="collapse-item" href="fasilitas.php">Fasilitas</a>
+            <a class="collapse-item" href="packages.php">Packages</a>
+            <a class="collapse-item" href="paket.php">Packages2</a>
+            <a class="collapse-item" href="gallery.php">Gallery</a>
+            <a class="collapse-item" href="testimoni.php">Testimoni</a>
         </div>
     </div>
 </li>
@@ -54,15 +78,15 @@
 <li class="nav-item">
     <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities"
         aria-expanded="true" aria-controls="collapseUtilities">
-        <i class="fas fa-fw fa-wrench"></i>
-        <span>Utilities</span>
+        <i class="fas fa-fw fa-table"></i>
+        <span>Laporan</span>
     </a>
     <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities"
         data-parent="#accordionSidebar">
         <div class="bg-white py-2 collapse-inner rounded">
-            <h6 class="collapse-header">Custom Utilities:</h6>
-            <a class="collapse-item" href="utilities-color.html">Colors</a>
-            <a class="collapse-item" href="utilities-border.html">Borders</a>
+            <h6 class="collapse-header">Data Lapoaran</h6>
+            <a class="collapse-item" href="laporan.php">Pendapatan</a>
+            <a class="collapse-item" href="tables.php">Borders</a>
             <a class="collapse-item" href="utilities-animation.html">Animations</a>
             <a class="collapse-item" href="utilities-other.html">Other</a>
         </div>
@@ -74,17 +98,17 @@
 
 <!-- Heading -->
 <div class="sidebar-heading">
-    Addons
+    User Setting
 </div>
 
 <!-- Nav Item - Pages Collapse Menu -->
 <li class="nav-item">
-    <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages"
+    <!-- <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages"
         aria-expanded="true" aria-controls="collapsePages">
         <i class="fas fa-fw fa-folder"></i>
         <span>Pages</span>
-    </a>
-    <div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
+    </a> -->
+    <!-- <div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
         <div class="bg-white py-2 collapse-inner rounded">
             <h6 class="collapse-header">Login Screens:</h6>
             <a class="collapse-item" href="login.html">Login</a>
@@ -95,49 +119,61 @@
             <a class="collapse-item" href="404.html">404 Page</a>
             <a class="collapse-item" href="blank.html">Blank Page</a>
         </div>
-    </div>
+    </div> -->
+    <li class="nav-item">
+    <a class="nav-link" href="register.php">
+        <i class="fas fa-fw fa-wrench"></i>
+        <span>Data Admin</span></a>
+</li>
 </li>
 
 <!-- Nav Item - Charts -->
 <li class="nav-item">
-    <a class="nav-link" href="charts.html">
-        <i class="fas fa-fw fa-chart-area"></i>
-        <span>Charts</span></a>
+    <a class="nav-link" href="#">
+        <i class="fas fa-fw fa-wrench"></i>
+        <span>Data User</span></a>
 </li>
 
 <!-- Nav Item - Tables -->
 <li class="nav-item">
-    <a class="nav-link" href="tables.html">
+    <a class="nav-link" href="#">
         <i class="fas fa-fw fa-table"></i>
-        <span>Tables</span></a>
+        <span>Pesanan</span></a>
 </li>
 
 <!-- Divider -->
 <hr class="sidebar-divider d-none d-md-block">
 
 <!-- Sidebar Toggler (Sidebar) -->
-<div class="text-center d-none d-md-inline">
+<!-- <div class="text-center d-none d-md-inline">
     <button class="rounded-circle border-0" id="sidebarToggle"></button>
-</div>
+</div> -->
 
 <!-- Sidebar Message -->
-<div class="sidebar-card d-none d-lg-flex">
+<!-- <div class="sidebar-card d-none d-lg-flex">
     <img class="sidebar-card-illustration mb-2" src="img/undraw_rocket.svg" alt="...">
     <p class="text-center mb-2"><strong>SB Admin Pro</strong> is packed with premium features, components, and more!</p>
     <a class="btn btn-success btn-sm" href="https://startbootstrap.com/theme/sb-admin-pro">Upgrade to Pro!</a>
-</div>
+</div> -->
 
 </ul>
 <!-- End of Sidebar -->
+<style>
+    #content-wrapper {
+      background-color: #ff8f9c;
+    }
 
+    .navbar {
+      background-color: #ff8f9c;
+    }
+</style>
 <!-- Content Wrapper -->
 <div id="content-wrapper" class="d-flex flex-column">
 
 <!-- Main Content -->
 <div id="content">
-
     <!-- Topbar -->
-    <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
+    <nav class="navbar navbar-expand navbar-light  topbar mb-4 static-top shadow">
 
         <!-- Sidebar Toggle (Topbar) -->
         <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
@@ -145,7 +181,7 @@
         </button>
 
         <!-- Topbar Search -->
-        <form
+        <!-- <form
             class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
             <div class="input-group">
                 <input type="text" class="form-control bg-light border-0 small" placeholder="Search for..."
@@ -156,18 +192,18 @@
                     </button>
                 </div>
             </div>
-        </form>
+        </form> -->
 
         <!-- Topbar Navbar -->
         <ul class="navbar-nav ml-auto">
 
             <!-- Nav Item - Search Dropdown (Visible Only XS) -->
-            <li class="nav-item dropdown no-arrow d-sm-none">
+            <!-- <li class="nav-item dropdown no-arrow d-sm-none">
                 <a class="nav-link dropdown-toggle" href="#" id="searchDropdown" role="button"
                     data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     <i class="fas fa-search fa-fw"></i>
                 </a>
-                <!-- Dropdown - Messages -->
+                Dropdown - Messages
                 <div class="dropdown-menu dropdown-menu-right p-3 shadow animated--grow-in"
                     aria-labelledby="searchDropdown">
                     <form class="form-inline mr-auto w-100 navbar-search">
@@ -183,18 +219,18 @@
                         </div>
                     </form>
                 </div>
-            </li>
+            </li> -->
 
             <!-- Nav Item - Alerts -->
-            <li class="nav-item dropdown no-arrow mx-1">
-                <a class="nav-link dropdown-toggle" href="#" id="alertsDropdown" role="button"
+            <!-- <li class="nav-item dropdown no-arrow mx-1"> -->
+                <!-- <a class="nav-link dropdown-toggle" href="#" id="alertsDropdown" role="button"
                     data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    <i class="fas fa-bell fa-fw"></i>
+                    <i class="fas fa-bell fa-fw"></i> -->
                     <!-- Counter - Alerts -->
-                    <span class="badge badge-danger badge-counter">3+</span>
-                </a>
+                    <!-- <span class="badge badge-danger badge-counter">3+</span>
+                </a> -->
                 <!-- Dropdown - Alerts -->
-                <div class="dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in"
+                <!-- <div class="dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in"
                     aria-labelledby="alertsDropdown">
                     <h6 class="dropdown-header">
                         Alerts Center
@@ -233,19 +269,19 @@
                         </div>
                     </a>
                     <a class="dropdown-item text-center small text-gray-500" href="#">Show All Alerts</a>
-                </div>
-            </li>
+                </div> -->
+            <!-- </li> -->
 
             <!-- Nav Item - Messages -->
-            <li class="nav-item dropdown no-arrow mx-1">
-                <a class="nav-link dropdown-toggle" href="#" id="messagesDropdown" role="button"
+            <!-- <li class="nav-item dropdown no-arrow mx-1"> -->
+                <!-- <a class="nav-link dropdown-toggle" href="#" id="messagesDropdown" role="button"
                     data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    <i class="fas fa-envelope fa-fw"></i>
+                    <i class="fas fa-envelope fa-fw"></i> -->
                     <!-- Counter - Messages -->
-                    <span class="badge badge-danger badge-counter">7</span>
-                </a>
+                    <!-- <span class="badge badge-danger badge-counter">7</span>
+                </a> -->
                 <!-- Dropdown - Messages -->
-                <div class="dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in"
+                <!-- <div class="dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in"
                     aria-labelledby="messagesDropdown">
                     <h6 class="dropdown-header">
                         Message Center
@@ -299,8 +335,8 @@
                         </div>
                     </a>
                     <a class="dropdown-item text-center small text-gray-500" href="#">Read More Messages</a>
-                </div>
-            </li>
+                </div> -->
+            <!-- </li> -->
 
             <div class="topbar-divider d-none d-sm-block"></div>
 
