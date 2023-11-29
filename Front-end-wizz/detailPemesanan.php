@@ -67,7 +67,12 @@ if ($result && $data_paket = mysqli_fetch_assoc($result)) {
     echo "Tidak dapat menemukan informasi paket.";
 }
 
+$query = "SELECT * FROM packages_detail
+        INNER JOIN packages ON packages_detail.id = packages.id
+        WHERE packages.id = '$id_paket'
+        ";
 
+$result = mysqli_query($connection, $query) or die(mysqli_error($connection))
 
 ?>
 
@@ -108,6 +113,7 @@ if ($result && $data_paket = mysqli_fetch_assoc($result)) {
 </head>
 
 <body>
+    
     <section>
         <header>
             <div class="container">
@@ -159,7 +165,7 @@ if ($result && $data_paket = mysqli_fetch_assoc($result)) {
                         <div class="item__description">
                             <ul>
                                 <li>"
-                                    <?php echo $data_paket['description']; ?>"
+                                    <?php echo $data_paket['deskripsi']; ?>"
                                 </li>
                                 <li></li>
                                 <li></li>

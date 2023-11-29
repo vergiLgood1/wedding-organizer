@@ -8,7 +8,7 @@ $query = "SELECT * FROM detail_paket
         WHERE paket.id_paket = '$id_paket'
         ";
 
-$result = mysqli_query($koneksi, $query) or die(mysqli_error($koneksi))
+$result = mysqli_query($connection, $query) or die(mysqli_error($connection))
 
 
 
@@ -97,7 +97,7 @@ $result = mysqli_query($koneksi, $query) or die(mysqli_error($koneksi))
           <div class="col-lg-6">
             <div class="left-image">
               <img
-                src="http://localhost/wedding-organizer/Front-end-wizz/assets/img/<?php echo $data_paket['img_path']; ?>"
+                src="../Admin/upload/<?php echo $data_paket["gambar"]; ?>"
                 alt="">
             </div>
           </div>
@@ -111,7 +111,7 @@ $result = mysqli_query($koneksi, $query) or die(mysqli_error($koneksi))
               <?php echo $data_paket['harga']; ?>
             </span>
             <p>
-              <?php echo $data_paket['description']; ?>
+              <?php echo $data_paket["deskripsi"]; ?>
             </p>
             <form id="qty" action="detailPemesanan.php?id_paket=<?php echo $data_paket['id_paket']; ?>" method="post">
               <input type="hidden" name="id_paket" value="<?php echo $data_paket['id_paket']; ?>">
@@ -124,7 +124,7 @@ $result = mysqli_query($koneksi, $query) or die(mysqli_error($koneksi))
 
             <ul>
               <li><span>Paket ID:</span>
-                <?php echo $data_paket['id_paket']; ?>
+                <?php echo $data_paket["id"]; ?>
               </li>
               <li><span>Nama paket</span>
                 <?php echo $data_paket['nama_paket']; ?></a>
@@ -162,7 +162,7 @@ $result = mysqli_query($koneksi, $query) or die(mysqli_error($koneksi))
                   <div class="tab-pane fade show active" id="description" role="tabpanel"
                     aria-labelledby="description-tab">
                     <p>
-                      <?php echo $data_paket['description']; ?>
+                      <?php echo $data_paket["deskripsi"]; ?>
                     </p>
 <br>
                     <p>
@@ -206,24 +206,24 @@ $result = mysqli_query($koneksi, $query) or die(mysqli_error($koneksi))
         </div>
 
         <?php
-
-        $sql = "SELECT * FROM paket
-                LIMIT 5
+        
+        $sql = "SELECT * FROM packages
+                LIMIT 4
         
         ";
-        $all_paket = $koneksi->query($sql);
+        $all_paket = $connection->query($sql);
 
         while ($row = mysqli_fetch_assoc($all_paket)) {
 
 
           ?>
-          <div class="col-lg col-sm-6 col-xs-12">
+          <div class="col-lg-3 col-md-6 align-self-center mb-30 trending-items col-md-6 adv">
             <div class="item">
               <h4>
                 <?php echo $row['nama_paket']; ?>
               </h4>
               <div class="thumb">
-                <a href="detailPackage.php"><img src="assets/img/package.png" alt=""></a>
+              <a href="detailPackage.php?id=<?php echo $row["id"]; ?>"><img src="../Admin/upload/<?php echo $row["gambar"]; ?>" alt=""></a>
               </div>
             </div>
           </div>

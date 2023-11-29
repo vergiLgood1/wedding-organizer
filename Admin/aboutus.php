@@ -17,22 +17,15 @@ include('includes/navbar.php');
 
       <form action="code.php" method="POST">
       <div class="modal-body">
+
+        <div class="form-group">
+            <label> Judul </label>
+            <input type="text" name="edit_judul" class="form-control" placeholder="Enter Title">
+        </div>
         
         <div class="form-group">
-            <label> Title </label>
-            <input type="text" name="judul" class="form-control" placeholder="Enter Title">
-        </div>
-        <div class="form-group">
-            <label> Sub Title </label>
-            <input type="text" name="sub_judul" class="form-control" placeholder="Enter Sub Title">
-        </div>
-        <div class="form-group">
-            <label> Description </label>
-            <input type="text" name="deskripsi" class="form-control" placeholder="Enter Description">
-        </div>
-        <div class="form-group">
-            <label> Links </label>
-            <input type="text" name="links" class="form-control" placeholder="Enter Links">
+            <label> Deskripsi </label>
+            <textarea name="edit_deskripsi" id="" cols="30" rows="10" class="form-control" placeholder="Enter Description" required></textarea>
         </div>
         
 
@@ -40,8 +33,17 @@ include('includes/navbar.php');
 
       </div>
       <div class="modal-footer">
+        <style>
+        .btn-dark {
+        background-color: #ff8f9c;
+        
+        }
+        .modal-title.fs-5 {
+            color: #ff8f9c !important;
+        }
+        </style>
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="submit" name="about_save" class="btn btn-primary">Save changes</button>
+        <button type="submit" name="about_save" class="btn btn-dark">Save changes</button>
       </div>
       </form>
 
@@ -53,11 +55,25 @@ include('includes/navbar.php');
 <!--DataTables Example -->
 <div class="card shadow mb-4">
     <div class="card-header py-3">
-        <h6 class="m-0 font-weight-bold text-primary">About
-            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#addadminprofile">
+    <style>button{
+            margin-top: 20px;
+            
+        }
+        h3{
+            text-align: center;
+        }
+        .btn-dark {
+        background-color: #ff8f9c;
+        }
+        .text-primary {
+        color: #ff8f9c !important;
+        }
+        </style>
+        <h3 class="m-0 font-weight-bold text-primary">About</h3>
+            <button type="button" class="btn btn-dark" data-toggle="modal" data-target="#addadminprofile">
                 add About
             </button>
-        </h6>
+        
     </div>    
 
 <div class="card-body">
@@ -85,9 +101,8 @@ include('includes/navbar.php');
                 <tr>
                     <th>ID</th>
                     <th>Title</th>
-                    <th>Sub Title</th>
                     <th>Description</th>
-                    <th>Links</th>
+                    
                     <th>EDIT</th>
                     <th>Delete</th>    
                 </tr>    
@@ -95,7 +110,7 @@ include('includes/navbar.php');
             <tbody>
             
             <?php
-            $query = "SELECT * FROM abouts";
+            $query = "SELECT * FROM about";
             $query_run = mysqli_query($connection, $query);
             if(mysqli_num_rows($query_run) > 0)
             {
@@ -104,20 +119,20 @@ include('includes/navbar.php');
                     ?>
                     <tr>
                     <td><?php echo $row['id']; ?></td>
-                    <td><?php echo $row['title']; ?></td>
-                    <td><?php echo $row['subtitle']; ?></td>
-                    <td><?php echo $row['description']; ?></td>
-                    <td><?php echo $row['links']; ?></td>
+                    <td><?php echo $row['judul']; ?></td>
+                    <td><?php echo $row['deskripsi']; ?></td>
+                    
+                    
                     <td>
                         <form action="aboutusedit.php" method="POST">
-                        <input type="hidden" name="edit_id" value="<?php echo $row['id']; ?>">    
-                        <button type="submit" name="edit_btn" class="btn btn-success">EDIT</button>
+                        <input type="hidden" name="edit_id9" value="<?php echo $row['id']; ?>">    
+                        <button type="submit" name="edit_btn9" class="btn btn-success fas fa-edit"></button>
                         </form>
                     </td>
                     <td>
                         <form action="code.php" method="post">
-                        <input type="hidden" name="delete_id" value="<?php echo $row['id']; ?>">    
-                        <button type="submit" name="deletebtn" class="btn btn-danger">DELETE</button>
+                        <input type="hidden" name="delete_id9" value="<?php echo $row['id']; ?>">    
+                        <button type="submit" name="deletebtn9" class="btn btn-danger ">DELETE</button>
                         </form>
                     </td>
                 </tr>
