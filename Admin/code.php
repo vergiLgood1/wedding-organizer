@@ -288,83 +288,83 @@ if(isset($_POST['delete_data2']))
 
 //paket
 
-if(isset($_POST['save_paket']))
-{
-    $title3 = $_POST['judul_paket'];
-    $description3 = $_POST['deskripsi_paket'];
-    $harga3 = $_POST['harga_paket'];
-    $image3 = $_FILES['gambar_paket']['name'];
+// if(isset($_POST['save_paket']))
+// {
+//     $title3 = $_POST['judul_paket'];
+//     $description3 = $_POST['deskripsi_paket'];
+//     $harga3 = $_POST['harga_paket'];
+//     $image3 = $_FILES['gambar_paket']['name'];
 
-        if(file_exists("uppaket/".$_FILES["gambar_paket"]["name"]))
-        {
-            $store3 = $_FILES["gambar_paket"]["name"];
-            $_SESSION['status'] = "Gambar telah ada. '.$store3.'";
-            header('Location: packages.php');
-        }
-        else
-        {
+//         if(file_exists("uppaket/".$_FILES["gambar_paket"]["name"]))
+//         {
+//             $store3 = $_FILES["gambar_paket"]["name"];
+//             $_SESSION['status'] = "Gambar telah ada. '.$store3.'";
+//             header('Location: packages.php');
+//         }
+//         else
+//         {
         
-            $query = "INSERT INTO paket (nama, deskripsi, harga, gambar) VALUES ('$title3', '$description3', '$harga3', '$image3')";
-            $query_run = mysqli_query($connection, $query);
+//             $query = "INSERT INTO paket (nama, deskripsi, harga, gambar) VALUES ('$title3', '$description3', '$harga3', '$image3')";
+//             $query_run = mysqli_query($connection, $query);
             
-            if($query_run)
-            {
-                move_uploaded_file($_FILES["gambar_paket"]["tmp_name"], "uppaket/".$_FILES["gambar_paket"]["name"]);
-                $_SESSION['success'] = "Paket ditambahkan";
-                header('Location: packages.php');
-            }
-            else
-            {
-                $_SESSION['status'] = "Paket gagal ditambahkan";
-                header('Location: Packages.php');
-            }
-        }
-}
+//             if($query_run)
+//             {
+//                 move_uploaded_file($_FILES["gambar_paket"]["tmp_name"], "uppaket/".$_FILES["gambar_paket"]["name"]);
+//                 $_SESSION['success'] = "Paket ditambahkan";
+//                 header('Location: packages.php');
+//             }
+//             else
+//             {
+//                 $_SESSION['status'] = "Paket gagal ditambahkan";
+//                 header('Location: Packages.php');
+//             }
+//         }
+// }
 
-if(isset($_POST['updatebtn4']))
-{
-    $id3 = $_POST['edit_id1'];
-    $title3 = $_POST['judul_paket'];
-    $deskripsi3 = $_POST['deskripsi_paket'];
-    $harga3 = $_POST['harga_paket'];
-    $image3 = $_FILES['gambar_paket']['name'];
+// if(isset($_POST['updatebtn4']))
+// {
+//     $id3 = $_POST['edit_id1'];
+//     $title3 = $_POST['judul_paket'];
+//     $deskripsi3 = $_POST['deskripsi_paket'];
+//     $harga3 = $_POST['harga_paket'];
+//     $image3 = $_FILES['gambar_paket']['name'];
 
-    $query = "UPDATE paket SET nama='$title3', deskripsi='$deskripsi3', harga='$harga3', gambar='$image3' WHERE id='$id3' ";
-    $query_run = mysqli_query($connection, $query);
+//     $query = "UPDATE paket SET nama='$title3', deskripsi='$deskripsi3', harga='$harga3', gambar='$image3' WHERE id='$id3' ";
+//     $query_run = mysqli_query($connection, $query);
 
-    if($query_run)
-    {
-        move_uploaded_file($_FILES["gambar_paket"]["tmp_name"], "uppaket/".$_FILES["gambar_paket"]["name"]);
-        $_SESSION['success'] = "Data telah di Update";
-        header('Location: packages.php');
-    }
-    else
-    {
-        $_SESSION['status'] = "Data gagal di Update";
-        header('Location: packages.php');
-    }
+//     if($query_run)
+//     {
+//         move_uploaded_file($_FILES["gambar_paket"]["tmp_name"], "uppaket/".$_FILES["gambar_paket"]["name"]);
+//         $_SESSION['success'] = "Data telah di Update";
+//         header('Location: packages.php');
+//     }
+//     else
+//     {
+//         $_SESSION['status'] = "Data gagal di Update";
+//         header('Location: packages.php');
+//     }
 
-}
+// }
 
-if(isset($_POST['btn_deletepaket']))
-{
-    $id = $_POST['edit_id1'];
+// if(isset($_POST['btn_deletepaket']))
+// {
+//     $id = $_POST['edit_id1'];
 
-    $query = "DELETE FROM paket WHERE id='$id'";
-    $query_run = mysqli_query($connection, $query);
+//     $query = "DELETE FROM paket WHERE id='$id'";
+//     $query_run = mysqli_query($connection, $query);
 
-    if($query_run)
-    {
-        $_SESSION['success'] = "Data telah di Hapus";
-        header('Location: packages.php');
-    }
-    else
-    {
-        $_SESSION['status'] = "Data gagal di Hapus";
-        header('Location: packages.php');
-    }
+//     if($query_run)
+//     {
+//         $_SESSION['success'] = "Data telah di Hapus";
+//         header('Location: packages.php');
+//     }
+//     else
+//     {
+//         $_SESSION['status'] = "Data gagal di Hapus";
+//         header('Location: packages.php');
+//     }
 
-}
+// }
 
 //ini paket baru
 if(isset($_POST['paket_save']))

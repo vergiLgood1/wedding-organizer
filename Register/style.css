@@ -10,7 +10,7 @@ body{
     justify-content: center;
     align-items: center;
     min-height: 100vh;
-    background: url('end\ of\ a\ life222.png') no-repeat;
+    background: url('background.jpg') no-repeat;
     background-size: cover;
     background-position: center;
 }
@@ -84,6 +84,21 @@ body{
     text-decoration: underline;
 }
 
+.tombol-submit a{
+    color: #fff;
+    text-decoration: none;
+}
+
+.tombol-submit a:hover{
+    text-decoration: underline;
+}
+
+.tombol-submit a {
+position: absolute;
+top: 360px;
+left: 50px;   
+}
+
 .wrapper .btn{
     width: 30%;
     height: 45px;
@@ -99,7 +114,7 @@ body{
 }
 
 .wrapper .btn2{
-    width: 30%;
+    width: 25%;
     height: 45px;
     background: #fff;
     border: none;
@@ -111,6 +126,9 @@ body{
     color: #333;
     font-weight: 600;
     margin-left: 154px;
+    position: absolute;
+    top: 350px;
+    right: 50px;
 }
 
 .wrapper .register{

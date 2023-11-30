@@ -1,6 +1,7 @@
 <?php
-require('phpdaftar.php')
+require('phpdaftar.php');
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -12,30 +13,28 @@ require('phpdaftar.php')
 
 </head>
 <body>
-    <form action="Daftar.php" method="POST">
-      <div class="wrapper">
-        <h1>Daftar</h1>
-        <div class="input-box">
-            <input type="text" placeholder="Email" name="email"
-            required>
-            <i class='bx bxs-user'></i>
+    <form id="registerForm" action="phpdaftar.php" method="POST">
+        <div class="wrapper">
+            <h1>Daftar</h1>
+            <div class="input-box">
+                <input type="text" placeholder="Email" name="email" required>
+                <i class='bx bxs-user'></i>
+            </div>
+            <div class="input-box">
+                <input type="text" placeholder="Username" name="username" required>
+                <i class='bx bxs-user'></i>
+            </div>
+            <div class="input-box">
+                <input type="password" placeholder="Password" name="password" required>
+                <i class='bx bxs-lock-alt' ></i> 
+            </div>
+            <div class="tombol-submit">
+                <a href="../Login/login.php">Kembali</a>
+            </div>
+            <div>
+                <button type="submit" class="btn2" name="register">Daftar</button>
+            </div>
         </div>
-        <div class="input-box">
-            <input type="text" placeholder="Username" name="username"
-            required>
-            <i class='bx bxs-user'></i>
-        </div>
-        <div class="input-box">
-            <input type="password" placeholder="Password" name="password"
-            required>
-            <i class='bx bxs-lock-alt' ></i>
-        </div>
-        <div class = "tombol-submit">
-        <a href="../Login/login.php"><button type="submit" class="btn">Kembali</button></a>
-        
-        <a href=""><button type="submit" class="btn2" name="register">Daftar</button></a>
-        </div>
-      </div>
     </form>
 </body>
 </html>

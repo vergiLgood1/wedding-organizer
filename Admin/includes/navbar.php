@@ -64,10 +64,25 @@
     <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
         <div class="bg-white py-2 collapse-inner rounded">
             <h6 class="collapse-header">Pages:</h6>
+            <a class="collapse-item" href="paket.php">Packages</a>
+            <a class="collapse-item" href="gallery.php">Gallery</a>
+            <a class="collapse-item" href="pesanan.php">Pesanan</a>
+        </div>
+    </div>
+</li>
+
+<li class="nav-item">
+    <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo2"
+        aria-expanded="true" aria-controls="collapseTwo">
+        <i class="fas fa-fw fa-cog"></i>
+        <span>Landing Pages</span>
+    </a>
+    <div id="collapseTwo2" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+        <div class="bg-white py-2 collapse-inner rounded">
+            <h6 class="collapse-header">Pages:</h6>
             <a class="collapse-item" href="aboutus.php">About</a>
             <a class="collapse-item" href="fasilitas.php">Fasilitas</a>
-            <a class="collapse-item" href="packages.php">Packages</a>
-            <a class="collapse-item" href="paket.php">Packages2</a>
+            <a class="collapse-item" href="paket.php">Packages</a>
             <a class="collapse-item" href="gallery.php">Gallery</a>
             <a class="collapse-item" href="testimoni.php">Testimoni</a>
         </div>
@@ -135,11 +150,11 @@
 </li>
 
 <!-- Nav Item - Tables -->
-<li class="nav-item">
+<!-- <li class="nav-item">
     <a class="nav-link" href="pesanan.php">
         <i class="fas fa-fw fa-table"></i>
         <span>Pesanan</span></a>
-</li>
+</li> -->
 
 <!-- Divider -->
 <hr class="sidebar-divider d-none d-md-block">
