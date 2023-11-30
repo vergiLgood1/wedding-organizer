@@ -628,7 +628,7 @@ if(isset($_POST['submitpesanan']))
         {
             $store9 = $_FILES["payment_proof"]["name"];
             $_SESSION['status'] = "Gambar telah ada. '.$store9.'";
-            header('Location: ../Front-end-wizz/detailPemesanan.php');
+            header('Location: ../Front-end-wizz/pesananSaya.php');
         }
         else
         {
@@ -640,12 +640,12 @@ if(isset($_POST['submitpesanan']))
             {
                 move_uploaded_file($_FILES["payment_proof"]["tmp_name"], "upbukti/".$_FILES["payment_proof"]["name"]);
                 $_SESSION['success'] = "Pesanan ditambahkan";
-                header('Location: ../Front-end-wizz/detailPemesanan.php');
+                header('Location: ../Front-end-wizz/pesananSaya.php');
             }
             else
             {
                 $_SESSION['status'] = "Pesanan gagal ditambahkan";
-                header('Location: ../Front-end-wizz/detailPemesanan.php');
+                header('Location: ../Front-end-wizz/pesananSaya.php');
                 
             }
         }
@@ -691,5 +691,59 @@ if(isset($_POST['deletepsn']))
     }
 
 }
+
+//gallery landing
+if(isset($_POST['gallerylnd_save']))
+{
+    
+    $gambarglnd = $_FILES['gambar_gallery2']['name'];
+
+        if(file_exists("upgallery/".$_FILES["gambar_gallery2"]["name"]))
+        {
+            $store0 = $_FILES["gambar_gallery2"]["name"];
+            $_SESSION['status'] = "Gambar telah ada. '.$store0.'";
+            header('Location: gallerylanding.php');
+        }
+        else
+        {
+        
+            $query = "INSERT INTO landing_gallery (gambar) VALUES ('$gambarglnd')";
+            $query_run = mysqli_query($connection, $query);
+            
+            if($query_run)
+            {
+                move_uploaded_file($_FILES["gambar_gallery2"]["tmp_name"], "upgallery/".$_FILES["gambar_gallery2"]["name"]);
+                $_SESSION['success'] = "Paket ditambahkan";
+                header('Location: gallerylanding.php');
+            }
+            else
+            {
+                $_SESSION['status'] = "Paket gagal ditambahkan";
+                header('Location: gallerylanding.php');
+            }
+        }
+}
+
+if(isset($_POST['deleteglnd']))
+{
+    $id = $_POST['id_deleteglnd'];
+
+    $query = "DELETE FROM landing_gallery WHERE id='$id'";
+    $query_run = mysqli_query($connection, $query);
+
+    if($query_run)
+    {
+        $_SESSION['success'] = "Data telah di Hapus";
+        header('Location: gallerylanding.php');
+    }
+    else
+    {
+        $_SESSION['status'] = "Data gagal di Hapus";
+        header('Location: gallerylanding.php');
+    }
+
+}
+
+
 
 ?>

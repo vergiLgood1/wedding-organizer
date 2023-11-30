@@ -82,7 +82,7 @@ $query = "SELECT * FROM packages_detail
 
 $result = mysqli_query($connection, $query) or die(mysqli_error($connection));
 
-
+$_SESSION['id_pesanan'] = $id_paket;
 
 
 ?>
@@ -126,6 +126,9 @@ $result = mysqli_query($connection, $query) or die(mysqli_error($connection));
 <body>
     
     <section>
+            <?php
+            while ($data_paket = mysqli_fetch_array($result)) {
+                ?>
         <header>
             <div class="container">
                 <div class="navigation">
@@ -134,9 +137,9 @@ $result = mysqli_query($connection, $query) or die(mysqli_error($connection));
                         <i class="icon icon-basket"><img src="assets/img/Wizz2.png" alt=""></i>
                     </div>
                     <div class="secure">
-                        <i class="icon icon-shield"></i>
+                        <a href="pesananSaya.php"><i class="icon icon-shield"></i>
                         <span>Secure Checkout</span>
-
+            </a>
                     </div>
                 </div>
                 <div class="notification">
@@ -145,9 +148,7 @@ $result = mysqli_query($connection, $query) or die(mysqli_error($connection));
             </div>
         </header>
         <section class="content">
-        <!-- <?php
-            while ($data_paket = mysqli_fetch_array($result)) {
-                ?> -->
+        
 
             <div class="container">
 

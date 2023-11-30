@@ -100,11 +100,11 @@ $all_paket = $connection->query($sql);
             
            
         ?>
-        <!-- ../Admin/upload/<?php #echo $row["gambar"]; ?> -->
+        
         <div class="col-lg-3 col-md-6 align-self-center mb-30 trending-items col-md-6 adv">
           <div class="item">
             <div class="thumb">
-            <a href="detailPackage.php?id=<?php echo $row["id"]; ?>"><img src="../Admin/img/package.png" alt="">
+            <a href="detailPackage.php?id=<?php echo $row["id"]; ?>"><img src="../Admin/upload/<?php echo $row["gambar"]; ?>" alt="">
 </a>
               <span class="price">Rp. <?php echo $row["harga"];?></span>
             </div>

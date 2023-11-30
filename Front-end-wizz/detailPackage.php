@@ -2,19 +2,17 @@
 include('../Admin/security.php');
 // require_once('config/koneksi.php');
 
-$id_paket = isset($_GET['id']) ? mysqli_real_escape_string($connection, $_GET['id']) : null;
 
+
+$id_paket = isset($_GET['id']) ? mysqli_real_escape_string($connection, $_GET['id']) : null;
 $query = "SELECT * FROM packages_detail
         INNER JOIN packages ON packages_detail.id = packages.id
         WHERE packages.id = '$id_paket'
         ";
 
-$result = mysqli_query($connection, $query) or die(mysqli_error($connection))
+$result = mysqli_query($connection, $query) or die(mysqli_error($connection));
 
-
-
-  ?>
-
+?>
 
 
 <!DOCTYPE html>
@@ -76,7 +74,18 @@ $result = mysqli_query($connection, $query) or die(mysqli_error($connection))
 
   <?php
   while ($data_paket = mysqli_fetch_array($result)) {
+    
+    $resultPaketTerkunci = $data_paket['status_terkunci'];
 
+    #$resultPaketTerkunci = mysqli_query($connection, $queryPaketTerkunci);
+
+    if ($resultPaketTerkunci > 0) {
+        // Paket sudah terkunci, tidak bisa dipesan
+        $paketTerkunci = true;
+    } else {
+        // Paket belum terkunci, bisa dipesan
+        $paketTerkunci = false;
+    }
 
     ?>
     <div class="page-heading header-text">
@@ -117,8 +126,11 @@ $result = mysqli_query($connection, $query) or die(mysqli_error($connection))
             <form id="qty" action="detailPemesanan.php" method="get">
               <input type="hidden" name="id" value="<?php echo $data_paket['id']; ?>">
               <input type="qty" class="form-control" id="" aria-describedby="quantity" placeholder="1">
-              <button type="button"><a href="detailPemesanan.php?id=<?php echo $data_paket["id"]; ?>"><i class="fa fa-shopping-bag"></i>
-                Checkout</button>
+              <?php if ($paketTerkunci) { ?>
+                <button type="button" disabled><i class="fa fa-shopping-bag"></i> Paket Terkunci</button>
+            <?php } else { ?>
+                <button type="submit"><i class="fa fa-shopping-bag"></i> Checkout</button>
+            <?php } ?>
             </form>
 
 

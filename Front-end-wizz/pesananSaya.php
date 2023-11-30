@@ -1,3 +1,22 @@
+<?php
+include('../Admin/security.php');
+// require_once('config/koneksi.php');
+
+#$id_paket = isset($_GET['id']) ? mysqli_real_escape_string($connection, $_GET['id']) : null;
+$userpaket = isset($_SESSION['id_pesanan']) ? $_SESSION['id_pesanan'] : null;
+
+$query = "SELECT *
+FROM packages
+INNER JOIN packages_detail ON packages.id = packages_detail.id
+INNER JOIN pemesanan ON packages.id = pemesanan.id
+WHERE packages.id = $userpaket";
+
+$result = mysqli_query($connection, $query) or die(mysqli_error($connection));
+$row = mysqli_fetch_array($result);
+
+
+  ?>
+
 <!DOCTYPE html>
 
 <html lang="en">
@@ -32,6 +51,7 @@
 </head>
 
 <body>
+    
     <header class="header" id="header">
         <nav class="nav">
             <div class="nav__left">
@@ -67,7 +87,7 @@
 
             <div class="nav__right">
                 <button class="nav__button__shop" id="cartButton">
-                    <i class="ri-shopping-cart-line" a href="pesananSaya.php"></i>
+                    <i class="ri-shopping-cart-line" a href="pesananSaya.php?id=<?php echo $data_paket["id"];?>"></i>
                 </button>
                 <button class="button-login" a href="../Login/login.php">Masuk</button>
             </div>
@@ -91,30 +111,27 @@
                 </div>
                 <div class="paket-content">
                     <div class="paket-title">
-                        <h1 class="title">Paket 1</h1>
+                        <h1><?php echo $userpaket ?></h1>
+                        <h1 class="title"><?php echo $row['nama_paket'] ?></h1>
                     </div>
                     <div class="info">
                         <span></span>
                         <span></span>
                     </div>
                     <div class="paket-price" data-testid="lblPDPDetailProductPrice">
-                        <h2>Rp1.500.000</h2>
-                        <span class="Date">tanggal penggunaan : </span>
+                        <h2><?php echo $row['harga'] ?></h2>
+                        <span class="Date"><?php echo $row['tanggal_penggunaan'] ?></span>
                     </div>
 
                     <button class="btn-detail">
                         <p class="buttonDetail">Detail</p>
                     </button>
                     <div class="paket-description">
-                        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quis sunt maxime saepe illo molestias,
-                        quod enim ipsa, quidem velit doloribus exercitationem reprehenderit pariatur et laborum deleniti
-                        distinctio nam tempore ipsum. Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore
-                        officiis fugiat quo dolores, omnis consequatur asperiores earum accusantium, maiores numquam
-                        distinctio magnam voluptatibus eum pariatur similique unde. Laudantium, quos rerum?
+                    <?php echo $row['deskripsi'] ?>
                     </div>
                 </div>
                 <!-- Add the "Beli" button -->
-                <button class="beli-button">Menunggu Konfirmasi</button>
+                <button class="beli-button"><?php echo $row['status'] ?></button>
             </div>
             </div>
         </section>
