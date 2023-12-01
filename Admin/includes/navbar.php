@@ -81,7 +81,6 @@
         <div class="bg-white py-2 collapse-inner rounded">
             <h6 class="collapse-header">Pages:</h6>
             <a class="collapse-item" href="aboutus.php">About</a>
-            <a class="collapse-item" href="fasilitas.php">Fasilitas</a>
             <a class="collapse-item" href="paket.php">Packages</a>
             <a class="collapse-item" href="gallerylanding.php">Gallery</a>
             <a class="collapse-item" href="testimoni.php">Testimoni</a>

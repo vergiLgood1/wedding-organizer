@@ -142,7 +142,6 @@ include('../Admin/security.php');
                 <div class="about__data">
                     <h2 class="section__title about__title"><?php echo $row['judul'] ?></h2>
                     <p class="about__description"><?php echo $row["deskripsi"]; ?>
-
                     </p>
                     <a href="#" class="button">Reserve a package</a>
                 </div>

@@ -4,8 +4,8 @@ include('security.php');
 
 if(isset($_POST['login_btn']))
 {
-    $email_login = $_POST['email1'];
-    $password_login = $_POST['password1'];
+    $email_login = $_POST['email_login'];
+    $password_login = $_POST['password_login'];
 
     $query = "SELECT * FROM register WHERE email='$email_login' AND password='$password_login'";
     $query_run = mysqli_query($connection, $query);
@@ -19,7 +19,7 @@ if(isset($_POST['login_btn']))
     else if($usertype['usertype'] == "user")
     {
         $_SESSION['username'] = $email_login;
-        header('Location: ../Front-end-wizz/index.php');
+        header('Location: ../Front-end-wizz/home.php');
     }
     else
     {

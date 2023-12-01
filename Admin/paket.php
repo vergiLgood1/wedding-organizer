@@ -20,7 +20,7 @@ include('includes/navbar.php');
         
         <div class="form-group">
             <label> ID Paket </label>
-            <input type="text" name="id_paketp" class="form-control" placeholder="Enter ID" required>
+            <input type="text" name="id_paket_baru" class="form-control" placeholder="Enter ID" required>
         </div>
         <div class="form-group">
             <label> Nama </label>
@@ -130,22 +130,22 @@ include('includes/navbar.php');
                 {
                     ?>
                     <tr>
-                        <!-- <td>
-                            <input type="checkbox" onclick="toggleCheckbox(this)" value="<?php #echo $row['id'] ?>" <?php #echo $row['visible'] == 1 ? "checked" : "" ?>>
-                        </td> -->
+                        <td>
+                            <input type="checkbox" onclick="toggleCheckbox(this)" value="<?php echo $row['id'] ?>">
+                        </td>
                     <td><?php echo $row['id']; ?></td>
                     <td><?php echo $row['nama_paket']; ?></td>
                     <td><?php echo $row['harga']; ?></td>
                     <td><?php echo '<img src="upload/'.$row['gambar'].'" width="100px;" height="100px" alt="gambar">' ?></td>
                     <td>
                         <form action="paket_detail.php" method="POST">
-                        <input type="hidden" name="id_paket" value="<?php echo $row['id']; ?>">    
+                        <input type="hidden" name="id_detail_paket" value="<?php echo $row['id']; ?>">    
                         <button type="submit" name="edit_data_detail" class="btn btn-success">DETAIL</button>
                         </form>
                     </td>
                     <td>
                         <form action="paketedit.php" method="POST">
-                        <input type="hidden" name="id_paket" value="<?php echo $row['id']; ?>">    
+                        <input type="hidden" name="id_edit_paket" value="<?php echo $row['id']; ?>">    
                         <button type="submit" name="edit_data_paket" class="btn btn-success">EDIT</button>
                         </form>
                     </td>
@@ -177,7 +177,7 @@ include('includes/scripts.php') ;
 include('includes/footer.php');
 ?>
 
-<!-- <script>
+<script>
     function toggleCheckbox(box)
     {
         var id = $(box).attr("value");
@@ -192,7 +192,7 @@ include('includes/footer.php');
         }
         var data = {
             "search_data": 1,
-            "id": id,
+            "idbox": id,
             "visible": visible
         };
 
@@ -206,4 +206,4 @@ include('includes/footer.php');
             }
         });
     }
-</script> -->
+</script>

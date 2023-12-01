@@ -22,9 +22,9 @@ include('includes/navbar.php');
 
         <?php
         $connection = mysqli_connect("localhost", "root", "", "wedding_organizer");
-        if(isset($_POST['id_paket']))
+        if(isset($_POST['edit_data_detail']))
         {
-            $id = $_POST['id_paket'];
+            $id = $_POST['id_detail_paket'];
         
             $query = "SELECT * FROM packages_detail WHERE id='$id' ";
             $query_run = mysqli_query($connection, $query);
@@ -34,7 +34,7 @@ include('includes/navbar.php');
                 ?>
 
         <form action="code.php" method="POST">
-        <input type="hidden" name="id_paket" value="<?php echo $row['id'] ?>">    
+        <input type="hidden" name="id_detail_paket" value="<?php echo $row['id'] ?>">    
         <!-- <div class="form-group">
             <label> Judul </label>
             <input type="text" name="edit_judul" value="<?php #echo $row['judul'] ?>" class="form-control" placeholder="Enter Title">

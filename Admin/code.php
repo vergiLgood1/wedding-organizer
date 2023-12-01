@@ -90,44 +90,44 @@ if(isset($_POST['deletebtn']))
 
 
 
-if(isset($_POST['login_btn']))
-{
-    $email_login = $_POST['email1'];
-    $password_login = $_POST['password1'];
+// if(isset($_POST['login_btn']))
+// {
+//     $email_login = $_POST['email1'];
+//     $password_login = $_POST['password1'];
 
-    $query = "SELECT * FROM register WHERE email='$email_login' AND password='$password_login'";
-    $query_run = mysqli_query($connection, $query);
+//     $query = "SELECT * FROM register WHERE email='$email_login' AND password='$password_login'";
+//     $query_run = mysqli_query($connection, $query);
 
-    if(mysqli_fetch_array($query_run))
-    {
-        $_SESSION['username'] = $email_login;
-        header('Location: index.php');
-    }
-    else
-    {
-        $_SESSION['status'] = "Email id atau Password salah";
-        header('Location: login.php');
-    }
+//     if(mysqli_fetch_array($query_run))
+//     {
+//         $_SESSION['username'] = $email_login;
+//         header('Location: index.php');
+//     }
+//     else
+//     {
+//         $_SESSION['status'] = "Email id atau Password salah";
+//         header('Location: login.php');
+//     }
 
-}
+// }
 
 
 //ini kode php untuk about
 
 if(isset($_POST['about_save']))
 {
-    $title = $_POST['edit_judul'];
+    $titleabt = $_POST['about_judul'];
     
-    $description = $_POST['edit_deskripsi'];
+    $descriptionabt = $_POST['about_deskripsi'];
     
 
-    $query = "INSERT INTO about (judul, deskripsi) VALUES ('$title', '$description' )";
-    $query_run = mysqli_query($connection, $query);
+    $queryabt = "INSERT INTO about (judul, deskripsi) VALUES ('$titleabt', '$descriptionabt' )";
+    $query_run = mysqli_query($connection, $queryabt);
 
     if($query_run)
     {
         $_SESSION['success'] = "About telah ditambahkan";
-        header('Location: Aboutus.php');
+        header('Location: aboutus.php');
     }
     else
     {
@@ -137,15 +137,15 @@ if(isset($_POST['about_save']))
 
 }
 
-if(isset($_POST['updatebtn9']))
+if(isset($_POST['btn_update_about']))
 {
-    $id = $_POST['edit_id9'];
-    $title = $_POST['edit_judul'];
-    $description = $_POST['edit_deskripsi'];
+    $idabt = $_POST['id_edit_about'];
+    $titleabt = $_POST['about_judul'];
+    $descriptionabt = $_POST['about_deskripsi'];
     
 
-    $query = "UPDATE about SET judul='$title',  deskripsi='$description'  WHERE id='$id' ";
-    $query_run = mysqli_query($connection, $query);
+    $queryabt = "UPDATE about SET judul='$titleabt',  deskripsi='$descriptionabt'  WHERE id='$idabt' ";
+    $query_run = mysqli_query($connection, $queryabt);
 
     if($query_run)
     {
@@ -160,12 +160,12 @@ if(isset($_POST['updatebtn9']))
 
 }
 
-if(isset($_POST['deletebtn9']))
+if(isset($_POST['btn_delete_about']))
 {
-    $id = $_POST['delete_id9'];
+    $idabt = $_POST['id_delete_about'];
 
-    $query = "DELETE FROM about WHERE id='$id'";
-    $query_run = mysqli_query($connection, $query);
+    $queryabt = "DELETE FROM about WHERE id='$idabt'";
+    $query_runabt = mysqli_query($connection, $queryabt);
 
     if($query_run)
     {
@@ -182,109 +182,109 @@ if(isset($_POST['deletebtn9']))
 
 //kode untuk fasilitas
 
-if(isset($_POST['fasi_save']))
-{
-    $title = $_POST['nama_fasi'];
-    $description = $_POST['deskripsi_fasi'];
-    $image = $_FILES['gambar_fasi']['name'];
+// if(isset($_POST['fasi_save']))
+// {
+//     $title = $_POST['nama_fasi'];
+//     $description = $_POST['deskripsi_fasi'];
+//     $image = $_FILES['gambar_fasi']['name'];
 
-        if(file_exists("upload/".$_FILES["gambar_fasi"]["name"]))
-        {
-            $store = $_FILES["gambar_fasi"]["name"];
-            $_SESSION['status'] = "Gambar telah ada. '.$store.'";
-            header('Location: fasilitas.php');
-        }
-        else
-        {
+//         if(file_exists("upload/".$_FILES["gambar_fasi"]["name"]))
+//         {
+//             $store = $_FILES["gambar_fasi"]["name"];
+//             $_SESSION['status'] = "Gambar telah ada. '.$store.'";
+//             header('Location: fasilitas.php');
+//         }
+//         else
+//         {
         
-            $query = "INSERT INTO fasilitas (judul, deskripsi, gambar) VALUES ('$title', '$description', '$image')";
-            $query_run = mysqli_query($connection, $query);
+//             $query = "INSERT INTO fasilitas (judul, deskripsi, gambar) VALUES ('$title', '$description', '$image')";
+//             $query_run = mysqli_query($connection, $query);
             
-            if($query_run)
-            {
-                move_uploaded_file($_FILES["gambar_fasi"]["tmp_name"], "upload/".$_FILES["gambar_fasi"]["name"]);
-                $_SESSION['success'] = "Fasilitas ditambahkan";
-                header('Location: fasilitas.php');
-            }
-            else
-            {
-                $_SESSION['status'] = "Fasilitas gagal ditambahkan";
-                header('Location: fasilitas.php');
-            }
-        }
-}
+//             if($query_run)
+//             {
+//                 move_uploaded_file($_FILES["gambar_fasi"]["tmp_name"], "upload/".$_FILES["gambar_fasi"]["name"]);
+//                 $_SESSION['success'] = "Fasilitas ditambahkan";
+//                 header('Location: fasilitas.php');
+//             }
+//             else
+//             {
+//                 $_SESSION['status'] = "Fasilitas gagal ditambahkan";
+//                 header('Location: fasilitas.php');
+//             }
+//         }
+// }
 
-if(isset($_POST['updatebtn3']))
-{
-    $id = $_POST['edit_id'];
-    $judul = $_POST['nama_fasi'];
-    $deskripsi = $_POST['deskripsi_fasi'];
-    $image = $_FILES['gambar_fasi']['name'];
+// if(isset($_POST['updatebtn3']))
+// {
+//     $id = $_POST['edit_id'];
+//     $judul = $_POST['nama_fasi'];
+//     $deskripsi = $_POST['deskripsi_fasi'];
+//     $image = $_FILES['gambar_fasi']['name'];
 
-    $query = "UPDATE fasilitas SET judul='$judul', deskripsi='$deskripsi', gambar='$image' WHERE id='$id' ";
-    $query_run = mysqli_query($connection, $query);
+//     $query = "UPDATE fasilitas SET judul='$judul', deskripsi='$deskripsi', gambar='$image' WHERE id='$id' ";
+//     $query_run = mysqli_query($connection, $query);
 
-    if($query_run)
-    {
-        move_uploaded_file($_FILES["gambar_fasi"]["tmp_name"], "upload/".$_FILES["gambar_fasi"]["name"]);
-        $_SESSION['success'] = "Data telah di Update";
-        header('Location: fasilitas.php');
-    }
-    else
-    {
-        $_SESSION['status'] = "Data gagal di Update";
-        header('Location: fasilitas.php');
-    }
+//     if($query_run)
+//     {
+//         move_uploaded_file($_FILES["gambar_fasi"]["tmp_name"], "upload/".$_FILES["gambar_fasi"]["name"]);
+//         $_SESSION['success'] = "Data telah di Update";
+//         header('Location: fasilitas.php');
+//     }
+//     else
+//     {
+//         $_SESSION['status'] = "Data gagal di Update";
+//         header('Location: fasilitas.php');
+//     }
 
-}
+// }
 
-if(isset($_POST['deletebtn3']))
-{
-    $id = $_POST['delete_id'];
+// if(isset($_POST['deletebtn3']))
+// {
+//     $id = $_POST['delete_id'];
 
-    $query = "DELETE FROM fasilitas WHERE id='$id'";
-    $query_run = mysqli_query($connection, $query);
+//     $query = "DELETE FROM fasilitas WHERE id='$id'";
+//     $query_run = mysqli_query($connection, $query);
 
-    if($query_run)
-    {
-        $_SESSION['success'] = "Data telah di Hapus";
-        header('Location: fasilitas.php');
-    }
-    else
-    {
-        $_SESSION['status'] = "Data gagal di Hapus";
-        header('Location: fasilitas.php');
-    }
+//     if($query_run)
+//     {
+//         $_SESSION['success'] = "Data telah di Hapus";
+//         header('Location: fasilitas.php');
+//     }
+//     else
+//     {
+//         $_SESSION['status'] = "Data gagal di Hapus";
+//         header('Location: fasilitas.php');
+//     }
 
-}
+// }
 
-if(isset($_POST['search_data']))
-{
-    $id = $_POST['id'];
-    $visible = $_POST['visible'];
+// if(isset($_POST['search_data']))
+// {
+//     $id = $_POST['id'];
+//     $visible = $_POST['visible'];
 
-    $query = "UPDATE fasilitas SET visible='$visible' WHERE id='$id'";
-    $query_run = mysqli_query($connection, $query);
-}
+//     $query = "UPDATE fasilitas SET visible='$visible' WHERE id='$id'";
+//     $query_run = mysqli_query($connection, $query);
+// }
 
-if(isset($_POST['delete_data2']))
-{
-    $id2 = "1";
-    $query = "DELETE FROM fasilitas WHERE visible='$id2'";
-    $query_run = mysqli_query($connection, $query);
+// if(isset($_POST['delete_data2']))
+// {
+//     $id2 = "1";
+//     $query = "DELETE FROM fasilitas WHERE visible='$id2'";
+//     $query_run = mysqli_query($connection, $query);
 
-    if($query_run)
-    {
-        $_SESSION['success'] = "Data telah di Hapus";
-        header('Location: fasilitas.php');
-    }
-    else
-    {
-        $_SESSION['status'] = "Data gagal di Hapus";
-        header('Location: fasilitas.php');
-    }
+//     if($query_run)
+//     {
+//         $_SESSION['success'] = "Data telah di Hapus";
+//         header('Location: fasilitas.php');
+//     }
+//     else
+//     {
+//         $_SESSION['status'] = "Data gagal di Hapus";
+//         header('Location: fasilitas.php');
+//     }
 
-}
+// }
 
 //paket
 
@@ -373,7 +373,7 @@ if(isset($_POST['paket_save']))
     $hargapkt = $_POST['harga_paket'];
     $despkt = $_POST['des_paket'];
     $gambarpkt = $_FILES['gambar_paket']['name'];
-    $id = $_POST['id_paketp'];
+    $id_baru = $_POST['id_paket_baru'];
 
         if(file_exists("upload/".$_FILES["gambar_paket"]["name"]))
         {
@@ -384,12 +384,12 @@ if(isset($_POST['paket_save']))
         else
         {
         
-            $query = "INSERT INTO packages (id, nama_paket, harga, gambar) VALUES ('$id', '$namapkt', '$hargapkt', '$gambarpkt')";
+            $query = "INSERT INTO packages (id, nama_paket, harga, gambar) VALUES ('$id_baru', '$namapkt', '$hargapkt', '$gambarpkt')";
             $query_run = mysqli_query($connection, $query);
             
             if($query_run)
             {
-                $query2 = "INSERT INTO packages_detail (id, deskripsi) VALUES ('$id', '$despkt')";
+                $query2 = "INSERT INTO packages_detail (id, deskripsi) VALUES ('$id_baru', '$despkt')";
                 $query_run2 = mysqli_query($connection, $query2);
 
                 if($query_run2)
@@ -415,13 +415,13 @@ if(isset($_POST['paket_save']))
 
 if(isset($_POST['updatepaket']))
 {
-    $id = $_POST['id_paket'];
+    $idpkt = $_POST['id_edit_paket'];
     $namapkt = $_POST['nama_paket'];
     $hargapkt = $_POST['harga_paket'];
     $gambarpkt = $_FILES['gambar_paket']['name'];
 
-    $query = "UPDATE packages SET nama_paket='$namapkt', harga='$hargapkt', gambar='$gambarpkt' WHERE id='$id' ";
-    $query_run = mysqli_query($connection, $query);
+    $querypkt = "UPDATE packages SET nama_paket='$namapkt', harga='$hargapkt', gambar='$gambarpkt' WHERE id='$idpkt' ";
+    $query_run = mysqli_query($connection, $querypkt);
 
     if($query_run)
     {
@@ -439,10 +439,10 @@ if(isset($_POST['updatepaket']))
 
 if(isset($_POST['deletepaket']))
 {
-    $id = $_POST['id_deletepkt'];
+    $idpkt = $_POST['id_deletepkt'];
 
-    $query = "DELETE FROM packages WHERE id='$id'";
-    $query_run = mysqli_query($connection, $query);
+    $querypkt = "DELETE FROM packages WHERE id='$idpkt'";
+    $query_run = mysqli_query($connection, $querypkt);
 
     if($query_run)
     {
@@ -459,13 +459,13 @@ if(isset($_POST['deletepaket']))
 
 if(isset($_POST['updatedetailpkt']))
 {
-    $id = $_POST['id_paket'];
+    $idpkt = $_POST['id_detail_paket'];
     
     $description = $_POST['edit_deskripsipkt'];
     
 
-    $query = "UPDATE packages_detail SET deskripsi='$description'  WHERE id='$id' ";
-    $query_run = mysqli_query($connection, $query);
+    $querypkt = "UPDATE packages_detail SET deskripsi='$description'  WHERE id='$idpkt' ";
+    $query_run = mysqli_query($connection, $querypkt);
 
     if($query_run)
     {
@@ -480,6 +480,17 @@ if(isset($_POST['updatedetailpkt']))
 
 }
 
+if(isset($_POST['search_data']))
+{
+    $idbox = $_POST['idbox'];
+    $visible = $_POST['visible'];
+
+    $querypkt = "UPDATE packages SET status_terkunci ='$visible' WHERE id='$idbox'";
+    $query_run = mysqli_query($connection, $querypkt);
+}
+
+
+
 
 //kode untuk gallery
 if(isset($_POST['gallery_save']))
@@ -489,8 +500,8 @@ if(isset($_POST['gallery_save']))
 
         if(file_exists("upgallery/".$_FILES["gambar_gallery"]["name"]))
         {
-            $store2 = $_FILES["gambar_gallery"]["name"];
-            $_SESSION['status'] = "Gambar telah ada. '.$store2.'";
+            $storeglr = $_FILES["gambar_gallery"]["name"];
+            $_SESSION['status'] = "Gambar telah ada. '.$storeglr.'";
             header('Location: gallery.php');
         }
         else
@@ -515,10 +526,10 @@ if(isset($_POST['gallery_save']))
 
 if(isset($_POST['deleteglr']))
 {
-    $id = $_POST['id_deleteglr'];
+    $idglr = $_POST['id_deleteglr'];
 
-    $query = "DELETE FROM gallery WHERE id='$id'";
-    $query_run = mysqli_query($connection, $query);
+    $queryglr = "DELETE FROM gallery WHERE id='$idglr'";
+    $query_run = mysqli_query($connection, $queryglr);
 
     if($query_run)
     {
@@ -543,15 +554,15 @@ if(isset($_POST['testi_save']))
 
         if(file_exists("uptesti/".$_FILES["gambar_testi"]["name"]))
         {
-            $store3 = $_FILES["gambar_testi"]["name"];
-            $_SESSION['status'] = "Gambar telah ada. '.$store3.'";
+            $storetst = $_FILES["gambar_testi"]["name"];
+            $_SESSION['status'] = "Gambar telah ada. '.$storetst.'";
             header('Location: testimoni.php');
         }
         else
         {
         
-            $query = "INSERT INTO testimoni (nama_user, judul, deskripsi, gambar_user) VALUES ('$namatst', '$judultst', '$destst', '$gambartst')";
-            $query_run = mysqli_query($connection, $query);
+            $querytst = "INSERT INTO testimoni (nama_user, judul, deskripsi, gambar_user) VALUES ('$namatst', '$judultst', '$destst', '$gambartst')";
+            $query_run = mysqli_query($connection, $querytst);
             
             if($query_run)
             {
@@ -569,14 +580,14 @@ if(isset($_POST['testi_save']))
 
 if(isset($_POST['updatetesti']))
 {
-    $id = $_POST['id_testi'];
+    $idtst = $_POST['id_testi'];
     $namatst = $_POST['nama_testi'];
     $judultst = $_POST['judul_testi'];
     $destst = $_POST['des_testi'];
     $gambartst = $_FILES['gambar_testi']['name'];
 
-    $query = "UPDATE testimoni SET nama_user='$namatst', judul='$judultst', deskripsi='$destst', gambar_user='$gambartst' WHERE id='$id' ";
-    $query_run = mysqli_query($connection, $query);
+    $querytst = "UPDATE testimoni SET nama_user='$namatst', judul='$judultst', deskripsi='$destst', gambar_user='$gambartst' WHERE id='$idtst' ";
+    $query_run = mysqli_query($connection, $querytst);
 
     if($query_run)
     {
@@ -594,10 +605,10 @@ if(isset($_POST['updatetesti']))
 
 if(isset($_POST['deletetesti']))
 {
-    $id = $_POST['id_deletetesti'];
+    $idtst = $_POST['id_deletetesti'];
 
-    $query = "DELETE FROM testimoni WHERE id='$id'";
-    $query_run = mysqli_query($connection, $query);
+    $querytst = "DELETE FROM testimoni WHERE id='$idtst'";
+    $query_run = mysqli_query($connection, $querytst);
 
     if($query_run)
     {
@@ -744,6 +755,26 @@ if(isset($_POST['deleteglnd']))
 
 }
 
+//Login Baru
+if(isset($_POST['tombol_daftar'])) {
+    $userMail = $_POST['email_login'];
+    $userPass = $_POST['password_login'];
+    $userName = $_POST['username_login'];
 
+    $query = "INSERT INTO register VALUES ('', '$userName', '$userMail', '$userPass', 'user')";
+    $result = mysqli_query($connection, $query);
+    header('Location: ../Admin/login.php');
+} 
 
+if (isset($_POST['tombol_lupa'])) {
+    $userMail = $_POST['email_login'];
+    $userPass = $_POST['password_login'];
+    $userPass2 = $_POST['password2_login'];
+
+    if ($userPass === $userPass2) {
+        $query = "UPDATE register set password='$userPass' WHERE email='$userMail'";
+        $result = mysqli_query($connection, $query);
+        header('Location: ../Admin/login.php');
+    }
+}
 ?>
