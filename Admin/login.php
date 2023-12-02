@@ -159,7 +159,7 @@ body{
         <button type="submit" class="btn" name="login_btn">Login</button>
         
         <div class="register">
-            <p>Tidak Punya Akun? <a href="../Admin/login.php">Daftar!</a></p>
+            <p>Tidak Punya Akun? <a href="../Admin/Daftar.php">Daftar!</a></p>
         </div>
 
       </div>

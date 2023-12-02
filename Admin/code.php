@@ -166,7 +166,7 @@ if(isset($_POST['btn_delete_about']))
     $idabt = $_POST['id_delete_about'];
 
     $queryabt = "DELETE FROM about WHERE id='$idabt'";
-    $query_runabt = mysqli_query($connection, $queryabt);
+    $query_run = mysqli_query($connection, $queryabt);
 
     if($query_run)
     {
@@ -845,7 +845,7 @@ if(isset($_POST['btn_delete_exp']))
     $idexp = $_POST['id_delete_exp'];
 
     $queryabt = "DELETE FROM experience WHERE id='$idexp'";
-    $query_runabt = mysqli_query($connection, $queryabt);
+    $query_run = mysqli_query($connection, $queryabt);
 
     if($query_run)
     {
@@ -860,5 +860,61 @@ if(isset($_POST['btn_delete_exp']))
 
 }
 
+//blog
+
+if(isset($_POST['berita_save']))
+{
+    $namabl = $_POST['nama_blog'];
+    $judulbl = $_POST['judul_blog'];
+    $urlbl = $_POST['url_berita'];
+    $sumberbl = $_POST['sumber_berita'];
+    $tglbl = $_POST['tanggal_berita'];
+    $gambarbl = $_FILES['gambar_berita']['name'];
+
+        if(file_exists("upblog/".$_FILES["gambar_berita"]["name"]))
+        {
+            $storebl = $_FILES["gambar_berita"]["name"];
+            $_SESSION['status'] = "Gambar telah ada. '.$storetbl.'";
+            header('Location: blog.php');
+        }
+        else
+        {
+        
+            $querytst = "INSERT INTO blog (nama_blog, judul_blog, url_berita, sumber_berita, tanggal_berita, gambar) VALUES ('$namabl', '$judulbl', '$urlbl', '$sumberbl', '$tglbl', '$gambarbl')";
+            $query_run = mysqli_query($connection, $querytst);
+            
+            if($query_run)
+            {
+                move_uploaded_file($_FILES["gambar_berita"]["tmp_name"], "upblog/".$_FILES["gambar_berita"]["name"]);
+                $_SESSION['success'] = "blog ditambahkan";
+                header('Location: blog.php');
+            }
+            else
+            {
+                $_SESSION['status'] = "blog gagal ditambahkan";
+                header('Location: blog.php');
+            }
+        }
+}
+
+if(isset($_POST['deleteblog']))
+{
+    $idebl = $_POST['id_deleteblog'];
+
+    $querybl = "DELETE FROM blog WHERE id='$idebl'";
+    $query_run = mysqli_query($connection, $querybl);
+
+    if($query_run)
+    {
+        $_SESSION['success'] = "Data telah di Hapus";
+        header('Location: blog.php');
+    }
+    else
+    {
+        $_SESSION['status'] = "Data gagal di Hapus";
+        header('Location: blog.php');
+    }
+
+}
 
 ?>

@@ -564,54 +564,31 @@ include('../Admin/security.php');
         </section>
 
         <!--==================== AKHIR KONTAK ====================-->
-
-
+        
         <!--==================== AWAL BLOG ====================-->
-
+        
         <h2 class="section__title">Blog terkait</h2>
         <p class="blog__title">Beberapa blog yang relevan dengan konten terkait</p>
 
         <section class="blog" id="blog">
+        <?php 
+        $query = "SELECT * FROM blog ORDER BY id ASC";
+        $result = mysqli_query($connection, $query);
+        while ($row = mysqli_fetch_assoc($result)) {
+        ?>
             <div class="blog__item">
-                <a href="">
-                    <img src="assets/img/blog-1.jpg" alt="Blog 1">
-                    <h3 class="blog-category">Blog 1</h3>
-                    <p class="blog-title">Clothes Retail KPIs 2021 Guide for Clothes Executives.</p>
+                <a href="<?php echo $row["url_berita"] ?>">
+                    <img src="<?php echo $row["gambar"] ?>" alt="Blog 1">
+                    <h3 class="blog-category"><?php echo $row["nama_blog"] ?></h3>
+                    <p class="blog-title"><?php echo $row["judul_blog"] ?></p>
                 </a>
                 <p class="blog-meta">
-                    By <cite>Mr Admin</cite> / <time datetime="2022-04-06">Apr 06, 2022</time>
+                    By <cite><?php echo $row["sumber_berita"] ?></cite> / <time datetime="2022-04-06"><?php echo $row["tanggal_berita"] ?></time>
                 </p>
             </div>
-            <div class="blog__item">
-                <a href="">
-                    <img src="assets/img/blog-2.jpg" alt="Blog 2">
-                    <h3 class="blog-category">Blog 2</h3>
-                    <p class="blog-title">Clothes Retail KPIs 2021 Guide for Clothes Executives.</p>
-                </a>
-                <p class="blog-meta">
-                    By <cite>Mr Admin</cite> / <time datetime="2022-04-06">Apr 06, 2022</time>
-                </p>
-            </div>
-            <div class="blog__item">
-                <a href="">
-                    <img src="assets/img/blog-3.jpg" alt="Blog 3">
-                    <h3 class="blog-category">Blog 3</h3>
-                    <p class="blog-title">Clothes Retail KPIs 2021 Guide for Clothes Executives.</p>
-                </a>
-                <p class="blog-meta">
-                    By <cite>Mr Admin</cite> / <time datetime="2022-04-06">Apr 06, 2022</time>
-                </p>
-            </div>
-            <div class="blog__item">
-                <a href="">
-                    <img src="assets/img/blog-4.jpg" alt="Blog 4">
-                    <h3 class="blog-category">Blog 4</h3>
-                    <p class="blog-title">Clothes Retail KPIs 2021 Guide for Clothes Executives.</p>
-                </a>
-                <p class="blog-meta">
-                    By <cite>Mr Admin</cite> / <time datetime="2022-04-06">Apr 06, 2022</time>
-                </p>
-            </div>
+            <?php 
+            }
+            ?>
         </section>
 
         <!--==================== AKHIR BLOG ====================-->

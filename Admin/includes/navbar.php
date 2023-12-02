@@ -85,6 +85,7 @@
             <a class="collapse-item" href="gallerylanding.php">Gallery</a>
             <a class="collapse-item" href="experience.php">Experience</a>
             <a class="collapse-item" href="testimoni.php">Testimoni</a>
+            <a class="collapse-item" href="blog.php">Blog</a>
         </div>
     </div>
 </li>

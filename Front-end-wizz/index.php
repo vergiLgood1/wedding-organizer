@@ -1,5 +1,5 @@
 <?php 
-
+include('../Admin/security.php');
 ?>
 
 <!DOCTYPE html>
@@ -34,16 +34,16 @@
                 <div class="nav__menu" id="nav-menu">
                     <ul class="nav__list">
                         <li class="nav__item">
-                            <a href="home.php" class="nav__link active-link">Home</a>
+                            <a href="index.php" class="nav__link active-link">Home</a>
                         </li>
                         <li class="nav__item">
-                            <a href="about.php" class="nav__link">About</a>
+                            <a href="#about" class="nav__link">About</a>
                         </li>
                         <li class="nav__item">
-                            <a href="gallery.php" class="nav__link">Gallery</a>
+                            <a href="#gallery" class="nav__link">Gallery</a>
                         </li>
                         <li class="nav__item">
-                            <a href="package.php" class="nav__link" onclick="ArahkanKePackage()">Package</a>
+                            <a href="#package" class="nav__link">Package</a>
                         </li>
                         <li class="nav__item">
                             <a href="#testimoni" class="nav__link">Testimoni</a>
@@ -76,9 +76,9 @@
                     </div>
                 </div>
                 <!-- Tombol keranjang belanja -->
-                <button class="nav__button__shop" id="cartButton">
+                <!-- <button class="nav__button__shop" id="cartButton">
                     <i class="ri-shopping-cart-line" onclick="pesananSaya()"></i>
-                </button>
+                </button> -->
 
                 <!-- Tombol masuk -->
                 <button id="loginButton" class="button-login" onclick="loginPhp()">Masuk</button>
