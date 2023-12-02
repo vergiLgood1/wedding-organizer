@@ -104,14 +104,14 @@ $all_paket = $connection->query($sql);
         <div class="col-lg-3 col-md-6 align-self-center mb-30 trending-items col-md-6 adv">
           <div class="item">
             <div class="thumb">
-            <a href="detailPackage.php?id=<?php echo $row["id"]; ?>"><img src="../Admin/upload/<?php echo $row["gambar"]; ?>" alt="">
+            <a href="detailPackage.php?id=<?php echo $row["id_paket"]; ?>"><img src="../Admin/upload/<?php echo $row["gambar"]; ?>" alt="">
 </a>
               <span class="price">Rp. <?php echo $row["harga"];?></span>
             </div>
             <div class="down-content">
               <span class="category">Paket</span>
               <h4><?php echo $row["nama_paket"];?></h4>
-              <a href="detailPackage.php?id=<?php echo $row["id"]; ?>"><i class="fa fa-shopping-bag"></i></a>
+              <a href="detailPackage.php?id=<?php echo $row["id_paket"]; ?>"><i class="fa fa-shopping-bag"></i></a>
             </div>
           </div>
         </div>
@@ -262,7 +262,7 @@ $all_paket = $connection->query($sql);
           </div>
         </div>
       </div> -->
-        <div class="row">
+        <!-- <div class="row">
         <div class="col-lg-12">
           <ul class="pagination">
           <li><a href="#"> &lt; </a></li>
@@ -272,7 +272,7 @@ $all_paket = $connection->query($sql);
             <li><a href="#"> &gt; </a></li>
           </ul>
         </div>
-      </div>
+      </div> -->
     </div>
   </div>
 

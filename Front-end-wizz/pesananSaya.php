@@ -7,9 +7,9 @@ $userpaket = isset($_SESSION['id_pesanan']) ? $_SESSION['id_pesanan'] : null;
 
 $query = "SELECT *
 FROM packages
-INNER JOIN packages_detail ON packages.id = packages_detail.id
-INNER JOIN pemesanan ON packages.id = pemesanan.id
-WHERE packages.id = $userpaket";
+INNER JOIN packages_detail ON packages.id_paket = packages_detail.id_paket
+INNER JOIN pemesanan ON packages.id_paket = pemesanan.id_paket
+WHERE packages.id_paket = '$userpaket'";
 
 $result = mysqli_query($connection, $query) or die(mysqli_error($connection));
 $row = mysqli_fetch_array($result);
@@ -87,7 +87,7 @@ $row = mysqli_fetch_array($result);
 
             <div class="nav__right">
                 <button class="nav__button__shop" id="cartButton">
-                    <i class="ri-shopping-cart-line" a href="pesananSaya.php?id=<?php echo $data_paket["id"];?>"></i>
+                    <i class="ri-shopping-cart-line" a href="pesananSaya.php?id=<?php echo $data_paket["id_paket"];?>"></i>
                 </button>
                 <button class="button-login" a href="../Login/login.php">Masuk</button>
             </div>

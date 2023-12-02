@@ -2,6 +2,7 @@
 include('security.php');
 include('includes/header.php');
 include('includes/navbar.php');
+include('adminonly.php');
 ?>
 
 
@@ -121,8 +122,6 @@ include('includes/navbar.php');
                     <td><?php echo $row['id']; ?></td>
                     <td><?php echo $row['judul']; ?></td>
                     <td><?php echo $row['deskripsi']; ?></td>
-                    
-                    
                     <td>
                         <form action="aboutusedit.php" method="POST">
                         <input type="hidden" name="id_edit_about" value="<?php echo $row['id']; ?>">    

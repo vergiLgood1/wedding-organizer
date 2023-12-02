@@ -83,13 +83,14 @@
             <a class="collapse-item" href="aboutus.php">About</a>
             <a class="collapse-item" href="paket.php">Packages</a>
             <a class="collapse-item" href="gallerylanding.php">Gallery</a>
+            <a class="collapse-item" href="experience.php">Experience</a>
             <a class="collapse-item" href="testimoni.php">Testimoni</a>
         </div>
     </div>
 </li>
 
 <!-- Nav Item - Utilities Collapse Menu -->
-<li class="nav-item">
+<!-- <li class="nav-item">
     <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities"
         aria-expanded="true" aria-controls="collapseUtilities">
         <i class="fas fa-fw fa-table"></i>
@@ -105,7 +106,7 @@
             <a class="collapse-item" href="utilities-other.html">Other</a>
         </div>
     </div>
-</li>
+</li> -->
 
 <!-- Divider -->
 <hr class="sidebar-divider">

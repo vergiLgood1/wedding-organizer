@@ -2,6 +2,7 @@
 include('security.php');
 include('includes/header.php');
 include('includes/navbar.php');
+include('adminonly.php');
 ?>
 
 <div class="container-fluid">
@@ -21,12 +22,12 @@ include('includes/navbar.php');
         <div class="card-body">
 
         <?php
-        $connection = mysqli_connect("localhost", "root", "", "wedding_organizer");
+        $connection = mysqli_connect("localhost", "root", "", "db_weddingfix");
         if(isset($_POST['edit_data_detail']))
         {
             $id = $_POST['id_detail_paket'];
         
-            $query = "SELECT * FROM packages_detail WHERE id='$id' ";
+            $query = "SELECT * FROM packages_detail WHERE id_paket='$id' ";
             $query_run = mysqli_query($connection, $query);
             
             foreach($query_run as $row)
@@ -34,17 +35,22 @@ include('includes/navbar.php');
                 ?>
 
         <form action="code.php" method="POST">
-        <input type="hidden" name="id_detail_paket" value="<?php echo $row['id'] ?>">    
-        <!-- <div class="form-group">
-            <label> Judul </label>
-            <input type="text" name="edit_judul" value="<?php #echo $row['judul'] ?>" class="form-control" placeholder="Enter Title">
-        </div> -->
+        <input type="hidden" name="id_detail_paket" value="<?php echo $row['id_paket'] ?>">    
+        
         
         <div class="form-group">
             <label> Deskripsi </label>
             <textarea name="edit_deskripsipkt" id="" cols="30" rows="10" class="form-control" placeholder="Enter Description" required><?php echo $row['deskripsi'] ?></textarea>
         </div>
-        
+        <div class="form-group">
+            <label> Rincian Paket </label>
+            <textarea name="edit_rincianpkt" id="" cols="30" rows="10" class="form-control" placeholder="Enter Description" required><?php echo $row['rincian_paket'] ?></textarea>
+        </div>
+        <div class="form-group">
+            <label> Gambar Dekorasi </label>
+            <input type="file" name="gambar_dekor" value="<?php echo $row['gambar_dekorasi'] ?>" class="form-control">
+        </div>
+
 
                 <a href="paket.php" class="btn btn-danger">Kembali</a>
                 <button type="submit" name="updatedetailpkt" class="btn btn-dark">Update</button>

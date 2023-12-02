@@ -13,8 +13,7 @@ else
 
 if(!$_SESSION['username'])
 {
-    header('Location: ../Admin/login2.php');
+    header('Location: ../Admin/login.php');
 }
-
 
 ?>

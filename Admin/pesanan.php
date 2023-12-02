@@ -2,6 +2,7 @@
 include('security.php');
 include('includes/header.php');
 include('includes/navbar.php');
+include('adminonly.php');
 ?>
 
 
@@ -134,7 +135,7 @@ include('includes/navbar.php');
                             <input type="checkbox" onclick="toggleCheckbox(this)" value="<?php #echo $row['id'] ?>" <?php #echo $row['visible'] == 1 ? "checked" : "" ?>>
                         </td> -->
                     <td><?php echo $row['id_pesan']; ?></td>
-                    <td><?php echo $row['id']; ?></td>
+                    <td><?php echo $row['id_paket']; ?></td>
                     <td><?php echo $row['tanggal_pemesanan']; ?></td>
                     <td><?php echo $row['tanggal_penggunaan']; ?></td>
                     <td><?php echo $row['nama']; ?></td>

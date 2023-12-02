@@ -6,8 +6,8 @@ include('../Admin/security.php');
 
 $id_paket = isset($_GET['id']) ? mysqli_real_escape_string($connection, $_GET['id']) : null;
 $query = "SELECT * FROM packages_detail
-        INNER JOIN packages ON packages_detail.id = packages.id
-        WHERE packages.id = '$id_paket'
+        INNER JOIN packages ON packages_detail.id_paket = packages.id_paket
+        WHERE packages.id_paket = '$id_paket'
         ";
 
 $result = mysqli_query($connection, $query) or die(mysqli_error($connection));
@@ -124,7 +124,7 @@ $result = mysqli_query($connection, $query) or die(mysqli_error($connection));
               <?php echo $data_paket["deskripsi"]; ?>
             </p>
             <form id="qty" action="detailPemesanan.php" method="get">
-              <input type="hidden" name="id" value="<?php echo $data_paket['id']; ?>">
+              <input type="hidden" name="id" value="<?php echo $data_paket['id_paket']; ?>">
               <input type="qty" class="form-control" id="" aria-describedby="quantity" placeholder="1">
               <?php if ($paketTerkunci) { ?>
                 <button type="button" disabled><i class="fa fa-shopping-bag"></i> Paket Terkunci</button>
@@ -138,7 +138,7 @@ $result = mysqli_query($connection, $query) or die(mysqli_error($connection));
 
             <ul>
               <li><span>Paket ID:</span>
-                <?php echo $data_paket["id"]; ?>
+                <?php echo $data_paket["id_paket"]; ?>
               </li>
               <li><span>Nama paket</span>
                 <?php echo $data_paket['nama_paket']; ?></a>
@@ -237,7 +237,7 @@ $result = mysqli_query($connection, $query) or die(mysqli_error($connection));
                 <?php echo $row['nama_paket']; ?>
               </h4>
               <div class="thumb">
-              <a href="detailPackage.php?id=<?php echo $row["id"]; ?>"><img src="../Admin/upload/<?php echo $row["gambar"]; ?>" alt=""></a>
+              <a href="detailPackage.php?id=<?php echo $row["id_paket"]; ?>"><img src="../Admin/upload/<?php echo $row["gambar"]; ?>" alt=""></a>
               </div>
             </div>
           </div>

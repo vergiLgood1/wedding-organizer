@@ -1,7 +1,8 @@
 <?php
 include('security.php');
+include('adminonly.php');
 
-$connection = mysqli_connect("localhost", "root", "", "wedding_organizer");
+$connection = mysqli_connect("localhost", "root", "", "db_weddingfix");
 if(isset($_POST['registerbtn']))
 {
     $username = $_POST['username'];
@@ -13,7 +14,7 @@ if(isset($_POST['registerbtn']))
 
     if($password === $cpassword)
     {
-        $query = "INSERT INTO register (username, email, password, usertype) VALUES ('$username', '$email', '$password', '$usertype')";
+        $query = "INSERT INTO user (username, email, password, usertype) VALUES ('$username', '$email', '$password', '$usertype')";
         $query_run = mysqli_query($connection, $query);
         
         if($query_run)
@@ -39,7 +40,7 @@ if(isset($_POST['edit_btn']))
 {
     $id = $_POST['edit_id'];
 
-    $query = "SELECT * FROM register WHERE id='$id' ";
+    $query = "SELECT * FROM user WHERE id='$id' ";
     $query_run = mysqli_query($connection, $query);
 }
 
@@ -52,7 +53,7 @@ if(isset($_POST['updatebtn']))
     $password = $_POST['edit_pass'];
     $usertypeupdate = $_POST['update_usertype'];
 
-    $query = "UPDATE register SET username='$username', email='$email', password='$password', usertype='$usertypeupdate' WHERE id='$id' ";
+    $query = "UPDATE user SET username='$username', email='$email', password='$password', usertype='$usertypeupdate' WHERE id='$id' ";
     $query_run = mysqli_query($connection, $query);
 
     if($query_run)
@@ -72,7 +73,7 @@ if(isset($_POST['deletebtn']))
 {
     $id = $_POST['delete_id'];
 
-    $query = "DELETE FROM register WHERE id='$id'";
+    $query = "DELETE FROM user WHERE id='$id'";
     $query_run = mysqli_query($connection, $query);
 
     if($query_run)
@@ -372,7 +373,9 @@ if(isset($_POST['paket_save']))
     $namapkt = $_POST['nama_paket'];
     $hargapkt = $_POST['harga_paket'];
     $despkt = $_POST['des_paket'];
+    $rinpkt = $_POST['rin_paket'];
     $gambarpkt = $_FILES['gambar_paket']['name'];
+    $dekorpkt = $_FILES['gambar_dekor']['name'];
     $id_baru = $_POST['id_paket_baru'];
 
         if(file_exists("upload/".$_FILES["gambar_paket"]["name"]))
@@ -384,12 +387,12 @@ if(isset($_POST['paket_save']))
         else
         {
         
-            $query = "INSERT INTO packages (id, nama_paket, harga, gambar) VALUES ('$id_baru', '$namapkt', '$hargapkt', '$gambarpkt')";
+            $query = "INSERT INTO packages (id_paket, nama_paket, harga, gambar) VALUES ('$id_baru', '$namapkt', '$hargapkt', '$gambarpkt')";
             $query_run = mysqli_query($connection, $query);
             
             if($query_run)
             {
-                $query2 = "INSERT INTO packages_detail (id, deskripsi) VALUES ('$id_baru', '$despkt')";
+                $query2 = "INSERT INTO packages_detail (id_paket, deskripsi, rincian_paket, gambar_dekorasi) VALUES ('$id_baru', '$despkt', '$rinpkt', '$dekorpkt')";
                 $query_run2 = mysqli_query($connection, $query2);
 
                 if($query_run2)
@@ -402,6 +405,16 @@ if(isset($_POST['paket_save']))
                 {
                     $_SESSION['status'] = "Detail Paket gagal ditambahkan";
                     header('Location: paket.php');
+                }
+
+                if($query_run2)
+                {
+                    move_uploaded_file($_FILES["gambar_dekor"]["tmp_name"], "upload/".$_FILES["gambar_paket"]["name"]);
+                    
+                }
+                else
+                {
+                    $_SESSION['status'] = "Gambar kedua gagal ditambahkan";
                 }
 
             }
@@ -420,7 +433,7 @@ if(isset($_POST['updatepaket']))
     $hargapkt = $_POST['harga_paket'];
     $gambarpkt = $_FILES['gambar_paket']['name'];
 
-    $querypkt = "UPDATE packages SET nama_paket='$namapkt', harga='$hargapkt', gambar='$gambarpkt' WHERE id='$idpkt' ";
+    $querypkt = "UPDATE packages SET nama_paket='$namapkt', harga='$hargapkt', gambar='$gambarpkt' WHERE id_paket='$idpkt' ";
     $query_run = mysqli_query($connection, $querypkt);
 
     if($query_run)
@@ -441,7 +454,7 @@ if(isset($_POST['deletepaket']))
 {
     $idpkt = $_POST['id_deletepkt'];
 
-    $querypkt = "DELETE FROM packages WHERE id='$idpkt'";
+    $querypkt = "DELETE FROM packages WHERE id_paket='$idpkt'";
     $query_run = mysqli_query($connection, $querypkt);
 
     if($query_run)
@@ -464,7 +477,7 @@ if(isset($_POST['updatedetailpkt']))
     $description = $_POST['edit_deskripsipkt'];
     
 
-    $querypkt = "UPDATE packages_detail SET deskripsi='$description'  WHERE id='$idpkt' ";
+    $querypkt = "UPDATE packages_detail SET deskripsi='$description'  WHERE id_paket='$idpkt' ";
     $query_run = mysqli_query($connection, $querypkt);
 
     if($query_run)
@@ -485,7 +498,7 @@ if(isset($_POST['search_data']))
     $idbox = $_POST['idbox'];
     $visible = $_POST['visible'];
 
-    $querypkt = "UPDATE packages SET status_terkunci ='$visible' WHERE id='$idbox'";
+    $querypkt = "UPDATE packages SET status_terkunci ='$visible' WHERE id_paket='$idbox'";
     $query_run = mysqli_query($connection, $querypkt);
 }
 
@@ -513,12 +526,12 @@ if(isset($_POST['gallery_save']))
             if($query_run)
             {
                 move_uploaded_file($_FILES["gambar_gallery"]["tmp_name"], "upgallery/".$_FILES["gambar_gallery"]["name"]);
-                $_SESSION['success'] = "Paket ditambahkan";
+                $_SESSION['success'] = "Gambar ditambahkan";
                 header('Location: gallery.php');
             }
             else
             {
-                $_SESSION['status'] = "Paket gagal ditambahkan";
+                $_SESSION['status'] = "Gambar gagal ditambahkan";
                 header('Location: gallery.php');
             }
         }
@@ -644,7 +657,7 @@ if(isset($_POST['submitpesanan']))
         else
         {
         
-            $query = "INSERT INTO pemesanan (id_pesan, id, tanggal_pemesanan, tanggal_penggunaan, nama, alamat, telpon, bukti, status) VALUES ('', '$idpaketpsn', NOW(), '$tanggalpenggunaan', '$namapemesan', '$alamat', '$notelp', '$bukti', 'Menunggu Konfirmasi')";
+            $query = "INSERT INTO pemesanan (id_pesan, id_paket, tanggal_pemesanan, tanggal_penggunaan, nama, alamat, telpon, bukti, status) VALUES ('', '$idpaketpsn', NOW(), '$tanggalpenggunaan', '$namapemesan', '$alamat', '$notelp', '$bukti', 'Menunggu Konfirmasi')";
             $query_run = mysqli_query($connection, $query);
             
             if($query_run)
@@ -724,12 +737,12 @@ if(isset($_POST['gallerylnd_save']))
             if($query_run)
             {
                 move_uploaded_file($_FILES["gambar_gallery2"]["tmp_name"], "upgallery/".$_FILES["gambar_gallery2"]["name"]);
-                $_SESSION['success'] = "Paket ditambahkan";
+                $_SESSION['success'] = "Gambar ditambahkan";
                 header('Location: gallerylanding.php');
             }
             else
             {
-                $_SESSION['status'] = "Paket gagal ditambahkan";
+                $_SESSION['status'] = "Gambar gagal ditambahkan";
                 header('Location: gallerylanding.php');
             }
         }
@@ -761,7 +774,7 @@ if(isset($_POST['tombol_daftar'])) {
     $userPass = $_POST['password_login'];
     $userName = $_POST['username_login'];
 
-    $query = "INSERT INTO register VALUES ('', '$userName', '$userMail', '$userPass', 'user')";
+    $query = "INSERT INTO user VALUES ('', '$userName', '$userMail', '$userPass', 'user')";
     $result = mysqli_query($connection, $query);
     header('Location: ../Admin/login.php');
 } 
@@ -772,9 +785,80 @@ if (isset($_POST['tombol_lupa'])) {
     $userPass2 = $_POST['password2_login'];
 
     if ($userPass === $userPass2) {
-        $query = "UPDATE register set password='$userPass' WHERE email='$userMail'";
+        $query = "UPDATE user set password='$userPass' WHERE email='$userMail'";
         $result = mysqli_query($connection, $query);
         header('Location: ../Admin/login.php');
     }
 }
+
+//experience
+
+if(isset($_POST['exp_save']))
+{
+    $tahunexp = $_POST['tahun_exp'];
+    $pernikahanexp = $_POST['pernikahan_exp'];
+    $pasanganexp = $_POST['pasangan_exp'];
+    
+
+    $queryexp = "INSERT INTO experience (tahun_pengalaman, pernikahan_terlaksana, pasangan_pengantin) VALUES ('$tahunexp', '$pernikahanexp', '$pasanganexp')";
+    $query_run = mysqli_query($connection, $queryexp);
+
+    if($query_run)
+    {
+        $_SESSION['success'] = "Pengalaman telah ditambahkan";
+        header('Location: experience.php');
+    }
+    else
+    {
+        $_SESSION['status'] = "Pengalaman gagal ditambahkan";
+        header('Location: experience.php');
+    }
+
+}
+
+if(isset($_POST['btn_update_exp']))
+{
+    $idexp = $_POST['id_edit_exp'];
+    $tahunexp = $_POST['tahun_exp'];
+    $pernikahanexp = $_POST['pernikahan_exp'];
+    $pasanganexp = $_POST['pasangan_exp'];
+    
+
+    $queryexp = "UPDATE experience SET tahun_pengalaman='$tahunexp',  pernikahan_terlaksana='$pernikahanexp', pasangan_pengantin='$pasanganexp' WHERE id='$idexp' ";
+    $query_run = mysqli_query($connection, $queryexp);
+
+    if($query_run)
+    {
+        $_SESSION['success'] = "Data telah di Update";
+        header('Location: experience.php');
+    }
+    else
+    {
+        $_SESSION['status'] = "Data gagal di Update";
+        header('Location: experience.php');
+    }
+
+}
+
+if(isset($_POST['btn_delete_exp']))
+{
+    $idexp = $_POST['id_delete_exp'];
+
+    $queryabt = "DELETE FROM experience WHERE id='$idexp'";
+    $query_runabt = mysqli_query($connection, $queryabt);
+
+    if($query_run)
+    {
+        $_SESSION['success'] = "Data telah di Hapus";
+        header('Location: experience.php');
+    }
+    else
+    {
+        $_SESSION['status'] = "Data gagal di Hapus";
+        header('Location: experience.php');
+    }
+
+}
+
+
 ?>

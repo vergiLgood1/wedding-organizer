@@ -226,21 +226,33 @@ include('../Admin/security.php');
             <!--==================== EXPERIENCE ====================-->
 
             <h2 class="section__title">Kami akan melayani anda <br> Dengan pengalaman kami</h2>
-
+            
+            <?php
+                // jalankan query untuk menampilkan semua data diurutkan berdasarkan nim
+                $query = "SELECT * FROM experience";
+                $result = mysqli_query($connection, $query);
+                //mengecek apakah ada error ketika menjalankan query
+                if (!$result) {
+                    die("Query Error: " . mysqli_errno($connection) .
+                        " - " . mysqli_error($connection));
+                }
+                
+                $row = mysqli_fetch_assoc($result) 
+                ?>
             <div class="experience__container container grid">
                 <div class="experience__content grid">
                     <div class="experience__data">
-                        <h2 class="experience__number">20</h2>
+                        <h2 class="experience__number"><?php echo $row['tahun_pengalaman'] ?></h2>
                         <span class="experience__description">Tahun <br> pengalaman</span>
                     </div>
 
                     <div class="experience__data">
-                        <h2 class="experience__number">75</h2>
+                        <h2 class="experience__number"><?php echo $row['pernikahan_terlaksana'] ?></h2>
                         <span class="experience__description">Pernikahan <br> terlaksana</span>
                     </div>
 
                     <div class="experience__data">
-                        <h2 class="experience__number">650+</h2>
+                        <h2 class="experience__number"><?php echo $row['pasangan_pengantin'] ?></h2>
                         <span class="experience__description">Pasangan <br> pengantin</span>
                     </div>
                 </div>

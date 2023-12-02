@@ -76,8 +76,8 @@ include('../Admin/security.php');
 $id_paket = isset($_GET['id']) ? mysqli_real_escape_string($connection, $_GET['id']) : null;
 
 $query = "SELECT * FROM packages_detail
-        INNER JOIN packages ON packages_detail.id = packages.id
-        WHERE packages.id = '$id_paket'
+        INNER JOIN packages ON packages_detail.id_paket = packages.id_paket
+        WHERE packages.id_paket = '$id_paket'
         ";
 
 $result = mysqli_query($connection, $query) or die(mysqli_error($connection));
@@ -204,7 +204,7 @@ $_SESSION['id_pesanan'] = $id_paket;
                             <form action="../Admin/code.php" method="post" enctype="multipart/form-data"
                                 id="pemesananForm">
                                 <div class="form-group">
-                                <input type="hidden" name="id" value="<?php echo $data_paket['id']; ?>">
+                                <input type="hidden" name="id" value="<?php echo $data_paket['id_paket']; ?>">
                                 </div>
                                 <div class="form-group">
                                     <input type="text" id="fullName" placeholder="Nama Lengkap" maxlength="30"

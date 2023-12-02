@@ -1,5 +1,5 @@
 <?php 
-include('../Admin/security.php');
+
 ?>
 
 <!DOCTYPE html>
