@@ -1,3 +1,31 @@
+<?php
+// Pastikan Anda telah mendapatkan id_pesan dari pengguna (mungkin melalui $_GET atau $_POST)
+// Koneksi ke database
+include('../Admin/security.php');
+
+// Pastikan session sudah dimulai di halaman ini atau sebelumnya
+
+
+// Ambil id_pesan dari session
+$id_pesan = isset($_SESSION['id_pesan']) ? $_SESSION['id_pesan'] : null;
+
+// Query untuk mengambil data berdasarkan id_pesan
+$query = "SELECT pemesanan.tanggal_penggunaan, packages.status, packages.nama_paket, packages.harga, packages_detail.rincian_paket, packages_detail.deskripsi, packages.gambar
+FROM pemesanan 
+JOIN packages_detail ON pemesanan.id_paket = packages_detail.id_paket
+JOIN packages ON packages_detail.id_paket = packages.id_paket
+WHERE pemesanan.id_pesan = '$id_pesan';
+";
+
+
+$result = mysqli_query($connection, $query);
+
+// Periksa apakah query berhasil dieksekusi
+if (!$result) {
+    die("Query gagal: " . mysqli_error($connection));
+}
+?>
+
 <!DOCTYPE html>
 
 <html lang="en">
@@ -86,36 +114,46 @@
         <!--==================== Detail Paket ====================-->
         <section class="detailPaket">
             <div class="paket-container">
+                <?php
+                while ($data_paket = mysqli_fetch_assoc($result)) {
+                ?>
                 <div class="paket-image">
-                    <img src="assets/img/wedding-bouquet (1) 2.png" alt="Paket 1">
+                    <img src="../Admin/upload/<?php echo $data_paket["gambar"]; ?>" alt="Paket 1">
                 </div>
-                <div class="paket-content">
-                    <div class="paket-title">
-                        <h1 class="title">Paket 1</h1>
-                    </div>
-                    <div class="info">
-                        <span></span>
-                        <span></span>
-                    </div>
-                    <div class="paket-price" data-testid="lblPDPDetailProductPrice">
-                        <h2>Rp1.500.000</h2>
-                        <span class="Date">tanggal penggunaan : </span>
-                    </div>
+                    <div class="paket-content">
+                        <div class="paket-title">
+                            <h1 class="title"><?php echo $data_paket["nama_paket"]; ?></h1>
+                        </div>
+                        <div class="info">
+                            <span></span>
+                            <span></span>
+                        </div>
+                        <div class="paket-price" data-testid="lblPDPDetailProductPrice">
+                            <h2><?php echo $data_paket["harga"]; ?></h2>
+                            <span class="Date">tanggal penggunaan : <?php echo $data_paket["tanggal_penggunaan"]; ?> </span>
+                        </div>
+                        <button class="btn-detail">
+                            <p class="buttonDetail">Detail</p>
+                        </button>
+                        <div class="paket-description">
+                        <ul>
+                    <?php
+                    // Pecah deskripsi menjadi array
+                    $deskripsiList = explode("\n", $data_paket["rincian_paket"]);
 
-                    <button class="btn-detail">
-                        <p class="buttonDetail">Detail</p>
-                    </button>
-                    <div class="paket-description">
-                        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quis sunt maxime saepe illo molestias,
-                        quod enim ipsa, quidem velit doloribus exercitationem reprehenderit pariatur et laborum deleniti
-                        distinctio nam tempore ipsum. Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore
-                        officiis fugiat quo dolores, omnis consequatur asperiores earum accusantium, maiores numquam
-                        distinctio magnam voluptatibus eum pariatur similique unde. Laudantium, quos rerum?
+                    // Tampilkan setiap elemen sebagai list
+                    foreach ($deskripsiList as $deskripsiItem) {
+                        echo "<li>$deskripsiItem</li>";
+                    }
+                    ?>
+                </ul>
+                        </div>
                     </div>
-                </div>
-                <!-- Add the "Beli" button -->
-                <button class="beli-button">Menunggu Konfirmasi</button>
-            </div>
+                    <!-- Add the "Beli" button -->
+                    <button class="beli-button"><?php echo $data_paket["status"]; ?></button>
+                <?php
+                }
+                ?>
             </div>
         </section>
 

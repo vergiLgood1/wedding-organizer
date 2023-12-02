@@ -1,11 +1,12 @@
 <?php
-require_once('config/koneksi.php');
+include('../Admin/security.php');
+// require_once('config/koneksi.php');
 
-$id_paket = isset($_GET['id_paket']) ? mysqli_real_escape_string($koneksi, $_GET['id_paket']) : null;
+$id_paket = isset($_GET['id']) ? mysqli_real_escape_string($connection, $_GET['id']) : null;
 
-$query = "SELECT * FROM detail_paket
-        INNER JOIN paket ON detail_paket.id_paket = paket.id_paket
-        WHERE paket.id_paket = '$id_paket'
+$query = "SELECT * FROM packages_detail
+        INNER JOIN packages ON packages_detail.id_paket = packages.id_paket
+        WHERE packages.id_paket = '$id_paket'
         ";
 
 $result = mysqli_query($connection, $query) or die(mysqli_error($connection))
@@ -113,10 +114,11 @@ $result = mysqli_query($connection, $query) or die(mysqli_error($connection))
             <p>
               <?php echo $data_paket["deskripsi"]; ?>
             </p>
-            <form id="qty" action="detailPemesanan.php?id_paket=<?php echo $data_paket['id_paket']; ?>" method="post">
-              <input type="hidden" name="id_paket" value="<?php echo $data_paket['id_paket']; ?>">
-              <input type="qty" class="form-control" id="1" aria-describedby="quantity" placeholder="1">
-              <button type="submit"><i class="fa fa-shopping-bag"></i> Checkout</button>
+            <form id="qty" action="detailPemesanan.php" method="get">
+              <input type="hidden" name="id" value="<?php echo $data_paket['id_paket']; ?>">
+              <input type="qty" class="form-control" id="" aria-describedby="quantity" placeholder="1">
+              <button type="button" class="checkoutbtn"><a href="detailPemesanan.php?id=<?php echo $data_paket["id_paket"]; ?>"><i class="fa fa-shopping-bag"></i>
+                Checkout</button>
             </form>
 
 
@@ -124,7 +126,7 @@ $result = mysqli_query($connection, $query) or die(mysqli_error($connection))
 
             <ul>
               <li><span>Paket ID:</span>
-                <?php echo $data_paket["id"]; ?>
+                <?php echo $data_paket["id_paket"]; ?>
               </li>
               <li><span>Nama paket</span>
                 <?php echo $data_paket['nama_paket']; ?></a>
@@ -150,29 +152,40 @@ $result = mysqli_query($connection, $query) or die(mysqli_error($connection))
                     <li class="nav-item" role="presentation">
                       <button class="nav-link active" id="description-tab" data-bs-toggle="tab"
                         data-bs-target="#description" type="button" role="tab" aria-controls="description"
-                        aria-selected="true">Description</button>
+                        aria-selected="true">Rincian paket</button>
                     </li>
                     <li class="nav-item" role="presentation">
                       <button class="nav-link" id="reviews-tab" data-bs-toggle="tab" data-bs-target="#reviews"
-                        type="button" role="tab" aria-controls="reviews" aria-selected="false">Reviews (3)</button>
+                        type="button" role="tab" aria-controls="reviews" aria-selected="false">Dekorasi</button>
                     </li>
                   </ul>
                 </div>
                 <div class="tab-content" id="myTabContent">
                   <div class="tab-pane fade show active" id="description" role="tabpanel"
                     aria-labelledby="description-tab">
-                    <p>
-                      <?php echo $data_paket["deskripsi"]; ?>
-                    </p>
-<br>
-                    <p>
-                    <?php echo $data_paket['description']; ?>
-                    </p>
+                     <!-- Menampilkan deskripsi sebagai list -->
+                <ul>
+                    <?php
+                    // Pecah deskripsi menjadi array
+                    $deskripsiList = explode("\n", $data_paket["rincian_paket"]);
+
+                    // Tampilkan setiap elemen sebagai list
+                    foreach ($deskripsiList as $deskripsiItem) {
+                        echo "<li>$deskripsiItem</li>";
+                    }
+                    ?>
+                </ul>
                   </div>
                   <div class="tab-pane fade" id="reviews" role="tabpanel" aria-labelledby="reviews-tab">
-                    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. At ratione optio quo. Placeat explicabo
-                      suscipit error esse maxime odit ea dicta sequi mollitia quisquam quos voluptatum, soluta iure
-                      ducimus sint.</p>
+                  <div>
+                  <img
+                src="../Admin/upload/<?php echo $data_paket["gambar"]; ?>"
+                alt="">
+                  </div>
+                
+                 <div><img
+                src="../Admin/upload/<?php echo $data_paket["gambar"]; ?>"
+                alt=""></div> 
                   </div>
                 </div>
               </div>
@@ -223,7 +236,7 @@ $result = mysqli_query($connection, $query) or die(mysqli_error($connection))
                 <?php echo $row['nama_paket']; ?>
               </h4>
               <div class="thumb">
-              <a href="detailPackage.php?id=<?php echo $row["id"]; ?>"><img src="../Admin/upload/<?php echo $row["gambar"]; ?>" alt=""></a>
+              <a href="detailPackage.php?id=<?php echo $row["id_paket"]; ?>"><img src="../Admin/upload/<?php echo $row["gambar"]; ?>" alt=""></a>
               </div>
             </div>
           </div>

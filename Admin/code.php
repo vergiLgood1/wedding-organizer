@@ -1,7 +1,7 @@
 <?php
 include('security.php');
 
-$connection = mysqli_connect("localhost", "root", "", "wedding_organizer");
+$connection = mysqli_connect("localhost", "root", "", "wedding-organizer");
 if(isset($_POST['registerbtn']))
 {
     $username = $_POST['username'];
@@ -39,7 +39,7 @@ if(isset($_POST['edit_btn']))
 {
     $id = $_POST['edit_id'];
 
-    $query = "SELECT * FROM register WHERE id='$id' ";
+    $query = "SELECT * FROM user WHERE id='$id' ";
     $query_run = mysqli_query($connection, $query);
 }
 
@@ -52,7 +52,7 @@ if(isset($_POST['updatebtn']))
     $password = $_POST['edit_pass'];
     $usertypeupdate = $_POST['update_usertype'];
 
-    $query = "UPDATE register SET username='$username', email='$email', password='$password', usertype='$usertypeupdate' WHERE id='$id' ";
+    $query = "UPDATE user SET username='$username', email='$email', password='$password', usertype='$usertypeupdate' WHERE id='$id' ";
     $query_run = mysqli_query($connection, $query);
 
     if($query_run)
@@ -72,7 +72,7 @@ if(isset($_POST['deletebtn']))
 {
     $id = $_POST['delete_id'];
 
-    $query = "DELETE FROM register WHERE id='$id'";
+    $query = "DELETE FROM user WHERE id='$id'";
     $query_run = mysqli_query($connection, $query);
 
     if($query_run)
@@ -95,7 +95,7 @@ if(isset($_POST['login_btn']))
     $email_login = $_POST['email1'];
     $password_login = $_POST['password1'];
 
-    $query = "SELECT * FROM register WHERE email='$email_login' AND password='$password_login'";
+    $query = "SELECT * FROM user WHERE email='$email_login' AND password='$password_login'";
     $query_run = mysqli_query($connection, $query);
 
     if(mysqli_fetch_array($query_run))
@@ -384,12 +384,12 @@ if(isset($_POST['paket_save']))
         else
         {
         
-            $query = "INSERT INTO packages (id, nama_paket, harga, gambar) VALUES ('$id', '$namapkt', '$hargapkt', '$gambarpkt')";
+            $query = "INSERT INTO packages (id_paket, nama_paket, harga, gambar) VALUES ('$id', '$namapkt', '$hargapkt', '$gambarpkt')";
             $query_run = mysqli_query($connection, $query);
             
             if($query_run)
             {
-                $query2 = "INSERT INTO packages_detail (id, deskripsi) VALUES ('$id', '$despkt')";
+                $query2 = "INSERT INTO packages_detail (id_paket, deskripsi) VALUES ('$id', '$despkt')";
                 $query_run2 = mysqli_query($connection, $query2);
 
                 if($query_run2)
@@ -441,7 +441,7 @@ if(isset($_POST['deletepaket']))
 {
     $id = $_POST['id_deletepkt'];
 
-    $query = "DELETE FROM packages WHERE id='$id'";
+    $query = "DELETE FROM packages WHERE id_paket='$id'";
     $query_run = mysqli_query($connection, $query);
 
     if($query_run)
@@ -464,7 +464,7 @@ if(isset($_POST['updatedetailpkt']))
     $description = $_POST['edit_deskripsipkt'];
     
 
-    $query = "UPDATE packages_detail SET deskripsi='$description'  WHERE id='$id' ";
+    $query = "UPDATE packages_detail SET deskripsi='$description'  WHERE id_paket='$id' ";
     $query_run = mysqli_query($connection, $query);
 
     if($query_run)
@@ -596,7 +596,7 @@ if(isset($_POST['deletetesti']))
 {
     $id = $_POST['id_deletetesti'];
 
-    $query = "DELETE FROM testimoni WHERE id='$id'";
+    $query = "DELETE FROM testimoni WHERE id_testimoni='$id'";
     $query_run = mysqli_query($connection, $query);
 
     if($query_run)
@@ -612,4 +612,109 @@ if(isset($_POST['deletetesti']))
 
 }
 
+//insert ke paket
+
+if(isset($_POST['submitpesanan']))
+{
+    $idpaketpsn = $_POST['id'];
+    #$tanggalpemesanan = $_POST['tanggal_penggunaan'];
+    $tanggalpenggunaan = $_POST['tanggal_penggunaan'];
+    $namapemesan = $_POST['nama'];
+    $alamat = $_POST['alamat'];
+    $notelp = $_POST['tlp'];
+    $bukti = $_FILES['payment_proof']['name'];
+
+        if(file_exists("../Admin/upbukti/".$_FILES["payment_proof"]["name"]))
+        {
+            $store9 = $_FILES["payment_proof"]["name"];
+            $_SESSION['status'] = "Gambar telah ada. '.$store9.'";
+            header('Location: ../Front-end-wizz/detailPemesanan.php');
+        }
+        else
+        {
+        
+            $query = "INSERT INTO pemesanan (id_pesan, id_paket, tanggal_pemesanan, tanggal_penggunaan, nama, alamat, telpon, bukti) VALUES ('', '$idpaketpsn', NOW(), '$tanggalpenggunaan', '$namapemesan', '$alamat', '$notelp', '$bukti')";
+            $query_run = mysqli_query($connection, $query);
+            
+            if ($query_run) {
+                // Simpan id_pesan yang baru saja dibuat ke dalam $_SESSION
+                $_SESSION['id_pesan'] = mysqli_insert_id($connection);
+            
+                move_uploaded_file($_FILES["payment_proof"]["tmp_name"], "upbukti/".$_FILES["payment_proof"]["name"]);
+                $_SESSION['success'] = "Pesanan ditambahkan";
+                header('Location: ../Front-end-wizz/pesananSaya.php');
+            } else {
+                $_SESSION['status'] = "Pesanan gagal ditambahkan";
+                header('Location: ../Front-end-wizz/detailPemesanan.php');
+            }
+            
+        }
+}
+
+
+if(isset($_POST['updateconf']))
+{
+    $idconfir = $_POST['idpesan'];
+
+    $query = "UPDATE pemesanan SET status ='Terkonfirmasi' WHERE id_pesan='$idconfir' ";
+    $query_run = mysqli_query($connection, $query);
+
+    if($query_run)
+    {
+        $_SESSION['success'] = "Data telah di Konfirmasi";
+        header('Location: pesanan.php');
+    }
+    else
+    {
+        $_SESSION['status'] = "Data gagal di Konfirmasi";
+        header('Location: pesanan.php');
+    }
+
+}
+
+if(isset($_POST['deletepsn']))
+{
+    $idconfir = $_POST['idpesan'];
+
+    $query = "DELETE FROM pemesanan WHERE id_pesan='$idconfir'";
+    $query_run = mysqli_query($connection, $query);
+
+    if($query_run)
+    {
+        $_SESSION['success'] = "Data telah di Hapus";
+        header('Location: pesanan.php');
+    }
+    else
+    {
+        $_SESSION['status'] = "Data gagal di Hapus";
+        header('Location: pesanan.php');
+    }
+
+}
+
+?>
+
+<?php
+session_start(); // Mulai session
+
+// Periksa apakah pengguna sudah login
+if (isset($_SESSION['id'])) {
+    $userId = $_SESSION['id'];
+
+    // Ambil data pengguna berdasarkan ID yang sudah disimpan di session
+    $sql = "SELECT username FROM user WHERE id = $userId";
+    $result = $connection->query($sql);
+
+    if ($result->num_rows > 0) {
+        $row = $result->fetch_assoc();
+        $userData = array('username' => $row['username']);
+        echo json_encode($userData);
+    } else {
+        echo json_encode(array('error' => 'User not found'));
+    }
+} else {
+    echo json_encode(array('error' => 'User not logged in'));
+}
+
+$connection->close();
 ?>

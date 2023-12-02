@@ -7,7 +7,7 @@ if(isset($_POST['login_btn']))
     $email_login = $_POST['email1'];
     $password_login = $_POST['password1'];
 
-    $query = "SELECT * FROM register WHERE email='$email_login' AND password='$password_login'";
+    $query = "SELECT * FROM user WHERE email='$email_login' AND password='$password_login'";
     $query_run = mysqli_query($connection, $query);
     $usertype = mysqli_fetch_array($query_run);
 

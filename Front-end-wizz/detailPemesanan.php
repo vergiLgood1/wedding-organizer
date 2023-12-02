@@ -1,78 +1,88 @@
 <?php
-require('config/koneksi.php');
+include('../Admin/security.php');
 
 // Tangani pemesanan jika formulir sudah dikirim
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
+// if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Memastikan semua data terisi
-    if (
-        isset($_POST['id_paket']) && isset($_POST['tanggal_penggunaan']) &&
-        isset($_POST['nama']) && isset($_POST['alamat']) && isset($_POST['tlp']) &&
-        isset($_FILES['payment_proof'])
-    ) {
-        $id_paket = $_POST['id_paket'];
-        $tanggal_penggunaan = $_POST['tanggal_penggunaan'];
-        $nama = $_POST['nama'];
-        $alamat = $_POST['alamat'];
-        $tlp = $_POST['tlp'];
+    // if (
+    //     isset($_POST['id_paket']) && isset($_POST['tanggal_penggunaan']) &&
+    //     isset($_POST['nama']) && isset($_POST['alamat']) && isset($_POST['tlp']) &&
+    //     isset($_FILES['payment_proof'])
+    // ) {
+    //     $id_paket = $_POST['id_paket'];
+    //     $tanggal_penggunaan = $_POST['tanggal_penggunaan'];
+    //     $nama = $_POST['nama'];
+    //     $alamat = $_POST['alamat'];
+    //     $tlp = $_POST['tlp'];
 
-        // Memproses file bukti pembayaran
-        $namaFile = $_FILES['payment_proof']['name'];
-        $ukuranFile = $_FILES['payment_proof']['size'];
-        $tmpName = $_FILES['payment_proof']['tmp_name'];
+    //     // Memproses file bukti pembayaran
+    //     $namaFile = $_FILES['payment_proof']['name'];
+    //     $ukuranFile = $_FILES['payment_proof']['size'];
+    //     $tmpName = $_FILES['payment_proof']['tmp_name'];
 
-        // Membaca seluruh konten file sebagai BLOB
-        $bukti_dp = file_get_contents($tmpName);
+    //     // Membaca seluruh konten file sebagai BLOB
+    //     $bukti_dp = file_get_contents($tmpName);
 
-        // Memasukkan data pemesanan ke dalam database
-        $query = "INSERT INTO pemesanan (pemesanan_id, id_paket, tanggal_pemesanan, tanggal_penggunaan, nama, alamat, tlp, bukti_dp) 
-        VALUES ('', '$id_paket', NOW(), '$tanggal_penggunaan', '$nama', '$alamat', '$tlp', ?)";
+    //     // Memasukkan data pemesanan ke dalam database
+    //     $query = "INSERT INTO pemesanan (pemesanan_id, id_paket, tanggal_pemesanan, tanggal_penggunaan, nama, alamat, tlp, bukti_dp) 
+    //     VALUES ('', '$id_paket', NOW(), '$tanggal_penggunaan', '$nama', '$alamat', '$tlp', ?)";
 
-        $stmt = mysqli_prepare($koneksi, $query);
-        mysqli_stmt_bind_param($stmt, 's', $bukti_dp);
-        $result = mysqli_stmt_execute($stmt);
+    //     $stmt = mysqli_prepare($koneksi, $query);
+    //     mysqli_stmt_bind_param($stmt, 's', $bukti_dp);
+    //     $result = mysqli_stmt_execute($stmt);
 
-        if ($result) {
-            echo "Pemesanan berhasil!";
-            // Redirect ke halaman pemesanan
-            header("Location: detailPemesanan.php");
-            exit();
-        } else {
-            echo "Gagal melakukan pemesanan. Kode Kesalahan: " . mysqli_errno($koneksi) . "<br>";
-            echo "Pesan Kesalahan: " . mysqli_error($koneksi);
-        }
+    //     if ($result) {
+    //         echo "Pemesanan berhasil!";
+    //         // Redirect ke halaman pemesanan
+    //         header("Location: detailPemesanan.php");
+    //         exit();
+    //     } else {
+    //         echo "Gagal melakukan pemesanan. Kode Kesalahan: " . mysqli_errno($koneksi) . "<br>";
+    //         echo "Pesan Kesalahan: " . mysqli_error($koneksi);
+    //     }
 
-        // Tutup pernyataan persiapan
-        mysqli_stmt_close($stmt);
-    }
-}
+    //     // Tutup pernyataan persiapan
+    //     mysqli_stmt_close($stmt);
+    // }
+// }
 
 // Ambil informasi paket berdasarkan id_paket dari tabel paket dan detail_paket
-$id_paket = isset($_GET['id_paket']) ? mysqli_real_escape_string($koneksi, $_GET['id_paket']) : null;
+// $id_paket = isset($_GET['id_paket']) ? mysqli_real_escape_string($koneksi, $_GET['id_paket']) : null;
 
-$query = "SELECT * FROM detail_paket
-INNER JOIN paket ON detail_paket.id_paket = paket.id_paket
-WHERE paket.id_paket = '$id_paket'";
+// $query = "SELECT * FROM detail_paket
+// INNER JOIN paket ON detail_paket.id_paket = paket.id_paket
+// WHERE paket.id_paket = '$id_paket'";
 
-$result = mysqli_query($koneksi, $query);
+// $result = mysqli_query($koneksi, $query);
 
-if ($result && $data_paket = mysqli_fetch_assoc($result)) {
+// if ($result && $data_paket = mysqli_fetch_assoc($result)) {
 
-    $id_paket = $data_paket["id_paket"];
-    $nama_paket = $data_paket["nama_paket"];
-    $harga = $data_paket["harga"];
-    $img_path = $data_paket["img_path"];
-    $description = $data_paket["description"];
+//     $id_paket = $data_paket["id_paket"];
+//     $nama_paket = $data_paket["nama_paket"];
+//     $harga = $data_paket["harga"];
+//     $img_path = $data_paket["img_path"];
+//     $description = $data_paket["description"];
 
-} else {
-    echo "Tidak dapat menemukan informasi paket.";
-}
+// } else {
+//     echo "Tidak dapat menemukan informasi paket.";
+// }
+
+// $query = "SELECT * FROM packages_detail
+//         INNER JOIN packages ON packages_detail.id = packages.id
+//         WHERE packages.id = '$id_paket'
+//         ";
+
+// $result = mysqli_query($connection, $query) or die(mysqli_error($connection))
+
+
+$id_paket = isset($_GET['id']) ? mysqli_real_escape_string($connection, $_GET['id']) : null;
 
 $query = "SELECT * FROM packages_detail
-        INNER JOIN packages ON packages_detail.id = packages.id
-        WHERE packages.id = '$id_paket'
+        INNER JOIN packages ON packages_detail.id_paket = packages.id_paket
+        WHERE packages.id_paket = '$id_paket'
         ";
 
-$result = mysqli_query($connection, $query) or die(mysqli_error($connection))
+$result = mysqli_query($connection, $query) or die(mysqli_error($connection));
 
 ?>
 
@@ -106,7 +116,7 @@ $result = mysqli_query($connection, $query) or die(mysqli_error($connection))
 
     <!-- Add this in the head section of your HTML -->
     <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
-
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
 
 
@@ -134,7 +144,9 @@ $result = mysqli_query($connection, $query) or die(mysqli_error($connection))
             </div>
         </header>
         <section class="content">
-
+        <!-- <?php
+            while ($data_paket = mysqli_fetch_array($result)) {
+                ?> -->
 
             <div class="container">
 
@@ -143,7 +155,7 @@ $result = mysqli_query($connection, $query) or die(mysqli_error($connection))
                 <div class="details__item">
                     <div class="item__image">
                         <img class="iphone"
-                            src="http://localhost/wedding-organizer/Front-end-wizz/assets/img/<?php echo $data_paket["img_path"]; ?>"
+                            src="../Admin/upload/<?php echo $data_paket["gambar"]; ?>"
                             alt="">
                     </div>
                     <div class="item__details">
@@ -155,7 +167,7 @@ $result = mysqli_query($connection, $query) or die(mysqli_error($connection))
 
                         <div class="item__price">
                             <h2>
-                                <?php echo $data_paket['harga']; ?>
+                                Rp<?php echo $data_paket['harga']; ?>
                             </h2>
 
                         </div>
@@ -163,15 +175,17 @@ $result = mysqli_query($connection, $query) or die(mysqli_error($connection))
 
                         </div>
                         <div class="item__description">
-                            <ul>
-                                <li>"
-                                    <?php echo $data_paket['deskripsi']; ?>"
-                                </li>
-                                <li></li>
-                                <li></li>
-                                <li></li>
-                                <li></li>
-                            </ul>
+                        <ul>
+                    <?php
+                    // Pecah deskripsi menjadi array
+                    $deskripsiList = explode("\n", $data_paket["deskripsi"]);
+
+                    // Tampilkan setiap elemen sebagai list
+                    foreach ($deskripsiList as $deskripsiItem) {
+                        echo "<li>$deskripsiItem</li>";
+                    }
+                    ?>
+                </ul>
 
                         </div>
 
@@ -179,15 +193,19 @@ $result = mysqli_query($connection, $query) or die(mysqli_error($connection))
                 </div>
 
             </div>
+
             <div class="checkout-container">
                 <!-- Sidebar (Alamat Pengiriman) -->
                 <div class="sidebar shipping-address-sidebar">
                     <div class="section-heading">Data diri & alamat</div>
                     <div class="shipping-address-container">
                         <div class="receiver-info">
-                            <form action="detailPemesanan.php" method="post" enctype="multipart/form-data"
+                            
+                            <form action="../Admin/code.php" method="post" enctype="multipart/form-data"
                                 id="pemesananForm">
-
+                                <div class="form-group">
+                                <input type="hidden" name="id" value="<?php echo $data_paket['id_paket']; ?>">
+                                </div>
                                 <div class="form-group">
                                     <input type="text" id="fullName" placeholder="Nama Lengkap" maxlength="30"
                                         autocomplete="name" name="nama">
@@ -285,21 +303,26 @@ $result = mysqli_query($connection, $query) or die(mysqli_error($connection))
             </div>
             </div>
             </div>
-
-
+            
+            <?php
+            }
+            ?>
 
 
 
             <div class="container">
                 <div class="actions">
 
-                    <button type="button" class="btn action__submit" id="submitOrderBtn">Place your Order
+                    <button type="submit" class="btn action__submit" name="submitpesanan" id="submitOrderBtn" a href ="pesananSaya.php?id=<?php echo $data_paket["id_pesan"]; ?>">Place your Order
                         <i class="icon icon-arrow-right-circle"></i>
                     </button>
+                    
                     </form>
                     <a href="package.php" class="backBtn">Go Back to Shop</a>
 
                 </div>
+     
+
         </section>
         </div>
     </section>

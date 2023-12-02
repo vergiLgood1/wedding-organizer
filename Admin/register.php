@@ -95,7 +95,7 @@ include('includes/navbar.php');
     <?php
     
 
-    $query = "SELECT * FROM register";
+    $query = "SELECT * FROM user";
     $query_run = mysqli_query($connection, $query);
     ?>
 

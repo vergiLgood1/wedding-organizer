@@ -454,30 +454,45 @@ i {
   margin-right: 10px;
 }
 
+.nav__left {
+  display: flex;
+  align-items: center;
+}
+
+.nav__user-section {
+  display: flex;
+  align-items: center;
+  margin-left: auto; /* Menggerakkan elemen ke sisi kanan */
+}
+
 .button-login {
+  font-size: 16px;
+  padding: 5px 15px;
+  border: none;
   background-color: var(--salmon-pink);
-  color: var(--white-color);
-  border-radius: 4px;
+  color: white;
+  border-radius: 5px;
   cursor: pointer;
-  transition: background-color 0.3s;
-  display: inline-block;
-  font-size: 14px;
-  font-weight: 800;
-  line-height: 1;
-  white-space: nowrap;
-  min-width: 32px;
-  padding: 7px 16px;
-  margin-right: 5px;
+  margin-left: 10px; /* Memberikan jarak antara tombol "Masuk" dan tombol "Cart" */
+  margin-right: 64px;
 }
 
 .button-login:hover {
-  background-color: var(--bittersweet);
-  /* Ganti dengan warna latar belakang hover yang diinginkan */
+  font-size: 16px;
+  padding: 5px 15px;
+  border: none;
+  background-color: var(--eerie-black);
+  color: var(--salmon-pink);
+  border-radius: 5px;
+  cursor: pointer;
+  margin-left: 10px; /* Memberikan jarak antara tombol "Masuk" dan tombol "Cart" */
+  margin-right: 64px;
 }
+
 
 .nav__button__shop {
   background: none;
-  margin-right: 15px;
+  margin-left: 12px;
 
 }
 
@@ -520,6 +535,76 @@ i {
   height: 2px;
   bottom: -.75rem;
   left: 0;
+}
+
+.nav__user {
+  display: flex;
+  align-items: center;
+  margin-left: 20px;
+  cursor: pointer;
+  margin-right: 80px;
+}
+
+.nav__user-icon {
+  margin-right: 10px;
+  color: var(--white);
+}
+.nav__user-icon:hover{
+ 
+  color: var(--salmon-pink);
+}
+
+/* Tambahkan aturan berikut untuk memastikan dropdown tetap muncul saat kursor berada di atasnya */
+.nav__user:hover .nav__dropdown {
+  display: block;
+}
+
+
+.nav__username {
+  font-weight: bold;
+  margin-right: 12px;
+  color: var(--white);
+}
+
+.nav__dropdown {
+  display: none;
+  position: absolute;
+  top: 70%;
+  background: var(--white);
+  color: var(--eerie-black);
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  margin: 0;
+  width: 120px;
+}
+
+.nav__dropdown ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.nav__dropdown li {
+  padding: 10px;
+  text-align: center;
+  
+}
+
+.nav__dropdown a {
+  text-decoration: none;
+  color: var(--salmon-pink);
+  display: block;
+}
+.nav__dropdown a:hover {
+  text-decoration: none;
+  color: var(--salmon-pink);
+  display: block;
+}
+
+.nav__dropdown li:hover {
+  background-color: var(--eerie-black);
+  border-radius: 5px;
 }
 
 /*-----------------------------------*\
@@ -591,7 +676,7 @@ HOME
 }
 
 .home__social i:hover {
-  color: var(--bittersweet);
+  color: var(--salmon-pink);
 }
 
 .home__social-link {
@@ -725,6 +810,7 @@ GALLERY HOME
   padding-right: 8%;
   box-sizing: border-box;
   padding-top: 150px;
+
 }
 
 .rowGallery{
@@ -796,16 +882,17 @@ GALLERY HOME
 
 .gallery__section {
   padding-top: 90px;
+  padding-bottom: 0;
 
 }
 
 .gallery-container {
   padding-top: 40px;
-  width: 1400px;
+
   margin: 20px auto;
   columns: 4;
   column-gap: 20px;
-  margin-bottom: 100px;
+
 }
 
 .gallery-item {
@@ -915,7 +1002,8 @@ GALLERY HOME
 }
 
 .discover__container {
-  padding-bottom: 100px;
+  padding-bottom: 0px;
+  padding-top: 0;
 }
 
 .discover__card {
@@ -1059,15 +1147,14 @@ PACKAGES
 }
 
 .cards-container {
-  height: 50vh;
+  height: 40vh;
   width: 100%;
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
-  /* Memastikan bahwa elemen card dapat melibat lebih dari satu baris */
   justify-content: center;
   align-items: flex-start;
-  padding-bottom: 100px;
+
 }
 
 .package__title {
@@ -1078,7 +1165,7 @@ PACKAGES
 }
 
 .card {
-  margin-right: 25px;
+  margin-right: 0px;
   background-color: #fff;
   width: 33.3%;
   position: relative;
@@ -1200,6 +1287,117 @@ PACKAGES
   margin-left: 5px;
 }
 
+.view_all{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 10%;
+  margin: 0 auto;
+  margin-bottom: 100px;
+
+}
+/* Button used to open the contact form - fixed at the bottom of the page */
+
+.modal {
+  position: absolute; /* atau position: absolute; */
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 0;
+
+
+
+}
+
+
+
+.show-modal {
+  font-size: 18px;
+  font-weight: 600;
+  color: #fff;
+  padding: 14px 22px;
+  border: none;
+  background: var(--salmon-pink);
+  /* border-radius: 6px; */
+  cursor: pointer;
+  position: relative;
+  z-index: 1;
+  margin-top: 24px;
+}
+button:hover {
+  background-color: var(--eerie-black);
+  color: var(--salmon-pink);
+  font-size: 18px;
+  font-weight: 600;
+}
+button.show-modal,
+.modal-box {
+  position: relative;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+}
+section.active .show-modal {
+  display: none;
+}
+.overlay {
+  position: fixed;
+  top: 50%;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  /* ... properti lainnya ... */
+}
+
+section.active .overlay {
+  opacity: 1;
+  pointer-events: auto;
+}
+.modal-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 600px;
+  width: 400px;
+  padding: 30px 20px;
+  border-radius: 24px;
+  background-color: #fff;
+  opacity: 0;
+  pointer-events: none;
+  transition: all 0.3s ease;
+  transform: translate(-50%, -50%) scale(1.2);
+}
+section.active .modal-box {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translate(-50%, -50%) scale(1);
+}
+.modal-box i {
+  font-size: 70px;
+  color: var(--salmon-pink);
+}
+.modal-box h2 {
+  margin-top: 20px;
+  font-size: 25px;
+  font-weight: 800;
+  color: #333;
+}
+.modal-box h3 {
+  font-size: 16px;
+  font-weight: 400;
+  color: #333;
+  text-align: center;
+  margin-top: 26px;
+}
+.modal-box .buttons {
+  margin-top: 25px;
+}
+.modal-box button {
+  font-size: 14px;
+  padding: 6px 12px;
+  margin: 0 10px;
+}
+
 /*-----------------------------------*\
 TESTIMONIAL
 \*-----------------------------------*/
@@ -1215,6 +1413,7 @@ TESTIMONIAL
   margin: 0 auto;
   padding-bottom: 200px;
   padding-top: 50px;
+
 
 }
 

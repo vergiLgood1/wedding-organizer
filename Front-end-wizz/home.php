@@ -1,6 +1,8 @@
 <?php
 include('../Admin/security.php');
 
+
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -20,6 +22,8 @@ include('../Admin/security.php');
 
     <!--=============== CSS ===============-->
     <link rel="stylesheet" href="assets/css/styles.css">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" />
 
 
 
@@ -59,32 +63,51 @@ include('../Admin/security.php');
             </div>
 
             <!-- ... (bagian lainnya tetap sama) -->
-
+<!-- 
             <div class="nav__right">
-                <div id="userSection" class="hidden">
-                    <!-- Jika pengguna sudah login, tampilkan icon profil -->
-                    <div id="userProfile">
-                        <img src="assets/img/Profile.svg" alt="Profile Icon">
-                        <span id="username"></span>
-                        <div id="dropdownMenu" class="hidden">
-                            <ul>
-                                <li><a href="#">Pesanan Saya</a></li>
-                                <li><a href="#">Akun Saya</a></li>
-                                <li><a href="#" onclick="logout()">Logout</a></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-                <!-- Tombol keranjang belanja -->
-                <button class="nav__button__shop" id="cartButton">
-                    <i class="ri-shopping-cart-line" onclick="pesananSaya()"></i>
-                </button>
+                <?php
+                if (isset($_SESSION['id'])) {
+                    // Jika pengguna sudah login, tampilkan profil
+                    echo '<div id="userProfile">
+                  <img src="assets/img/Profile.svg" alt="Profile Icon">
+                  <span id="username">' . $_SESSION['username'] . '</span>
+                  <div id="dropdownMenu" class="hidden">
+                      <ul>
+                          <li><a href="#">Pesanan Saya</a></li>
+                          <li><a href="#">Akun Saya</a></li>
+                          <li><a href="#" onclick="logout()">Logout</a></li>
+                      </ul>
+                  </div>
+              </div>';
+                } else {
 
-                <!-- Tombol masuk -->
-                <button id="loginButton" class="button-login" onclick="loginPhp()">Masuk</button>
+                    // Jika pengguna belum login, tampilkan tombol masuk
+                
+                    echo '<div id="userSection" class="hidden">
+                  <button id="loginButton" class="button-login" onclick="loginPhp()">Masuk</button>
+              </div>';
+                }
+                ?> -->
 
-            </div>
-            <!-- ... (bagian lainnya tetap sama) -->
+                
+<div class="nav__user" onmouseover="showUserDropdown()" onmouseout="hideUserDropdown()">
+    <div class="nav__user-icon">
+        <i class="fa-solid fa-user">  Username</i>
+    </div>
+    <div class="nav__username" onclick="toggleUserDropdown()"></div>
+    <div class="nav__dropdown" id="userDropdown">
+
+        <ul>
+            <li><a href="profile.php" onclick="profile()">Profile</a></li>
+            <li><a href="#" onclick="logout()">Logout</a></li>
+        </ul>
+        
+    </div>
+    <button class="nav__button__shop" id="cartButton">
+        <i class="ri-shopping-cart-line" onclick="pesananSaya()"></i>
+    </button>
+</div>
+</div>
 
 
             <div class="nav__toggle" id="nav-toggle">
@@ -125,40 +148,53 @@ include('../Admin/security.php');
         <!--==================== AKHIR HOME ====================-->
 
         <!--==================== AWAL ABOUT ====================-->
-        <section class="about section" id="about">
-            <div class="about__container container grid">
-                <?php
-                // jalankan query untuk menampilkan semua data diurutkan berdasarkan nim
-                $query = "SELECT * FROM about";
-                $result = mysqli_query($connection, $query);
-                //mengecek apakah ada error ketika menjalankan query
-                if (!$result) {
-                    die("Query Error: " . mysqli_errno($connection) .
-                        " - " . mysqli_error($connection));
-                }
-                
-                $row = mysqli_fetch_assoc($result) 
-                ?>
-                <div class="about__data">
-                    <h2 class="section__title about__title"><?php echo $row['judul'] ?></h2>
-                    <p class="about__description"><?php echo $row["deskripsi"]; ?>
+        <?php
 
-                    </p>
-                    <a href="#" class="button">Reserve a package</a>
-                </div>
+        // jalankan query untuk menampilkan semua data diurutkan berdasarkan nim
+        $query = "SELECT * FROM about
 
-                <div class="about__img">
-                    <div class="about__img-overlay">
-                        <img src="assets/img/about1.png" alt="" class="about__img-one">
+";
+        $result = mysqli_query($connection, $query);
+        //mengecek apakah ada error ketika menjalankan query
+        if (!$result) {
+            die("Query Error: " . mysqli_errno($connection) .
+                " - " . mysqli_error($connection));
+        }
+
+        while ($data_paket = mysqli_fetch_array($result)) {
+
+            ?>
+            <section class="about section" id="about">
+                <div class="about__container container grid">
+                    <div class="about__data">
+                        <h2 class="section__title about__title">Information<br>
+                            <?php echo $data_paket["judul"]; ?>
+                        </h2>
+                        <p class="about__description">
+                            <?php echo $data_paket["deskripsi"]; ?>
+                        </p>
+                        <a href="about.php" class="button">Reserve a package</a>
                     </div>
 
-                    <div class="about__img-overlay">
-                        <img src="assets/img/about2.png" alt="" class="about__img-two">
+                    <div class="about__img">
+                        <div class="about__img-overlay">
+                            <img src="http://localhost:3000/Front-end-wizz/assets/img/<?php echo $data_paket["gambar1"]; ?>"
+                                alt="" class="about__img-one">
+                        </div>
+
+                        <div class="about__img-overlay">
+                            <img src="http://localhost:3000/Front-end-wizz/assets/img/<?php echo $data_paket["gambar2"]; ?>"
+                                alt="" class="about__img-two">
+                        </div>
                     </div>
                 </div>
-            </div>
-        </section>
+            </section>
+            <?php
+        }
+
+        ?>
         <!--==================== AKHIR ABOUT ====================-->
+
 
         <!--==================== GALLERY ====================-->
         <section class="discover section" id="gallery">
@@ -166,6 +202,8 @@ include('../Admin/security.php');
 
             <div class="discover__container container swiper-container">
                 <div class="swiper-wrapper">
+         
+
                     <!--==================== GALLERY 1 ====================-->
                     <div class="discover__card swiper-slide">
                         <img src="assets/img/gallery4.png" alt="" class="discover__img">
@@ -200,111 +238,202 @@ include('../Admin/security.php');
                             <h2 class="discover__title">Your mine</h2>
                             <span class="discover__description">Kevin & Intan</span>
                         </div>
+                        <div>
+                        </div>
+                    </div>
+        </section>
+
+        </div>
+        <a href="gallery.php" class="button view_all">View all</a>
+        </div>
+
+
+
+
+
+        <!--==================== AKHIR GALLERY ====================-->
+
+
+
+
+        <!--==================== EXPERIENCE ====================-->
+
+        <section>
+            <?php
+
+            // jalankan query untuk menampilkan semua data diurutkan berdasarkan nim
+            $query = "SELECT * FROM experience
+
+";
+            $result = mysqli_query($connection, $query);
+            //mengecek apakah ada error ketika menjalankan query
+            if (!$result) {
+                die("Query Error: " . mysqli_errno($connection) .
+                    " - " . mysqli_error($connection));
+            }
+
+            while ($data_paket = mysqli_fetch_array($result)) {
+
+                ?>
+                <h2 class="section__title">Kami akan melayani anda <br> Dengan pengalaman kami</h2>
+
+                <div class="experience__container container grid">
+                    <div class="experience__content grid">
+                        <div class="experience__data">
+                            <h2 class="experience__number">
+                                <?php echo $data_paket["tahun_pengalaman"]; ?>
+                            </h2>
+                            <span class="experience__description">Tahun <br> pengalaman</span>
+                        </div>
+
+                        <div class="experience__data">
+                            <h2 class="experience__number">
+                                <?php echo $data_paket["pernikahan_terlaksana"] ?>
+                            </h2>
+                            <span class="experience__description">Pernikahan <br> terlaksana</span>
+                        </div>
+
+                        <div class="experience__data">
+                            <h2 class="experience__number">
+                                <?php echo $data_paket["pasangan_pengantin"] ?>
+                            </h2>
+                            <span class="experience__description">Pasangan <br> pengantin</span>
+                        </div>
+                    </div>
+
+                    <div class="experience__img grid">
+                        <div class="experience__overlay">
+                            <img src="http://localhost:3000/Front-end-wizz/assets/img/<?php echo $data_paket["gambar2"]; ?>"
+                                alt="" class="experience__img-one">
+                        </div>
+
+                        <div class="experience__overlay">
+                            <img src="http://localhost:3000/Front-end-wizz/assets/img/<?php echo $data_paket["gambar1"]; ?>"
+                                alt="" class="experience__img-two">
+                        </div>
                     </div>
                 </div>
-            </div>
+                <?php
+            }
+            ?>
 
-            <!--==================== AKHIR GALLERY ====================-->
+        </section>
+
+        <!--==================== AKHIR EXPERIENCE ====================-->
 
 
 
+        <!--==================== AWAL VIDEO ====================-->
+        <section>
+            <?php
 
-            <!--==================== EXPERIENCE ====================-->
+            // jalankan query untuk menampilkan semua data diurutkan berdasarkan nim
+            $query = "SELECT * FROM video
 
-            <h2 class="section__title">Kami akan melayani anda <br> Dengan pengalaman kami</h2>
+";
+            $result = mysqli_query($connection, $query);
+            //mengecek apakah ada error ketika menjalankan query
+            if (!$result) {
+                die("Query Error: " . mysqli_errno($connection) .
+                    " - " . mysqli_error($connection));
+            }
 
-            <div class="experience__container container grid">
-                <div class="experience__content grid">
-                    <div class="experience__data">
-                        <h2 class="experience__number">20</h2>
-                        <span class="experience__description">Tahun <br> pengalaman</span>
-                    </div>
+            while ($data_paket = mysqli_fetch_array($result)) {
 
-                    <div class="experience__data">
-                        <h2 class="experience__number">75</h2>
-                        <span class="experience__description">Pernikahan <br> terlaksana</span>
-                    </div>
+                ?>
 
-                    <div class="experience__data">
-                        <h2 class="experience__number">650+</h2>
-                        <span class="experience__description">Pasangan <br> pengantin</span>
+                <h2 class="section__title">Video Pernikahan</h2>
+
+                <div class="video__container container">
+                    <p class="video__description">Buat kenangan indah dengan pasangan mu
+                    </p>
+
+                    <div class="video__content">
+                        <video id="video-file">
+                            <source
+                                src="http://localhost:3000/Front-end-wizz/assets/video/<?php echo $data_paket["path_video"]; ?>"
+                                type="video/mp4">
+                        </video>
+
+                        <button class="button button--flex video__button" id="video-button">
+                            <i class="ri-play-line video__button-icon" id="video-icon"></i>
+                        </button>
                     </div>
                 </div>
-
-                <div class="experience__img grid">
-                    <div class="experience__overlay">
-                        <img src="assets/img/gallery5.png" alt="" class="experience__img-one">
-                    </div>
-
-                    <div class="experience__overlay">
-                        <img src="assets/img/gallery2.png" alt="" class="experience__img-two">
-                    </div>
-                </div>
-            </div>
-
-            <!--==================== AKHIR EXPERIENCE ====================-->
-
-
-
-            <!--==================== AWAL VIDEO ====================-->
-
-            <h2 class="section__title">Video Pernikahan</h2>
-
-            <div class="video__container container">
-                <p class="video__description">Buat kenangan indah dengan pasangan mu
-                </p>
-
-                <div class="video__content">
-                    <video id="video-file">
-                        <source src="assets/video/pexels-mikhail-nilov-8247019 (1080p).mp4" type="video/mp4">
-                    </video>
-
-                    <button class="button button--flex video__button" id="video-button">
-                        <i class="ri-play-line video__button-icon" id="video-icon"></i>
-                    </button>
-                </div>
-            </div>
+                <?php
+            }
+            ?>
         </section>
 
         <!--==================== AKHIR VIDEO ====================-->
 
         <!--==================== AWAL PACKAGES ====================-->
+
         <section class="packages" id="package">
             <div class="title_container">
                 <h2 class="section__title">Pilih paket <br>sesuai kebutuhanmu</h2>
                 <p class="package__title">Pilih, pesan dan laksanakan pernikahanmu</p>
             </div>
             <div class="cards-container">
-                <article class="card" onclick=" ArahkanKePackage()">
-                    <div class="card-info-hover">
-                        <svg class="card-like" viewBox="0 0 24 24">
-                            <path fill="#000000"
-                                d="M12.1,18.55L12,18.65L11.89,18.55C7.14,14.24 4,11.39 4,8.5C4,6.5 5.5,5 7.5,5C9.04,5 10.54,6 11.07,7.36H12.93C13.46,6 14.96,5 16.5,5C18.5,5 20,6.5 20,8.5C20,11.39 16.86,14.24 12.1,18.55M16.5,3C14.76,3 13.09,3.81 12,5.08C10.91,3.81 9.24,3 7.5,3C4.42,3 2,5.41 2,8.5C2,12.27 5.4,15.36 10.55,20.03L12,21.35L13.45,20.03C18.6,15.36 22,12.27 22,8.5C22,5.41 19.58,3 16.5,3Z" />
-                        </svg>
-                        <div class="card-clock-info">
-                            <svg class="card-clock" viewBox="0 0 24 24">
-                                <path
-                                    d="M12,20A7,7 0 0,1 5,13A7,7 0 0,1 12,6A7,7 0 0,1 19,13A7,7 0 0,1 12,20M19.03,7.39L20.45,5.97C20,5.46 19.55,5 19.04,4.56L17.62,6C16.07,4.74 14.12,4 12,4A9,9 0 0,0 3,13A9,9 0 0,0 12,22C17,22 21,17.97 21,13C21,10.88 20.26,8.93 19.03,7.39M11,14H13V8H11M15,1H9V3H15V1Z" />
+                <?php
+
+                // jalankan query untuk menampilkan semua data diurutkan berdasarkan nim
+                $query = "SELECT * FROM packages
+            LIMIT 3
+   ";
+                $result = mysqli_query($connection, $query);
+                //mengecek apakah ada error ketika menjalankan query
+                if (!$result) {
+                    die("Query Error: " . mysqli_errno($connection) .
+                        " - " . mysqli_error($connection));
+                }
+
+                while ($data_paket = mysqli_fetch_array($result)) {
+
+                    ?>
+                    <article class="card" onclick=" ArahkanKePackage()">
+                        <div class="card-info-hover">
+                            <svg class="card-like" viewBox="0 0 24 24">
+                                <path fill="#000000"
+                                    d="M12.1,18.55L12,18.65L11.89,18.55C7.14,14.24 4,11.39 4,8.5C4,6.5 5.5,5 7.5,5C9.04,5 10.54,6 11.07,7.36H12.93C13.46,6 14.96,5 16.5,5C18.5,5 20,6.5 20,8.5C20,11.39 16.86,14.24 12.1,18.55M16.5,3C14.76,3 13.09,3.81 12,5.08C10.91,3.81 9.24,3 7.5,3C4.42,3 2,5.41 2,8.5C2,12.27 5.4,15.36 10.55,20.03L12,21.35L13.45,20.03C18.6,15.36 22,12.27 22,8.5C22,5.41 19.58,3 16.5,3Z" />
                             </svg>
-                            <span class="card-time">20 min</span>
+                            <div class="card-clock-info">
+                                <svg class="card-clock" viewBox="0 0 24 24">
+                                    <path
+                                        d="M12,20A7,7 0 0,1 5,13A7,7 0 0,1 12,6A7,7 0 0,1 19,13A7,7 0 0,1 12,20M19.03,7.39L20.45,5.97C20,5.46 19.55,5 19.04,4.56L17.62,6C16.07,4.74 14.12,4 12,4A9,9 0 0,0 3,13A9,9 0 0,0 12,22C17,22 21,17.97 21,13C21,10.88 20.26,8.93 19.03,7.39M11,14H13V8H11M15,1H9V3H15V1Z" />
+                                </svg>
+                                <span class="card-time">20 min</span>
+                            </div>
                         </div>
-                    </div>
-                    <div class="card-img"></div>
-                    <a href="package.php">
-                        <div class="card-img-hover" style="background-image: url(assets/img/about1.png);">
-                        </div>
-                    </a>
-                    <div class="card-info">
-                        <span class="card-category">Paket biasa</span>
-                        <h3 class="card-title">Murah tapi tapi berkualitas</h3>
-                        <span class="card-by">
+                        <div class="card-img"></div>
+                        <a href="package.php">
+                            <img class="card-img-hover"
+                                src="http://localhost:3000/Front-end-wizz/assets/img/<?php echo $data_paket["gambar"]; ?>"
+                                alt="Card Image">
+                        </a>
+                        <div class="card-info">
+                            <span class="card-category">
+                                <?php echo $data_paket["nama_paket"]; ?>
+                            </span>
+                            <h3 class="card-title">Murah tapi tapi berkualitas</h3>
+                            <span class="card-by">
 
-                            <a href="#" class="card-admin">Rp. 50.000</a>
-                        </span>
-                    </div>
-                </article>
+                                <a href="#" class="card-admin">
+                                    <?php echo $data_paket["harga"]; ?>
+                                </a>
 
-                <article class="card" onclick=" ArahkanKePackage()">
+                            </span>
+                    </article>
+                    <?php
+
+                }
+
+                ?>
+
+
+
+
+                <!-- <article class="card" onclick=" ArahkanKePackage()">
                     <div class="card-info-hover">
                         <svg class="card-like" viewBox="0 0 24 24">
                             <path fill="#000000"
@@ -359,9 +488,15 @@ include('../Admin/security.php');
                             <a href="" class="card-admin">Rp. 50.000</a>
                         </span>
                     </div>
-                </article>
+                </article> -->
             </div>
         </section>
+
+
+        <div>
+            <a href="package.php" class="button view_all">View all</a>
+        </div>
+
 
         <!--==================== AKHIR PACKAGES ====================-->
 
@@ -379,31 +514,40 @@ include('../Admin/security.php');
 
 
                     <!-- div2 -->
-                    <?php 
-                    $query = "SELECT * FROM testimoni ORDER BY id ASC";
+                    <?php
+                    $query = "SELECT * FROM testimoni ORDER BY id ASC
+                    lIMIT 2
+                    ";
+                    
                     $result = mysqli_query($connection, $query);
                     while ($row = mysqli_fetch_assoc($result)) {
-                    ?>
-                    <div class="div5 eachdiv">
-                        <div class="userdetails">
-                            <div class="imgbox">
-                            <?php echo '<img src="../Admin/uptesti/'.$row['gambar_user'].'"alt="gambar">' ?>
+                        ?>
+                        <div class="div5 eachdiv">
+                            <div class="userdetails">
+                                <div class="imgbox">
+                                    <?php echo '<img src="../Admin/uptesti/' . $row['gambar_user'] . '"alt="gambar">' ?>
+                                </div>
+                                <div class="detbox">
+                                    <p class="name">
+                                        <?php echo $row["nama_user"] ?>
+                                    </p>
+                                    <p class="designation">Verified User</p>
+                                </div>
                             </div>
-                            <div class="detbox">
-                                <p class="name"><?php echo $row["nama_user"] ?></p>
-                                <p class="designation">Verified User</p>
+                            <div class="review">
+                                <h4>
+                                    <?php echo $row["judul"] ?>
+                                </h4>
+                                <p>
+                                    <?php echo $row["deskripsi"] ?>
+                                </p>
                             </div>
                         </div>
-                        <div class="review">
-                            <h4><?php echo $row["judul"] ?></h4>
-                            <p><?php echo $row["deskripsi"] ?></p>
-                        </div>
-                    </div>
-                    <?php 
-                    } 
+                        <?php
+                    }
                     ?>
                     <!-- div3 -->
-                    
+
                     <!-- <div class="div5 eachdiv">
                         <div class="userdetails">
                             <div class="imgbox">
@@ -472,6 +616,7 @@ include('../Admin/security.php');
 
 
         <!--==================== AWAL KONTAK ====================-->
+
         <section id="contact">
             <h2 class="section__title">Berbincang dengan kami</h2>
             <p class="section__desc">Untuk konsultasi dan informasi lebih lanjut</p>
@@ -497,22 +642,30 @@ include('../Admin/security.php');
                             </div>
                             <div class="screen-body-item">
                                 <div class="app-form">
-                                    <div class="app-form-group">
-                                        <input class="app-form-control" placeholder="NAMA" value="">
-                                    </div>
-                                    <div class="app-form-group">
-                                        <input class="app-form-control" placeholder="EMAIL">
-                                    </div>
-                                    <div class="app-form-group">
-                                        <input class="app-form-control" placeholder="NOMOR KONTAK">
-                                    </div>
-                                    <div class="app-form-group message">
-                                        <input class="app-form-control" placeholder="PESAN">
-                                    </div>
-                                    <div class="app-form-group buttons">
-                                        <button class="app-form-button">BATAL</button>
-                                        <button class="app-form-button">KIRIM</button>
-                                    </div>
+                                    <form action="send.php"
+                                        method="post">
+                                        <div class="app-form-group">
+                                            <input class="app-form-control" placeholder="NAMA" value="" name="nama">
+                                        </div>
+                                        <div class="app-form-group">
+                                            <input class="app-form-control" placeholder="EMAIL" name="email" value="" >
+                                        </div>
+                                        <div class="app-form-group">
+                                            <input class="app-form-control" placeholder="NOMOR KONTAK" name="nomor" value="" >
+                                        </div>
+                                        <div class="app-form-group message">
+                                            <input class="app-form-control" placeholder="SUBJECT" name="subject" value="" >
+                                        </div>
+                                        <div class="app-form-group message">
+                                            <input class="app-form-control" placeholder="PESAN" name="message" value="" >
+                                        </div>
+                                        <div class="app-form-group buttons">
+                                            <button class="app-form-button" type="submit"
+                                                name="cancelEmail">BATAL</button>
+                                            <button class="app-form-button" type="submit"
+                                                name="submitEmail" value="send">KIRIM</button>
+                                        </div>
+                                    </form>
                                 </div>
                             </div>
                         </div>
@@ -522,26 +675,73 @@ include('../Admin/security.php');
 
         </section>
 
+        <!-- <script>
+            function sendEmail() {
+                // Pastikan untuk menggunakan fungsi yang benar
+                Email.send({
+                    Host: "smtp.gmail.com",
+                    Username: "xdamazon17@gmail.com",
+                    Password: "password",
+                    To: 'diyoanggara149@gmail.com',
+                    From: document.getElementById("email").value,
+                    Subject: "This is the subject",
+                    Body: "And this is the body"
+                }).then(
+                    message => alert(message)
+                );
+
+            }
+        </script> -->
+
         <!--==================== AKHIR KONTAK ====================-->
 
 
         <!--==================== AWAL BLOG ====================-->
 
+
+
         <h2 class="section__title">Blog terkait</h2>
         <p class="blog__title">Beberapa blog yang relevan dengan konten terkait</p>
 
         <section class="blog" id="blog">
-            <div class="blog__item">
-                <a href="">
-                    <img src="assets/img/blog-1.jpg" alt="Blog 1">
-                    <h3 class="blog-category">Blog 1</h3>
-                    <p class="blog-title">Clothes Retail KPIs 2021 Guide for Clothes Executives.</p>
-                </a>
-                <p class="blog-meta">
-                    By <cite>Mr Admin</cite> / <time datetime="2022-04-06">Apr 06, 2022</time>
-                </p>
-            </div>
-            <div class="blog__item">
+            <?php
+
+            // jalankan query untuk menampilkan semua data diurutkan berdasarkan nim
+            $query = "SELECT * FROM blog
+
+";
+            $result = mysqli_query($connection, $query);
+            //mengecek apakah ada error ketika menjalankan query
+            if (!$result) {
+                die("Query Error: " . mysqli_errno($connection) .
+                    " - " . mysqli_error($connection));
+            }
+
+            while ($data_paket = mysqli_fetch_array($result)) {
+
+                ?>
+                <div class="blog__item">
+                    <a href="<?php echo $data_paket["url_berita"]; ?>">
+                        <img src="<?php echo $data_paket["gambar"]; ?>" alt="Blog 1">
+                        <h3 class="blog-category">
+                            <?php echo $data_paket["nama_blog"]; ?>
+                        </h3>
+                        <p class="blog-title">
+                            <?php echo $data_paket["judul"]; ?>.
+                        </p>
+                    </a>
+                    <p class="blog-meta">
+                        By <cite>
+                            <?php echo $data_paket["sumber_berita"]; ?>
+                        </cite> / <time datetime="2022-04-06">
+                            <?php echo $data_paket["tanggal_berita"]; ?>
+                        </time>
+                    </p>
+                </div>
+                <?php
+            }
+            ?>
+            <!-- <div class="blog__item">
                 <a href="">
                     <img src="assets/img/blog-2.jpg" alt="Blog 2">
                     <h3 class="blog-category">Blog 2</h3>
@@ -569,9 +769,10 @@ include('../Admin/security.php');
                 </a>
                 <p class="blog-meta">
                     By <cite>Mr Admin</cite> / <time datetime="2022-04-06">Apr 06, 2022</time>
-                </p>
+                </p> -->
             </div>
         </section>
+
 
         <!--==================== AKHIR BLOG ====================-->
 
@@ -632,10 +833,10 @@ include('../Admin/security.php');
                             <a href="" class="footer__link">About Us</a>
                         </li>
                         <li class="footer__item">
-                            <a href="" class="footer__link">Features</a>
+                            <a href="" class="footer__link">Services</a>
                         </li>
                         <li class="footer__item">
-                            <a href="" class="footer__link">New & Blog</a>
+                            <a href="" class="footer__link">Feature</a>
                         </li>
                     </ul>
                 </div>
@@ -672,7 +873,7 @@ include('../Admin/security.php');
             </div>
 
             <div class="footer__rights">
-                <p class="footer__copy">&#169; 2021 Bedimcode. All rigths reserved.</p>
+                <p class="footer__copy">&#169; wizz - wedding organizer</p>
                 <div class="footer__terms">
                     <a href="#" class="footer__terms-link">Terms & Agreements</a>
                     <a href="#" class="footer__terms-link">Privacy Policy</a>
@@ -696,6 +897,9 @@ include('../Admin/security.php');
 
     <!--=============== MAIN JS ===============-->
     <script src="assets/js/main.js"></script>
+    <script src="https://smtpjs.com/v3/smtp.js">
+    </script>
+
 
 </body>
 
