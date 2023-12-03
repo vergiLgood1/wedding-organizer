@@ -1,6 +1,6 @@
 <?php
 include('../Admin/security.php');
-include('../Admin/registeronly.php');
+
 // require_once('config/koneksi.php');
 
 #$id_paket = isset($_GET['id']) ? mysqli_real_escape_string($connection, $_GET['id']) : null;

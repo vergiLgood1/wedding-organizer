@@ -47,10 +47,10 @@ include('adminonly.php');
             <textarea name="edit_rincianpkt" id="" cols="30" rows="10" class="form-control" placeholder="Enter Description" required><?php echo $row['rincian_paket'] ?></textarea>
         </div>
         <div class="form-group">
-            <label> Gambar Dekorasi </label>
-            <input type="file" name="gambar_dekor" value="<?php echo $row['gambar_dekorasi'] ?>" class="form-control">
+            <label> Dekorasi </label>
+            <input type="file" name="gambar_dekor" value="<?php echo $row['gambar_dekorasi'] ?>" class="form-control"  id="gambar_dekor" required>
         </div>
-
+        
 
                 <a href="paket.php" class="btn btn-danger">Kembali</a>
                 <button type="submit" name="updatedetailpkt" class="btn btn-dark">Update</button>

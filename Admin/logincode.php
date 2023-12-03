@@ -10,16 +10,18 @@ if(isset($_POST['login_btn']))
     $query = "SELECT * FROM user WHERE email='$email_login' AND password='$password_login'";
     $query_run = mysqli_query($connection, $query);
     $usertype = mysqli_fetch_array($query_run);
+    
+    $usercuy = $usertype['username'];
 
     if($usertype['usertype'] == "admin")
     {
-        $_SESSION['username'] = $email_login;
+        $_SESSION['username'] = $usercuy;
         $_SESSION['level'] = 'admin';
         header('Location: ../Admin/index.php');
     }
     else if($usertype['usertype'] == "user")
     {
-        $_SESSION['username'] = $email_login;
+        $_SESSION['username'] = $usercuy;
         $_SESSION['level'] = 'user';
         header('Location: ../Front-end-wizz/home.php');
     }
