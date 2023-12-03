@@ -2,6 +2,7 @@
 include('security.php');
 include('includes/header.php');
 include('includes/navbar.php');
+include('adminonly.php');
 ?>
 
 <div class="container-fluid">
@@ -12,12 +13,12 @@ include('includes/navbar.php');
         <div class="card-body">
 
         <?php
-        $connection = mysqli_connect("localhost", "root", "", "wedding_organizer");
+        $connection = mysqli_connect("localhost", "root", "", "db_weddingfix");
         if(isset($_POST['edit_btn']))
         {
             $id = $_POST['edit_id'];
         
-            $query = "SELECT * FROM register WHERE id='$id' ";
+            $query = "SELECT * FROM user WHERE id='$id' ";
             $query_run = mysqli_query($connection, $query);
             
             foreach($query_run as $row)

@@ -59,3 +59,50 @@ if (isset($_POST['submit'])) {
     }
 }
 ?>
+
+<?php
+
+require('../Admin/security.php');
+
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $nama = $_POST["nama"];
+    $email = $_POST["email"];
+    $nomor_kontak = $_POST["nomor"];
+    $pesan = $_POST["pesan"];
+
+    // Kirim email (sesuaikan dengan konfigurasi server Anda)
+    $to = "diyoanggara149@gmail.com"; // Ganti dengan alamat email admin
+    $subject = "Pesan dari Form Kontak";
+    $message = "Nama: $nama\nEmail: $email\nNomor Kontak: $nomor_kontak\nPesan: $pesan";
+
+    mail($to, $subject, $message);
+
+    // Simpan data ke dalam database (jika diperlukan)
+    // Pastikan koneksi ke database sudah dilakukan sebelumnya
+
+    // Ganti nilai-nilai berikut sesuai dengan pengaturan database Anda
+    $hostname = "localhost";
+    $username = "username";
+    $password = "password";
+    $database = "nama_database";
+
+    $connection = mysqli_connect($hostname, $username, $password, $database);
+
+    if (!$connection) {
+        die("Koneksi ke database gagal: " . mysqli_connect_error());
+    }
+
+    // Simpan data ke dalam database
+    mysqli_query($connection, "INSERT INTO kontak_saya (nama, email, nomor_kontak, pesan) VALUES ('$nama', '$email', '$nomor_kontak', '$pesan')");
+
+    // Tutup koneksi database
+    mysqli_close($connection);
+
+    // Redirect atau kirim respons ke formulir
+    header("Location: home.php?status=sukses");
+    exit();
+} else {
+    header("Location: home.php");
+    exit();
+}
+?>

@@ -1,5 +1,6 @@
 <?php 
 include('../Admin/security.php');
+
 ?>
 
 
@@ -139,7 +140,7 @@ include('../Admin/security.php');
             <div class="gallery-item"><img src="assets/img/photos8.png" alt="Image 8"></div>
             <div class="gallery-item"><img src="assets/img/photos9.png" alt="Image 9"></div>
             <div class="gallery-item"><img src="assets/img/photos10.png" alt="Image 10"></div>
-            <div class="gallery-item"><img src="assets/img/photos9.png" alt="Image 11"></div>
+            
             <div class="gallery-item"><img src="assets/img/photos12.png" alt="Image 12"></div>
             <div class="gallery-item"><img src="assets/img/photos13.png" alt="Image 13"></div>
             <div class="gallery-item"><img src="assets/img/photos14.png" alt="Image 14"></div>
@@ -151,7 +152,7 @@ include('../Admin/security.php');
             <div class="gallery-item"><img src="assets/img/photos20.png" alt="Image 20"></div>
             <div class="gallery-item"><img src="assets/img/photos21.png" alt="Image 21"></div>
             <div class="gallery-item"><img src="assets/img/photos22.png" alt="Image 22"></div>
-            <div class="gallery-item"><img src="assets/img/photos7.png" alt="Image 22"></div>
+            
             <div class="gallery-item"><img src="assets/img/photos22.png" alt="Image 22"></div>
             <div class="gallery-item"><img src="assets/img/photos23.png" alt="Image 23"></div>
             <div class="gallery-item"><img src="assets/img/photos24.png" alt="Image 24"></div>
@@ -260,7 +261,7 @@ include('../Admin/security.php');
                 </div>
 
                 <div class="footer__rights">
-                    <p class="footer__copy">&#169; 2021 Bedimcode. All rigths reserved.</p>
+                    <p class="footer__copy">&#169; 2023 Wizz. All rigths reserved.</p>
                     <div class="footer__terms">
                         <a href="#" class="footer__terms-link">Terms & Agreements</a>
                         <a href="#" class="footer__terms-link">Privacy Policy</a>

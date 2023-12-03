@@ -2,6 +2,7 @@
 include('security.php');
 include('includes/header.php');
 include('includes/navbar.php');
+include('adminonly.php');
 ?>
 
 <div class="container-fluid">
@@ -21,10 +22,10 @@ include('includes/navbar.php');
         <div class="card-body">
 
         <?php
-        $connection = mysqli_connect("localhost", "root", "", "wedding_organizer");
-        if(isset($_POST['edit_btn9']))
+        $connection = mysqli_connect("localhost", "root", "", "db_weddingfix");
+        if(isset($_POST['edit_btn_about']))
         {
-            $id = $_POST['edit_id9'];
+            $id = $_POST['id_edit_about'];
         
             $query = "SELECT * FROM about WHERE id='$id' ";
             $query_run = mysqli_query($connection, $query);
@@ -34,20 +35,20 @@ include('includes/navbar.php');
                 ?>
 
         <form action="code.php" method="POST">
-        <input type="hidden" name="edit_id9" value="<?php echo $row['id'] ?>">    
+        <input type="hidden" name="id_edit_about" value="<?php echo $row['id'] ?>">    
         <div class="form-group">
             <label> Judul </label>
-            <input type="text" name="edit_judul" value="<?php echo $row['judul'] ?>" class="form-control" placeholder="Enter Title">
+            <input type="text" name="about_judul" value="<?php echo $row['judul'] ?>" class="form-control" placeholder="Enter Title">
         </div>
         
         <div class="form-group">
             <label> Deskripsi </label>
-            <textarea name="edit_deskripsi" id="" cols="30" rows="10" class="form-control" placeholder="Enter Description" required><?php echo $row['deskripsi'] ?></textarea>
+            <textarea name="about_deskripsi" id="" cols="30" rows="10" class="form-control" placeholder="Enter Description" required><?php echo $row['deskripsi'] ?></textarea>
         </div>
         
 
                 <a href="aboutus.php" class="btn btn-danger">Kembali</a>
-                <button type="submit" name="updatebtn9" class="btn btn-dark">Update</button>
+                <button type="submit" name="btn_update_about" class="btn btn-dark">Update</button>
                 </form>
                 <?php
             }

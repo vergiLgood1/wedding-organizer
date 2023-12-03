@@ -10,7 +10,7 @@ include('includes/header.php');
                 <h1 class="card-title">Error Page</h1>
                 <h2 class="card-text">404 Error</h2>
                 <p class="card-text">The Page You are searching for is Not Available</p>
-                <a href="../index.html" class="btn btn-primary">Go back to Home Page</a>
+                <a href="../Admin/login.php" class="btn btn-primary">Go back to Home Page</a>
             </div>
 
         </div>

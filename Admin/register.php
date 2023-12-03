@@ -2,6 +2,7 @@
 include('security.php');
 include('includes/header.php');
 include('includes/navbar.php');
+include('adminonly.php');
 ?>
 
 
@@ -11,7 +12,7 @@ include('includes/navbar.php');
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h1 class="modal-title fs-5" id="exampleModalLabel">Tambahkan Data Admin</h1>
+        <h1 class="modal-title fs-5" id="exampleModalLabel">Tambahkan Data Pengguna</h1>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
 
@@ -66,9 +67,9 @@ include('includes/navbar.php');
         color: #ff8f9c !important;
         }
         </style>
-        <h3 class="m-0 font-weight-bold text-primary">Admin Profile</h3>
+        <h3 class="m-0 font-weight-bold text-primary">User Profile</h3>
             <button type="button" class="btn btn-dark" data-toggle="modal" data-target="#addadminprofile">
-                add Admin Profile
+                add User Profile
             </button>
         
     </div>    
@@ -95,7 +96,7 @@ include('includes/navbar.php');
     <?php
     
 
-    $query = "SELECT * FROM register";
+    $query = "SELECT * FROM user";
     $query_run = mysqli_query($connection, $query);
     ?>
 

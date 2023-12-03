@@ -1,0 +1,3 @@
+#untuk error page
+
+ErrorDocument 404 http://localhost/project-Wedding/Admin/Error404.php

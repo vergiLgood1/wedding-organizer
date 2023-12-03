@@ -4,22 +4,26 @@ include('security.php');
 
 if(isset($_POST['login_btn']))
 {
-    $email_login = $_POST['email1'];
-    $password_login = $_POST['password1'];
+    $email_login = $_POST['email_login'];
+    $password_login = $_POST['password_login'];
 
-    $query = "SELECT * FROM register WHERE email='$email_login' AND password='$password_login'";
+    $query = "SELECT * FROM user WHERE email='$email_login' AND password='$password_login'";
     $query_run = mysqli_query($connection, $query);
     $usertype = mysqli_fetch_array($query_run);
+    
+    $usercuy = $usertype['username'];
 
     if($usertype['usertype'] == "admin")
     {
-        $_SESSION['username'] = $email_login;
+        $_SESSION['username'] = $usercuy;
+        $_SESSION['level'] = 'admin';
         header('Location: ../Admin/index.php');
     }
     else if($usertype['usertype'] == "user")
     {
-        $_SESSION['username'] = $email_login;
-        header('Location: ../Front-end-wizz/index.php');
+        $_SESSION['username'] = $usercuy;
+        $_SESSION['level'] = 'user';
+        header('Location: ../Front-end-wizz/home.php');
     }
     else
     {
@@ -27,8 +31,6 @@ if(isset($_POST['login_btn']))
         header('Location: login.php');
     }
     
-
 }
-
 
 ?>
