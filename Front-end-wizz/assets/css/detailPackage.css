@@ -1044,6 +1044,10 @@ Single Page Style
     margin-top: 32px;
   }
 
+  .checkoutbtn a{
+    color: var(--white);
+  }
+
 
   /* 
 ---------------------------------------------

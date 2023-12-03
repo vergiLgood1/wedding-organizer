@@ -1,17 +1,14 @@
 <?php
-$server = "localhost";
-$username = "root";
-$password = "";
-$db = "wizzard";
+$host = 'localhost';
+$username = 'root';
+$password = '';
+$database = 'wedding-organizer';
 
-// Membuat koneksi
-$koneksi = mysqli_connect($server, $username, $password, $db);
+$connection = mysqli_connect($host, $username, $password, $database);
 
-// Memeriksa koneksi
-if (!$koneksi) {
-    die("Koneksi database gagal: " . mysqli_connect_error());
+if (!$connection) {
+    die('Koneksi Gagal: ' . mysqli_connect_error());
 }
 
-// Jika koneksi berhasil, Anda dapat melanjutkan dengan operasi database lainnya
-
+echo 'Koneksi Berhasil!';
 ?>

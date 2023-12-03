@@ -424,6 +424,10 @@ function checkout(){
     window.location.href = 'checkout.php?id=';
 }
 
+function profile(){
+    window.location.href = 'profile.php?id';
+}
+
 // Assuming your separate JavaScript file is named main.js
 // Make sure to include this file in your HTML after including jQuery
 
@@ -433,3 +437,28 @@ $(document).ready(function() {
         window.location.href = "pesananSaya.php?id_paket=" + id_paket;
     });
 });
+
+
+
+        var userDropdown = document.getElementById("userDropdown");
+
+        function showUserDropdown() {
+            userDropdown.style.display = "block";
+        }
+
+        function hideUserDropdown() {
+            userDropdown.style.display = "none";
+        }
+
+        function toggleUserDropdown() {
+            var dropdown = document.getElementById("userDropdown");
+            dropdown.style.display = (dropdown.style.display === "block") ? "none" : "block";
+        }
+
+        // Fungsi logout (gantilah dengan fungsi logout yang sesuai)
+        function logout() {
+            alert("Logout function");
+        }
+
+
+

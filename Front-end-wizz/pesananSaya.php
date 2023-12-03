@@ -1,5 +1,6 @@
 <?php
 include('../Admin/security.php');
+include('../Admin/registeronly.php');
 // require_once('config/koneksi.php');
 
 #$id_paket = isset($_GET['id']) ? mysqli_real_escape_string($connection, $_GET['id']) : null;
@@ -106,33 +107,46 @@ $row = mysqli_fetch_array($result);
         <!--==================== Detail Paket ====================-->
         <section class="detailPaket">
             <div class="paket-container">
+                <?php
+                #while ($data_paket = mysqli_fetch_assoc($result)) {
+                ?>
                 <div class="paket-image">
-                    <img src="assets/img/wedding-bouquet (1) 2.png" alt="Paket 1">
+                    <img src="../Admin/upload/<?php echo $row["gambar"]; ?>" alt="Paket 1">
                 </div>
-                <div class="paket-content">
-                    <div class="paket-title">
-                        <h1><?php echo $userpaket ?></h1>
-                        <h1 class="title"><?php echo $row['nama_paket'] ?></h1>
-                    </div>
-                    <div class="info">
-                        <span></span>
-                        <span></span>
-                    </div>
-                    <div class="paket-price" data-testid="lblPDPDetailProductPrice">
-                        <h2><?php echo $row['harga'] ?></h2>
-                        <span class="Date"><?php echo $row['tanggal_penggunaan'] ?></span>
-                    </div>
+                    <div class="paket-content">
+                        <div class="paket-title">
+                            <h1 class="title"><?php echo $row["nama_paket"]; ?></h1>
+                        </div>
+                        <div class="info">
+                            <span></span>
+                            <span></span>
+                        </div>
+                        <div class="paket-price" data-testid="lblPDPDetailProductPrice">
+                            <h2><?php echo $row["harga"]; ?></h2>
+                            <span class="Date">tanggal penggunaan : <?php echo $row["tanggal_penggunaan"]; ?> </span>
+                        </div>
+                        <button class="btn-detail">
+                            <p class="buttonDetail">Detail</p>
+                        </button>
+                        <div class="paket-description">
+                        <ul>
+                    <?php
+                    // Pecah deskripsi menjadi array
+                    $deskripsiList = explode("\n", $row["rincian_paket"]);
 
-                    <button class="btn-detail">
-                        <p class="buttonDetail">Detail</p>
-                    </button>
-                    <div class="paket-description">
-                    <?php echo $row['deskripsi'] ?>
+                    // Tampilkan setiap elemen sebagai list
+                    foreach ($deskripsiList as $deskripsiItem) {
+                        echo "<li>$deskripsiItem</li>";
+                    }
+                    ?>
+                </ul>
+                        </div>
                     </div>
-                </div>
-                <!-- Add the "Beli" button -->
-                <button class="beli-button"><?php echo $row['status'] ?></button>
-            </div>
+                    <!-- Add the "Beli" button -->
+                    <button class="beli-button"><?php echo $row["status"]; ?></button>
+                <?php
+                #}
+                ?>
             </div>
         </section>
 

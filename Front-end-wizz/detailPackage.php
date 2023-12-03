@@ -4,6 +4,7 @@ include('../Admin/security.php');
 
 
 
+
 $id_paket = isset($_GET['id']) ? mysqli_real_escape_string($connection, $_GET['id']) : null;
 $query = "SELECT * FROM packages_detail
         INNER JOIN packages ON packages_detail.id_paket = packages.id_paket
@@ -164,29 +165,40 @@ $result = mysqli_query($connection, $query) or die(mysqli_error($connection));
                     <li class="nav-item" role="presentation">
                       <button class="nav-link active" id="description-tab" data-bs-toggle="tab"
                         data-bs-target="#description" type="button" role="tab" aria-controls="description"
-                        aria-selected="true">Description</button>
+                        aria-selected="true">Rincian paket</button>
                     </li>
                     <li class="nav-item" role="presentation">
                       <button class="nav-link" id="reviews-tab" data-bs-toggle="tab" data-bs-target="#reviews"
-                        type="button" role="tab" aria-controls="reviews" aria-selected="false">Reviews (3)</button>
+                        type="button" role="tab" aria-controls="reviews" aria-selected="false">Dekorasi</button>
                     </li>
                   </ul>
                 </div>
                 <div class="tab-content" id="myTabContent">
                   <div class="tab-pane fade show active" id="description" role="tabpanel"
                     aria-labelledby="description-tab">
-                    <p>
-                      <?php echo $data_paket["deskripsi"]; ?>
-                    </p>
-                    <br>
-                    <p>
-                      <?php echo $data_paket["deskripsi"]; ?>
-                    </p>
+                     <!-- Menampilkan deskripsi sebagai list -->
+                <ul>
+                    <?php
+                    // Pecah deskripsi menjadi array
+                    $deskripsiList = explode("\n", $data_paket["rincian_paket"]);
+
+                    // Tampilkan setiap elemen sebagai list
+                    foreach ($deskripsiList as $deskripsiItem) {
+                        echo "<li>$deskripsiItem</li>";
+                    }
+                    ?>
+                </ul>
                   </div>
                   <div class="tab-pane fade" id="reviews" role="tabpanel" aria-labelledby="reviews-tab">
-                    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. At ratione optio quo. Placeat explicabo
-                      suscipit error esse maxime odit ea dicta sequi mollitia quisquam quos voluptatum, soluta iure
-                      ducimus sint.</p>
+                  <div>
+                  <img
+                src="../Admin/upload/<?php echo $data_paket["gambar_dekorasi"]; ?>"
+                alt="">
+                  </div>
+                
+                 <div><img
+                src=""
+                alt=""></div> 
                   </div>
                 </div>
               </div>

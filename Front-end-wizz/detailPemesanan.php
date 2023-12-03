@@ -117,7 +117,7 @@ $_SESSION['id_pesanan'] = $id_paket;
 
     <!-- Add this in the head section of your HTML -->
     <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
-
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
 
 
@@ -169,7 +169,7 @@ $_SESSION['id_pesanan'] = $id_paket;
 
                         <div class="item__price">
                             <h2>
-                                <?php echo $data_paket['harga']; ?>
+                                Rp<?php echo $data_paket['harga']; ?>
                             </h2>
 
                         </div>
@@ -177,15 +177,17 @@ $_SESSION['id_pesanan'] = $id_paket;
 
                         </div>
                         <div class="item__description">
-                            <ul>
-                                <li>"
-                                    <?php echo $data_paket['deskripsi']; ?>"
-                                </li>
-                                <li></li>
-                                <li></li>
-                                <li></li>
-                                <li></li>
-                            </ul>
+                        <ul>
+                    <?php
+                    // Pecah deskripsi menjadi array
+                    $deskripsiList = explode("\n", $data_paket["deskripsi"]);
+
+                    // Tampilkan setiap elemen sebagai list
+                    foreach ($deskripsiList as $deskripsiItem) {
+                        echo "<li>$deskripsiItem</li>";
+                    }
+                    ?>
+                </ul>
 
                         </div>
 
@@ -316,6 +318,7 @@ $_SESSION['id_pesanan'] = $id_paket;
                     <button type="submit" class="btn action__submit" name="submitpesanan" id="submitOrderBtn">Place your Order
                         <i class="icon icon-arrow-right-circle"></i>
                     </button>
+                    
                     </form>
                     <a href="package.php" class="backBtn">Go Back to Shop</a>
 

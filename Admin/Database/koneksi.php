@@ -3,7 +3,7 @@
 $server     = "localhost";
 $username   =  "root";
 $password   =  "";
-$db         =  "db_weddingfix";
+$db         =  "db_wizz";
 $connection    = mysqli_connect($server, $username, $password);
 //pastikan urutan pemanggilan variablenya sama
 //untuk cek jika koneksi gagal ke database
