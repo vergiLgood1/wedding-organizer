@@ -2,6 +2,7 @@
 include('security.php');
 include('includes/header.php');
 include('includes/navbar.php');
+include('adminonly.php');
 ?>
 
 
@@ -20,7 +21,7 @@ include('includes/navbar.php');
         
         <div class="form-group">
             <label> ID Paket </label>
-            <input type="text" name="id_paketp" class="form-control" placeholder="Enter ID" required>
+            <input type="text" name="id_paket_baru" class="form-control" placeholder="Enter ID" required>
         </div>
         <div class="form-group">
             <label> Nama </label>
@@ -35,8 +36,16 @@ include('includes/navbar.php');
             <textarea name="des_paket" id="" cols="30" rows="10" class="form-control" placeholder="Enter Description" required></textarea>
         </div>
         <div class="form-group">
+            <label> Rincian </label>
+            <textarea name="rin_paket" id="" cols="30" rows="10" class="form-control" placeholder="Enter Description" required></textarea>
+        </div>
+        <div class="form-group">
             <label> Gambar </label>
             <input type="file" name="gambar_paket" class="form-control" id="gambar_paket" required>
+        </div>
+        <div class="form-group">
+            <label> Dekorasi </label>
+            <input type="file" name="gambar_dekor" class="form-control" id="gambar_dekor" required>
         </div>
       
 
@@ -130,28 +139,28 @@ include('includes/navbar.php');
                 {
                     ?>
                     <tr>
-                        <!-- <td>
-                            <input type="checkbox" onclick="toggleCheckbox(this)" value="<?php #echo $row['id'] ?>" <?php #echo $row['visible'] == 1 ? "checked" : "" ?>>
-                        </td> -->
-                    <td><?php echo $row['id']; ?></td>
+                        <td>
+                            <input type="checkbox" onclick="toggleCheckbox(this)" value="<?php echo $row['id_paket'] ?>">
+                        </td>
+                    <td><?php echo $row['id_paket']; ?></td>
                     <td><?php echo $row['nama_paket']; ?></td>
                     <td><?php echo $row['harga']; ?></td>
                     <td><?php echo '<img src="upload/'.$row['gambar'].'" width="100px;" height="100px" alt="gambar">' ?></td>
                     <td>
                         <form action="paket_detail.php" method="POST">
-                        <input type="hidden" name="id_paket" value="<?php echo $row['id']; ?>">    
+                        <input type="hidden" name="id_detail_paket" value="<?php echo $row['id_paket']; ?>">    
                         <button type="submit" name="edit_data_detail" class="btn btn-success">DETAIL</button>
                         </form>
                     </td>
                     <td>
                         <form action="paketedit.php" method="POST">
-                        <input type="hidden" name="id_paket" value="<?php echo $row['id']; ?>">    
+                        <input type="hidden" name="id_edit_paket" value="<?php echo $row['id_paket']; ?>">    
                         <button type="submit" name="edit_data_paket" class="btn btn-success">EDIT</button>
                         </form>
                     </td>
                     <td>
                         <form action="code.php" method="post">
-                        <input type="hidden" name="id_deletepkt" value="<?php echo $row['id']; ?>">    
+                        <input type="hidden" name="id_deletepkt" value="<?php echo $row['id_paket']; ?>">    
                         <button type="submit" name="deletepaket" class="btn btn-danger">DELETE</button>
                         </form>
                     </td>
@@ -177,7 +186,7 @@ include('includes/scripts.php') ;
 include('includes/footer.php');
 ?>
 
-<!-- <script>
+<script>
     function toggleCheckbox(box)
     {
         var id = $(box).attr("value");
@@ -192,7 +201,7 @@ include('includes/footer.php');
         }
         var data = {
             "search_data": 1,
-            "id": id,
+            "idbox": id,
             "visible": visible
         };
 
@@ -206,4 +215,4 @@ include('includes/footer.php');
             }
         });
     }
-</script> -->
+</script>

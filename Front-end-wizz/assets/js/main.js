@@ -405,7 +405,7 @@ function pesananSaya() {
 
 function loginPhp() {
     // Menggunakan window.location.href untuk mengarahkan ke halaman detailPemesanan.php
-    window.location.href = '../Login-Revisi/Login2/login.php?id=';
+    window.location.href = '../Project-wedding/Admin/login.php';
 }
 
 function home() {

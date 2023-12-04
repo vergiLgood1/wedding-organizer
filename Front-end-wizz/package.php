@@ -53,7 +53,6 @@ $all_paket = $connection->query($sql);
                     <ul class="nav">
                       <li><a href="home.php">Home</a></li>
                       <li><a href="package.php" class="active">Packages</a></li>
-                      <li><a href="detailPackage.php">Detail Packages</a></li>
                       <li><a href="login.php">Log In</a></li>
                   </ul>   
                     <a class='menu-trigger'>
@@ -100,6 +99,7 @@ $all_paket = $connection->query($sql);
             
            
         ?>
+        
         <div class="col-lg-3 col-md-6 align-self-center mb-30 trending-items col-md-6 adv">
           <div class="item">
             <div class="thumb">
@@ -261,10 +261,17 @@ $all_paket = $connection->query($sql);
           </div>
         </div>
       </div> -->
-       
+        <!-- <div class="row">
+        <div class="col-lg-12">
+          <ul class="pagination">
+          <li><a href="#"> &lt; </a></li>
+            <li><a href="#">1</a></li>
+            <li><a class="is_active" href="#">2</a></li>
+            <li><a href="#">3</a></li>
+            <li><a href="#"> &gt; </a></li>
           </ul>
         </div>
-      </div>
+      </div> -->
     </div>
   </div>
 

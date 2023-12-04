@@ -3,8 +3,8 @@
 $server     = "localhost";
 $username   =  "root";
 $password   =  "";
-$db         =  "wedding-organizer";
-$connection = mysqli_connect($server, $username, $password);
+$db         =  "db_weddingfix";
+$connection    = mysqli_connect($server, $username, $password);
 //pastikan urutan pemanggilan variablenya sama
 //untuk cek jika koneksi gagal ke database
 $dbconfig = mysqli_select_db($connection, $db);

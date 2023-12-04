@@ -2,6 +2,7 @@
 include('security.php');
 include('includes/header.php');
 include('includes/navbar.php');
+include('adminonly.php');
 ?>
 
 
@@ -20,16 +21,16 @@ include('includes/navbar.php');
 
         <div class="form-group">
             <label> Judul </label>
-            <input type="text" name="edit_judul" class="form-control" placeholder="Enter Title">
+            <input type="text" name="about_judul" class="form-control" placeholder="Enter Title">
         </div>
         
         <div class="form-group">
             <label> Deskripsi </label>
-            <textarea name="edit_deskripsi" id="" cols="30" rows="10" class="form-control" placeholder="Enter Description" required></textarea>
+            <textarea name="about_deskripsi" id="" cols="30" rows="10" class="form-control" placeholder="Enter Description" required></textarea>
         </div>
         
 
-        <input type="hidden" name="usertype" value="admin">
+        
 
       </div>
       <div class="modal-footer">
@@ -121,18 +122,16 @@ include('includes/navbar.php');
                     <td><?php echo $row['id']; ?></td>
                     <td><?php echo $row['judul']; ?></td>
                     <td><?php echo $row['deskripsi']; ?></td>
-                    
-                    
                     <td>
                         <form action="aboutusedit.php" method="POST">
-                        <input type="hidden" name="edit_id9" value="<?php echo $row['id']; ?>">    
-                        <button type="submit" name="edit_btn9" class="btn btn-success fas fa-edit"></button>
+                        <input type="hidden" name="id_edit_about" value="<?php echo $row['id']; ?>">    
+                        <button type="submit" name="edit_btn_about" class="btn btn-success fas fa-edit"></button>
                         </form>
                     </td>
                     <td>
                         <form action="code.php" method="post">
-                        <input type="hidden" name="delete_id9" value="<?php echo $row['id']; ?>">    
-                        <button type="submit" name="deletebtn9" class="btn btn-danger ">DELETE</button>
+                        <input type="hidden" name="id_delete_about" value="<?php echo $row['id']; ?>">    
+                        <button type="submit" name="btn_delete_about" class="btn btn-danger ">DELETE</button>
                         </form>
                     </td>
                 </tr>

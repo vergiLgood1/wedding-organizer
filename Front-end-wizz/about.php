@@ -137,7 +137,7 @@ include('../Admin/security.php');
         <h1 class="contentTittle">GET TO KNOW ABOUT US</h1>
 
         <p class="contentDesc">
-            Lorem ipsum, dolor sit amet consectetur <br> adipisicing elit. Labore,
+            Make your dream wedding <br> With us
         </p>
     </div>
    
@@ -202,32 +202,32 @@ include('../Admin/security.php');
                     <div class="cardService">
                         <img src="assets/img/gift.svg" alt="">
                         <h2>Gift</h2>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+                        <p>Menyediakan pilihan hadiah yang unik dan bermakna untuk pasangan pengantin.</p>
                     </div>
                     <div class="cardService">
                         <img src="assets/img/make up.svg" alt="">
                         <h2>Make Up</h2>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+                        <p>MMenyediakan jasa tata rias untuk pengantin dan pihak keluarga. Menciptakan tampilan yang sesuai dengan tema pernikahan dan keinginan klien.</p>
                     </div>
                     <div class="cardService">
                         <img src="assets/img/camera.svg" alt="">
                         <h2>Photograph</h2>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+                        <p>Menawarkan jasa fotografi profesional untuk menangkap momen-momen istimewa selama pernikahan.</p>
                     </div>
                     <div class="cardService">
                         <img src="assets/img/flower.svg" alt="">
                         <h2>Flower</h2>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+                        <p>Menyediakan rangkaian bunga yang indah untuk menghiasi tempat pernikahan. Mulai dari bunga buket pengantin, hiasan meja, hingga dekorasi floristik lainnya.</p>
                     </div>
                     <div class="cardService">
                         <img src="assets/img/venue.svg" alt="">
                         <h2>Decoration</h2>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+                        <p>Menyelenggarakan dekorasi pernikahan yang mencerminkan tema dan gaya yang diinginkan oleh pasangan.</p>
                     </div>
                     <div class="cardService">
                         <img src="assets/img/dress.svg" alt="">
                         <h2>Wedding Dress</h2>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+                        <p>Menyediakan koleksi gaun pernikahan yang elegan dan sesuai dengan tema pernikahan. </p>
                     </div>
                 </div>
             </div>

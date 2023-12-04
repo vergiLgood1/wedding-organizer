@@ -9,17 +9,25 @@ include('../Admin/security.php');
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <link rel="shortcut icon" href="assets/img/favicon.png" type="image/png">
+    <link rel="shortcut icon" href="../Front-end-wizz/assets/img/favicon.png" type="image/png">
 
     <!--=============== REMIXICONS ===============-->
     <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
 
     <!--=============== SWIPER CSS ===============-->
-    <link rel="stylesheet" href="assets/css/swiper-bundle.min.css">
+    <link rel="stylesheet" href="../Front-end-wizz/assets/css/swiper-bundle.min.css">
 
 
     <!--=============== CSS ===============-->
-    <link rel="stylesheet" href="assets/css/styles.css">
+    <link rel="stylesheet" href="../Front-end-wizz/assets/css/styles.css">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+
+    <!-- Fontawesome CDN Link -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" />
+
+
+
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
 
@@ -38,7 +46,7 @@ include('../Admin/security.php');
     <header class="header" id="header">
         <nav class="nav">
             <div class="nav__left">
-                <a href="#" class="nav__logo"><img src="assets/img/logo.png" alt=""></a>
+                <a href="#" class="nav__logo"><img src="../Front-end-wizz/assets/img/logo.png" alt=""></a>
                 <div class="nav__menu" id="nav-menu">
                     <ul class="nav__list">
                         <li class="nav__item">
@@ -51,7 +59,7 @@ include('../Admin/security.php');
                             <a href="#gallery" class="nav__link">Gallery</a>
                         </li>
                         <li class="nav__item">
-                            <a href="package.php" class="nav__link" onclick="ArahkanKePackage()">Package</a>
+                            <a href="#package" class="nav__link">Package</a>
                         </li>
                         <li class="nav__item">
                             <a href="#testimoni" class="nav__link">Testimoni</a>
@@ -86,7 +94,7 @@ include('../Admin/security.php');
     <main class="main">
         <!--==================== AWAL HOME ====================-->
         <section class="home" id="home">
-            <img src="assets/img/Homepage1.png" alt="" class="home__img">
+            <img src="../Front-end-wizz/assets/img/Homepage1.png" alt="" class="home__img">
 
             <div class="home__container">
                 <div class="home__data">
@@ -142,16 +150,13 @@ include('../Admin/security.php');
                         <a href="about.php" class="button">Reserve a package</a>
                     </div>
 
-                    <div class="about__img">
-                        <div class="about__img-overlay">
-                            <img src="http://localhost:3000/Front-end-wizz/assets/img/<?php echo $data_paket["gambar1"]; ?>"
-                                alt="" class="about__img-one">
-                        </div>
+                <div class="about__img">
+                    <div class="about__img-overlay">
+                        <img src="../Front-end-wizz/assets/img/about1.png" alt="" class="about__img-one">
+                    </div>
 
-                        <div class="about__img-overlay">
-                            <img src="http://localhost:3000/Front-end-wizz/assets/img/<?php echo $data_paket["gambar2"]; ?>"
-                                alt="" class="about__img-two">
-                        </div>
+                    <div class="about__img-overlay">
+                        <img src="../Front-end-wizz/assets/img/about2.png" alt="" class="about__img-two">
                     </div>
                 </div>
             </section>
@@ -172,7 +177,7 @@ include('../Admin/security.php');
 
                     <!--==================== GALLERY 1 ====================-->
                     <div class="discover__card swiper-slide">
-                        <img src="assets/img/gallery4.png" alt="" class="discover__img">
+                        <img src="../Front-end-wizz/assets/img/gallery4.png" alt="" class="discover__img">
                         <div class="discover__data">
                             <h2 class="discover__title">keep on me</h2>
                             <span class="discover__description">Giska & budi</span>
@@ -181,7 +186,7 @@ include('../Admin/security.php');
 
                     <!--==================== GALLERY 2 ====================-->
                     <div class="discover__card swiper-slide">
-                        <img src="assets/img/pengantin2.png" alt="" class="discover__img">
+                        <img src="../Front-end-wizz/assets/img/pengantin2.png" alt="" class="discover__img">
                         <div class="discover__data">
                             <h2 class="discover__title">Heaven</h2>
                             <span class="discover__description">Rahayu & Drajad</span>
@@ -199,7 +204,7 @@ include('../Admin/security.php');
 
                     <!--==================== GALLERY 4 ====================-->
                     <div class="discover__card swiper-slide">
-                        <img src="assets/img/pengantin5.png" alt="" class="discover__img">
+                        <img src="../Front-end-wizz/assets/img/pengantin5.png" alt="" class="discover__img">
                         <div class="discover__data">
                             <h2 class="discover__title">Your mine</h2>
                             <span class="discover__description">Kevin & Intan</span>
@@ -264,16 +269,13 @@ include('../Admin/security.php');
                         </div>
                     </div>
 
-                    <div class="experience__img grid">
-                        <div class="experience__overlay">
-                            <img src="http://localhost:3000/Front-end-wizz/assets/img/<?php echo $data_paket["gambar2"]; ?>"
-                                alt="" class="experience__img-one">
-                        </div>
+                <div class="experience__img grid">
+                    <div class="experience__overlay">
+                        <img src="../Front-end-wizz/assets/img/gallery5.png" alt="" class="experience__img-one">
+                    </div>
 
-                        <div class="experience__overlay">
-                            <img src="http://localhost:3000/Front-end-wizz/assets/img/<?php echo $data_paket["gambar1"]; ?>"
-                                alt="" class="experience__img-two">
-                        </div>
+                    <div class="experience__overlay">
+                        <img src="../Front-end-wizz/assets/img/gallery2.png" alt="" class="experience__img-two">
                     </div>
                 </div>
                 <?php
@@ -314,7 +316,7 @@ include('../Admin/security.php');
                     <div class="video__content">
                         <video id="video-file">
                             <source
-                                src="http://localhost:3000/Front-end-wizz/assets/video/<?php echo $data_paket["path_video"]; ?>"
+                                src="../Front-end-wizz/assets/video/<?php echo $data_paket["path_video"]; ?>"
                                 type="video/mp4">
                         </video>
 
@@ -691,7 +693,7 @@ include('../Admin/security.php');
             ?>
             <!-- <div class="blog__item">
                 <a href="">
-                    <img src="assets/img/blog-2.jpg" alt="Blog 2">
+                    <img src="../Front-end-wizz/assets/img/blog-2.jpg" alt="Blog 2">
                     <h3 class="blog-category">Blog 2</h3>
                     <p class="blog-title">Clothes Retail KPIs 2021 Guide for Clothes Executives.</p>
                 </a>
@@ -701,7 +703,7 @@ include('../Admin/security.php');
             </div>
             <div class="blog__item">
                 <a href="">
-                    <img src="assets/img/blog-3.jpg" alt="Blog 3">
+                    <img src="../Front-end-wizz/assets/img/blog-3.jpg" alt="Blog 3">
                     <h3 class="blog-category">Blog 3</h3>
                     <p class="blog-title">Clothes Retail KPIs 2021 Guide for Clothes Executives.</p>
                 </a>
@@ -711,7 +713,7 @@ include('../Admin/security.php');
             </div>
             <div class="blog__item">
                 <a href="">
-                    <img src="assets/img/blog-4.jpg" alt="Blog 4">
+                    <img src="../Front-end-wizz/assets/img/blog-4.jpg" alt="Blog 4">
                     <h3 class="blog-category">Blog 4</h3>
                     <p class="blog-title">Clothes Retail KPIs 2021 Guide for Clothes Executives.</p>
                 </a>
@@ -729,19 +731,19 @@ include('../Admin/security.php');
         <section class="sponsor__section">
             <div class="sponsor__container container grid">
                 <div class="sponsor__content">
-                    <img src="assets/img/sponsors1.png" alt="" class="sponsor__img">
+                    <img src="../Front-end-wizz/assets/img/sponsors1.png" alt="" class="sponsor__img">
                 </div>
                 <div class="sponsor__content">
-                    <img src="assets/img/sponsors2.png" alt="" class="sponsor__img">
+                    <img src="../Front-end-wizz/assets/img/sponsors2.png" alt="" class="sponsor__img">
                 </div>
                 <div class="sponsor__content">
-                    <img src="assets/img/sponsors3.png" alt="" class="sponsor__img">
+                    <img src="../Front-end-wizz/assets/img/sponsors3.png" alt="" class="sponsor__img">
                 </div>
                 <div class="sponsor__content">
-                    <img src="assets/img/sponsors4.png" alt="" class="sponsor__img">
+                    <img src="../Front-end-wizz/assets/img/sponsors4.png" alt="" class="sponsor__img">
                 </div>
                 <div class="sponsor__content">
-                    <img src="assets/img/sponsors5.png" alt="" class="sponsor__img">
+                    <img src="../Front-end-wizz/assets/img/sponsors5.png" alt="" class="sponsor__img">
                 </div>
             </div>
         </section>
@@ -838,10 +840,10 @@ include('../Admin/security.php');
     </a>
 
     <!--=============== SCROLL REVEAL===============-->
-    <script src="assets/js/scrollreveal.min.js"></script>
+    <script src="../Front-end-wizz/assets/js/scrollreveal.min.js"></script>
 
     <!--=============== SWIPER JS ===============-->
-    <script src="assets/js/swiper-bundle.min.js"></script>
+    <script src="../Front-end-wizz/assets/js/swiper-bundle.min.js"></script>
 
     <!--=============== MAIN JS ===============-->
     <script src="assets/js/main.js"></script>

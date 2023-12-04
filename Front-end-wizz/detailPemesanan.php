@@ -73,8 +73,6 @@ include('../Admin/security.php');
 //         ";
 
 // $result = mysqli_query($connection, $query) or die(mysqli_error($connection))
-
-
 $id_paket = isset($_GET['id']) ? mysqli_real_escape_string($connection, $_GET['id']) : null;
 
 $query = "SELECT * FROM packages_detail
@@ -83,6 +81,9 @@ $query = "SELECT * FROM packages_detail
         ";
 
 $result = mysqli_query($connection, $query) or die(mysqli_error($connection));
+
+$_SESSION['id_pesanan'] = $id_paket;
+
 
 ?>
 
@@ -125,6 +126,9 @@ $result = mysqli_query($connection, $query) or die(mysqli_error($connection));
 <body>
     
     <section>
+            <?php
+            while ($data_paket = mysqli_fetch_array($result)) {
+                ?>
         <header>
             <div class="container">
                 <div class="navigation">
@@ -133,9 +137,9 @@ $result = mysqli_query($connection, $query) or die(mysqli_error($connection));
                         <i class="icon icon-basket"><img src="assets/img/Wizz2.png" alt=""></i>
                     </div>
                     <div class="secure">
-                        <i class="icon icon-shield"></i>
+                        <a href="pesananSaya.php"><i class="icon icon-shield"></i>
                         <span>Secure Checkout</span>
-
+            </a>
                     </div>
                 </div>
                 <div class="notification">
@@ -144,9 +148,7 @@ $result = mysqli_query($connection, $query) or die(mysqli_error($connection));
             </div>
         </header>
         <section class="content">
-        <!-- <?php
-            while ($data_paket = mysqli_fetch_array($result)) {
-                ?> -->
+        
 
             <div class="container">
 
@@ -313,7 +315,7 @@ $result = mysqli_query($connection, $query) or die(mysqli_error($connection));
             <div class="container">
                 <div class="actions">
 
-                    <button type="submit" class="btn action__submit" name="submitpesanan" id="submitOrderBtn" a href ="pesananSaya.php?id=<?php echo $data_paket["id_pesan"]; ?>">Place your Order
+                    <button type="submit" class="btn action__submit" name="submitpesanan" id="submitOrderBtn">Place your Order
                         <i class="icon icon-arrow-right-circle"></i>
                     </button>
                     
@@ -321,7 +323,6 @@ $result = mysqli_query($connection, $query) or die(mysqli_error($connection));
                     <a href="package.php" class="backBtn">Go Back to Shop</a>
 
                 </div>
-     
 
         </section>
         </div>

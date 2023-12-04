@@ -1,30 +1,22 @@
 <?php
-// Pastikan Anda telah mendapatkan id_pesan dari pengguna (mungkin melalui $_GET atau $_POST)
-// Koneksi ke database
 include('../Admin/security.php');
 
-// Pastikan session sudah dimulai di halaman ini atau sebelumnya
+// require_once('config/koneksi.php');
+
+#$id_paket = isset($_GET['id']) ? mysqli_real_escape_string($connection, $_GET['id']) : null;
+$userpaket = isset($_SESSION['id_pesanan']) ? $_SESSION['id_pesanan'] : null;
+
+$query = "SELECT *
+FROM packages
+INNER JOIN packages_detail ON packages.id_paket = packages_detail.id_paket
+INNER JOIN pemesanan ON packages.id_paket = pemesanan.id_paket
+WHERE packages.id_paket = '$userpaket'";
+
+$result = mysqli_query($connection, $query) or die(mysqli_error($connection));
+$row = mysqli_fetch_array($result);
 
 
-// Ambil id_pesan dari session
-$id_pesan = isset($_SESSION['id_pesan']) ? $_SESSION['id_pesan'] : null;
-
-// Query untuk mengambil data berdasarkan id_pesan
-$query = "SELECT pemesanan.tanggal_penggunaan, packages.status, packages.nama_paket, packages.harga, packages_detail.rincian_paket, packages_detail.deskripsi, packages.gambar
-FROM pemesanan 
-JOIN packages_detail ON pemesanan.id_paket = packages_detail.id_paket
-JOIN packages ON packages_detail.id_paket = packages.id_paket
-WHERE pemesanan.id_pesan = '$id_pesan';
-";
-
-
-$result = mysqli_query($connection, $query);
-
-// Periksa apakah query berhasil dieksekusi
-if (!$result) {
-    die("Query gagal: " . mysqli_error($connection));
-}
-?>
+  ?>
 
 <!DOCTYPE html>
 
@@ -60,6 +52,7 @@ if (!$result) {
 </head>
 
 <body>
+    
     <header class="header" id="header">
         <nav class="nav">
             <div class="nav__left">
@@ -95,7 +88,7 @@ if (!$result) {
 
             <div class="nav__right">
                 <button class="nav__button__shop" id="cartButton">
-                    <i class="ri-shopping-cart-line" a href="pesananSaya.php"></i>
+                    <i class="ri-shopping-cart-line" a href="pesananSaya.php?id=<?php echo $data_paket["id_paket"];?>"></i>
                 </button>
                 <button class="button-login" a href="../Login/login.php">Masuk</button>
             </div>
@@ -115,22 +108,22 @@ if (!$result) {
         <section class="detailPaket">
             <div class="paket-container">
                 <?php
-                while ($data_paket = mysqli_fetch_assoc($result)) {
+                #while ($data_paket = mysqli_fetch_assoc($result)) {
                 ?>
                 <div class="paket-image">
-                    <img src="../Admin/upload/<?php echo $data_paket["gambar"]; ?>" alt="Paket 1">
+                    <img src="../Admin/upload/<?php echo $row["gambar"]; ?>" alt="Paket 1">
                 </div>
                     <div class="paket-content">
                         <div class="paket-title">
-                            <h1 class="title"><?php echo $data_paket["nama_paket"]; ?></h1>
+                            <h1 class="title"><?php echo $row["nama_paket"]; ?></h1>
                         </div>
                         <div class="info">
                             <span></span>
                             <span></span>
                         </div>
                         <div class="paket-price" data-testid="lblPDPDetailProductPrice">
-                            <h2><?php echo $data_paket["harga"]; ?></h2>
-                            <span class="Date">tanggal penggunaan : <?php echo $data_paket["tanggal_penggunaan"]; ?> </span>
+                            <h2><?php echo $row["harga"]; ?></h2>
+                            <span class="Date">tanggal penggunaan : <?php echo $row["tanggal_penggunaan"]; ?> </span>
                         </div>
                         <button class="btn-detail">
                             <p class="buttonDetail">Detail</p>
@@ -139,7 +132,7 @@ if (!$result) {
                         <ul>
                     <?php
                     // Pecah deskripsi menjadi array
-                    $deskripsiList = explode("\n", $data_paket["rincian_paket"]);
+                    $deskripsiList = explode("\n", $row["rincian_paket"]);
 
                     // Tampilkan setiap elemen sebagai list
                     foreach ($deskripsiList as $deskripsiItem) {
@@ -150,9 +143,9 @@ if (!$result) {
                         </div>
                     </div>
                     <!-- Add the "Beli" button -->
-                    <button class="beli-button"><?php echo $data_paket["status"]; ?></button>
+                    <button class="beli-button"><?php echo $row["status"]; ?></button>
                 <?php
-                }
+                #}
                 ?>
             </div>
         </section>

@@ -66,10 +66,10 @@ include('../Admin/security.php');
 <!-- 
             <div class="nav__right">
                 <?php
-                if (isset($_SESSION['id'])) {
+                if (isset($_SESSION['username'])) {
                     // Jika pengguna sudah login, tampilkan profil
                     echo '<div id="userProfile">
-                  <img src="assets/img/Profile.svg" alt="Profile Icon">
+                  <img src="../Front-end-wizz/assets/img/Profile.svg" alt="Profile Icon">
                   <span id="username">' . $_SESSION['username'] . '</span>
                   <div id="dropdownMenu" class="hidden">
                       <ul>
@@ -92,7 +92,7 @@ include('../Admin/security.php');
                 
 <div class="nav__user" onmouseover="showUserDropdown()" onmouseout="hideUserDropdown()">
     <div class="nav__user-icon">
-        <i class="fa-solid fa-user">  Username</i>
+        <i class="fa-solid fa-user">    <?php echo $_SESSION['username']; ?></i>
     </div>
     <div class="nav__username" onclick="toggleUserDropdown()"></div>
     <div class="nav__dropdown" id="userDropdown">
@@ -167,7 +167,7 @@ include('../Admin/security.php');
             <section class="about section" id="about">
                 <div class="about__container container grid">
                     <div class="about__data">
-                        <h2 class="section__title about__title">Information<br>
+                        <h2 class="section__title about__title"><br>
                             <?php echo $data_paket["judul"]; ?>
                         </h2>
                         <p class="about__description">
@@ -178,12 +178,12 @@ include('../Admin/security.php');
 
                     <div class="about__img">
                         <div class="about__img-overlay">
-                            <img src="http://localhost:3000/Front-end-wizz/assets/img/<?php echo $data_paket["gambar1"]; ?>"
+                            <img src="../Admin/updet/satu.jpg"
                                 alt="" class="about__img-one">
                         </div>
 
                         <div class="about__img-overlay">
-                            <img src="http://localhost:3000/Front-end-wizz/assets/img/<?php echo $data_paket["gambar2"]; ?>"
+                            <img src="../Admin/updet/dua.jpg"
                                 alt="" class="about__img-two">
                         </div>
                     </div>
@@ -202,45 +202,58 @@ include('../Admin/security.php');
 
             <div class="discover__container container swiper-container">
                 <div class="swiper-wrapper">
-         
+                <?php
+                // jalankan query untuk menampilkan semua data diurutkan berdasarkan nim
+                $query = "SELECT * FROM landing_gallery";
+                $result = mysqli_query($connection, $query);
+                //mengecek apakah ada error ketika menjalankan query
+                if (!$result) {
+                    die("Query Error: " . mysqli_errno($connection) .
+                        " - " . mysqli_error($connection));
+                }
+                
+                while ($row = mysqli_fetch_assoc($result)){ 
+                ?>
 
                     <!--==================== GALLERY 1 ====================-->
                     <div class="discover__card swiper-slide">
-                        <img src="assets/img/gallery4.png" alt="" class="discover__img">
+                        <img src="../Admin/upgallery/<?php echo $row['gambar'] ?>" alt="" class="discover__img">
                         <div class="discover__data">
                             <h2 class="discover__title">keep on me</h2>
                             <span class="discover__description">Giska & budi</span>
                         </div>
                     </div>
-
+                    <?php 
+                }
+                ?>
                     <!--==================== GALLERY 2 ====================-->
-                    <div class="discover__card swiper-slide">
-                        <img src="assets/img/pengantin2.png" alt="" class="discover__img">
+                    <!-- <div class="discover__card swiper-slide">
+                        <img src="../Front-end-wizz/assets/img/pengantin2.png" alt="" class="discover__img">
                         <div class="discover__data">
                             <h2 class="discover__title">Heaven</h2>
                             <span class="discover__description">Rahayu & Drajad</span>
                         </div>
-                    </div>
+                    </div> -->
 
                     <!--==================== GALLERY 3 ====================-->
-                    <div class="discover__card swiper-slide">
-                        <img src="assets/img/gallery3.png" alt="" class="discover__img">
+                    <!-- <div class="discover__card swiper-slide">
+                        <img src="../Front-end-wizz/assets/img/gallery3.png" alt="" class="discover__img">
                         <div class="discover__data">
                             <h2 class="discover__title"></h2>
                             <span class="discover__description"></span>
                         </div>
-                    </div>
+                    </div> -->
 
                     <!--==================== GALLERY 4 ====================-->
-                    <div class="discover__card swiper-slide">
-                        <img src="assets/img/pengantin5.png" alt="" class="discover__img">
+                    <!-- <div class="discover__card swiper-slide">
+                        <img src="../Front-end-wizz/assets/img/pengantin5.png" alt="" class="discover__img">
                         <div class="discover__data">
                             <h2 class="discover__title">Your mine</h2>
                             <span class="discover__description">Kevin & Intan</span>
                         </div>
                         <div>
                         </div>
-                    </div>
+                    </div> -->
         </section>
 
         </div>
@@ -303,12 +316,12 @@ include('../Admin/security.php');
 
                     <div class="experience__img grid">
                         <div class="experience__overlay">
-                            <img src="http://localhost:3000/Front-end-wizz/assets/img/<?php echo $data_paket["gambar2"]; ?>"
+                            <img src="../Admin/updet/IMG_9658.jpg"
                                 alt="" class="experience__img-one">
                         </div>
 
                         <div class="experience__overlay">
-                            <img src="http://localhost:3000/Front-end-wizz/assets/img/<?php echo $data_paket["gambar1"]; ?>"
+                            <img src="../Admin/updet/IMG_5855.jpg"
                                 alt="" class="experience__img-two">
                         </div>
                     </div>
@@ -327,18 +340,18 @@ include('../Admin/security.php');
         <section>
             <?php
 
-            // jalankan query untuk menampilkan semua data diurutkan berdasarkan nim
-            $query = "SELECT * FROM video
+//             // jalankan query untuk menampilkan semua data diurutkan berdasarkan nim
+//             $query = "SELECT * FROM video
 
-";
-            $result = mysqli_query($connection, $query);
-            //mengecek apakah ada error ketika menjalankan query
-            if (!$result) {
-                die("Query Error: " . mysqli_errno($connection) .
-                    " - " . mysqli_error($connection));
-            }
+// ";
+//             $result = mysqli_query($connection, $query);
+//             //mengecek apakah ada error ketika menjalankan query
+//             if (!$result) {
+//                 die("Query Error: " . mysqli_errno($connection) .
+//                     " - " . mysqli_error($connection));
+//             }
 
-            while ($data_paket = mysqli_fetch_array($result)) {
+//             while ($data_paket = mysqli_fetch_array($result)) {
 
                 ?>
 
@@ -351,7 +364,7 @@ include('../Admin/security.php');
                     <div class="video__content">
                         <video id="video-file">
                             <source
-                                src="http://localhost:3000/Front-end-wizz/assets/video/<?php echo $data_paket["path_video"]; ?>"
+                                src="../Front-end-wizz/assets/video/pexels-mikhail-nilov-8247019 (1080p).mp4"
                                 type="video/mp4">
                         </video>
 
@@ -361,7 +374,7 @@ include('../Admin/security.php');
                     </div>
                 </div>
                 <?php
-            }
+            #}
             ?>
         </section>
 
@@ -408,14 +421,14 @@ include('../Admin/security.php');
                         <div class="card-img"></div>
                         <a href="package.php">
                             <img class="card-img-hover"
-                                src="http://localhost:3000/Front-end-wizz/assets/img/<?php echo $data_paket["gambar"]; ?>"
+                                src="../Admin/upload/<?php echo $data_paket["gambar"]; ?>"
                                 alt="Card Image">
                         </a>
                         <div class="card-info">
                             <span class="card-category">
-                                <?php echo $data_paket["nama_paket"]; ?>
+                                
                             </span>
-                            <h3 class="card-title">Murah tapi tapi berkualitas</h3>
+                            <h3 class="card-title"><?php echo $data_paket["nama_paket"]; ?></h3>
                             <span class="card-by">
 
                                 <a href="#" class="card-admin">
@@ -499,7 +512,7 @@ include('../Admin/security.php');
 
 
         <!--==================== AKHIR PACKAGES ====================-->
-
+        
         <!--==================== AWAL TESTIMONIAL ====================-->
 
 
@@ -516,7 +529,7 @@ include('../Admin/security.php');
                     <!-- div2 -->
                     <?php
                     $query = "SELECT * FROM testimoni ORDER BY id ASC
-                    lIMIT 2
+                    lIMIT 3
                     ";
                     
                     $result = mysqli_query($connection, $query);
@@ -727,7 +740,7 @@ include('../Admin/security.php');
                             <?php echo $data_paket["nama_blog"]; ?>
                         </h3>
                         <p class="blog-title">
-                            <?php echo $data_paket["judul"]; ?>.
+                            <?php echo $data_paket["judul_blog"]; ?>.
                         </p>
                     </a>
                     <p class="blog-meta">

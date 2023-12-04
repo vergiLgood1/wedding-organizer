@@ -2,6 +2,7 @@
 include('security.php');
 include('includes/header.php');
 include('includes/navbar.php');
+include('adminonly.php');
 ?>
 
 <div class="container-fluid">
@@ -24,9 +25,9 @@ include('includes/navbar.php');
         
         if(isset($_POST['edit_data_paket']))
         {
-            $id = $_POST['id_paket'];
+            $id = $_POST['id_edit_paket'];
         
-            $query = "SELECT * FROM packages WHERE id='$id' ";
+            $query = "SELECT * FROM packages WHERE id_paket='$id' ";
             $query_run = mysqli_query($connection, $query);
             
             foreach($query_run as $row)
@@ -34,7 +35,7 @@ include('includes/navbar.php');
                 ?>
 
         <form action="code.php" method="POST" enctype="multipart/form-data">
-        <input type="hidden" name="id_paket" value="<?php echo $row['id'] ?>">    
+        <input type="hidden" name="id_edit_paket" value="<?php echo $row['id_paket'] ?>">    
         <div class="form-group">
             <label> Nama </label>
             <input type="text" name="nama_paket" value="<?php echo $row['nama_paket'] ?>" class="form-control" placeholder="Enter Name">
